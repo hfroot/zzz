@@ -58,8 +58,10 @@ IPhone and/or iPad app:
 * Feedback from user (Did you sleep well? etc.)
 * Retrieve data from TI Sensor tag
 * Machine learning for individual's factor weightings
+
 Apple watch app:
 * Input from user (cups of coffee drunk, meal eaten etc.)
+
 Server
 * Centralised Database
 * Analysis of many individuals' data to find default weightings
