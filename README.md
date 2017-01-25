@@ -59,14 +59,14 @@ IPhone and/or iPad app:
 * Retrieve data from TI Sensor tag
 * Machine learning for individual's factor weightings
 
-Apple watch app:
-* Input from user (cups of coffee drunk, meal eaten etc.)
+This could be done in HTML5, making it platform independent. The TI Sensor tag can be used with EvoThings which allows you to create HTML5 apps connected to devices via Bluetooth LE.
 
 Server
 * Centralised Database
 * Analysis of many individuals' data to find default weightings
 
 Communication...
+
 Diagram...
 
 ## Work allocation
