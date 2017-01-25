@@ -16,7 +16,7 @@ The general idea is to create an app with accompanying hardware to help users im
     * Noise
     * Light
     * Humidity
-* Accelerometer measures to movement of the sleep to infer quality of sleep
+* Accelerometer measures the movement of the sleep to infer quality of sleep
 * Manual/auto input with watch/phone and/or scrape HealthKit
     * Caffeine intake
     * Alcohol intake
