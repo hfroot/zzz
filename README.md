@@ -22,10 +22,16 @@ The general idea is to create an app with accompanying hardware to help users im
     * phone activity
 To classify data gathered, the user will be asked to classify their sleep quality (binary?) either through the app or simply let us know.
 
-App as an active aid.
-* Mini meditation exercises to be performed before bed
+App as an informer:
+* Make suggestions for improving current environment
+* Display graphically what are the biggest issues for the user
+* Display more detailed info on any given night - one graph with sleep movement and environment tracking, nice display of daytime activities that could have affected it through icons
+
+App as an active aid:
+* Mini meditation exercises to be performed before bed (look to BreathEasy?)
 * Suggestion for last coffee/activity of the day (potential with integrating with the previous coffee app?)
 * Use haptic feedback on watch to slow the heart beat
+* Alarm clock integration
 
 ## Timeline and milestones
 The deadlines are as follows, the ones I suggest are in italics and obviously up for changing:
@@ -70,6 +76,7 @@ Apple's kit for health apps.
 
 ## Background research - sleep
 Update this with whatever you find.
+
 Scientific papers/books:
 *  [Long-term sleep measurement with a smartphone-connected flexible bed sensor strip](http://www.sciencedirect.com/science/article/pii/S138994571301842X)
 * [Sleep Medicine](https://books.google.co.uk/books?id=2uAzBwAAQBAJ&pg=PA48&lpg=PA48&dq=sleep+environment+measurement&source=bl&ots=1hWqbv8dBE&sig=SsSO-G3b2cWEoMAj28A3Z7f3lII&hl=en&sa=X&ved=0ahUKEwjS8eGdjd3RAhXMK5oKHcJZDpw4ChDoAQhbMBE#v=onepage&q=sleep%20environment%20measurement&f=false)
@@ -79,7 +86,7 @@ Scientific papers/books:
 * A more general paper, posted on BB by YD: [The Promise of mHealth: Daily Activity Monitoring and Outcome Assessments by Wearable Sensors](https://bb.imperial.ac.uk/bbcswebdav/pid-887498-dt-content-rid-3074434_1/courses/DSS-EE4_67-16_17/nihms599582.pdf)
 * From BB: [Healthcare in the pocket: Mapping the space of mobile-phone health interventions](https://bb.imperial.ac.uk/bbcswebdav/pid-887499-dt-content-rid-3074427_1/courses/DSS-EE4_67-16_17/HealthcareinthePocket.pdf)
 * From BB: [An NHS Guide for Developing Mobile Healthcare Applications](https://bb.imperial.ac.uk/bbcswebdav/pid-887500-dt-content-rid-3074420_1/courses/DSS-EE4_67-16_17/58C7C0E0-E1B7-4C20-9820-C2B2C94A36B3.pdf)
-* 
+ 
 Products:
 * [CubeSensors](https://cubesensors.com)
 * [Beddit](http://www.beddit.com)
