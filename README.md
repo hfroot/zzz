@@ -15,9 +15,12 @@ The general idea is to create an app with accompanying hardware to help users im
     * Temperature
     * Noise
     * Light
+    * Humidity
+* Accelerometer measures to movement of the sleep to infer quality of sleep
 * Manual/auto input with watch/phone and/or scrape HealthKit
     * Caffeine intake
     * Alcohol intake
+    * Meals/snacks consumed
     * Physical activity
     * phone activity
 To classify data gathered, the user will be asked to classify their sleep quality (binary?) either through the app or simply let us know.
