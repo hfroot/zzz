@@ -25,6 +25,8 @@ The general idea is to create an app with accompanying hardware to help users im
     * phone activity
 To classify data gathered, the user will be asked to classify their sleep quality (binary?) either through the app or simply let us know.
 
+Machine learning will be used to "weight" the different factors affecting sleep to find the individual's optimum sleeping conditions.
+
 App as an informer:
 * Make suggestions for improving current environment
 * Display graphically what are the biggest issues for the user
@@ -51,7 +53,19 @@ The deadlines are as follows, the ones I suggest are in italics and obviously up
 | Final Submission | 22 Mar |
 
 ## System Design
-Nothing here atm...
+IPhone and/or iPad app:
+* Display environment data and suggestions
+* Feedback from user (Did you sleep well? etc.)
+* Retrieve data from TI Sensor tag
+* Machine learning for individual's factor weightings
+Apple watch app:
+* Input from user (cups of coffee drunk, meal eaten etc.)
+Server
+* Centralised Database
+* Analysis of many individuals' data to find default weightings
+
+Communication...
+Diagram...
 
 ## Work allocation
 Nothing here atm...
