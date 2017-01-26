@@ -95,6 +95,8 @@ Github repository available [here](https://github.com/ResearchKit/ResearchKit).
 
 ### [HealthKit](https://developer.apple.com/healthkit/)
 Apple's kit for health apps.
+HealthKit sleep related elements: 
+- [HKCategoryValueSleepAnalysis](https://developer.apple.com/reference/healthkit/hkcategoryvaluesleepanalysis).
 
 ### iOS Resources
 - [Start Developing iOS Apps (Swift)](https://developer.apple.com/library/content/referencelibrary/GettingStarted/DevelopiOSAppsSwift/index.html#//apple_ref/doc/uid/TP40015214-CH2-SW1)
