@@ -88,7 +88,10 @@ I (Helen) suggest sticking to these functions to make our lives easier, but mayb
 This [blog post](http://anasimtiaz.com/?p=201) seems like a good place to start integrating the Sensor Tag into an iOS app with Swift.
 
 ### [ResearchKit](http://researchkit.org)
-Apple's kit for helping researchers develop apps. Good video to begin using Research Kit [here](https://developer.apple.com/videos/play/wwdc2015/213/).
+Apple's open source SDK helping researchers to develop apps. 
+Good video to begin using Research Kit [here](https://developer.apple.com/videos/play/wwdc2015/213/). 
+Github repository available [here](https://github.com/ResearchKit/ResearchKit).
+[SleepHealth](https://itunes.apple.com/us/app/sleephealth/id1059830442?mt=8&ls=1&v0=www-us-researchkit-itms-sleep-health): an app made using research kit that is used to study sleep, its causes and effects.
 
 ### [HealthKit](https://developer.apple.com/healthkit/)
 Apple's kit for health apps.
