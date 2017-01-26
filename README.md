@@ -88,10 +88,16 @@ I (Helen) suggest sticking to these functions to make our lives easier, but mayb
 This [blog post](http://anasimtiaz.com/?p=201) seems like a good place to start integrating the Sensor Tag into an iOS app with Swift.
 
 ### [ResearchKit](http://researchkit.org)
-Apple's kit for helping researchers develop apps.
+Apple's kit for helping researchers develop apps. Good video to begin using Research Kit [here](https://developer.apple.com/videos/play/wwdc2015/213/).
 
 ### [HealthKit](https://developer.apple.com/healthkit/)
 Apple's kit for health apps.
+
+### iOS Resources
+- [Start Developing iOS Apps (Swift)](https://developer.apple.com/library/content/referencelibrary/GettingStarted/DevelopiOSAppsSwift/index.html#//apple_ref/doc/uid/TP40015214-CH2-SW1)
+- [How to sideload apps on your iPhone using Xcode 7](http://bouk.co/blog/sideload-iphone/)
+- Sketch App for Mac to design UI artboards + InVision to build interactive prototypes
+
 
 ## Background research - sleep
 Update this with whatever you find.
