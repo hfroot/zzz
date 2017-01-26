@@ -120,6 +120,32 @@ Products:
 A GTA said it may be useful looking into: VGG 16, TensorFlow, Neural Networks.
 The DoC lecturer for Machine Learning posts all of the course materials publicly, accessible [here](http://ibug.doc.ic.ac.uk/courses), which might be helpful to look through if you haven't done any machine learning.
 
+## Data collection 
+
+### Surveys
+
+Survey before going to bed:
+- Did you do exercise today? Yes/No
+- When did you have dinner? (3,2,1 hour ago or not had dinner)
+- Did you have sex today? Yes/No
+- In the last X hours did you: (select all that apply)
+   - Drink alcohol 
+   - Smoke
+   - Drink coffee 
+- Do you sleep naked? Yes/No
+- In the last hour did you drink water? Yes/No
+- Do you sleep with electronic devices turned on in you room? Yes/No
+- Do you feel tired? Yes/No (If not, tell to wait 15 mins before going to bed)
+
+Survey after getting out of bed:
+- Did you wake up to: dark room/artificial light/natural light? (select one)
+- Did you wake up to urinate during the night? Yes/No
+- Did you turn the lights on during the night? Yes/No
+- Did any electronic device wake you up? Yes/No
+- Do you feel tired? Yes/No
+- Overall, do you feel like you had a good sleep? Yes/No
+
+
 ## Justification
 Will be created for personal use, but has possible wider solutions, like improving sleep quality in hospitals (sleep being necessary to improve health).
 Stats on number of people who don't get good sleep.
