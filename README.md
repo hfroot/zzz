@@ -112,7 +112,7 @@ In terms of sensors, it includes:
 
 I (Helen) suggest sticking to these functions to make our lives easier, but maybe it's easy to integrate new sensors into it if we're desparate for some other sensor.
 
-This [blog post](http://anasimtiaz.com/?p=201) seems like a good place to start integrating the Sensor Tag into an iOS app with Swift.
+This [blog post](http://anasimtiaz.com/?p=201) seems like a good place to start integrating the Sensor Tag into an iOS app with Swift. [Here is the repo](https://github.com/anasimtiaz/SwiftSensorTag) for the whole code in swift.
 
 ### [ResearchKit](http://researchkit.org)
 Apple's open source SDK helping researchers to develop apps. 
