@@ -1,6 +1,20 @@
 # zzz
 MHML Sleep App
 
+## Design Report Sections
+
+Deadline end of Tuesday unless says otherwise.
+* Abstract, Intro - to be done Wed. morning
+* Background - Helen
+* Hypothesis - Xavi/Belen
+* System Overview - Julia
+* Hardware - Belen
+* Software - Pierre
+* Evaluation - Xavi
+* Conclusion - to be done Wed. morning
+
+It will be written on Overleaf, which facilitates collaborative LaTeX documents, get an account! Julia to start a project and invite us.
+
 ## To Do
 * Narrow down the scope
 * Timeline and milestones
@@ -70,7 +84,20 @@ Communication...
 Diagram...
 
 ## Work allocation
-Nothing here atm...
+
+* Sensory tag - 1 person
+   * Interfacing with app
+   * Checking data readings
+* Machine learning - 2 people
+   * Gathering user data
+   * Generating algo for default case
+   * Figure out how to make the algo keep learning with new data coming into phone
+* App design - 2 people
+   * UI design
+   * Data storage
+   * Feedback to user
+   * Feedback from user (slept well or not)
+
 ## Tools
 ### [Texas Instruments Sensor Tag](http://www.ti.com/ww/en/wireless_connectivity/sensortag2015/index.html)
 This is a kit that makes integrating sensors into projects easy. The department apparently have lots of them, and they are cheap enough that if we show that we know what we are doing and we want more, the department will probably be happy to pay for them.
@@ -151,6 +178,12 @@ Survey after getting out of bed:
 - Do you feel tired? Yes/No
 - Overall, do you feel like you had a good sleep? Yes/No
 
+## Evaluation
+
+* Qualitative judgement of output display appearance
+* Graphs to show change of weightings to display personalisation over time
+* To use the daily sleep quality feedback as a more quanititative example of improvement during the app, do we first need to ask the users(/us) to record how well they slept for a week before we give them the technology, then see if giving feedback about their environment in the second week actually helps improve the number of times they report sleeping well? I'll let you decide whether we want to test in this way Xavi, just thought about it as I was typing up.
+* Qualitative survey at the end of the trial period, asking whether they felt that their sleep improved and questions about their interaction with the app.
 
 ## Justification
 Will be created for personal use, but has possible wider solutions, like improving sleep quality in hospitals (sleep being necessary to improve health).
