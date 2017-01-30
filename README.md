@@ -30,7 +30,7 @@ The general idea is to create an app with accompanying hardware to help users im
     * Noise
     * Light
     * Humidity
-* Accelerometer measures the movement of the sleep to infer quality of sleep (apparently it could be possible to do it using a microphone as well, see [here](http://www.cse.buffalo.edu/~lusu/cse721/papers/iSleep%20Unobtrusive%20Sleep%20Quality%20Monitoring%20using%20Smartphones.pdf)
+* Accelerometer measures the movement of the sleep to infer quality of sleep (apparently it could be possible to do it using a microphone as well, see [here](http://www.cse.buffalo.edu/~lusu/cse721/papers/iSleep%20Unobtrusive%20Sleep%20Quality%20Monitoring%20using%20Smartphones.pdf))
 * Manual/auto input with watch/phone and/or scrape HealthKit
     * Caffeine intake
     * Alcohol intake
