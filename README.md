@@ -24,13 +24,13 @@ It will be written on Overleaf, which facilitates collaborative LaTeX documents,
 * Research
 
 ## Scope
-The general idea is to create an app with accompanying hardware to help users improve their sleep hygeine, with the app being able to learn in order to be able to personalise recommendations to the user. Our current thoughts for things to monitor/consider are as follows (if I missed something feel free to add to it).
+The general idea is to create an app with accompanying hardware to help users improve their sleep hygiene, with the app being able to learn in order to be able to personalise recommendations to the user. Our current thoughts for things to monitor/consider are as follows (if I missed something feel free to add to it).
 * Bedroom environment monitoring
     * Temperature
     * Noise
     * Light
     * Humidity
-* Accelerometer measures the movement of the sleep to infer quality of sleep
+* Accelerometer measures the movement of the sleep to infer quality of sleep (apparently it could be possible to do it using a microphone as well, see [here](http://www.cse.buffalo.edu/~lusu/cse721/papers/iSleep%20Unobtrusive%20Sleep%20Quality%20Monitoring%20using%20Smartphones.pdf)
 * Manual/auto input with watch/phone and/or scrape HealthKit
     * Caffeine intake
     * Alcohol intake
