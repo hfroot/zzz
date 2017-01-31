@@ -75,7 +75,7 @@ IPhone and/or iPad app:
 
 This could be done in HTML5, making it platform independent. The TI Sensor tag can be used with EvoThings which allows you to create HTML5 apps connected to devices via Bluetooth LE.
 
-[System Overview](zzz/MHML_system_diagram (6).pdf)
+[System Overview](https://github.com/hfroot/zzz/blob/master/MHML_system_diagram%20(6).pdf)
 
 ## Work allocation
 
