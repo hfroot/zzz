@@ -13,7 +13,7 @@ Deadline end of Tuesday unless says otherwise.
 * Evaluation - Xavi
 * Conclusion - to be done Wed. morning
 
-It will be written on Overleaf, which facilitates collaborative LaTeX documents, get an account! Julia to start a project and invite us.
+[Design Report](https://www.overleaf.com/7914295rhxmqhwrgkxb)
 
 ## To Do
 * Narrow down the scope
