@@ -1,27 +1,9 @@
-# zzz
+# z<sup>3</sup>
 MHML Sleep App
 
-## Design Report Sections
-
-Deadline end of Tuesday unless says otherwise.
-* Abstract, Intro - to be done Wed. morning
-* Background - Helen
-* Hypothesis - Xavi/Belen
-* System Overview - Julia
-* Hardware - Belen
-* Software - Pierre
-* Evaluation - Xavi
-* Conclusion - to be done Wed. morning
+## Assessment
 
 [Design Report](https://www.overleaf.com/7914295rhxmqhwrgkxb)
-
-## To Do
-* Narrow down the scope
-* Timeline and milestones
-* System design
-* Allocate work
-* See the Texas Instruments Sensor Tag
-* Research
 
 ## Scope
 The general idea is to create an app with accompanying hardware to help users improve their sleep hygiene, with the app being able to learn in order to be able to personalise recommendations to the user. Our current thoughts for things to monitor/consider are as follows (if I missed something feel free to add to it).
