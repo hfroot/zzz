@@ -140,11 +140,11 @@ A GTA said it may be useful looking into: VGG 16, TensorFlow, Neural Networks.
 The DoC lecturer for Machine Learning posts all of the course materials publicly, accessible [here](http://ibug.doc.ic.ac.uk/courses), which might be helpful to look through if you haven't done any machine learning.
 
 ## Background research - component analysis
-Graphical explanantion of PCA: http://setosa.io/ev/principal-component-analysis/
-Good high level and low level description of PCA: http://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues
-Walkthrough of the maths behind it: http://www.cs.otago.ac.nz/cosc453/student_tutorials/principal_components.pdf
-Why PCA should be used: http://blog.explainmydata.com/2012/07/should-you-apply-pca-to-your-data.html
-An example use, characterising beef: http://www.sciencedirect.com/science/article/pii/S0309174000000504
+* Graphical explanantion of PCA: http://setosa.io/ev/principal-component-analysis/
+* Good high level and low level description of PCA: http://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues
+* Walkthrough of the maths behind it: http://www.cs.otago.ac.nz/cosc453/student_tutorials/principal_components.pdf
+* Why PCA should be used: http://blog.explainmydata.com/2012/07/should-you-apply-pca-to-your-data.html
+* An example use, characterising beef: http://www.sciencedirect.com/science/article/pii/S0309174000000504
 
 ### Surveys
 
