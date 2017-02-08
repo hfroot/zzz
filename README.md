@@ -134,6 +134,9 @@ Products:
 A GTA said it may be useful looking into: VGG 16, TensorFlow, Neural Networks.
 The DoC lecturer for Machine Learning posts all of the course materials publicly, accessible [here](http://ibug.doc.ic.ac.uk/courses), which might be helpful to look through if you haven't done any machine learning.
 
+## Component Analysis
+Graphical explanantion of PCA: http://setosa.io/ev/principal-component-analysis/
+
 ## Data collection 
 
 ### Surveys
