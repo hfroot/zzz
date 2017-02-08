@@ -22,7 +22,7 @@ Component analysis will be used to "weight" the different factors affecting slee
 
 [System Overview](https://github.com/hfroot/zzz/blob/master/MHML_system_diagram%20(6).pdf)
 
-**App**
+### App
 
 IPhone and/or iPad app:
 * Display environment data and suggestions
@@ -43,26 +43,26 @@ App as an active aid:
 * Use haptic feedback on watch to slow the heart beat
 * Alarm clock integration
 
-### [ResearchKit](http://researchkit.org)
+**[ResearchKit](http://researchkit.org)**
 Apple's open source SDK helping researchers to develop apps. 
 Good video to begin using Research Kit [here](https://developer.apple.com/videos/play/wwdc2015/213/). 
 Github repository available [here](https://github.com/ResearchKit/ResearchKit).
 [SleepHealth](https://itunes.apple.com/us/app/sleephealth/id1059830442?mt=8&ls=1&v0=www-us-researchkit-itms-sleep-health): an app made using research kit that is used to study sleep, its causes and effects.
 
-### [HealthKit](https://developer.apple.com/healthkit/)
+**[HealthKit](https://developer.apple.com/healthkit/)**
 Apple's kit for health apps.
 HealthKit sleep related elements: 
 - [HKCategoryValueSleepAnalysis](https://developer.apple.com/reference/healthkit/hkcategoryvaluesleepanalysis).
 - [HKUnit](https://developer.apple.com/reference/healthkit/hkunit) (quantities compatible with HeathKit).
 
-### iOS Resources
+**iOS Resources**
 - [Start Developing iOS Apps (Swift)](https://developer.apple.com/library/content/referencelibrary/GettingStarted/DevelopiOSAppsSwift/index.html#//apple_ref/doc/uid/TP40015214-CH2-SW1)
 - [How to sideload apps on your iPhone using Xcode 7](http://bouk.co/blog/sideload-iphone/)
 - Sketch App for Mac to design UI artboards + InVision to build interactive prototypes
 
-**Hardware**
+### Hardware
 
-### [Texas Instruments Sensor Tag](http://www.ti.com/ww/en/wireless_connectivity/sensortag2015/index.html)
+**[Texas Instruments Sensor Tag](http://www.ti.com/ww/en/wireless_connectivity/sensortag2015/index.html)**
 This is a kit that makes integrating sensors into projects easy. The department apparently have lots of them, and they are cheap enough that if we show that we know what we are doing and we want more, the department will probably be happy to pay for them.
 
 In terms of sensors, it includes:
