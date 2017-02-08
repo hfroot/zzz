@@ -44,12 +44,14 @@ App as an active aid:
 * Alarm clock integration
 
 **[ResearchKit](http://researchkit.org)**
+
 Apple's open source SDK helping researchers to develop apps. 
 Good video to begin using Research Kit [here](https://developer.apple.com/videos/play/wwdc2015/213/). 
 Github repository available [here](https://github.com/ResearchKit/ResearchKit).
 [SleepHealth](https://itunes.apple.com/us/app/sleephealth/id1059830442?mt=8&ls=1&v0=www-us-researchkit-itms-sleep-health): an app made using research kit that is used to study sleep, its causes and effects.
 
 **[HealthKit](https://developer.apple.com/healthkit/)**
+
 Apple's kit for health apps.
 HealthKit sleep related elements: 
 - [HKCategoryValueSleepAnalysis](https://developer.apple.com/reference/healthkit/hkcategoryvaluesleepanalysis).
@@ -63,6 +65,7 @@ HealthKit sleep related elements:
 ### Hardware
 
 **[Texas Instruments Sensor Tag](http://www.ti.com/ww/en/wireless_connectivity/sensortag2015/index.html)**
+
 This is a kit that makes integrating sensors into projects easy. The department apparently have lots of them, and they are cheap enough that if we show that we know what we are doing and we want more, the department will probably be happy to pay for them.
 
 In terms of sensors, it includes:
