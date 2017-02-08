@@ -1,12 +1,9 @@
 # z<sup>3</sup>
-MHML Sleep App
+MHML Sleep App to help users improve their sleep hygiene, with the app being able to learn in order to be able to personalise recommendations to the user.
 
-## Assessment
+## System
 
-[Design Report](https://www.overleaf.com/7914295rhxmqhwrgkxb)
-
-## Scope
-The general idea is to create an app with accompanying hardware to help users improve their sleep hygiene, with the app being able to learn in order to be able to personalise recommendations to the user. Our current thoughts for things to monitor/consider are as follows (if I missed something feel free to add to it).
+The system will monitor:
 * Bedroom environment monitoring
     * Temperature
     * Noise
@@ -21,7 +18,19 @@ The general idea is to create an app with accompanying hardware to help users im
     * phone activity
 To classify data gathered, the user will be asked to classify their sleep quality (binary?) either through the app or simply let us know.
 
-Machine learning will be used to "weight" the different factors affecting sleep to find the individual's optimum sleeping conditions.
+Component analysis will be used to "weight" the different factors affecting sleep to find the individual's optimum sleeping conditions.
+
+[System Overview](https://github.com/hfroot/zzz/blob/master/MHML_system_diagram%20(6).pdf)
+
+**App**
+
+IPhone and/or iPad app:
+* Display environment data and suggestions
+* Feedback from user (Did you sleep well? etc.)
+* Retrieve data from TI Sensor tag
+* Machine learning for individual's factor weightings
+
+This could be done in HTML5, making it platform independent. The TI Sensor tag can be used with EvoThings which allows you to create HTML5 apps connected to devices via Bluetooth LE.
 
 App as an informer:
 * Make suggestions for improving current environment
@@ -33,66 +42,6 @@ App as an active aid:
 * Suggestion for last coffee/activity of the day (potential with integrating with the previous coffee app?)
 * Use haptic feedback on watch to slow the heart beat
 * Alarm clock integration
-
-## Timeline and milestones
-The deadlines are as follows, the ones I suggest are in italics and obviously up for changing:
-
-| Task | Date |
-| ---- | ----: |
-| Project feasibility confirmation | 25 Jan |
-| Design Report | 1 Feb |
-| Individual Component Report | 22 Feb |
-| First Demonstration | 1 Mar |
-| *Personal testing fortnight begins* | *1 Mar* |
-| Final Presentation | 15 Mar |
-| *Start write up* | *15 Mar* |
-| Final Submission | 22 Mar |
-
-## System Design
-IPhone and/or iPad app:
-* Display environment data and suggestions
-* Feedback from user (Did you sleep well? etc.)
-* Retrieve data from TI Sensor tag
-* Machine learning for individual's factor weightings
-
-This could be done in HTML5, making it platform independent. The TI Sensor tag can be used with EvoThings which allows you to create HTML5 apps connected to devices via Bluetooth LE.
-
-For simple data collection the TI SensorTag app can stream data to the cloud and be collected using IBM Bluemix:
-https://developer.ibm.com/recipes/tutorials/connect-a-cc2650-sensortag-to-the-iot-foundations-quickstart/
-https://github.com/IBM-Bluemix/iot-sensor-tag
-
-[System Overview](https://github.com/hfroot/zzz/blob/master/MHML_system_diagram%20(6).pdf)
-
-## Work allocation
-
-* Sensory tag - 1 person
-   * Interfacing with app
-   * Checking data readings
-* Machine learning - 2 people
-   * Gathering user data
-   * Generating algo for default case
-   * Figure out how to make the algo keep learning with new data coming into phone
-* App design - 2 people
-   * UI design
-   * Data storage
-   * Feedback to user
-   * Feedback from user (slept well or not)
-
-## Tools
-### [Texas Instruments Sensor Tag](http://www.ti.com/ww/en/wireless_connectivity/sensortag2015/index.html)
-This is a kit that makes integrating sensors into projects easy. The department apparently have lots of them, and they are cheap enough that if we show that we know what we are doing and we want more, the department will probably be happy to pay for them.
-
-In terms of sensors, it includes:
-* Infrared and Ambient Temperature Sensor
-* Ambient Light Sensor
-* Humidity Sensor
-* Barometric Pressure Sensor
-* 9-axis Motion Tracking Device - Accelerometer, Gyroscope and Compass
-* Magnet Sensor
-
-I (Helen) suggest sticking to these functions to make our lives easier, but maybe it's easy to integrate new sensors into it if we're desparate for some other sensor.
-
-This [blog post](http://anasimtiaz.com/?p=201) seems like a good place to start integrating the Sensor Tag into an iOS app with Swift. [Here is the repo](https://github.com/anasimtiaz/SwiftSensorTag) for the whole code in swift.
 
 ### [ResearchKit](http://researchkit.org)
 Apple's open source SDK helping researchers to develop apps. 
@@ -110,6 +59,59 @@ HealthKit sleep related elements:
 - [Start Developing iOS Apps (Swift)](https://developer.apple.com/library/content/referencelibrary/GettingStarted/DevelopiOSAppsSwift/index.html#//apple_ref/doc/uid/TP40015214-CH2-SW1)
 - [How to sideload apps on your iPhone using Xcode 7](http://bouk.co/blog/sideload-iphone/)
 - Sketch App for Mac to design UI artboards + InVision to build interactive prototypes
+
+**Hardware**
+
+### [Texas Instruments Sensor Tag](http://www.ti.com/ww/en/wireless_connectivity/sensortag2015/index.html)
+This is a kit that makes integrating sensors into projects easy. The department apparently have lots of them, and they are cheap enough that if we show that we know what we are doing and we want more, the department will probably be happy to pay for them.
+
+In terms of sensors, it includes:
+* Infrared and Ambient Temperature Sensor
+* Ambient Light Sensor
+* Humidity Sensor
+* Barometric Pressure Sensor
+* 9-axis Motion Tracking Device - Accelerometer, Gyroscope and Compass
+* Magnet Sensor
+
+For simple data collection the TI SensorTag app can stream data to the cloud and be collected using IBM Bluemix:
+https://developer.ibm.com/recipes/tutorials/connect-a-cc2650-sensortag-to-the-iot-foundations-quickstart/
+https://github.com/IBM-Bluemix/iot-sensor-tag
+
+This [blog post](http://anasimtiaz.com/?p=201) seems like a good place to start integrating the Sensor Tag into an iOS app with Swift. [Here is the repo](https://github.com/anasimtiaz/SwiftSensorTag) for the whole code in swift.
+
+## Timeline and milestones
+The deadlines are as follows, the ones I suggest are in italics and obviously up for changing:
+
+| Task | Date |
+| ---- | ----: |
+| Project feasibility confirmation | 25 Jan |
+| Design Report | 1 Feb |
+| Individual Component Report | 22 Feb |
+| First Demonstration | 1 Mar |
+| *Personal testing fortnight begins* | *1 Mar* |
+| Final Presentation | 15 Mar |
+| *Start write up* | *15 Mar* |
+| Final Submission | 22 Mar |
+
+## Work allocation
+
+* Sensory tag - Belen
+   * Interfacing with app
+   * Checking data readings
+* Machine learning - Xavi and Julia
+   * Gathering user data
+   * Generating algo for default case
+   * Figure out how to make the algo keep learning with new data coming into phone
+* App design - Pierre and Helen
+   * UI design
+   * Data storage
+   * Feedback to user
+   * Feedback from user (slept well or not)
+
+## Assessment
+
+[Design Report](https://www.overleaf.com/7914295rhxmqhwrgkxb)
+
 
 
 ## Background research - sleep
@@ -134,10 +136,12 @@ Products:
 A GTA said it may be useful looking into: VGG 16, TensorFlow, Neural Networks.
 The DoC lecturer for Machine Learning posts all of the course materials publicly, accessible [here](http://ibug.doc.ic.ac.uk/courses), which might be helpful to look through if you haven't done any machine learning.
 
-## Component Analysis
+## Background research - component analysis
 Graphical explanantion of PCA: http://setosa.io/ev/principal-component-analysis/
-
-## Data collection 
+Good high level and low level description of PCA: http://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues
+Walkthrough of the maths behind it: http://www.cs.otago.ac.nz/cosc453/student_tutorials/principal_components.pdf
+Why PCA should be used: http://blog.explainmydata.com/2012/07/should-you-apply-pca-to-your-data.html
+An example use, characterising beef: http://www.sciencedirect.com/science/article/pii/S0309174000000504
 
 ### Surveys
 
