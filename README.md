@@ -130,6 +130,7 @@ Scientific papers/books:
 * From BB: [Healthcare in the pocket: Mapping the space of mobile-phone health interventions](https://bb.imperial.ac.uk/bbcswebdav/pid-887499-dt-content-rid-3074427_1/courses/DSS-EE4_67-16_17/HealthcareinthePocket.pdf)
 * From BB: [An NHS Guide for Developing Mobile Healthcare Applications](https://bb.imperial.ac.uk/bbcswebdav/pid-887500-dt-content-rid-3074420_1/courses/DSS-EE4_67-16_17/58C7C0E0-E1B7-4C20-9820-C2B2C94A36B3.pdf)
 * BBC - What should I eat for a good night's sleep?: http://www.bbc.co.uk/guides/z282p39
+* [Comparison of mental health and sleep hygiene](http://europepmc.org/abstract/med/17915984)
  
 Products:
 * [CubeSensors](https://cubesensors.com)
@@ -141,16 +142,25 @@ A GTA said it may be useful looking into: VGG 16, TensorFlow, Neural Networks.
 The DoC lecturer for Machine Learning posts all of the course materials publicly, accessible [here](http://ibug.doc.ic.ac.uk/courses), which might be helpful to look through if you haven't done any machine learning.
 
 ## Background research - component analysis
-* Graphical explanantion of PCA: http://setosa.io/ev/principal-component-analysis/
-* Good high level and low level description of PCA: http://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues
-* Walkthrough of the maths behind it: http://www.cs.otago.ac.nz/cosc453/student_tutorials/principal_components.pdf
-* Why PCA should be used: http://blog.explainmydata.com/2012/07/should-you-apply-pca-to-your-data.html
-* An example use, characterising beef: http://www.sciencedirect.com/science/article/pii/S0309174000000504
+* [Graphical explanantion of PCA](http://setosa.io/ev/principal-component-analysis)
+* [Good high level and low level description of PCA](http://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues)
+* [Walkthrough of the maths behind it](http://www.cs.otago.ac.nz/cosc453/student_tutorials/principal_components.pdf)
+* [Why PCA should be used](http://blog.explainmydata.com/2012/07/should-you-apply-pca-to-your-data.html)
+* [An example use, characterising beef](http://www.sciencedirect.com/science/article/pii/S0309174000000504)
 
 ## Background research - suggestions
-* Relaxation Techniques: http://link.springer.com/article/10.1007/s00520-004-0594-5
-* Lifestyle changes to improve sleep: http://onlinelibrary.wiley.com/doi/10.1046/j.1467-9566.2003.00371.x/full
-* Advice for the aged population: http://onlinelibrary.wiley.com/doi/10.1111/j.1365-2702.2006.01385.x/full
+* [Relaxation Techniques](http://link.springer.com/article/10.1007/s00520-004-0594-5)
+* [Lifestyle changes to improve sleep](http://onlinelibrary.wiley.com/doi/10.1046/j.1467-9566.2003.00371.x/full)
+* [Advice for the aged population](http://onlinelibrary.wiley.com/doi/10.1111/j.1365-2702.2006.01385.x/full)
+* [Sleep hygiene advice](http://onlinelibrary.wiley.com/doi/10.1111/j.1467-9450.2011.00902.x/full)
+* [Effects of caffeine and technology on sleep](http://pediatrics.aappublications.org/content/123/6/e1005?sso=1&sso_redirect_count=1&nfstatus=401&nftoken=00000000-0000-0000-0000-000000000000&nfstatusdescription=ERROR%3A+No+local+token)
+* [Influence of lifestyle on sleep loss](http://europepmc.org/abstract/med/11322717)
+* [Lifestyle habits and sleep pattern spectrum](http://www.tandfonline.com/doi/abs/10.1080/07420520600650646)
+* [Lifestyle and sleep health in the elderly](http://www.sciencedirect.com/science/article/pii/S0022399904000637)
+* [Exercise's self-rated effect on sleep](http://jamanetwork.com/journals/jama/article-abstract/412611)
+* [Epidemiology of exercise and sleep](http://onlinelibrary.wiley.com/doi/10.1111/j.1479-8425.2006.00235.x/full)
+* [Exercise's effect on sleep of cancer patients](http://europepmc.org/abstract/med/12719744)
+* [Effect of execise on adults with mild sleep complaints](https://academic.oup.com/biomedgerontology/article/63/9/997/692766/Effects-of-Moderate-Intensity-Exercise-on)
 
 ### Surveys
 
