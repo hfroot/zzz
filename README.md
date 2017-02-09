@@ -131,6 +131,7 @@ Scientific papers/books:
 * From BB: [An NHS Guide for Developing Mobile Healthcare Applications](https://bb.imperial.ac.uk/bbcswebdav/pid-887500-dt-content-rid-3074420_1/courses/DSS-EE4_67-16_17/58C7C0E0-E1B7-4C20-9820-C2B2C94A36B3.pdf)
 * BBC - What should I eat for a good night's sleep?: http://www.bbc.co.uk/guides/z282p39
 * [Comparison of mental health and sleep hygiene](http://europepmc.org/abstract/med/17915984)
+* [Sleep and other behaviours' effect on performance](http://www.tandfonline.com/doi/abs/10.1080/07448480009596294)
  
 Products:
 * [CubeSensors](https://cubesensors.com)
@@ -161,6 +162,15 @@ The DoC lecturer for Machine Learning posts all of the course materials publicly
 * [Epidemiology of exercise and sleep](http://onlinelibrary.wiley.com/doi/10.1111/j.1479-8425.2006.00235.x/full)
 * [Exercise's effect on sleep of cancer patients](http://europepmc.org/abstract/med/12719744)
 * [Effect of execise on adults with mild sleep complaints](https://academic.oup.com/biomedgerontology/article/63/9/997/692766/Effects-of-Moderate-Intensity-Exercise-on)
+* [Effect of diet on sleep](http://www.sciencedirect.com/science/article/pii/S0271531712000632)
+* [Effect of low carbohydrate diet on sleep](http://www.tandfonline.com/doi/abs/10.1179/147683008X301540)
+* [Effect of high protein, low fat diet on sleep in obese adolescents](http://pediatrics.aappublications.org/content/101/1/61.short)
+* [Ketogenic Diet Improves Sleep Quality in Children with Therapy-resistant Epilepsy](http://onlinelibrary.wiley.com/doi/10.1111/j.1528-1167.2006.00834.x/full)
+* [EFFECT OF CAFFEINE ON SLEEP](http://onlinelibrary.wiley.com/doi/10.1111/j.1365-2125.1974.tb00237.x/abstract)
+* [Caffeine's ability to sustain wakefulness at night](http://link.springer.com/article/10.1007%2FBF02244139?LI=true)
+* [Dose-response effects of caffeine on sleep in rats](http://www.sciencedirect.com/science/article/pii/0006899387901417)
+* [Effects of caffeine on sleep and cognition](https://books.google.co.uk/books?hl=en&lr=&id=W_WnBOrXT8wC&oi=fnd&pg=PA105&dq=effect+of+caffeine+on+sleep&ots=i3mZH2Hk-t&sig=A-UOo3f0TA5hG8AnaHMGF8oPVU8#v=onepage&q=effect%20of%20caffeine%20on%20sleep&f=false)
+* [Heterocyclic amphetamine derivatives and caffeine on sleep](http://onlinelibrary.wiley.com/doi/10.1111/j.1365-2125.1980.tb05833.x/full)
 
 ### Surveys
 
