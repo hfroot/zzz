@@ -134,6 +134,7 @@ Scientific papers/books:
 Products:
 * [CubeSensors](https://cubesensors.com)
 * [Beddit](http://www.beddit.com)
+* US Army sleep monitoring: https://trid.trb.org/view.aspx?id=650799
 
 ## Background research - machine learning
 A GTA said it may be useful looking into: VGG 16, TensorFlow, Neural Networks.
@@ -145,6 +146,11 @@ The DoC lecturer for Machine Learning posts all of the course materials publicly
 * Walkthrough of the maths behind it: http://www.cs.otago.ac.nz/cosc453/student_tutorials/principal_components.pdf
 * Why PCA should be used: http://blog.explainmydata.com/2012/07/should-you-apply-pca-to-your-data.html
 * An example use, characterising beef: http://www.sciencedirect.com/science/article/pii/S0309174000000504
+
+## Background research - suggestions
+* Relaxation Techniques: http://link.springer.com/article/10.1007/s00520-004-0594-5
+* Lifestyle changes to improve sleep: http://onlinelibrary.wiley.com/doi/10.1046/j.1467-9566.2003.00371.x/full
+* Advice for the aged population: http://onlinelibrary.wiley.com/doi/10.1111/j.1365-2702.2006.01385.x/full
 
 ### Surveys
 
