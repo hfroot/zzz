@@ -113,9 +113,16 @@ The deadlines are as follows, the ones I suggest are in italics and obviously up
 
 ## Assessment
 
-[Design Report](https://www.overleaf.com/7914295rhxmqhwrgkxb)
+### [Design Report](https://www.overleaf.com/7914295rhxmqhwrgkxb)
 
-
+Feedback on design report:
+* in final report, incorporate short survey of available commercial applications around sleep, and look for additional papers/data on factors that influency sleep and for evidence of individual variations
+* two-stages hypothesis (population statistics then personalisation): danger of collecting only sparse data and not being able to produce meaningful statistics due to lack of time and resources
+* consider re-thinking ways of presenting information, e.g. employ social network to personalise user recommendations ("most people sleep better after a light meal" can become "82% of people in your network slept better after a light meal" or "Karen couldn't sleep last night after her 11pm chicken mandras curry")
+* there is no harm in collecting hard data for use by our application, even if it is not shown to the user, therefore we should consider collecting objective measures of sleep quality - questionnaires are notoriously unreliable therfore we should rely on more objective data
+* TI sensor is great, but we should test it on the field to maje sure it gives reasonable data - we might also want to compare against other commercial devices
+* consider using Apple watch for hear rate measurement, could be interesting (however Demiris is not sure about haptic feedback feature)
+* **overall, we must speed up the actual development and experimentation since a lot of the final result will depend on data collection (ask for more sensors if it helps)**
 
 ## Background research - sleep
 Update this with whatever you find.
