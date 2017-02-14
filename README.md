@@ -22,7 +22,7 @@ Component analysis will be used to "weight" the different factors affecting slee
 
 [System Overview](https://github.com/hfroot/zzz/blob/master/MHML_system_diagram%20(6).pdf)
 
-### App
+### App specs
 
 IPhone and/or iPad app:
 * Display environment data and suggestions
@@ -42,6 +42,23 @@ App as an active aid:
 * Suggestion for last coffee/activity of the day (potential with integrating with the previous coffee app?)
 * Use haptic feedback on watch to slow the heart beat
 * Alarm clock integration
+
+### App design
+
+5 views/modules:
+* live data + sensor info & pairing
+* dashboard - sleep analysis results (weightings + recommendations)
+* data for specific night
+* survey questions
+* easy input of daily activities through selection of icons
+
+4 data structures:
+* database for sleep analysis results (weightings + recommendations)
+* database for night history + survey answers
+* buffer for storage of live data being streamed from TI sensor before resampling
+* could database to generate and store statistics drawn from social network
+
+(insert data flow diagram here)
 
 **[ResearchKit](http://researchkit.org)**
 
