@@ -45,20 +45,48 @@ App as an active aid:
 
 ### App design
 
-5 views/modules:
-* live data + sensor info & pairing
-* dashboard - sleep analysis results (weightings + recommendations)
-* data for specific night
-* survey questions
-* easy input of daily activities through selection of icons
+Features:
+* Nightime:
+   * sleep quality per night
+   * sleep quality over time
+   * factors affecting sleep (weightings i.e. results of PCA algorithm)
+   * mood & energy levels over time
+   * live sensor data + sensor info & pairing
+* Daytime:
+   * user input of daily activites such as food intake, perceived energy/mood levels (through big icons for simplicity)
+   * user input of perceived sleep quality 
+* Recommendations:
+   * draw data from social network, personal history, generic facts and other personal information
+   * give interesting stats
+   * give advice + option to remove advice in case user has no control over specific things e.g. noise level
+   * tell user what is bad but also what is good
+* Taking action:
+   * schedule training plan for adjustements of:
+      * factors affecting sleep during night
+      * daily habits that have effect on sleep
+      * sleep deprivation (how to catch up sleep)
+   * meditation exercises
+   * suggest when to seek professional help
+   * tips from social network i.e. 'lots of users like to listen to ambient music such as XXX before going to bed'
+   * other app suggestions (headspace?) and/or endorsements
 
-4 data structures:
-* database for sleep analysis results (weightings + recommendations)
-* database for night history + survey answers
-* buffer for storage of live data being streamed from TI sensor before resampling
-* could database to generate and store statistics drawn from social network
-
-(insert data flow diagram here)
+Implementation:
+* Local database contents:
+   * Nightime log: temperature, humidity, light, noise, accelerometer/sleep cycles, 
+   * Daytime log: food intake, caffeine intake, alcohol intake, exercise, perceived energy and mood levels, perceived sleep quality
+   * User results: list all nightime and daytime factors recorded and associate weighting that describes impact on sleep quality
+   * Live data: most recent data collected by sensor/user before resampling and processing
+* Cloud database contents:
+   * Social network results: statistics that summarise results of all users in network for analysis, comparison and feeback to users
+   * Social network info: what techniques users have developed to improve their sleep
+* Core functions/algorithms that need to be developed:
+   * Collect sensor data: connect to TI SensorTag, retrieve relevant data, store it in appropriate tables in local database
+   * Collect user data: surveys and icon dashboard for easy input of daily activities
+   * Process sensor+user data: resampling, PCA and ICA algorithms to analyse frequency and produce weightings according to impact on sleep
+   * Analyse network data: pull data from local databases, store some of it in cloud, produce statistics
+   * Collect network analysis results: pull data from cloud if it can be used as a recommendation for the user
+   
+=> do we store recommendations? if yes, how and where?
 
 **[ResearchKit](http://researchkit.org)**
 
