@@ -20,7 +20,7 @@ To classify data gathered, the user will be asked to classify their sleep qualit
 
 Component analysis will be used to "weight" the different factors affecting sleep to find the individual's optimum sleeping conditions.
 
-![System Diagram](https://github.com/hfroot/zzz/blob/master/MHML_System_Overview.pdf)
+![System Diagram](https://github.com/hfroot/zzz-old/blob/master/MHML_System_Overview.pdf)
 
 [System Overview](https://github.com/hfroot/zzz/blob/master/MHML_system_diagram%20(6).pdf)
 
