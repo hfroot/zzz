@@ -3,9 +3,9 @@ MHML Sleep App to help users improve their sleep hygiene, with the app being abl
 
 ## System
 
-![System Diagram](https://github.com/hfroot/zzz-old/blob/master/MHML_System_Overview_Split.png)
+![System Diagram](https://github.com/hfroot/zzz/blob/master/MHML_System_Overview_Split.png)
 
-[System Overview](https://github.com/hfroot/zzz/blob/master/MHML_system_diagram%20(6).pdf)
+![App Diagram](https://github.com/hfroot/zzz/blob/master/MHML_app_flow.png)
 
 The system will monitor:
 
