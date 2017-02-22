@@ -3,54 +3,83 @@ MHML Sleep App to help users improve their sleep hygiene, with the app being abl
 
 ## System
 
+![System Diagram](https://github.com/hfroot/zzz-old/blob/master/MHML_System_Overview_Split.png)
+
+[System Overview](https://github.com/hfroot/zzz/blob/master/MHML_system_diagram%20(6).pdf)
+
 The system will monitor:
+
 * Bedroom environment monitoring
     * Temperature
     * Noise
     * Light
     * Humidity
-* Accelerometer measures the movement of the sleep to infer quality of sleep (apparently it could be possible to do it using a microphone as well, see [here](http://www.cse.buffalo.edu/~lusu/cse721/papers/iSleep%20Unobtrusive%20Sleep%20Quality%20Monitoring%20using%20Smartphones.pdf))
+* Accelerometer or [microphone](http://www.cse.buffalo.edu/~lusu/cse721/papers/iSleep%20Unobtrusive%20Sleep%20Quality%20Monitoring%20using%20Smartphones.pdf) to quantitavely measure sleep quality
 * Manual/auto input with watch/phone and/or scrape HealthKit
     * Caffeine intake
     * Alcohol intake
     * Meals/snacks consumed
     * Physical activity
-    * phone activity
-To classify data gathered, the user will be asked to classify their sleep quality (binary?) either through the app or simply let us know.
+    * Phone activity
+To classify data gathered, the user will be asked to rate their sleep quality.
 
 Component analysis will be used to "weight" the different factors affecting sleep to find the individual's optimum sleeping conditions.
 
-![System Diagram](https://github.com/hfroot/zzz-old/blob/master/MHML_System_Overview_Split.png)
+## Work allocation
 
-[System Overview](https://github.com/hfroot/zzz/blob/master/MHML_system_diagram%20(6).pdf)
+The app will consist of a home page which will link to all the other pages in the system. Each person/team is responsible for making the page(s) that will display their data to the user or for testing purposes.
+
+Task breakdown:
+
+* Sensor tag - Belen
+	* Investigate other hardware we can acquire to test against 
+    * Coordinate with Pierre for saving data in-app
+    * Ability to connect to the sensor tag through the app
+    * See data coming in through the app (for user's peace of mind)
+* Machine learning - Xavi and Julia
+    * Gather user data
+    * Generate algo for default case
+    * Pull data from local/remote database to generate new weightings
+    * Save new weightings locally/remotely
+* Storage - Pierre
+    * Set up database(s)
+	* Coordinate with others on how to query the DB
+	* Display trends as outlined below
+* Sleep training/general FE - Helen
+	* Create alarm
+	* Create alarm settings
+	* Make suggestions on daily sleep times according to past hours of sleep, hours needed and user-input schedule settings
+	* Incorporating gamification techniques to make the app interesting to use
+
+## Timeline and milestones
+The deadlines are as follows, the ones I suggest are in italics and obviously up for changing:
+
+| Task | Date |
+| ---- | ----: |
+| Individual Component Report | 22 Feb |
+| First Demonstration | 1 Mar |
+| *Personal testing fortnight begins* | *1 Mar* |
+| Final Presentation | 15 Mar |
+| *Start write up* | *15 Mar* |
+| Final Submission | 22 Mar |
 
 ### App specs
 
-IPhone and/or iPad app:
-* Display environment data and suggestions
-* Feedback from user (Did you sleep well? etc.)
-* Retrieve data from TI Sensor tag
-* Machine learning for individual's factor weightings
+Features overview:
 
-This could be done in HTML5, making it platform independent. The TI Sensor tag can be used with EvoThings which allows you to create HTML5 apps connected to devices via Bluetooth LE.
-
-App as an informer:
-* Make suggestions for improving current environment
-* Display graphically what are the biggest issues for the user
-* Display more detailed info on any given night - one graph with sleep movement and environment tracking, nice display of daytime activities that could have affected it through icons
-
-App as an active aid:
-* Mini meditation exercises to be performed before bed (look to BreathEasy?)
-* Suggestion for last coffee/activity of the day (potential with integrating with the previous coffee app?)
-* Use haptic feedback on watch to slow the heart beat
-* Alarm clock integration
+* Gather sensor and user data to record a night's worth of sleep
+* Set an alarm
+* Create a sleep schedule
+* Display environment data for a night and average trends
+* Display trends in mood, energy levels etc.
+* Adjusts factor weightings based on data to make personalised suggestions for sleep improvement
 
 ### App design
 
 Features:
+
 * Nightime:
-   * sleep quality per night
-   * sleep quality over time
+   * sleep quality per night and over time (not to be shown to the user)
    * factors affecting sleep (weightings i.e. results of PCA algorithm)
    * mood & energy levels over time
    * live sensor data + sensor info & pairing
@@ -73,6 +102,7 @@ Features:
    * other app suggestions (headspace?) and/or endorsements
 
 Implementation:
+
 * Local database contents:
    * Nightime log: temperature, humidity, light, noise, accelerometer/sleep cycles, 
    * Daytime log: food intake, caffeine intake, alcohol intake, exercise, perceived energy and mood levels, perceived sleep quality
@@ -87,8 +117,6 @@ Implementation:
    * Process sensor+user data: resampling, PCA and ICA algorithms to analyse frequency and produce weightings according to impact on sleep
    * Analyse network data: pull data from local databases, store some of it in cloud, produce statistics
    * Collect network analysis results: pull data from cloud if it can be used as a recommendation for the user
-   
-=> do we store recommendations? if yes, how and where?
 
 **[ResearchKit](http://researchkit.org)**
 
@@ -105,9 +133,10 @@ HealthKit sleep related elements:
 - [HKUnit](https://developer.apple.com/reference/healthkit/hkunit) (quantities compatible with HeathKit).
 
 **iOS Resources**
-- [Start Developing iOS Apps (Swift)](https://developer.apple.com/library/content/referencelibrary/GettingStarted/DevelopiOSAppsSwift/index.html#//apple_ref/doc/uid/TP40015214-CH2-SW1)
-- [How to sideload apps on your iPhone using Xcode 7](http://bouk.co/blog/sideload-iphone/)
-- Sketch App for Mac to design UI artboards + InVision to build interactive prototypes
+
+* [Start Developing iOS Apps (Swift)](https://developer.apple.com/library/content/referencelibrary/GettingStarted/DevelopiOSAppsSwift/index.html#//apple_ref/doc/uid/TP40015214-CH2-SW1)
+* [How to sideload apps on your iPhone using Xcode 7](http://bouk.co/blog/sideload-iphone/)
+* Sketch App for Mac to design UI artboards + InVision to build interactive prototypes
 
 ### Hardware
 
@@ -116,6 +145,7 @@ HealthKit sleep related elements:
 This is a kit that makes integrating sensors into projects easy. The department apparently have lots of them, and they are cheap enough that if we show that we know what we are doing and we want more, the department will probably be happy to pay for them.
 
 In terms of sensors, it includes:
+
 * Infrared and Ambient Temperature Sensor
 * Ambient Light Sensor
 * Humidity Sensor
@@ -129,40 +159,12 @@ https://github.com/IBM-Bluemix/iot-sensor-tag
 
 This [blog post](http://anasimtiaz.com/?p=201) seems like a good place to start integrating the Sensor Tag into an iOS app with Swift. [Here is the repo](https://github.com/anasimtiaz/SwiftSensorTag) for the whole code in swift.
 
-## Timeline and milestones
-The deadlines are as follows, the ones I suggest are in italics and obviously up for changing:
-
-| Task | Date |
-| ---- | ----: |
-| Project feasibility confirmation | 25 Jan |
-| Design Report | 1 Feb |
-| Individual Component Report | 22 Feb |
-| First Demonstration | 1 Mar |
-| *Personal testing fortnight begins* | *1 Mar* |
-| Final Presentation | 15 Mar |
-| *Start write up* | *15 Mar* |
-| Final Submission | 22 Mar |
-
-## Work allocation
-
-* Sensory tag - Belen
-   * Interfacing with app
-   * Checking data readings
-* Machine learning - Xavi and Julia
-   * Gathering user data
-   * Generating algo for default case
-   * Figure out how to make the algo keep learning with new data coming into phone
-* App design - Pierre and Helen
-   * UI design
-   * Data storage
-   * Feedback to user
-   * Feedback from user (slept well or not)
-
 ## Assessment
 
 ### [Design Report](https://www.overleaf.com/7914295rhxmqhwrgkxb)
 
 Feedback on design report:
+
 * in final report, incorporate short survey of available commercial applications around sleep, and look for additional papers/data on factors that influency sleep and for evidence of individual variations
 * two-stages hypothesis (population statistics then personalisation): danger of collecting only sparse data and not being able to produce meaningful statistics due to lack of time and resources
 * consider re-thinking ways of presenting information, e.g. employ social network to personalise user recommendations ("most people sleep better after a light meal" can become "82% of people in your network slept better after a light meal" or "Karen couldn't sleep last night after her 11pm chicken mandras curry")
@@ -175,6 +177,7 @@ Feedback on design report:
 Update this with whatever you find.
 
 Scientific papers/books:
+
 *  [Long-term sleep measurement with a smartphone-connected flexible bed sensor strip](http://www.sciencedirect.com/science/article/pii/S138994571301842X)
 * [Sleep Medicine](https://books.google.co.uk/books?id=2uAzBwAAQBAJ&pg=PA48&lpg=PA48&dq=sleep+environment+measurement&source=bl&ots=1hWqbv8dBE&sig=SsSO-G3b2cWEoMAj28A3Z7f3lII&hl=en&sa=X&ved=0ahUKEwjS8eGdjd3RAhXMK5oKHcJZDpw4ChDoAQhbMBE#v=onepage&q=sleep%20environment%20measurement&f=false)
 * [Sleep: A Comprehensive Handbook](https://books.google.co.uk/books?id=aNhAk4knmukC&pg=PA306&lpg=PA306&dq=sleep+environment+measurement&source=bl&ots=fS_fUiSamG&sig=5bzdqi1CFct-9M14Q98D-FqiUBc&hl=en&sa=X&ved=0ahUKEwjS8eGdjd3RAhXMK5oKHcJZDpw4ChDoAQhZMBA#v=onepage&q=Environment&f=false) p. 910 looks at environmental influences on sleep.
@@ -189,9 +192,10 @@ Scientific papers/books:
 * [NHS Sleep Diary](http://www.nhs.uk/Livewell/insomnia/Documents/sleepdiary.pdf)
  
 Products:
+
 * [CubeSensors](https://cubesensors.com)
 * [Beddit](http://www.beddit.com)
-* US Army sleep monitoring: https://trid.trb.org/view.aspx?id=650799
+* [US Army sleep monitoring](https://trid.trb.org/view.aspx?id=650799)
 
 ## Background research - machine learning
 A GTA said it may be useful looking into: VGG 16, TensorFlow, Neural Networks.
@@ -230,6 +234,7 @@ The DoC lecturer for Machine Learning posts all of the course materials publicly
 ### Surveys
 
 Survey before going to bed:
+
 - Did you do exercise today? Yes/No
 - When did you have dinner? (3,2,1 hour ago or not had dinner)
 - Did you have sex today? Yes/No
@@ -243,6 +248,7 @@ Survey before going to bed:
 - Do you feel tired? Yes/No (If not, tell to wait 15 mins before going to bed)
 
 Survey after getting out of bed:
+
 - Did you wake up to: dark room/artificial light/natural light? (select one)
 - Did you wake up to urinate during the night? Yes/No
 - Did you turn the lights on during the night? Yes/No
@@ -260,6 +266,19 @@ Survey after getting out of bed:
 ## Justification
 Will be created for personal use, but has possible wider solutions, like improving sleep quality in hospitals (sleep being necessary to improve health).
 Stats on number of people who don't get good sleep.
+
+## Future Work
+
+App as an informer:
+
+* Details of network stats
+
+App as an active aid:
+
+* Mini meditation exercises to be performed before bed (look to BreathEasy?)
+* Suggestion for last coffee/activity of the day (potential with integrating with the previous coffee app?)
+* Use haptic feedback on watch to slow the heart beat
+* Alarm clock integration
 
 ## Misc
 [Markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
