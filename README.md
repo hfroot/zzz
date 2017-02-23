@@ -63,6 +63,14 @@ The deadlines are as follows, the ones I suggest are in italics and obviously up
 | *Start write up* | *15 Mar* |
 | Final Submission | 22 Mar |
 
+## Provisional Hypotheses
+
+If we have two parts to the system, the CBT sleep training part and the personalisation part, we can say our hypotheses are:
+
+* Users will record higher levels of sleep quality and daily energy than those not using the system
+* Users given personalised feedback will record higher levels of sleep quality and daily energy than those only using the CBT features
+* Users given personalised feedback will qualitatively report higher enjoyment/desire for continued use/interest/trust than those using only CBT features
+
 ### App specs
 
 Features overview:
