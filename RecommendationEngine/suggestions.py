@@ -145,7 +145,10 @@ class SuggestionEngine(object):
 				advice = (self.duration[0][0] + str(self.sleepDuration - 1) + ' hours')
 		else:
 			# go to bed one hour earlier than usual
-			advice = (self.duration[1][0] + str(self.sleepStart - 1) + ':00')
+			if self.sleepStart == 0:
+				advice = (self.duration[1][0] + str(24) + ':00')
+			else:
+				advice = (self.duration[1][0] + str(self.sleepStart - 1) + ':00')
 		self.setCurrent(self.duration[n][1])
 		return advice
 		
@@ -173,7 +176,16 @@ class SuggestionEngine(object):
 		if n == 0:
 			advice = (self.caffeine[0][0] + str(self.numberCoffees - 1) + ' coffees')
 		else:
-			advice = (self.caffeine[1][0] + str(self.sleepStart - 4) + ':00')
+			if self.sleepStart == 0:
+				advice = (self.caffeine[1][0] + str(20) + ':00')
+			elif self.sleepStart == 1:
+				advice = (self.caffeine[1][0] + str(21) + ':00')
+			elif self.sleepStart == 2:
+				advice = (self.caffeine[1][0] + str(22) + ':00')
+			elif self.sleepStart == 3:
+				advice = (self.caffeine[1][0] + str(23) + ':00')
+			else:
+				advice = (self.caffeine[1][0] + str(self.sleepStart - 4) + ':00')
 		self.setCurrent(self.caffeine[n][1])
 		return advice
 			
@@ -199,7 +211,10 @@ class SuggestionEngine(object):
 		if n == 0:
 			advice = self.alcohol[0][0]
 		else:
-			advice = (self.alcohol[1][0] + str(self.sleepStart - 1) + ':00')
+			if self.sleepStart == 0:
+				advice = (self.alcohol[1][0] + str(23) + ':00')
+			else:
+				advice = (self.alcohol[1][0] + str(self.sleepStart - 1) + ':00')
 		self.setCurrent(self.alcohol[n][1])
 		return advice
 
@@ -252,7 +267,12 @@ class SuggestionEngine(object):
 	def getDeviceAdvice(self):
 		# make suggestion to reduce device use before bed
 		n = self.deviceEffect
-		advice = (self.device[n][0] + str(self.sleepStart - 2) + ':00')
+		if self.sleepStart == 0:
+			advice = (self.device[n][0] + str(22) + ':00')
+		elif self.sleepStart == 1:
+			advice = (self.device[n][0] + str(23) + ':00')
+		else:
+			advice = (self.device[n][0] + str(self.sleepStart - 2) + ':00')
 		self.setCurrent(self.device[n][1])
 		return advice
 		
