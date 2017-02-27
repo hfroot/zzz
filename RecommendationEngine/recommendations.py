@@ -23,12 +23,12 @@ class RecommendationEngine(object):
 							
 		# initialise suggestion engine settings
 		self.suggestions = SuggestionEngine()
-		self.suggestions.setSleepDuration(6)
-		self.suggestions.setSleepStart(23)
+		self.suggestions.setSleepDuration(7)
+		self.suggestions.setSleepStart(0)
 		self.suggestions.setExerciseLevel(0)
-		self.suggestions.setNumberCoffees(3)
+		self.suggestions.setNumberCoffees(2)
 		self.suggestions.setIsHot(False)
-		self.suggestions.setColdTime(1)
+		self.suggestions.setColdTime(2)
 		self.suggestions.setDeviceEffect(0)
 		self.suggestions.setSmoker(False)
 							
