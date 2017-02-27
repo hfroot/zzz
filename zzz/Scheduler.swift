@@ -1,3 +1,6 @@
+// TODO: Edit this file for bedtime notification
+//
+//  Copyright Helen Root © 2017 MHML. All rights reserved.
 //
 //  Scheduler.swift
 //  Alarm-ios-swift

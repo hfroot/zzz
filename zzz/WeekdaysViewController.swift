@@ -1,4 +1,6 @@
 //
+//  Copyright Helen Root © 2017 MHML. All rights reserved.
+//
 //  WeekdaysViewController.swift
 //  Alarm-ios-swift
 //
@@ -10,6 +12,7 @@ import UIKit
 
 class WeekdaysViewController: UITableViewController {
     
+    //TODO: the repeating days don't seem to be saved when go on to edit alarm
     var weekdays: [Int]!
     var repeatText: String
     {
@@ -25,28 +28,44 @@ class WeekdaysViewController: UITableViewController {
         var weekdaysSorted:[Int] = [Int]()
         
         weekdaysSorted = weekdays.sorted(by: <)
+        var allWeekdays = true
+        var allWeekends = true
         
         for day in weekdaysSorted {
             switch day{
             case 1:
                 ret += "Sun "
+                allWeekdays = false
             case 2:
                 ret += "Mon "
+                allWeekends = false
             case 3:
                 ret += "Tue "
+                allWeekends = false
             case 4:
                 ret += "Wed "
+                allWeekends = false
             case 5:
                 ret += "Thu "
+                allWeekends = false
             case 6:
                 ret += "Fri "
+                allWeekends = false
             case 7:
                 ret += "Sat "
+                allWeekdays = false
             default:
                 //throw
                 break
             }
         }
+        if allWeekends {
+            return "Weekends"
+        }
+        else if allWeekdays {
+            return "Weekdays"
+        }
+        
         return ret
         
     }

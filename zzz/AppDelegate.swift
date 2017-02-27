@@ -1,4 +1,6 @@
 //
+//  Copyright Helen Root © 2017 MHML. All rights reserved.
+//
 //  AppDelegate.swift
 //  zzz
 //
@@ -49,6 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AVAudioPlayerDelegate, Al
         }
         let stopOption = UIAlertAction(title: "OK", style: .default) {
             (action:UIAlertAction)->Void in self.audioPlayer?.stop()
+            //TODO: crashes when gets here, when alarm goes off and try to OK away the notification
             self.alarmModel.alarms[index].enabled = false
             //change UI
             let vc = self.window?.rootViewController as! UINavigationController

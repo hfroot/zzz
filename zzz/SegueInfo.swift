@@ -1,4 +1,6 @@
 //
+//  Copyright Helen Root © 2017 MHML. All rights reserved.
+//
 //  SegueInfo.swift
 //  Alarm-ios-swift
 //
@@ -15,4 +17,6 @@ struct SegueInfo {
     var mediaLabel: String
     var mediaID: String
     var repeatWeekdays: [Int]
+    var scheduleEnabled: Bool
+    var scheduleDate: Date
 }

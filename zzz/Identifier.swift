@@ -1,4 +1,6 @@
 //
+//  Copyright Helen Root © 2017 MHML. All rights reserved.
+//
 //  Identifier.swift
 //  Alarm-ios-swift
 //
@@ -20,8 +22,10 @@ struct Id {
     static let settingIdentifier = "setting"
     static let musicIdentifier = "musicIdentifier"
     static let alarmCellIdentifier = "alarmCell"
+    static let scheduleSegueIdentifier = "scheduleEditSegue"
     
     static let labelUnwindIdentifier = "labelUnwindSegue"
     static let soundUnwindIdentifier = "soundUnwindSegue"
     static let weekdaysUnwindIdentifier = "weekdaysUnwindSegue"
+    static let scheduleUnwindIdentifier = "scheduleUnwindSegue"
 }

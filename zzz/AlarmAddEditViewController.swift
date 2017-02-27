@@ -1,4 +1,6 @@
 //
+//  Copyright Helen Root © 2017 MHML. All rights reserved.
+//
 //  AlarmAddViewController.swift
 //  Alarm-ios-swift
 //
@@ -12,6 +14,7 @@ import MediaPlayer
 
 class AlarmAddEditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
+    //TODO: Time shown when go to edit it doesn't show previous time, shows current time instead
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var tableView: UITableView!
     
@@ -19,6 +22,7 @@ class AlarmAddEditViewController: UIViewController, UITableViewDelegate, UITable
     var alarmModel: Alarms = Alarms()
     var segueInfo: SegueInfo!
     var snoozeEnabled: Bool = false
+    var scheduleEnabled: Bool = false
     var repeatText: String!
     
     override func viewDidLoad() {
@@ -41,6 +45,10 @@ class AlarmAddEditViewController: UIViewController, UITableViewDelegate, UITable
         var tempAlarm = Alarm()
         tempAlarm.date = date
         tempAlarm.label = segueInfo.label
+        tempAlarm.scheduleEnabled = scheduleEnabled
+        if scheduleEnabled {
+            tempAlarm.scheduleDate = segueInfo.scheduleDate
+        }
         tempAlarm.mediaLabel = segueInfo.mediaLabel
         tempAlarm.mediaID = segueInfo.mediaID
         tempAlarm.snoozeEnabled = snoozeEnabled
@@ -69,7 +77,7 @@ class AlarmAddEditViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return 4
+            return 5
         }
         else {
             return 1
@@ -113,6 +121,15 @@ class AlarmAddEditViewController: UIViewController, UITableViewDelegate, UITable
                 
                 cell!.accessoryView = sw
             }
+            else if indexPath.row == 4 {
+                cell!.textLabel!.text = "Schedule bedtime"
+                if segueInfo.scheduleEnabled {
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "h:mm a"
+                    cell!.detailTextLabel!.text = dateFormatter.string(from: segueInfo.scheduleDate)
+                }
+                cell!.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+            }
         }
         else if indexPath.section == 1 {
             cell = UITableViewCell(
@@ -141,6 +158,10 @@ class AlarmAddEditViewController: UIViewController, UITableViewDelegate, UITable
             case 2:
                 performSegue(withIdentifier: Id.soundSegueIdentifier, sender: self)
                 cell?.setSelected(true, animated: false)
+                cell?.setSelected(false, animated: false)
+            case 4:
+                performSegue(withIdentifier: Id.scheduleSegueIdentifier, sender: self)
+                cell?.setSelected(true, animated: true)
                 cell?.setSelected(false, animated: false)
             default:
                 break
@@ -178,7 +199,6 @@ class AlarmAddEditViewController: UIViewController, UITableViewDelegate, UITable
             }
         }
         else if segue.identifier == Id.soundSegueIdentifier {
-            //TODO
             let dist = segue.destination as! MediaViewController
             dist.mediaID = segueInfo.mediaID
             dist.mediaLabel = segueInfo.mediaLabel
@@ -191,6 +211,7 @@ class AlarmAddEditViewController: UIViewController, UITableViewDelegate, UITable
             let dist = segue.destination as! WeekdaysViewController
             dist.weekdays = segueInfo.repeatWeekdays
         }
+//        TODO: do I need to do something for schedule here?
     }
     
     @IBAction func unwindFromLabelEditView(_ segue: UIStoryboardSegue) {
@@ -210,5 +231,9 @@ class AlarmAddEditViewController: UIViewController, UITableViewDelegate, UITable
         segueInfo.mediaID = src.mediaID
     }
     
+    @IBAction func unwindFromScheduleView(_ segue: UIStoryboardSegue) {
+        let src = segue.source as! ScheduleViewController
+        segueInfo.scheduleDate = src.scheduleDate
+    }
     
 }

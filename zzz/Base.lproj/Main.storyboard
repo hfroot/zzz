@@ -316,12 +316,63 @@
                         <segue destination="FfF-6n-dBU" kind="show" identifier="soundSegue" id="fYH-rv-ewE"/>
                         <segue destination="tN1-Ob-0fO" kind="show" identifier="labelEditSegue" id="lJa-bk-KlQ"/>
                         <segue destination="HZa-6a-XoL" kind="unwind" identifier="saveEditSegue" unwindAction="unwindFromAddEditAlarmView:" id="epE-IC-nXB"/>
+                        <segue destination="QLc-gS-EcA" kind="show" identifier="scheduleEditSegue" id="61l-jO-3i9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uDX-36-ODM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="HZa-6a-XoL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2188" y="138.98050974512745"/>
+        </scene>
+        <!--Bedtime-->
+        <scene sceneID="GH6-Ek-6Qu">
+            <objects>
+                <viewController id="QLc-gS-EcA" customClass="ScheduleViewController" customModule="zzz" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rRo-Ik-OmB"/>
+                        <viewControllerLayoutGuide type="bottom" id="N5g-dN-Dg1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="212-0u-VQJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="12" translatesAutoresizingMaskIntoConstraints="NO" id="5Fb-rO-Y8f">
+                                <frame key="frameInset" minX="14" minY="151" width="256" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hours of sleep" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFI-1g-4lX">
+                                <frame key="frameInset" minX="16" minY="110" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bedtime" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Scc-E5-Q5m">
+                                <frame key="frameInset" minX="120" minY="292" width="134" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You would need to go to sleep at" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lvf-Pe-pPA">
+                                <frame key="frameInset" minX="16" minY="241" width="252" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Bedtime" id="ERM-4K-yL4"/>
+                    <connections>
+                        <segue destination="9PF-PW-Zlx" kind="unwind" identifier="scheduleUnwindSegue" unwindAction="unwindFromScheduleView:" id="CNG-QY-tbo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AO6-tS-Agb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="9PF-PW-Zlx" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3211.5" y="-629.5"/>
         </scene>
         <!--Label-->
         <scene sceneID="ghN-h3-LaL">

@@ -31,6 +31,7 @@
 		79C56DFF1E645AA100F439E1 /* MainAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C56DFA1E645AA100F439E1 /* MainAlarmViewController.swift */; };
 		79C56E001E645AA100F439E1 /* LabelEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C56DFB1E645AA100F439E1 /* LabelEditViewController.swift */; };
 		79C56E011E645AA100F439E1 /* AlarmAddEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C56DFC1E645AA100F439E1 /* AlarmAddEditViewController.swift */; };
+		79C56E031E64B31E00F439E1 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C56E021E64B31E00F439E1 /* ScheduleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		79C56DFA1E645AA100F439E1 /* MainAlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainAlarmViewController.swift; sourceTree = "<group>"; };
 		79C56DFB1E645AA100F439E1 /* LabelEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelEditViewController.swift; sourceTree = "<group>"; };
 		79C56DFC1E645AA100F439E1 /* AlarmAddEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmAddEditViewController.swift; sourceTree = "<group>"; };
+		79C56E021E64B31E00F439E1 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 				793400F71E5DCBC600FFD03D /* RootViewController.swift */,
 				793400F91E5DCBC600FFD03D /* DataViewController.swift */,
 				793400FB1E5DCBC600FFD03D /* ModelController.swift */,
+				79C56E021E64B31E00F439E1 /* ScheduleViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				79C56DF61E645A9200F439E1 /* AlarmSchedulerDelegate.swift in Sources */,
 				79C56DF71E645A9200F439E1 /* AlarmApplicationDelegate.swift in Sources */,
 				79C56DFF1E645AA100F439E1 /* MainAlarmViewController.swift in Sources */,
+				79C56E031E64B31E00F439E1 /* ScheduleViewController.swift in Sources */,
 				79C56DFD1E645AA100F439E1 /* WeekdaysViewController.swift in Sources */,
 				79C56E001E645AA100F439E1 /* LabelEditViewController.swift in Sources */,
 				79C56DED1E645A6100F439E1 /* SegueInfo.swift in Sources */,

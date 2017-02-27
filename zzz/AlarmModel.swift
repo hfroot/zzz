@@ -1,4 +1,6 @@
 //
+//  Copyright Helen Root © 2017 MHML. All rights reserved.
+//
 //  AlarmModel.swift
 //  Alarm-ios-swift
 //
@@ -19,10 +21,12 @@ struct Alarm: PropertyReflectable {
     var mediaID: String = ""
     var mediaLabel: String = "bell"
     var label: String = "Alarm"
+    var scheduleDate: Date = Date()
+    var scheduleEnabled: Bool = false
     
     init(){}
     
-    init(date:Date, enabled:Bool, snoozeEnabled:Bool, repeatWeekdays:[Int], uuid:String, mediaID:String, mediaLabel:String, label:String){
+    init(date:Date, enabled:Bool, snoozeEnabled:Bool, repeatWeekdays:[Int], uuid:String, mediaID:String, mediaLabel:String, label:String, scheduleDate:Date, scheduleEnabled:Bool){
         self.date = date
         self.enabled = enabled
         self.snoozeEnabled = snoozeEnabled
@@ -31,6 +35,9 @@ struct Alarm: PropertyReflectable {
         self.mediaID = mediaID
         self.mediaLabel = mediaLabel
         self.label = label
+        //
+        self.scheduleDate = scheduleDate
+        self.scheduleEnabled = scheduleEnabled
     }
     
     init(_ dict: PropertyReflectable.RepresentationType){
@@ -42,6 +49,8 @@ struct Alarm: PropertyReflectable {
         mediaID = dict["mediaID"] as! String
         mediaLabel = dict["mediaLabel"] as! String
         label = dict["label"] as! String
+        scheduleEnabled = dict["scheduleEnabled"] as! Bool
+        scheduleDate = dict["scheduleDate"] as! Date
     }
 }
 
@@ -50,6 +59,11 @@ extension Alarm {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "h:mm a"
         return dateFormatter.string(from: self.date)
+    }
+    var formattedBedtime: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "h:mm a"
+        return dateFormatter.string(from: self.scheduleDate)
     }
 }
 

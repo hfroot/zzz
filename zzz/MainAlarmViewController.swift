@@ -1,4 +1,6 @@
-
+//
+//  Copyright Helen Root © 2017 MHML. All rights reserved.
+//
 //  MainAlarmViewController.swift
 //  Alarm-ios-swift
 //
@@ -81,7 +83,7 @@ class MainAlarmViewController: UITableViewController{
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isEditing {
-            performSegue(withIdentifier: Id.editSegueIdentifier, sender: SegueInfo(curCellIndex: indexPath.row, isEditMode: true, label: alarmModel.alarms[indexPath.row].label, mediaLabel: alarmModel.alarms[indexPath.row].mediaLabel, mediaID: alarmModel.alarms[indexPath.row].mediaID, repeatWeekdays: alarmModel.alarms[indexPath.row].repeatWeekdays))
+            performSegue(withIdentifier: Id.editSegueIdentifier, sender: SegueInfo(curCellIndex: indexPath.row, isEditMode: true, label: alarmModel.alarms[indexPath.row].label, mediaLabel: alarmModel.alarms[indexPath.row].mediaLabel, mediaID: alarmModel.alarms[indexPath.row].mediaID, repeatWeekdays: alarmModel.alarms[indexPath.row].repeatWeekdays, scheduleEnabled: alarmModel.alarms[indexPath.row].scheduleEnabled, scheduleDate: alarmModel.alarms[indexPath.row].scheduleDate))
         }
     }
     
@@ -100,6 +102,8 @@ class MainAlarmViewController: UITableViewController{
         str.addAttributes(timeAttr, range: NSMakeRange(0, str.length-2))
         cell!.textLabel?.attributedText = str
         cell!.detailTextLabel?.text = alarm.label
+        print(str)
+        //TODO: put bedtime in here?
         //append switch button
         let sw = UISwitch(frame: CGRect())
         sw.transform = CGAffineTransform(scaleX: 0.9, y: 0.9);
@@ -175,7 +179,7 @@ class MainAlarmViewController: UITableViewController{
         let addEditController = dist.topViewController as! AlarmAddEditViewController
         if segue.identifier == Id.addSegueIdentifier {
             addEditController.navigationItem.title = "Add Alarm"
-            addEditController.segueInfo = SegueInfo(curCellIndex: alarmModel.count, isEditMode: false, label: "Alarm", mediaLabel: "bell", mediaID: "", repeatWeekdays: [])
+            addEditController.segueInfo = SegueInfo(curCellIndex: alarmModel.count, isEditMode: false, label: "Alarm", mediaLabel: "bell", mediaID: "", repeatWeekdays: [], scheduleEnabled: false, scheduleDate: Date())
             addEditController.repeatText = "Never"
         }
         else if segue.identifier == Id.editSegueIdentifier {
