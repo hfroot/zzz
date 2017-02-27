@@ -6,18 +6,18 @@ class RecommendationEngine(object):
 
 	def __init__(self):
 		# initialise to default factor weights
-		self.factorWeights = {'duration': 0.4,
-							'exercise': 0.4,
-							'caffeine': 0.4,
-							'meal': 0.4,
+		self.factorWeights = {'duration': 0.6,
+							'exercise': 0.6,
+							'caffeine': 0.5,
+							'meal': 0.3,
 							'nicotine': 0.4,
 							'alcohol': 0.4,
-							'relaxation': 0.4,
-							'light': 0.4,
-							'noise': 0.4,
-							'temperature': 0.4,
-							'humidity': 0.4,
-							'device': 0.4}
+							'relaxation': 0.3,
+							'light': 0.6,
+							'noise': 0.6,
+							'temperature': 0.5,
+							'humidity': 0.3,
+							'device': 0.5}
 							
 		self.factor = 'duration'
 							
