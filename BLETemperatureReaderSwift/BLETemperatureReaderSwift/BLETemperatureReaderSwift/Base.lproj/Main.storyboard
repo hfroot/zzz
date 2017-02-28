@@ -89,14 +89,14 @@
                             <constraint firstAttribute="trailing" secondItem="8Nz-AX-Lln" secondAttribute="trailing" id="BU3-qI-34p"/>
                             <constraint firstAttribute="trailing" secondItem="YtX-2S-qNW" secondAttribute="trailing" id="EYo-Fa-hGO"/>
                             <constraint firstItem="B3K-2v-qVg" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="HmL-2X-bzo"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="B3K-2v-qVg" secondAttribute="bottom" id="V2B-Rw-1Uj"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8Nz-AX-Lln" secondAttribute="bottom" id="L7t-qz-RGT"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="B3K-2v-qVg" secondAttribute="bottom" id="ZAG-57-Ktw"/>
                             <constraint firstItem="YtX-2S-qNW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZJl-3l-wg4"/>
                             <constraint firstItem="YtX-2S-qNW" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="dO4-1d-adu"/>
                             <constraint firstAttribute="trailing" secondItem="B3K-2v-qVg" secondAttribute="trailing" id="edM-aO-aPB"/>
                             <constraint firstItem="8Nz-AX-Lln" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gSb-4u-Kx2"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YtX-2S-qNW" secondAttribute="bottom" id="rN0-IZ-vW0"/>
                             <constraint firstItem="8Nz-AX-Lln" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wRh-o3-Ryh"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YtX-2S-qNW" secondAttribute="bottom" id="wU4-Rl-ZDH"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8Nz-AX-Lln" secondAttribute="bottom" id="xtW-3N-ze8"/>
                         </constraints>
                     </view>
                     <connections>
