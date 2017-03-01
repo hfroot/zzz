@@ -20,14 +20,15 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
     @IBOutlet weak var humidityLabel: UILabel?
     @IBOutlet weak var disconnectButton: UIButton?
     
-    // define our scanning interval times
+    // define scanning interval times
     let timerPauseInterval:TimeInterval = 10.0
     let timerScanInterval:TimeInterval = 2.0
     
+    // counter to save 1 out of 3 samples
+    var sampleCounter = 0
+    let countMax = 3
+    
     // UI-related
-    let defaultInitialTemperature = -9999
-    var lastTemperature:Int!
-    var lastHumidity:Double = -9999
     var keepScanning = false
     //var isScanning = false
     
@@ -46,9 +47,9 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
     // Realm variables initialisation
     let currentUser = User()
     var sensorData = List<sensorDataObject>()
-    var sampleTimestamp = Date()
-    var sampleTemp:Float = -9999
-    var sampleHumi:Float = -9999
+    var sampleTimestamp:Date?
+    var sampleTemp:Float?
+    var sampleHumi:Float?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,8 +66,6 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
         }
         
         currentUser.name = "Pierre"
-        
-        lastTemperature = defaultInitialTemperature
         
         // Create our CBCentral Manager
         // delegate: The delegate that will receive central role events. Typically self.
@@ -318,6 +317,7 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
         statusLabel?.text = "Tap to search"
         temperatureLabel?.text = "Temperature: N/A"
         humidityLabel?.text = "Humidity: N/A"
+        disconnectButton?.setTitle("Connect SensorTag", for: .normal)
         if error != nil {
             print("****** DISCONNECTION DETAILS: \(error!.localizedDescription)")
         }
@@ -374,11 +374,14 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
         }
         
         if let characteristics = service.characteristics {
+            
             let enableValue:UInt8 = 1
-            //let enableBytes = Data(bytes: UnsafePointer<UInt8>(&enableValue), count: sizeof(UInt8))
             let enableBytes = Data(bytes: [enableValue])
+//            let periodValue:UInt8 = 255
+//            let periodBytes = Data(bytes: [periodValue])
             
             for characteristic in characteristics {
+                
                 // Temperature Data Characteristic
                 if characteristic.uuid == CBUUID(string: Device.TemperatureDataUUID) {
                     // Enable the IR Temperature Sensor notifications
@@ -392,16 +395,30 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
                     sensorTag?.writeValue(enableBytes, for: characteristic, type: .withResponse)
                 }
                 
+//                // Temperature Period Characteristic
+//                if characteristic.uuid == CBUUID(string: Device.TemperaturePeriod) {
+//                    // Set Temperature Period
+//                    sensorTag?.writeValue(periodBytes, for: characteristic, type: .withResponse)
+//                }
+                
+                // Humidity Data Characteristic
                 if characteristic.uuid == CBUUID(string: Device.HumidityDataUUID) {
                     // Enable Humidity Sensor notifications
                     humidityCharacteristic = characteristic
                     sensorTag?.setNotifyValue(true, for: characteristic)
                 }
                 
+                // Humidity Configuration Characteristic
                 if characteristic.uuid == CBUUID(string: Device.HumidityConfig) {
-                    // Enable Humidity Temperature Sensor
+                    // Enable Humidity Sensor
                     sensorTag?.writeValue(enableBytes, for: characteristic, type: .withResponse)
                 }
+                
+//                // Humidity Period Characteristic
+//                if characteristic.uuid == CBUUID(string: Device.HumidityPeriod) {
+//                    // Set Humidity Period
+//                    sensorTag?.writeValue(periodBytes, for: characteristic, type: .withResponse)
+//                }
             }
         }
     }
@@ -433,10 +450,20 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
             }
             
             // Save timestamp just after reading data, then save sensorDataObject in Realm database
-            sampleTimestamp = Date()
-            saveSample()
             
-            //_ = Timer(5)
+            //            let lastTime = Date()
+            //            let formatter = DateFormatter()
+            //            formatter.dateFormat = "dd.MM.yyyy HH:mm:ss"
+            //            lastTimestamp = formatter.string(from: lastTime)
+            
+            if (sampleCounter == countMax){
+                sampleTimestamp = Date()
+                saveSample()
+                sampleCounter = 0
+            }
+            else {sampleCounter += 1}
+            
+            //DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0) {}
         }
     }
     
@@ -456,9 +483,9 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
     // MARK: - Realm Functions
     
     func saveSample(){
-        if (sampleTemp != -9999 && sampleHumi != -9999)  {
+        if (sampleTemp != nil && sampleHumi != nil && sensorTag != nil)  {
             try! realm.write {
-                let newData = sensorDataObject(value: ["sensorID": sensorTag!.identifier.uuidString, "sensorTemp": sampleTemp, "sensorHumi": sampleHumi, "sensorTimestamp": sampleTimestamp])
+                let newData = sensorDataObject(value: ["sensorID": sensorTag!.identifier.uuidString, "sensorTemp": sampleTemp!, "sensorHumi": sampleHumi!, "sensorTimestamp": sampleTimestamp!])
                 currentUser.sensorData.append(newData)
                 realm.add(currentUser, update: true)
                 print("Added object to database: \(newData)")

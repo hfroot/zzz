@@ -22,12 +22,16 @@ final class User: Object {
 
 final class sensorDataObject: Object {
     dynamic var sensorID = ""
-    dynamic var sensorTimestamp = NSDate()
+    dynamic var sensorTimestamp = Date()
     dynamic var sensorTemp: Float = 0.0
     dynamic var sensorHumi: Float = 0.0
     //dynamic var sensorLight: Double = 0.0
     //dynamic var sensorNoise: Double = 0.0
     //dynamic var sensorAccel: Double = 0.0
+    
+//    override static func primaryKey() -> String? {
+//        return "sensorTimestamp"
+//    }
 }
 
 let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
@@ -37,7 +41,6 @@ let realm = try! Realm(configuration: config)
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
