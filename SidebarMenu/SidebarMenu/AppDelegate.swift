@@ -22,7 +22,7 @@ final class User: Object {
 
 final class sensorDataObject: Object {
     dynamic var sensorID = ""
-    dynamic var sensorTimestamp = Date()
+    dynamic var sensorTimestamp = ""
     dynamic var sensorTemp: Float = 0.0
     dynamic var sensorHumi: Float = 0.0
     //dynamic var sensorLight: Double = 0.0

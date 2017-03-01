@@ -47,7 +47,7 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
     // Realm variables initialisation
     let currentUser = User()
     var sensorData = List<sensorDataObject>()
-    var sampleTimestamp:Date?
+    var sampleTimestamp:String?
     var sampleTemp:Float?
     var sampleHumi:Float?
 
@@ -60,10 +60,10 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-        try! realm.write {
-            realm.deleteAll()
-            print("DELETED ALL OBJECTS IN REALM");
-        }
+//        try! realm.write {
+//            realm.deleteAll()
+//            print("DELETED ALL OBJECTS IN REALM");
+//        }
         
         currentUser.name = "Pierre"
         
@@ -451,13 +451,12 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
             
             // Save timestamp just after reading data, then save sensorDataObject in Realm database
             
-            //            let lastTime = Date()
-            //            let formatter = DateFormatter()
-            //            formatter.dateFormat = "dd.MM.yyyy HH:mm:ss"
-            //            lastTimestamp = formatter.string(from: lastTime)
-            
             if (sampleCounter == countMax){
-                sampleTimestamp = Date()
+                
+                let formatter = DateFormatter()
+                formatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
+                sampleTimestamp = formatter.string(from: Date())
+                
                 saveSample()
                 sampleCounter = 0
             }

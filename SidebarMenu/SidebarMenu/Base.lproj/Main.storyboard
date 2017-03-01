@@ -115,6 +115,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.92620444300000004" green="0.93612229820000004" blue="0.94110381600000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <segue destination="K0f-vh-pfM" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="N7f-9H-9Tu"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="90" id="98X-Sc-dNz">
                                         <rect key="frame" x="0.0" y="390" width="375" height="90"/>
@@ -353,6 +356,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mvG-x6-Vtu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1369" y="936"/>
+        </scene>
+        <!--Advice View Controller-->
+        <scene sceneID="ZKG-6q-xHo">
+            <objects>
+                <viewController id="ZGx-DO-DIw" userLabel="Advice View Controller" customClass="TrendsViewController" customModule="SidebarMenu" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cKQ-3j-tNL"/>
+                        <viewControllerLayoutGuide type="bottom" id="JYp-BZ-tKt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YV3-hc-xQR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Trends" id="Qym-sO-UdB">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="VKr-H9-plt"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="VKr-H9-plt" id="ng9-bt-Xwi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W5F-Fh-aoc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2177" y="1710"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="X0x-gK-lGG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="K0f-vh-pfM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aFv-IZ-zHS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ZGx-DO-DIw" kind="relationship" relationship="rootViewController" id="hOw-Cp-xXB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eox-vO-bQO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1369" y="1710"/>
         </scene>
     </scenes>
     <resources>
