@@ -1,6 +1,7 @@
 //
 //  ProgrammaticalDemo.swift
 //  PieCharts
+//  https://github.com/i-schuetz/PieCharts
 //
 //  Created by Hyun Min Choi on 2017. 1. 23..
 //  Copyright © 2017년 Ivan Schuetz. All rights reserved.
