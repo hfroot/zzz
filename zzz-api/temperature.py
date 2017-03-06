@@ -1,5 +1,5 @@
 from sklearn import svm
-
+import numpy as np
 def svm_temp(input):
     
     new_temp_mean = input["temp_mean"]
