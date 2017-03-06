@@ -1,7 +1,7 @@
 #!flask/bin/python
 from flask import Flask, jsonify, abort, make_response, request
 from flask_httpauth import HTTPBasicAuth
-#from .temperature import svm_temp
+from .temperature import svm_temp
 #from .humidity import svm_humi
 
 app = Flask(__name__)
@@ -32,10 +32,9 @@ def temperature():
         'temp_max': request.json['temp_max']
     }
     # calculate classifier value based on input values
-    #temp_classifier = svm_temp(input)
+    temp_classifier = svm_temp(input)
     # return json string with result
-    #return jsonify({'temp_classifier': temp_classifier}), 201
-    return jsonify(input), 201
+    return jsonify({'temp_classifier': temp_classifier}), 201
 
 #this block is for calling humidity
 #@app.route('/zzz/api/v1/humidity', methods=['POST'])
