@@ -7,7 +7,7 @@ alias deactivate 'test $?_OLD_VIRTUAL_PATH != 0 && setenv PATH "$_OLD_VIRTUAL_PA
 # Unset irrelevant variables.
 deactivate nondestructive
 
-setenv VIRTUAL_ENV "/Users/Pierre/Documents/smartrods-api/flask"
+setenv VIRTUAL_ENV "/home/ec2-user/zzz/zzz-api/flask"
 
 set _OLD_VIRTUAL_PATH="$PATH"
 setenv PATH "$VIRTUAL_ENV/bin:$PATH"
@@ -17,7 +17,13 @@ setenv PATH "$VIRTUAL_ENV/bin:$PATH"
 if ("" != "") then
     set env_name = ""
 else
-    set env_name = `basename "$VIRTUAL_ENV"`
+    if (`basename "$VIRTUAL_ENV"` == "__") then
+        # special case for Aspen magic directories
+        # see http://www.zetadev.com/software/aspen/
+        set env_name = `basename \`dirname "$VIRTUAL_ENV"\``
+    else
+        set env_name = `basename "$VIRTUAL_ENV"`
+    endif
 endif
 
 # Could be in a non-interactive environment,
