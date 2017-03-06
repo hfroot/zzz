@@ -1,9 +1,9 @@
 from sklearn import svm
 
-def svm_temp(temp_mean, temp_max):
+def svm_temp(input):
     
-    new_temp_mean = temp_mean
-    new_temp_max = temp_max
+    new_temp_mean = input["temp_mean"]
+    new_temp_max = input["temp_max"]
     
     new_score = [new_temp_mean, new_temp_max]
 
