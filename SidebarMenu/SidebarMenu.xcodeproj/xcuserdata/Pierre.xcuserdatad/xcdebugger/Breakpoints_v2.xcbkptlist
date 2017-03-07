@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SidebarMenu/TrendsViewController.swift"
-            timestampString = "510091417.237832"
+            timestampString = "510588633.910597"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "getChartDataFromRealm()"
             landmarkType = "7">
          </BreakpointContent>
