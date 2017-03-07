@@ -8,12 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8F2B9B6E1E672A3B0077AA55 /* SuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2B9B6D1E672A3B0077AA55 /* SuggestionsViewController.swift */; };
-		8F2B9B701E672A740077AA55 /* PieCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F2B9B6F1E672A740077AA55 /* PieCharts.framework */; };
-		8F2B9B711E672A740077AA55 /* PieCharts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F2B9B6F1E672A740077AA55 /* PieCharts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8F2B9B731E67368E0077AA55 /* TrendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2B9B721E67368E0077AA55 /* TrendsViewController.swift */; };
-		8F2B9B751E6736D30077AA55 /* SwiftCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F2B9B741E6736D30077AA55 /* SwiftCharts.framework */; };
-		8F2B9B761E6736D30077AA55 /* SwiftCharts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F2B9B741E6736D30077AA55 /* SwiftCharts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8F2B9B781E67372A0077AA55 /* ExamplesDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2B9B771E67372A0077AA55 /* ExamplesDefaults.swift */; };
 		8F95C13F1E659EF1009F58FA /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F95C13E1E659EF1009F58FA /* SWRevealViewController.m */; };
 		8F95C1421E65B5A1009F58FA /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F95C1401E65B5A1009F58FA /* Realm.framework */; };
 		8F95C1431E65B5A1009F58FA /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F95C1401E65B5A1009F58FA /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -48,8 +43,6 @@
 			files = (
 				8F95C1451E65B5A1009F58FA /* RealmSwift.framework in Embed Frameworks */,
 				8F95C1431E65B5A1009F58FA /* Realm.framework in Embed Frameworks */,
-				8F2B9B711E672A740077AA55 /* PieCharts.framework in Embed Frameworks */,
-				8F2B9B761E6736D30077AA55 /* SwiftCharts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,10 +51,7 @@
 
 /* Begin PBXFileReference section */
 		8F2B9B6D1E672A3B0077AA55 /* SuggestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionsViewController.swift; sourceTree = "<group>"; };
-		8F2B9B6F1E672A740077AA55 /* PieCharts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PieCharts.framework; sourceTree = "<group>"; };
 		8F2B9B721E67368E0077AA55 /* TrendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendsViewController.swift; sourceTree = "<group>"; };
-		8F2B9B741E6736D30077AA55 /* SwiftCharts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftCharts.framework; sourceTree = "<group>"; };
-		8F2B9B771E67372A0077AA55 /* ExamplesDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamplesDefaults.swift; sourceTree = "<group>"; };
 		8F95C13C1E659EF1009F58FA /* SidebarMenu-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SidebarMenu-Bridging-Header.h"; sourceTree = "<group>"; };
 		8F95C13D1E659EF1009F58FA /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		8F95C13E1E659EF1009F58FA /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -88,8 +78,6 @@
 			files = (
 				8F95C1421E65B5A1009F58FA /* Realm.framework in Frameworks */,
 				8F95C1441E65B5A1009F58FA /* RealmSwift.framework in Frameworks */,
-				8F2B9B701E672A740077AA55 /* PieCharts.framework in Frameworks */,
-				8F2B9B751E6736D30077AA55 /* SwiftCharts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,8 +104,6 @@
 		F47029E71A7F27DB00E30A3C = {
 			isa = PBXGroup;
 			children = (
-				8F2B9B741E6736D30077AA55 /* SwiftCharts.framework */,
-				8F2B9B6F1E672A740077AA55 /* PieCharts.framework */,
 				8F95C1401E65B5A1009F58FA /* Realm.framework */,
 				8F95C1411E65B5A1009F58FA /* RealmSwift.framework */,
 				8F95C13B1E659ECC009F58FA /* SWRevealViewController */,
@@ -143,7 +129,6 @@
 				8F95C14F1E65EB5D009F58FA /* MenuController.swift */,
 				F47029F51A7F27DB00E30A3C /* AppDelegate.swift */,
 				F491E7541A7F7E010026528E /* SensorViewController.swift */,
-				8F2B9B771E67372A0077AA55 /* ExamplesDefaults.swift */,
 				8F2B9B721E67368E0077AA55 /* TrendsViewController.swift */,
 				8F2B9B6D1E672A3B0077AA55 /* SuggestionsViewController.swift */,
 				F47029F91A7F27DB00E30A3C /* Main.storyboard */,
@@ -289,7 +274,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F2B9B781E67372A0077AA55 /* ExamplesDefaults.swift in Sources */,
 				8F95C1501E65EB5D009F58FA /* MenuController.swift in Sources */,
 				8F2B9B731E67368E0077AA55 /* TrendsViewController.swift in Sources */,
 				8F95C13F1E659EF1009F58FA /* SWRevealViewController.m in Sources */,
