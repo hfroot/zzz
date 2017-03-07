@@ -1,5 +1,5 @@
 //
-//  SurveyViewController.swift
+//  BedtimeViewController.swift
 //  ZZZ
 //
 //  Created by Pierre Azalbert on 07/03/2017.
@@ -9,7 +9,7 @@
 import UIKit
 import ResearchKit
 
-class SurveyViewController: UIViewController, ORKTaskViewControllerDelegate {
+class BedtimeViewController: UIViewController, ORKTaskViewControllerDelegate {
     
     @IBOutlet weak var menuButton:UIBarButtonItem!
     
@@ -22,10 +22,13 @@ class SurveyViewController: UIViewController, ORKTaskViewControllerDelegate {
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-        let myStep = ORKInstructionStep(identifier: "intro")
-        myStep.title = "Welcome to ResearchKit"
+        let step0 = ORKInstructionStep(identifier: "intro")
+        step0.title = "Time to go to bed"
         
-        let task = ORKOrderedTask(identifier: "task", steps: [myStep])
+        let step1 = ORK
+        step1.title = ""
+        
+        let task = ORKOrderedTask(identifier: "bedtime", steps: [step0, step1])
         
         let taskViewController = ORKTaskViewController(task: task, taskRun: nil)
         taskViewController.delegate = self

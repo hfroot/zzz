@@ -398,7 +398,7 @@
         <!--Bedtime View Controller-->
         <scene sceneID="pKs-z5-cTk">
             <objects>
-                <viewController id="LCg-Ex-J6A" userLabel="Bedtime View Controller" customClass="SurveyViewController" customModule="ZZZ" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LCg-Ex-J6A" userLabel="Bedtime View Controller" customClass="BedtimeViewController" customModule="ZZZ" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BOc-mQ-mRU"/>
                         <viewControllerLayoutGuide type="bottom" id="R2y-Ro-37s"/>

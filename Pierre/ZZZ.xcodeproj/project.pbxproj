@@ -17,7 +17,7 @@
 		8F95C1481E65B694009F58FA /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F95C1471E65B694009F58FA /* Device.swift */; };
 		8F95C1501E65EB5D009F58FA /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F95C14F1E65EB5D009F58FA /* MenuController.swift */; };
 		8FF303801E6EF96400BD97F3 /* RealmObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3037F1E6EF96400BD97F3 /* RealmObjectModel.swift */; };
-		8FF303821E6EFAA500BD97F3 /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF303811E6EFAA500BD97F3 /* SurveyViewController.swift */; };
+		8FF303821E6EFAA500BD97F3 /* BedtimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF303811E6EFAA500BD97F3 /* BedtimeViewController.swift */; };
 		8FF303DC1E6F069C00BD97F3 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF303D91E6F068300BD97F3 /* ResearchKit.framework */; };
 		8FF303DD1E6F069C00BD97F3 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF303D91E6F068300BD97F3 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F47029F61A7F27DB00E30A3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47029F51A7F27DB00E30A3C /* AppDelegate.swift */; };
@@ -86,7 +86,7 @@
 		8F95C1471E65B694009F58FA /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		8F95C14F1E65EB5D009F58FA /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		8FF3037F1E6EF96400BD97F3 /* RealmObjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmObjectModel.swift; sourceTree = "<group>"; };
-		8FF303811E6EFAA500BD97F3 /* SurveyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
+		8FF303811E6EFAA500BD97F3 /* BedtimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BedtimeViewController.swift; sourceTree = "<group>"; };
 		8FF303D21E6F068300BD97F3 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = ResearchKit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
 		F47029F01A7F27DB00E30A3C /* ZZZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZZZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47029F41A7F27DB00E30A3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -165,7 +165,7 @@
 		F47029F21A7F27DB00E30A3C /* ZZZ */ = {
 			isa = PBXGroup;
 			children = (
-				8FF303811E6EFAA500BD97F3 /* SurveyViewController.swift */,
+				8FF303811E6EFAA500BD97F3 /* BedtimeViewController.swift */,
 				8FF3037F1E6EF96400BD97F3 /* RealmObjectModel.swift */,
 				8F95C1471E65B694009F58FA /* Device.swift */,
 				8F95C14F1E65EB5D009F58FA /* MenuController.swift */,
@@ -348,7 +348,7 @@
 				8FF303801E6EF96400BD97F3 /* RealmObjectModel.swift in Sources */,
 				F47029F61A7F27DB00E30A3C /* AppDelegate.swift in Sources */,
 				F491E7551A7F7E010026528E /* SensorViewController.swift in Sources */,
-				8FF303821E6EFAA500BD97F3 /* SurveyViewController.swift in Sources */,
+				8FF303821E6EFAA500BD97F3 /* BedtimeViewController.swift in Sources */,
 				8F95C1481E65B694009F58FA /* Device.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
