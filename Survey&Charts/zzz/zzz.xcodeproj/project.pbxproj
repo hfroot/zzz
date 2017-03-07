@@ -16,7 +16,7 @@
 		8FF3043B1E6F202D00BD97F3 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF304371E6F202400BD97F3 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8FF304401E6F207600BD97F3 /* ConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3043F1E6F207600BD97F3 /* ConsentDocument.swift */; };
 		8FF304421E6F217900BD97F3 /* ConsentTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF304411E6F217900BD97F3 /* ConsentTask.swift */; };
-		8FF304461E6F26EC00BD97F3 /* SurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF304451E6F26EC00BD97F3 /* SurveyTask.swift */; };
+		8FF304461E6F26EC00BD97F3 /* BeforeBedSurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF304451E6F26EC00BD97F3 /* BeforeBedSurveyTask.swift */; };
 		8FF3044B1E6F2B7700BD97F3 /* Charts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FF304471E6F2B7700BD97F3 /* Charts.storyboard */; };
 		8FF3044C1E6F2B7700BD97F3 /* ChartDataSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF304481E6F2B7700BD97F3 /* ChartDataSources.swift */; };
 		8FF3044D1E6F2B7700BD97F3 /* ChartListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF304491E6F2B7700BD97F3 /* ChartListViewController.swift */; };
@@ -72,7 +72,7 @@
 		8FF304301E6F202400BD97F3 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = ../ResearchKit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
 		8FF3043F1E6F207600BD97F3 /* ConsentDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentDocument.swift; sourceTree = "<group>"; };
 		8FF304411E6F217900BD97F3 /* ConsentTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentTask.swift; sourceTree = "<group>"; };
-		8FF304451E6F26EC00BD97F3 /* SurveyTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyTask.swift; sourceTree = "<group>"; };
+		8FF304451E6F26EC00BD97F3 /* BeforeBedSurveyTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeforeBedSurveyTask.swift; sourceTree = "<group>"; };
 		8FF304471E6F2B7700BD97F3 /* Charts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Charts.storyboard; sourceTree = "<group>"; };
 		8FF304481E6F2B7700BD97F3 /* ChartDataSources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartDataSources.swift; sourceTree = "<group>"; };
 		8FF304491E6F2B7700BD97F3 /* ChartListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartListViewController.swift; sourceTree = "<group>"; };
@@ -111,19 +111,14 @@
 		8FF3041D1E6F1FF900BD97F3 /* zzz */ = {
 			isa = PBXGroup;
 			children = (
-				8FF304451E6F26EC00BD97F3 /* SurveyTask.swift */,
-				8FF304411E6F217900BD97F3 /* ConsentTask.swift */,
-				8FF3043F1E6F207600BD97F3 /* ConsentDocument.swift */,
 				8FF3041E1E6F1FF900BD97F3 /* AppDelegate.swift */,
 				8FF304201E6F1FF900BD97F3 /* ViewController.swift */,
+				8FF304521E6F419400BD97F3 /* Surveys */,
+				8FF304531E6F425800BD97F3 /* Charts */,
 				8FF304221E6F1FF900BD97F3 /* Main.storyboard */,
-				8FF304251E6F1FF900BD97F3 /* Assets.xcassets */,
 				8FF304271E6F1FF900BD97F3 /* LaunchScreen.storyboard */,
+				8FF304251E6F1FF900BD97F3 /* Assets.xcassets */,
 				8FF3042A1E6F1FF900BD97F3 /* Info.plist */,
-				8FF304471E6F2B7700BD97F3 /* Charts.storyboard */,
-				8FF304481E6F2B7700BD97F3 /* ChartDataSources.swift */,
-				8FF304491E6F2B7700BD97F3 /* ChartListViewController.swift */,
-				8FF3044A1E6F2B7700BD97F3 /* ChartTableViewCells.swift */,
 			);
 			path = zzz;
 			sourceTree = "<group>";
@@ -135,6 +130,27 @@
 				8FF304391E6F202400BD97F3 /* ResearchKitTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		8FF304521E6F419400BD97F3 /* Surveys */ = {
+			isa = PBXGroup;
+			children = (
+				8FF304451E6F26EC00BD97F3 /* BeforeBedSurveyTask.swift */,
+				8FF304411E6F217900BD97F3 /* ConsentTask.swift */,
+				8FF3043F1E6F207600BD97F3 /* ConsentDocument.swift */,
+			);
+			name = Surveys;
+			sourceTree = "<group>";
+		};
+		8FF304531E6F425800BD97F3 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				8FF304471E6F2B7700BD97F3 /* Charts.storyboard */,
+				8FF304481E6F2B7700BD97F3 /* ChartDataSources.swift */,
+				8FF304491E6F2B7700BD97F3 /* ChartListViewController.swift */,
+				8FF3044A1E6F2B7700BD97F3 /* ChartTableViewCells.swift */,
+			);
+			name = Charts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,7 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FF304461E6F26EC00BD97F3 /* SurveyTask.swift in Sources */,
+				8FF304461E6F26EC00BD97F3 /* BeforeBedSurveyTask.swift in Sources */,
 				8FF3044C1E6F2B7700BD97F3 /* ChartDataSources.swift in Sources */,
 				8FF3044D1E6F2B7700BD97F3 /* ChartListViewController.swift in Sources */,
 				8FF304211E6F1FF900BD97F3 /* ViewController.swift in Sources */,
@@ -412,6 +428,7 @@
 				8FF3042F1E6F1FF900BD97F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
