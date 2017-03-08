@@ -9,8 +9,40 @@
 import UIKit
 import RealmSwift
 
+<<<<<<< HEAD:SidebarMenu/ZZZ/AppDelegate.swift
 //let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
 let realm = try! Realm(/*configuration: config*/)
+=======
+final class User: Object {
+    dynamic var id = 0
+    dynamic var name = ""
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    
+    let sensorData = List<sensorDataObject>()
+}
+
+final class sensorDataObject: Object {
+    dynamic var sensorID = ""
+    dynamic var sensorTimestamp = Date()
+    dynamic var sensorTemp: Float = 0.0
+    dynamic var sensorHumi: Float = 0.0
+    dynamic var sensorLight: Float = 0.0
+    //dynamic var sensorNoise: Double = 0.0
+    dynamic var sensorAccX: Float = 0.0
+    dynamic var sensorAccY: Float = 0.0
+    dynamic var sensorAccZ: Float = 0.0
+    
+//    override static func primaryKey() -> String? {
+//        return "sensorTimestamp"
+//    }
+}
+
+let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
+let realm = try! Realm(configuration: config)
+>>>>>>> d016ada54c26bbd55f5bb26dc1c2b2921ff378cd:SidebarMenu/SidebarMenu/AppDelegate.swift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

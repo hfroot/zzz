@@ -42,7 +42,7 @@ struct Device {
     static let LightServiceUUID = "F000AA70-0451-4000-B000-000000000000"
     static let LightDataUUID = "F000AA71-0451-4000-B000-000000000000"
     static let LightConfig = "F000AA72-0451-4000-B000-000000000000"
-    
+
     static let SensorDataIndexTempInfrared = 0
     static let SensorDataIndexTempAmbient = 1
     static let SensorDataIndexHumidityTemp = 0

@@ -166,6 +166,7 @@ https://developer.ibm.com/recipes/tutorials/connect-a-cc2650-sensortag-to-the-io
 https://github.com/IBM-Bluemix/iot-sensor-tag
 
 This [blog post](http://anasimtiaz.com/?p=201) seems like a good place to start integrating the Sensor Tag into an iOS app with Swift. [Here is the repo](https://github.com/anasimtiaz/SwiftSensorTag) for the whole code in swift.
+Other sources found are (http://processors.wiki.ti.com/index.php/CC2650_SensorTag_User's_Guide) (http://processors.wiki.ti.com/index.php/CC2650_SensorTag_User's_Guide)
 
 ## Assessment
 

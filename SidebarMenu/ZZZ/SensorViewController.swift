@@ -18,6 +18,10 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
     @IBOutlet weak var statusLabel: UILabel?
     @IBOutlet weak var temperatureLabel: UILabel?
     @IBOutlet weak var humidityLabel: UILabel?
+    @IBOutlet weak var lightLabel: UILabel?
+    @IBOutlet weak var accXLabel: UILabel?
+    @IBOutlet weak var accYLabel: UILabel?
+    @IBOutlet weak var accZLabel: UILabel?
     @IBOutlet weak var disconnectButton: UIButton?
     
     // define scanning interval times
@@ -37,12 +41,13 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
     var sensorTag:CBPeripheral?
     var temperatureCharacteristic:CBCharacteristic?
     var humidityCharacteristic:CBCharacteristic?
+    var lightCharacteristic:CBCharacteristic?
+    var accCharacteristic:CBCharacteristic?
     
     // This could be simplified to "SensorTag" and check if it's a substring.
     // (Probably a good idea to do that if you're using a different model of
     // the SensorTag, or if you don't know what model it is...)
     let sensorTagName = "CC2650 SensorTag"
-    
     
     // Realm variables initialisation
     let currentUser = User()
@@ -50,7 +55,17 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
     var sampleTimestamp:String?
     var sampleTemp:Float?
     var sampleHumi:Float?
-
+    var sampleLight:Float?
+    var sampleAccX:Float?
+    var sampleAccY:Float?
+    var sampleAccZ:Float?
+    
+    //Definition of accel parameters
+    var ACC_RANGE_2G = 0
+    var ACC_RANGE_4G = 1
+    var ACC_RANGE_8G = 2
+    var ACC_RANGE_16G = 3
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,7 +80,7 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
 //            print("DELETED ALL OBJECTS IN REALM");
 //        }
         
-        currentUser.name = "Pierre"
+        currentUser.name = "Belen"
         
         // Create our CBCentral Manager
         // delegate: The delegate that will receive central role events. Typically self.
@@ -85,6 +100,10 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
         statusLabel?.text = "Searching"
         temperatureLabel?.text = "Temperature: N/A"
         humidityLabel?.text = "Humidity: N/A"
+        lightLabel?.text = "Light: N/A"
+        accXLabel?.text = "Acc X: N/A"
+        accYLabel?.text = "Acc Y: N/A"
+        accZLabel?.text = "Acc Z: N/A"
         disconnectButton?.setTitle("Connect SensorTag", for: .normal)
     }
 
@@ -115,6 +134,13 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
             if let hc = self.humidityCharacteristic {
                 sensorTag.setNotifyValue(false, for: hc)
             }
+            if let lc = self.lightCharacteristic {
+                sensorTag.setNotifyValue(false, for: lc)
+            }
+            
+            if let ac = self.accCharacteristic {
+                sensorTag.setNotifyValue(false, for: ac)
+            }
             
             /*
              NOTE: The cancelPeripheralConnection: method is nonblocking, and any CBPeripheral class commands
@@ -129,6 +155,8 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
         }
         temperatureCharacteristic = nil
         humidityCharacteristic = nil
+        lightCharacteristic = nil
+        accCharacteristic = nil
     }
     
     
@@ -180,11 +208,49 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
         
         let rawHumidity:UInt16 = dataArray[Device.SensorDataIndexHumidity]
         let calculatedHumidity = calculateRelativeHumidity(rawHumidity)
-        //print("*** HUMIDITY: \(calculatedHumidity)");
+//        print("*** HUMIDITY: \(calculatedHumidity)");
         
         humidityLabel?.text = String(format: "Humidity: %.01f%%", calculatedHumidity)
         sampleHumi = Float(calculatedHumidity)
     }
+    
+    func displayLight(_ data:Data) {
+        let dataLength = data.count / MemoryLayout<UInt16>.size
+        var dataArray = [UInt16](repeating: 0, count: dataLength)
+        (data as NSData).getBytes(&dataArray, length: dataLength * MemoryLayout<Int16>.size)
+        
+        let rawLight:UInt16 = dataArray[Device.SensorDataIndexLight]
+        let calculatedLight = calculateLightIntensity(rawLight)
+//        print("*** LIGHT: \(calculatedLight)");
+        
+        lightLabel?.text = String(format: "Light: %.01f% lx", calculatedLight)
+        sampleLight = Float(calculatedLight)
+    }
+    
+    func displayAcc(_ data:Data) {
+        let dataLength = data.count / MemoryLayout<UInt16>.size
+        var dataArray = [UInt16](repeating: 0, count: dataLength)
+        (data as NSData).getBytes(&dataArray, length: dataLength * MemoryLayout<Int16>.size)
+        
+        let rawAccX:UInt16 = dataArray[Device.SensorDataIndexAccX]
+        //let AccX = (rawAccX & 0x0020) >> 5
+        let rawAccY:UInt16 = dataArray[Device.SensorDataIndexAccY]
+        //let AccY = (rawAccY & 0x0010) >> 4
+        let rawAccZ:UInt16 = dataArray[Device.SensorDataIndexAccZ]
+        //let AccZ = (rawAccZ & 0x0008) >> 3
+        
+//        let calculatedAccX = calculateAcc(AccX)
+//        let calculatedAccY = calculateAcc(AccY)
+//        let calculatedAccZ = calculateAcc(AccZ)
+        
+        accXLabel?.text = String(format: "Acc X: %.01f%", rawAccX)
+        accYLabel?.text = String(format: "Acc Y: %.01f%", rawAccY)
+        accZLabel?.text = String(format: "Acc Z: %.01f%", rawAccZ)
+        sampleAccX = Float(rawAccX)
+        sampleAccY = Float(rawAccY)
+        sampleAccZ = Float(rawAccZ)
+    }
+    
     
     // MARK: - CBCentralManagerDelegate methods
     
@@ -317,6 +383,10 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
         statusLabel?.text = "Tap to search"
         temperatureLabel?.text = "Temperature: N/A"
         humidityLabel?.text = "Humidity: N/A"
+        lightLabel?.text = "Light: N/A"
+        accXLabel?.text = "Acc X: N/A"
+        accYLabel?.text = "Acc Y: N/A"
+        accZLabel?.text = "Acc Z: N/A"
         disconnectButton?.setTitle("Connect SensorTag", for: .normal)
         if error != nil {
             print("****** DISCONNECTION DETAILS: \(error!.localizedDescription)")
@@ -347,11 +417,14 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
         // Core Bluetooth creates an array of CBService objects —- one for each service that is discovered on the peripheral.
         if let services = peripheral.services {
             for service in services {
-                // print("Discovered service \(service)")
-                // If we found either the temperature or the humidity service, discover the characteristics for those services.
+                //print("Discovered service \(service)")
+                // If we found either the temperature, the humidity, light intensity or service, discover the characteristics for those services.
                 if (service.uuid == CBUUID(string: Device.TemperatureServiceUUID)) ||
-                    (service.uuid == CBUUID(string: Device.HumidityServiceUUID)) {
-                    peripheral.discoverCharacteristics(nil, for: service)
+                    (service.uuid == CBUUID(string: Device.HumidityServiceUUID)) ||
+                    (service.uuid == CBUUID(string: Device.LightServiceUUID)) ||
+                    (service.uuid == CBUUID(string: Device.AccServiceUUID)) {
+                        print(service.uuid)
+                        peripheral.discoverCharacteristics(nil, for: service)
                 }
             }
         }
@@ -377,10 +450,12 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
             
             let enableValue:UInt8 = 1
             let enableBytes = Data(bytes: [enableValue])
-//            let periodValue:UInt8 = 255
-//            let periodBytes = Data(bytes: [periodValue])
+            let accEnableValue:UInt8 = 56 //bits 3,4,5
+            let accEnableBytes = Data(bytes: [accEnableValue])
             
             for characteristic in characteristics {
+                
+                print(characteristic.uuid)
                 
                 // Temperature Data Characteristic
                 if characteristic.uuid == CBUUID(string: Device.TemperatureDataUUID) {
@@ -395,12 +470,6 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
                     sensorTag?.writeValue(enableBytes, for: characteristic, type: .withResponse)
                 }
                 
-//                // Temperature Period Characteristic
-//                if characteristic.uuid == CBUUID(string: Device.TemperaturePeriod) {
-//                    // Set Temperature Period
-//                    sensorTag?.writeValue(periodBytes, for: characteristic, type: .withResponse)
-//                }
-                
                 // Humidity Data Characteristic
                 if characteristic.uuid == CBUUID(string: Device.HumidityDataUUID) {
                     // Enable Humidity Sensor notifications
@@ -414,11 +483,31 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
                     sensorTag?.writeValue(enableBytes, for: characteristic, type: .withResponse)
                 }
                 
-//                // Humidity Period Characteristic
-//                if characteristic.uuid == CBUUID(string: Device.HumidityPeriod) {
-//                    // Set Humidity Period
-//                    sensorTag?.writeValue(periodBytes, for: characteristic, type: .withResponse)
-//                }
+                // Light Data Characteristic
+                if characteristic.uuid == CBUUID(string: Device.LightDataUUID) {
+                    // Enable Light Sensor notifications
+                    lightCharacteristic = characteristic
+                    sensorTag?.setNotifyValue(true, for: characteristic)
+                }
+                
+                // Light Configuration Characteristic
+                if characteristic.uuid == CBUUID(string: Device.LightConfig) {
+                    // Enable Light Sensor
+                    sensorTag?.writeValue(enableBytes, for: characteristic, type: .withResponse)
+                }
+                
+                // Acc Data Characteristic
+                if characteristic.uuid == CBUUID(string: Device.AccDataUUID) {
+                    // Enable Acc Sensor notifications
+                    sensorTag?.setNotifyValue(true, for: characteristic)
+                }
+                
+                // Acc Configuration Characteristic
+                // need to enable each accelerometer axis individually
+                if characteristic.uuid == CBUUID(string: Device.AccConfig) {
+                    // Enable Acc Sensor
+                    sensorTag?.writeValue(accEnableBytes, for: characteristic, type: .withResponse)
+                }
             }
         }
     }
@@ -442,13 +531,23 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
         }
         
         // extract the data from the characteristic's value property and display the value based on the characteristic type
+        
+        let accEnableValue:UInt8 = 56 //bits 3,4,5
+        let accEnableBytes = Data(bytes: [accEnableValue])
+        
         if let dataBytes = characteristic.value {
+            print(characteristic.uuid)
             if characteristic.uuid == CBUUID(string: Device.TemperatureDataUUID) {
                 displayTemperature(dataBytes)
             } else if characteristic.uuid == CBUUID(string: Device.HumidityDataUUID) {
                 displayHumidity(dataBytes)
+            } else if characteristic.uuid == CBUUID(string: Device.LightDataUUID) {
+                displayLight(dataBytes)
+            } else if characteristic.uuid == CBUUID(string: Device.AccDataUUID) {
+                displayAcc(dataBytes)
             }
             
+
             // Save timestamp just after reading data, then save sensorDataObject in Realm database
             
             if (sampleCounter == countMax){
@@ -479,12 +578,44 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
         return relativeHumidity
     }
     
+    func calculateLightIntensity(_ rawL:UInt16) -> Double {
+        let m = rawL & 0x0FFF
+        let e = (rawL & 0xF000) >> 12
+        let LightIntensity:Double = Double(m) * (0.01 * pow(2.0, Double(e)))
+        return LightIntensity
+    }
+    
+    func calculateAcc(_ rawAcc:UInt16) -> Double{
+        let calculatedAcc:Double = (Double(rawAcc) * 1.0) / (32768/2);
+        return calculatedAcc
+//        switch (accrange)
+//        {
+//        case ACC_RANGE_2G:
+//            v = (Double(rawAcc) * 1.0) / (32768/2);
+//        case ACC_RANGE_4G:
+//            v = (Double(rawAcc) * 1.0) / (32768/4);
+//        case ACC_RANGE_8G:
+//            v = (Double(rawAcc) * 1.0) / (32768/8);
+//        case ACC_RANGE_16G:
+//            v = (Double(rawAcc) * 1.0) / (32768/16);
+//        default:
+//            v = (Double(rawAcc) * 1.0) / (32768/2);
+//        }
+    }
+    
     // MARK: - Realm Functions
     
     func saveSample(){
-        if (sampleTemp != nil && sampleHumi != nil && sensorTag != nil)  {
+        if (sampleTemp != nil && sampleHumi != nil && sensorTag != nil && sampleLight != nil && sampleAccX != nil && sampleAccY != nil && sampleAccZ != nil )  {
             try! realm.write {
-                let newData = sensorDataObject(value: ["sensorID": sensorTag!.identifier.uuidString, "sensorTemp": sampleTemp!, "sensorHumi": sampleHumi!, "sensorTimestamp": sampleTimestamp!])
+                let newData = sensorDataObject(value: ["sensorID": sensorTag!.identifier.uuidString,
+                                                       "sensorTemp": sampleTemp!,
+                                                       "sensorHumi": sampleHumi!,
+                                                       "sensorTimestamp": sampleTimestamp!,
+                                                       "sensorLight":sampleLight!,
+                                                       "sensorAccX":sampleAccX!,
+                                                       "sensorAccY":sampleAccY!,
+                                                       "sensorAccZ":sampleAccZ!])
                 currentUser.sensorData.append(newData)
                 realm.add(currentUser, update: true)
                 print("Added object to database: \(newData)")
