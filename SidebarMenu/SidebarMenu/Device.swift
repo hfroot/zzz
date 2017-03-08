@@ -11,7 +11,7 @@ import Foundation
 
 //------------------------------------------------------------------------
 // Information about Texas Instruments SensorTag UUIDs can be found at:
-// http://processors.wiki.ti.com/index.php/SensorTag_User_Guide#Sensors
+// http://processors.wiki.ti.com/index.php/CC2650_SensorTag_User's_Guide
 //------------------------------------------------------------------------
 // From the TI documentation:
 //  The TI Base 128-bit UUID is: F0000000-0451-4000-B000-000000000000.
@@ -37,9 +37,21 @@ struct Device {
     static let HumidityServiceUUID = "F000AA20-0451-4000-B000-000000000000"
     static let HumidityDataUUID = "F000AA21-0451-4000-B000-000000000000"
     static let HumidityConfig = "F000AA22-0451-4000-B000-000000000000"
+    
+    static let AccServiceUUID = "F000AA80-0451-4000-B000-000000000000"
+    static let AccDataUUID = "F000AA81-0451-4000-B000-000000000000"
+    static let AccConfig = "F000AA82-0451-4000-B000-000000000000"
+    
+    static let LightServiceUUID = "F000AA70-0451-4000-B000-000000000000"
+    static let LightDataUUID = "F000AA71-0451-4000-B000-000000000000"
+    static let LightConfig = "F000AA72-0451-4000-B000-000000000000"
 
     static let SensorDataIndexTempInfrared = 0
     static let SensorDataIndexTempAmbient = 1
     static let SensorDataIndexHumidityTemp = 0
     static let SensorDataIndexHumidity = 1
+    static let SensorDataIndexLight = 0
+    static let SensorDataIndexAccX = 0
+    static let SensorDataIndexAccY = 0
+    static let SensorDataIndexAccZ = 0
 }
