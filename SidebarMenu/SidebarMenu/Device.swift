@@ -51,7 +51,8 @@ struct Device {
     static let SensorDataIndexHumidityTemp = 0
     static let SensorDataIndexHumidity = 1
     static let SensorDataIndexLight = 0
-    static let SensorDataIndexAccX = 0
-    static let SensorDataIndexAccY = 0
-    static let SensorDataIndexAccZ = 0
+    static let SensorDataIndexAccX = 3
+    static let SensorDataIndexAccY = 4
+    static let SensorDataIndexAccZ = 5
+    
 }

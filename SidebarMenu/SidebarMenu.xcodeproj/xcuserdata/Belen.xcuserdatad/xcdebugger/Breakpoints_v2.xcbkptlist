@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SidebarMenu/SensorViewController.swift"
-            timestampString = "510595632.042802"
+            timestampString = "510768257.811638"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "251"
-            endingLineNumber = "251"
-            landmarkName = "displayAcc(_:)"
+            startingLineNumber = "593"
+            endingLineNumber = "593"
+            landmarkName = "calculateAcc(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
