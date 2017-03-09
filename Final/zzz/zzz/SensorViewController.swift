@@ -69,7 +69,7 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        currentUser.name = "Belen"
+        currentUser.firstName = "Belen"
         
         // Create our CBCentral Manager
         // delegate: The delegate that will receive central role events. Typically self.

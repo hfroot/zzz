@@ -12,8 +12,11 @@ import RealmSwift
 import RealmSwift
 
 final class User: Object {
-    dynamic var id = 0
-    dynamic var name = ""
+    dynamic var id: Int = 0
+    dynamic var firstName: String = ""
+    dynamic var lastName: String = ""
+    dynamic var email: String = ""
+    dynamic var password: String = ""
     
     override static func primaryKey() -> String? {
         return "id"
@@ -36,6 +39,26 @@ final class sensorDataObject: Object {
     //    override static func primaryKey() -> String? {
     //        return "sensorTimestamp"
     //    }
+}
+
+final class surveyDataObject: Object {
+    dynamic var surveyTimestamp = Date()
+    // Before bed survey
+    dynamic var ExerciseQuestionStep: String = ""
+    dynamic var DinnerQuestionStep: String = ""
+    dynamic var SexQuestionStep: String = ""
+    dynamic var StimulantsQuestionStep: String = ""
+    dynamic var NakedQuestionStep: String = ""
+    dynamic var WaterQuestionStep: String = ""
+    dynamic var NightDeviceQuestionStep: String = ""
+    dynamic var NightTiredQuestionStep: String = ""
+    // After bed survey
+    dynamic var WakeLightQuestionStep: String = ""
+    dynamic var ToiletQuestionStep: String = ""
+    dynamic var NightLightQuestionStep: String = ""
+    dynamic var WakeDeviceQuestionStep: String = ""
+    dynamic var WakeTiredQuestionStep: String = ""
+    dynamic var WakeSleepQuestionStep: String = ""
 }
 
 //let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)

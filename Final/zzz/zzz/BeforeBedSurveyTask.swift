@@ -71,18 +71,18 @@ public var BeforeBedSurveyTask: ORKOrderedTask {
     steps += [waterQuestionStep]
     
     // Do you leave electronic devices turned on in your bedroom at night?
-    let devicesAnswerFormat = ORKBooleanAnswerFormat()
-    let devicesQuestionStepTitle = "Do you leave electronic devices turned on in your bedroom at night?"
-    let devicesQuestionStep = ORKQuestionStep(identifier: "DevicesQuestionStep", title: devicesQuestionStepTitle, answer: devicesAnswerFormat)
+    let nightDeviceAnswerFormat = ORKBooleanAnswerFormat()
+    let nightDeviceQuestionStepTitle = "Do you leave electronic devices turned on in your bedroom at night?"
+    let nightDeviceQuestionStep = ORKQuestionStep(identifier: "NightDeviceQuestionStep", title: nightDeviceQuestionStepTitle, answer: nightDeviceAnswerFormat)
     
-    steps += [devicesQuestionStep]
+    steps += [nightDeviceQuestionStep]
     
     // Do you feel tired tonight?
-    let tiredAnswerFormat = ORKBooleanAnswerFormat()
-    let tiredQuestionStepTitle = "Do you feel tired tonight?"
-    let tiredQuestionStep = ORKQuestionStep(identifier: "TiredQuestionStep", title: tiredQuestionStepTitle, answer: tiredAnswerFormat)
+    let nightTiredAnswerFormat = ORKBooleanAnswerFormat()
+    let nightTiredQuestionStepTitle = "Do you feel tired tonight?"
+    let nightTiredQuestionStep = ORKQuestionStep(identifier: "NightTiredQuestionStep", title: nightTiredQuestionStepTitle, answer: nightTiredAnswerFormat)
     
-    steps += [tiredQuestionStep]
+    steps += [nightTiredQuestionStep]
     
     // Summary 
     let summaryStep = ORKCompletionStep(identifier: "SummaryStep")

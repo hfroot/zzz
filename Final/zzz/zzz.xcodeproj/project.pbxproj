@@ -30,6 +30,7 @@
 		8FF304641E7035D600BD97F3 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF304601E7035D600BD97F3 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8FF304671E703BC800BD97F3 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF304661E703BC800BD97F3 /* Device.swift */; };
 		8FF304691E703C1C00BD97F3 /* SensorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF304681E703C1C00BD97F3 /* SensorViewController.swift */; };
+		8FF304741E70647000BD97F3 /* ORKESerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF304731E70647000BD97F3 /* ORKESerialization.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,9 @@
 		8FF304601E7035D600BD97F3 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		8FF304661E703BC800BD97F3 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		8FF304681E703C1C00BD97F3 /* SensorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorViewController.swift; sourceTree = "<group>"; };
+		8FF3046F1E70646F00BD97F3 /* zzz-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "zzz-Bridging-Header.h"; sourceTree = "<group>"; };
+		8FF304721E70647000BD97F3 /* ORKESerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORKESerialization.h; sourceTree = "<group>"; };
+		8FF304731E70647000BD97F3 /* ORKESerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORKESerialization.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,7 @@
 			children = (
 				8FF304651E703BB300BD97F3 /* SensorTag */,
 				8FF3041E1E6F1FF900BD97F3 /* AppDelegate.swift */,
+				8FF304751E70649900BD97F3 /* ORKESerialization */,
 				8FF304201E6F1FF900BD97F3 /* ViewController.swift */,
 				8FF304221E6F1FF900BD97F3 /* Main.storyboard */,
 				8FF304271E6F1FF900BD97F3 /* LaunchScreen.storyboard */,
@@ -196,6 +201,16 @@
 			name = SensorTag;
 			sourceTree = "<group>";
 		};
+		8FF304751E70649900BD97F3 /* ORKESerialization */ = {
+			isa = PBXGroup;
+			children = (
+				8FF304721E70647000BD97F3 /* ORKESerialization.h */,
+				8FF304731E70647000BD97F3 /* ORKESerialization.m */,
+				8FF3046F1E70646F00BD97F3 /* zzz-Bridging-Header.h */,
+			);
+			name = ORKESerialization;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -230,6 +245,7 @@
 				TargetAttributes = {
 					8FF3041A1E6F1FF900BD97F3 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -307,6 +323,7 @@
 				8FF304421E6F217900BD97F3 /* ConsentTask.swift in Sources */,
 				8FF304401E6F207600BD97F3 /* ConsentDocument.swift in Sources */,
 				8FF3041F1E6F1FF900BD97F3 /* AppDelegate.swift in Sources */,
+				8FF304741E70647000BD97F3 /* ORKESerialization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +453,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -444,6 +462,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pva.zzz.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "zzz/zzz-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -453,6 +473,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -461,6 +482,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pva.zzz.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "zzz/zzz-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
