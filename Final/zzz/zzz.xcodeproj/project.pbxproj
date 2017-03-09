@@ -31,6 +31,9 @@
 		8FF304671E703BC800BD97F3 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF304661E703BC800BD97F3 /* Device.swift */; };
 		8FF304691E703C1C00BD97F3 /* SensorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF304681E703C1C00BD97F3 /* SensorViewController.swift */; };
 		8FF304741E70647000BD97F3 /* ORKESerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF304731E70647000BD97F3 /* ORKESerialization.m */; };
+		97E9679D1E71E4A8009D1B43 /* recommendations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9679B1E71E4A8009D1B43 /* recommendations.swift */; };
+		97E9679E1E71E4A8009D1B43 /* suggestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9679C1E71E4A8009D1B43 /* suggestions.swift */; };
+		97E967A01E71E8F9009D1B43 /* AdviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9679F1E71E8F9009D1B43 /* AdviceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +102,9 @@
 		8FF3046F1E70646F00BD97F3 /* zzz-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "zzz-Bridging-Header.h"; sourceTree = "<group>"; };
 		8FF304721E70647000BD97F3 /* ORKESerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORKESerialization.h; sourceTree = "<group>"; };
 		8FF304731E70647000BD97F3 /* ORKESerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORKESerialization.m; sourceTree = "<group>"; };
+		97E9679B1E71E4A8009D1B43 /* recommendations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recommendations.swift; sourceTree = "<group>"; };
+		97E9679C1E71E4A8009D1B43 /* suggestions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = suggestions.swift; sourceTree = "<group>"; };
+		97E9679F1E71E8F9009D1B43 /* AdviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdviceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +143,7 @@
 		8FF3041D1E6F1FF900BD97F3 /* zzz */ = {
 			isa = PBXGroup;
 			children = (
+				97E967981E71E448009D1B43 /* Suggestions */,
 				8FF304651E703BB300BD97F3 /* SensorTag */,
 				8FF3041E1E6F1FF900BD97F3 /* AppDelegate.swift */,
 				8FF304751E70649900BD97F3 /* ORKESerialization */,
@@ -209,6 +216,16 @@
 				8FF3046F1E70646F00BD97F3 /* zzz-Bridging-Header.h */,
 			);
 			name = ORKESerialization;
+			sourceTree = "<group>";
+		};
+		97E967981E71E448009D1B43 /* Suggestions */ = {
+			isa = PBXGroup;
+			children = (
+				97E9679F1E71E8F9009D1B43 /* AdviceViewController.swift */,
+				97E9679B1E71E4A8009D1B43 /* recommendations.swift */,
+				97E9679C1E71E4A8009D1B43 /* suggestions.swift */,
+			);
+			name = Suggestions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,11 +333,14 @@
 				8FF3044D1E6F2B7700BD97F3 /* ChartListViewController.swift in Sources */,
 				8FF304671E703BC800BD97F3 /* Device.swift in Sources */,
 				8FF304211E6F1FF900BD97F3 /* ViewController.swift in Sources */,
+				97E9679D1E71E4A8009D1B43 /* recommendations.swift in Sources */,
+				97E9679E1E71E4A8009D1B43 /* suggestions.swift in Sources */,
 				8FF3044E1E6F2B7700BD97F3 /* ChartTableViewCells.swift in Sources */,
 				8FF304571E7028E800BD97F3 /* AfterBedSurveyTask.swift in Sources */,
 				8FF3045E1E7031C100BD97F3 /* DatabaseModel.swift in Sources */,
 				8FF304551E701D4C00BD97F3 /* RegistrationTask.swift in Sources */,
 				8FF304421E6F217900BD97F3 /* ConsentTask.swift in Sources */,
+				97E967A01E71E8F9009D1B43 /* AdviceViewController.swift in Sources */,
 				8FF304401E6F207600BD97F3 /* ConsentDocument.swift in Sources */,
 				8FF3041F1E6F1FF900BD97F3 /* AppDelegate.swift in Sources */,
 				8FF304741E70647000BD97F3 /* ORKESerialization.m in Sources */,

@@ -40,6 +40,11 @@ class ViewController: UIViewController {
         present(chartsViewController, animated: true, completion: nil)
     }
     
+    @IBAction func adviceTapped(_ sender: UIButton) {
+        let adviceViewController = AdviceViewController()
+        present(adviceViewController, animated: true, completion:nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
