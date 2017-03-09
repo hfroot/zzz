@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="zzz" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="miD-lu-NyQ">
+                                <rect key="frame" x="87.5" y="435" width="200" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="Morning survey"/>
+                                <connections>
+                                    <action selector="afterBedSurveyTappedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EgW-6e-4gm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mAe-Vh-91M" userLabel="Bedtime survey">
+                                <rect key="frame" x="87.5" y="365" width="200" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="Bedtime survey"/>
+                                <connections>
+                                    <action selector="beforeBedSurveyTappedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="shp-9y-sFm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPL-RB-cYS">
+                                <rect key="frame" x="87.5" y="295" width="200" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="J9c-UZ-tgo"/>
+                                    <constraint firstAttribute="width" constant="200" id="eQI-sp-BEN"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="sDG-z3-yvS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="Register"/>
+                                <connections>
+                                    <action selector="registerTappedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jIg-jy-oYg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CrE-wj-oI2">
+                                <rect key="frame" x="87.5" y="505" width="200" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="Charts"/>
+                                <connections>
+                                    <action selector="chartsTappedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vco-0i-Ydd"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="185" image="zzz-logo" translatesAutoresizingMaskIntoConstraints="NO" id="xLc-Jl-O9H">
+                                <rect key="frame" x="0.5" y="60" width="375" height="185"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="M7V-jm-8Zr"/>
+                                    <constraint firstAttribute="height" constant="185" id="OdA-06-MVl"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="CrE-wj-oI2" firstAttribute="top" secondItem="miD-lu-NyQ" secondAttribute="bottom" constant="25" id="4Cu-MV-g0a"/>
+                            <constraint firstItem="CrE-wj-oI2" firstAttribute="centerX" secondItem="xLc-Jl-O9H" secondAttribute="centerX" id="5dq-nd-crc"/>
+                            <constraint firstItem="HPL-RB-cYS" firstAttribute="top" secondItem="xLc-Jl-O9H" secondAttribute="bottom" constant="50" id="9ff-eb-ExX"/>
+                            <constraint firstItem="mAe-Vh-91M" firstAttribute="centerX" secondItem="xLc-Jl-O9H" secondAttribute="centerX" id="APg-57-2DI"/>
+                            <constraint firstItem="miD-lu-NyQ" firstAttribute="top" secondItem="mAe-Vh-91M" secondAttribute="bottom" constant="25" id="F5W-yy-evJ"/>
+                            <constraint firstItem="CrE-wj-oI2" firstAttribute="width" secondItem="HPL-RB-cYS" secondAttribute="width" id="LNn-Tf-Pbw"/>
+                            <constraint firstItem="mAe-Vh-91M" firstAttribute="top" secondItem="HPL-RB-cYS" secondAttribute="bottom" constant="25" id="cJn-QK-d6E"/>
+                            <constraint firstItem="mAe-Vh-91M" firstAttribute="width" secondItem="HPL-RB-cYS" secondAttribute="width" id="jy5-Hx-5tS"/>
+                            <constraint firstItem="miD-lu-NyQ" firstAttribute="centerX" secondItem="xLc-Jl-O9H" secondAttribute="centerX" id="lOZ-tx-uf3"/>
+                            <constraint firstItem="HPL-RB-cYS" firstAttribute="centerX" secondItem="xLc-Jl-O9H" secondAttribute="centerX" id="mo5-HI-Cfh"/>
+                            <constraint firstItem="CrE-wj-oI2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qti-QL-DKE"/>
+                            <constraint firstItem="xLc-Jl-O9H" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="rwy-ce-vAK"/>
+                            <constraint firstItem="miD-lu-NyQ" firstAttribute="width" secondItem="HPL-RB-cYS" secondAttribute="width" id="zPR-UL-x2o"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="view" destination="8bC-Xf-vdC" id="905-kw-ar1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53.600000000000001" y="38.23088455772114"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="zzz-logo" width="867" height="882"/>
+    </resources>
+</document>
