@@ -24,3 +24,32 @@ public var RegistrationTask: ORKTask {
     
     return ORKOrderedTask(identifier: "RegistrationTask", steps: steps)
 }
+
+//class RegisterViewController: UIViewController {
+//    
+//    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        let registerTaskViewController = ORKTaskViewController(task: RegistrationTask, taskRun: nil)
+//        registerTaskViewController.delegate = self
+//        present(registerTaskViewController, animated: true, completion: nil)
+//
+//    }
+//    
+//    override func didReceiveMemoryWarning() {
+//        super.didReceiveMemoryWarning()
+//        // Dispose of any resources that can be recreated.
+//    }
+//    
+//}
+//
+//extension RegisterViewController : ORKTaskViewControllerDelegate {
+//    
+//    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason:ORKTaskViewControllerFinishReason, error: Error?) {
+//        
+//        taskViewController.dismiss(animated: true, completion: nil)
+//    }
+//
+//}
+

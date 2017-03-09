@@ -90,5 +90,8 @@ public var BeforeBedSurveyTask: ORKOrderedTask {
     summaryStep.text = "Sleep well :)"
     steps += [summaryStep]
     
+    // Custom task for sensortag data recording
+    // Insert code here...
+    
     return ORKOrderedTask(identifier: "BeforeBedSurveyTask", steps: steps)
 }
