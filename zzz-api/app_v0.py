@@ -9,11 +9,11 @@ auth = HTTPBasicAuth()
 
 input = {}
 
-@auth.get_password
-def get_password(username):
-	if username == 'zzz':
-		return 'goodnight!'
-	return None
+#@auth.get_password
+#def get_password(username):
+#	if username == 'zzz':
+#		return 'goodnight!'
+#	return None
 
 @auth.error_handler
 def unauthorized():

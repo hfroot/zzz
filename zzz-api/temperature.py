@@ -1,5 +1,6 @@
 from sklearn import svm
 import numpy as np
+
 def svm_temp(input):
     
     new_temp_mean = input["temp_mean"]
@@ -30,5 +31,6 @@ def svm_temp(input):
     #print(clf.predict([18.3,19.76]))
     #print(clf.predict([23.6, 24.2]))
     #print(clf.predict([17, 18]))
+     
     return clf.predict(new_score)
     
