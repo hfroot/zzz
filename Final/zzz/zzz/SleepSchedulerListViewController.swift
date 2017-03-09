@@ -24,6 +24,8 @@ class SleepSchedulerListViewController: UITableViewController {
         self.view.layoutIfNeeded()
     }
     
+
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         var cell = tableView.dequeueReusableCell(withIdentifier: Id.settingIdentifier)

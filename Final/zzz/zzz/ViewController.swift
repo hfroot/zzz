@@ -54,8 +54,10 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    @IBAction func unwindFromSleepScheduler(segue: UIStoryboardSegue) {
+        print("Unwind from Sleep Scheduler to Main View Controller")
+    }
 }
 
 extension ViewController : ORKTaskViewControllerDelegate {
