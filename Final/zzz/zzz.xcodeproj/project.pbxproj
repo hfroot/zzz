@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		799B15B81E7209D000B0DF2D /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799B15B71E7209D000B0DF2D /* Identifier.swift */; };
+		79D5B4C31E7184110005F148 /* SleepScheduler.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79D5B4C21E7184110005F148 /* SleepScheduler.storyboard */; };
+		79D5B4C71E7184BC0005F148 /* SleepSchedulerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D5B4C61E7184BC0005F148 /* SleepSchedulerListViewController.swift */; };
+		79D5B4C91E7189910005F148 /* ScheduleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D5B4C81E7189910005F148 /* ScheduleModel.swift */; };
 		8FF3041F1E6F1FF900BD97F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3041E1E6F1FF900BD97F3 /* AppDelegate.swift */; };
 		8FF304211E6F1FF900BD97F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF304201E6F1FF900BD97F3 /* ViewController.swift */; };
 		8FF304241E6F1FF900BD97F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FF304221E6F1FF900BD97F3 /* Main.storyboard */; };
@@ -74,6 +78,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		799B15B71E7209D000B0DF2D /* Identifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Identifier.swift; path = ../../../zzz/Identifier.swift; sourceTree = "<group>"; };
+		79D5B4C21E7184110005F148 /* SleepScheduler.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SleepScheduler.storyboard; sourceTree = "<group>"; };
+		79D5B4C61E7184BC0005F148 /* SleepSchedulerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepSchedulerListViewController.swift; sourceTree = "<group>"; };
+		79D5B4C81E7189910005F148 /* ScheduleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleModel.swift; sourceTree = "<group>"; };
 		8FF3041B1E6F1FF900BD97F3 /* zzz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zzz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FF3041E1E6F1FF900BD97F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FF304201E6F1FF900BD97F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +123,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		79D5B4BF1E7182A40005F148 /* SleepScheduler */ = {
+			isa = PBXGroup;
+			children = (
+				799B15B71E7209D000B0DF2D /* Identifier.swift */,
+				79D5B4C21E7184110005F148 /* SleepScheduler.storyboard */,
+				79D5B4C61E7184BC0005F148 /* SleepSchedulerListViewController.swift */,
+				79D5B4C81E7189910005F148 /* ScheduleModel.swift */,
+			);
+			name = SleepScheduler;
+			sourceTree = "<group>";
+		};
 		8FF304121E6F1FF900BD97F3 = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +156,7 @@
 		8FF3041D1E6F1FF900BD97F3 /* zzz */ = {
 			isa = PBXGroup;
 			children = (
+				79D5B4BF1E7182A40005F148 /* SleepScheduler */,
 				8FF304651E703BB300BD97F3 /* SensorTag */,
 				8FF3041E1E6F1FF900BD97F3 /* AppDelegate.swift */,
 				8FF304751E70649900BD97F3 /* ORKESerialization */,
@@ -296,6 +316,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79D5B4C31E7184110005F148 /* SleepScheduler.storyboard in Resources */,
 				8FF304291E6F1FF900BD97F3 /* LaunchScreen.storyboard in Resources */,
 				8FF3044B1E6F2B7700BD97F3 /* Charts.storyboard in Resources */,
 				8FF304261E6F1FF900BD97F3 /* Assets.xcassets in Resources */,
@@ -314,6 +335,7 @@
 				8FF304461E6F26EC00BD97F3 /* BeforeBedSurveyTask.swift in Sources */,
 				8FF3044C1E6F2B7700BD97F3 /* ChartDataSources.swift in Sources */,
 				8FF3044D1E6F2B7700BD97F3 /* ChartListViewController.swift in Sources */,
+				79D5B4C71E7184BC0005F148 /* SleepSchedulerListViewController.swift in Sources */,
 				8FF304671E703BC800BD97F3 /* Device.swift in Sources */,
 				8FF304211E6F1FF900BD97F3 /* ViewController.swift in Sources */,
 				8FF3044E1E6F2B7700BD97F3 /* ChartTableViewCells.swift in Sources */,
@@ -321,7 +343,9 @@
 				8FF3045E1E7031C100BD97F3 /* DatabaseModel.swift in Sources */,
 				8FF304551E701D4C00BD97F3 /* RegistrationTask.swift in Sources */,
 				8FF304421E6F217900BD97F3 /* ConsentTask.swift in Sources */,
+				79D5B4C91E7189910005F148 /* ScheduleModel.swift in Sources */,
 				8FF304401E6F207600BD97F3 /* ConsentDocument.swift in Sources */,
+				799B15B81E7209D000B0DF2D /* Identifier.swift in Sources */,
 				8FF3041F1E6F1FF900BD97F3 /* AppDelegate.swift in Sources */,
 				8FF304741E70647000BD97F3 /* ORKESerialization.m in Sources */,
 			);
