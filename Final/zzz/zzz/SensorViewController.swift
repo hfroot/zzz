@@ -29,10 +29,6 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
     let timerPauseInterval:TimeInterval = 10.0
     let timerScanInterval:TimeInterval = 2.0
     
-    // counter to save 1 out of 3 samples
-    var sampleCounter = 0
-    let countMax = 3
-    
     // UI-related
     var keepScanning = false
     //var isScanning = false
@@ -70,11 +66,6 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //        try! realm.write {
-        //            realm.deleteAll()
-        //            print("DELETED ALL OBJECTS IN REALM");
-        //        }
         
         // Create our CBCentral Manager
         // delegate: The delegate that will receive central role events. Typically self.
@@ -544,35 +535,32 @@ class SensorViewController: UIViewController, CBCentralManagerDelegate, CBPeriph
             }
             
             // Save timestamp just after reading data, then save sensorDataObject in Realm database
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
+            sampleTimestamp = formatter.string(from: Date())
             
-            if (sampleCounter == countMax){
-                
-                let formatter = DateFormatter()
-                formatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
-                sampleTimestamp = formatter.string(from: Date())
-                
-                if (sampleTemp != nil && sampleHumi != nil && sensorTag != nil && sampleLight != nil && sampleAccX != nil && sampleAccY != nil && sampleAccZ != nil && sampleTimestamp != lastTimestamp)  {
-                
-                    saveSample(sampleTemp:sampleTemp!,
-                               sampleHumi:sampleHumi!,
-                               sensorTag:sensorTag!.identifier.uuidString,
-                               sampleLight:sampleLight!,
-                               sampleAccX:sampleAccX!,
-                               sampleAccY:sampleAccY!,
-                               sampleAccZ:sampleAccZ!,
-                               sampleTimestamp:sampleTimestamp!,
-                               lastTimestamp:lastTimestamp!,
-                               currentUser:currentUser)
-                        
-                    lastTimestamp = sampleTimestamp
-                    sampleCounter = 0
+            if (sampleTemp != nil &&
+                sampleHumi != nil &&
+                sensorTag != nil &&
+                sampleLight != nil &&
+                sampleAccX != nil &&
+                sampleAccY != nil &&
+                sampleAccZ != nil &&
+                sampleTimestamp != lastTimestamp)  {
+            
+                saveSample(sampleTemp:sampleTemp!,
+                           sampleHumi:sampleHumi!,
+                           sensorTag:sensorTag!.identifier.uuidString,
+                           sampleLight:sampleLight!,
+                           sampleAccX:sampleAccX!,
+                           sampleAccY:sampleAccY!,
+                           sampleAccZ:sampleAccZ!,
+                           sampleTimestamp:sampleTimestamp!,
+                           currentUser:currentUser)
                     
-                }
+                lastTimestamp = sampleTimestamp
                 
             }
-            else {sampleCounter += 1}
-            
-            //DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0) {}
         }
     }
     

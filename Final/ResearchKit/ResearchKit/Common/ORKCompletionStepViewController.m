@@ -56,7 +56,7 @@
     CAShapeLayer *_shapeLayer;
 }
 
-static const CGFloat TickViewSize = 122;
+static const CGFloat TickViewSize = 100;
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];

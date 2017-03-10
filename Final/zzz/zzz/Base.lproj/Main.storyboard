@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="zzz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="mainViewController" customModule="zzz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -285,30 +285,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oks-F7-wYh">
-                                <rect key="frame" x="88" y="389" width="200" height="45"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <state key="normal" title="Morning survey"/>
-                                <connections>
-                                    <action selector="afterBedSurveyTappedWithSender:" destination="eEV-mS-4MS" eventType="touchUpInside" id="8x7-VX-O3F"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Itf-oF-oJr" userLabel="Bedtime survey">
-                                <rect key="frame" x="87" y="336" width="200" height="45"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <state key="normal" title="Bedtime survey"/>
-                                <connections>
-                                    <action selector="beforeBedSurveyTappedWithSender:" destination="eEV-mS-4MS" eventType="touchUpInside" id="kj8-Op-SRU"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Zk-1m-IcM">
-                                <rect key="frame" x="88" y="442" width="200" height="45"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <state key="normal" title="Charts"/>
-                                <connections>
-                                    <action selector="chartsTappedWithSender:" destination="eEV-mS-4MS" eventType="touchUpInside" id="qYA-8y-Ey1"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="185" image="zzz-logo" translatesAutoresizingMaskIntoConstraints="NO" id="PW2-5Q-W5b">
                                 <rect key="frame" x="0.0" y="60" width="375" height="185"/>
                                 <constraints>
@@ -316,13 +292,98 @@
                                     <constraint firstAttribute="width" constant="375" id="zo5-4L-1gM"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Srq-n6-yv9">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ulk-Fn-oMH">
+                                <rect key="frame" x="87" y="306" width="200" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="BZg-9G-6Zo"/>
+                                    <constraint firstAttribute="height" constant="45" id="Yxt-Eg-36T"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginTappedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JKx-Lp-9Nr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dV0-vd-Fc8">
+                                <rect key="frame" x="87" y="359" width="200" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="LLt-h3-gqZ"/>
+                                    <constraint firstAttribute="width" constant="200" id="zpS-7w-Feb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Register"/>
+                                <connections>
+                                    <action selector="registerTappedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vGq-fG-Sko"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ulk-Fn-oMH" firstAttribute="top" secondItem="PW2-5Q-W5b" secondAttribute="bottom" constant="61" id="7iL-D7-NIT"/>
+                            <constraint firstItem="ulk-Fn-oMH" firstAttribute="leading" secondItem="dV0-vd-Fc8" secondAttribute="leading" id="CGJ-o2-aDL"/>
+                            <constraint firstItem="PW2-5Q-W5b" firstAttribute="centerX" secondItem="fJI-jN-X83" secondAttribute="centerX" id="I9w-Zs-5V7"/>
+                            <constraint firstItem="dV0-vd-Fc8" firstAttribute="height" secondItem="ulk-Fn-oMH" secondAttribute="height" id="KiS-3r-M0a"/>
+                            <constraint firstItem="dV0-vd-Fc8" firstAttribute="width" secondItem="ulk-Fn-oMH" secondAttribute="width" id="U27-Pa-gFO"/>
+                            <constraint firstItem="dV0-vd-Fc8" firstAttribute="centerX" secondItem="fJI-jN-X83" secondAttribute="centerX" id="Vil-Qn-GaQ"/>
+                            <constraint firstItem="PW2-5Q-W5b" firstAttribute="top" secondItem="L3H-B1-uiv" secondAttribute="bottom" constant="40" id="f1F-v9-90A"/>
+                            <constraint firstItem="dV0-vd-Fc8" firstAttribute="top" secondItem="ulk-Fn-oMH" secondAttribute="bottom" constant="8" symbolic="YES" id="vAD-QV-N08"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7W4-WQ-clr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-31" y="752"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="2jL-eg-cOy">
+            <objects>
+                <viewController id="gmm-b7-kdG" customClass="ViewController" customModule="zzz" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XFa-CJ-hsm"/>
+                        <viewControllerLayoutGuide type="bottom" id="4Px-ng-t36"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fD1-gy-UHz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5mm-Eu-Lvc">
+                                <rect key="frame" x="88" y="389" width="200" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="Morning survey"/>
+                                <connections>
+                                    <action selector="afterBedSurveyTappedWithSender:" destination="gmm-b7-kdG" eventType="touchUpInside" id="gxj-b8-vhL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXo-dN-E0Y" userLabel="Bedtime survey">
+                                <rect key="frame" x="87" y="336" width="200" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="Bedtime survey"/>
+                                <connections>
+                                    <action selector="beforeBedSurveyTappedWithSender:" destination="gmm-b7-kdG" eventType="touchUpInside" id="StG-WD-U3s"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6j5-Sk-wG9">
+                                <rect key="frame" x="88" y="442" width="200" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="Charts"/>
+                                <connections>
+                                    <action selector="chartsTappedWithSender:" destination="gmm-b7-kdG" eventType="touchUpInside" id="sGQ-PX-ZRZ"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="185" image="zzz-logo" translatesAutoresizingMaskIntoConstraints="NO" id="OsL-GF-Oti">
+                                <rect key="frame" x="0.0" y="60" width="375" height="185"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="6Ki-c3-n2W"/>
+                                    <constraint firstAttribute="height" constant="185" id="R2D-vU-eXj"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nCc-cj-JzD">
                                 <rect key="frame" x="88" y="495" width="200" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="Sensor"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome (user)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcz-M0-2lw">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome (user)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Vc-wh-pAN">
                                 <rect key="frame" x="127" y="290" width="121" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -332,19 +393,19 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="9Zk-1m-IcM" firstAttribute="top" secondItem="oks-F7-wYh" secondAttribute="bottom" constant="25" id="QHK-h9-xsZ"/>
-                            <constraint firstItem="9Zk-1m-IcM" firstAttribute="centerX" secondItem="PW2-5Q-W5b" secondAttribute="centerX" id="S8w-LP-5my"/>
-                            <constraint firstItem="Itf-oF-oJr" firstAttribute="centerX" secondItem="PW2-5Q-W5b" secondAttribute="centerX" id="SpI-CQ-XIW"/>
-                            <constraint firstItem="PW2-5Q-W5b" firstAttribute="top" secondItem="L3H-B1-uiv" secondAttribute="bottom" constant="40" id="f1F-v9-90A"/>
-                            <constraint firstItem="9Zk-1m-IcM" firstAttribute="centerX" secondItem="fJI-jN-X83" secondAttribute="centerX" id="hxK-NY-0yf"/>
-                            <constraint firstItem="oks-F7-wYh" firstAttribute="centerX" secondItem="PW2-5Q-W5b" secondAttribute="centerX" id="wlf-t5-cDC"/>
-                            <constraint firstItem="oks-F7-wYh" firstAttribute="top" secondItem="Itf-oF-oJr" secondAttribute="bottom" constant="25" id="z7x-Ei-Nkx"/>
+                            <constraint firstItem="6j5-Sk-wG9" firstAttribute="top" secondItem="5mm-Eu-Lvc" secondAttribute="bottom" constant="25" id="3fr-c3-S5c"/>
+                            <constraint firstItem="6j5-Sk-wG9" firstAttribute="centerX" secondItem="fD1-gy-UHz" secondAttribute="centerX" id="GCl-o4-Yx9"/>
+                            <constraint firstItem="6j5-Sk-wG9" firstAttribute="centerX" secondItem="OsL-GF-Oti" secondAttribute="centerX" id="R5G-QH-Naa"/>
+                            <constraint firstItem="OsL-GF-Oti" firstAttribute="top" secondItem="XFa-CJ-hsm" secondAttribute="bottom" constant="40" id="XuV-5b-Z6L"/>
+                            <constraint firstItem="5mm-Eu-Lvc" firstAttribute="centerX" secondItem="OsL-GF-Oti" secondAttribute="centerX" id="fQ4-iS-2Dj"/>
+                            <constraint firstItem="CXo-dN-E0Y" firstAttribute="centerX" secondItem="OsL-GF-Oti" secondAttribute="centerX" id="mpp-si-u7k"/>
+                            <constraint firstItem="5mm-Eu-Lvc" firstAttribute="top" secondItem="CXo-dN-E0Y" secondAttribute="bottom" constant="25" id="yf1-oi-A0W"/>
                         </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7W4-WQ-clr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Sm-Pt-s0h" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-31" y="777"/>
+            <point key="canvasLocation" x="961" y="752"/>
         </scene>
     </scenes>
     <resources>

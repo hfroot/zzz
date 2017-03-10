@@ -91,7 +91,18 @@ public var BeforeBedSurveyTask: ORKOrderedTask {
     steps += [summaryStep]
     
     // Custom task for sensortag data recording
-    // Insert code here...
+    
+    // Instruction step
+    let sensorInstructionStep = ORKInstructionStep(identifier: "SensorInstructionStep")
+    sensorInstructionStep.title = "Night monitoring"
+    sensorInstructionStep.text = "Please turn on the SensorTag in order to connect it to your smartphone, and place it on your bed, with the openings facing the ceiling"
+    sensorInstructionStep.detailText = "The device will monitor temperature, humidity, light and movement while you sleep"
+    sensorInstructionStep.image = #imageLiteral(resourceName: "sensortag")
+    steps += [sensorInstructionStep]
+    
+    // Recording step
+//    let sensorRecordingStep = ORKActiveStep(identifier: "SensorRecordingStep")
+//    sensorRecordingStep.
     
     return ORKOrderedTask(identifier: "BeforeBedSurveyTask", steps: steps)
 }

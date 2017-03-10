@@ -9,6 +9,11 @@
 import RealmSwift
 import ResearchKit
 
+//        try! realm.write {
+//            realm.deleteAll()
+//            print("DELETED ALL OBJECTS IN REALM");
+//        }
+
 func saveSample(sampleTemp:Float,
                 sampleHumi:Float,
                 sensorTag:String,
@@ -17,7 +22,6 @@ func saveSample(sampleTemp:Float,
                 sampleAccY:Float,
                 sampleAccZ:Float,
                 sampleTimestamp:String,
-                lastTimestamp:String,
                 currentUser:User) {
     
     try! realm.write {

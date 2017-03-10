@@ -33,8 +33,6 @@ import ResearchKit
 // This tasks presents the login step.
 public var LoginTask: ORKOrderedTask {
     
-    //let currentUser:String?
-    
     /*
      A login step view controller subclass is required in order to use the login step.
      The subclass provides the behavior for the login step forgot password button.

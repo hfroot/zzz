@@ -10,7 +10,7 @@ import UIKit
 import ResearchKit
 import RealmSwift
 
-class ViewController: UIViewController {
+class mainViewController: UIViewController {
     
     @IBAction func registerTapped(sender : AnyObject) {
         let registerTaskViewController = ORKTaskViewController(task: RegistrationTask, taskRun: nil)
@@ -22,12 +22,6 @@ class ViewController: UIViewController {
         let loginTaskViewController = ORKTaskViewController(task: LoginTask, taskRun: nil)
         loginTaskViewController.delegate = self
         present(loginTaskViewController, animated: true, completion: nil)
-    }
-    
-    @IBAction func consentTapped(sender : AnyObject) {
-        let consentTaskViewController = ORKTaskViewController(task: ConsentTask, taskRun: nil)
-        consentTaskViewController.delegate = self
-        present(consentTaskViewController, animated: true, completion: nil)
     }
     
     @IBAction func beforeBedSurveyTapped(sender : AnyObject) {
@@ -46,10 +40,6 @@ class ViewController: UIViewController {
         present(ChartListViewController(), animated: true, completion: nil)
     }
     
-//    @IBAction func sensorTapped(sender : AnyObject) {
-//        present(SensorViewController(), animated: true, completion: nil)
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -60,10 +50,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
 }
 
-extension ViewController : ORKTaskViewControllerDelegate {
+extension mainViewController : ORKTaskViewControllerDelegate {
     
     func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason:ORKTaskViewControllerFinishReason, error: Error?) {
         
@@ -78,10 +67,19 @@ extension ViewController : ORKTaskViewControllerDelegate {
                 
                 if userLookup.isEmpty {
                     registerAccount(registrationData: registrationData as ORKStepResult)
-                    print("Successfully created account for \(currentUser.firstName)")
+                    
+                    let alertTitle = NSLocalizedString("Registration successful", comment: "")
+                    let alertMessage = NSLocalizedString("Please login to use the ZZZ app", comment: "")
+                    let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                 }
                 else {
-                    print("Registration failed: user with this email already exists!")
+                    let alertTitle = NSLocalizedString("Registration failed", comment: "")
+                    let alertMessage = NSLocalizedString("User with this email already exists", comment: "")
+                    let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                 }
 
                 
@@ -95,15 +93,24 @@ extension ViewController : ORKTaskViewControllerDelegate {
                 let userLookup = realm.objects(User.self).filter("email = '\(loginEmail)'")
                 
                 if userLookup.isEmpty {
-                    print("Login failed: user not registered! Please register an account first.")
+                    let alertTitle = NSLocalizedString("Login failed", comment: "")
+                    let alertMessage = NSLocalizedString("User not registered: please register an account first", comment: "")
+                    let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                 }
                 else {
                     if loginPassword != userLookup[0].password {
-                        print("Login failed: incorrect password!")
+                        let alertTitle = NSLocalizedString("Login failed", comment: "")
+                        let alertMessage = NSLocalizedString("Incorrect password", comment: "")
+                        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "Try again", style: .default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
                     }
                     else {
                         currentUser = userLookup[0]
                         print("Successfully logged in \(currentUser.firstName)")
+                        // make transition to 'logged in' menu
                     }
                     
                 }
@@ -175,24 +182,5 @@ extension ViewController : ORKTaskViewControllerDelegate {
         
         taskViewController.dismiss(animated: true, completion: nil)
     }
-    
-    // MARK: - Realm Functions
-    
-//    func saveSample(){
-//        try! realm.write {
-//            let newData = sensorDataObject(value: ["sensorID": sensorTag!.identifier.uuidString,
-//                                                       "sensorTemp": sampleTemp!,
-//                                                       "sensorHumi": sampleHumi!,
-//                                                       "sensorTimestamp": sampleTimestamp!,
-//                                                       "sensorLight":sampleLight!,
-//                                                       "sensorAccX":sampleAccX!,
-//                                                       "sensorAccY":sampleAccY!,
-//                                                       "sensorAccZ":sampleAccZ!])
-//            
-//                currentUser.surveyData.append(newData)
-//                realm.add(currentUser, update: true)
-//                print("Added object to database: \(newData)")
-//        }
-//    }
     
 }
