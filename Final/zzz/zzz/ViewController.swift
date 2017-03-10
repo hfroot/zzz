@@ -40,8 +40,10 @@ class ViewController: UIViewController {
         present(chartsViewController, animated: true, completion: nil)
     }
     
-    @IBAction func adviceTapped(_ sender: UIButton) {
-        let adviceViewController = AdviceViewController()
+    @IBAction func adviceTapped(_ sender: AnyObject) {
+        let adviceStoryboard = UIStoryboard(name: "Advice", bundle: nil)
+        let adviceViewController = adviceStoryboard.instantiateViewController(withIdentifier: "AdviceView") as UIViewController
+        //let adviceViewController = AdviceViewController()
         present(adviceViewController, animated: true, completion:nil)
     }
     

@@ -31,6 +31,8 @@
 		8FF304671E703BC800BD97F3 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF304661E703BC800BD97F3 /* Device.swift */; };
 		8FF304691E703C1C00BD97F3 /* SensorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF304681E703C1C00BD97F3 /* SensorViewController.swift */; };
 		8FF304741E70647000BD97F3 /* ORKESerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF304731E70647000BD97F3 /* ORKESerialization.m */; };
+		9752DA551E72C7A000A5C477 /* Advice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9752DA541E72C7A000A5C477 /* Advice.storyboard */; };
+		9752DA5A1E7311F300A5C477 /* AdviceDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752DA591E7311F300A5C477 /* AdviceDataSource.swift */; };
 		97E9679D1E71E4A8009D1B43 /* recommendations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9679B1E71E4A8009D1B43 /* recommendations.swift */; };
 		97E9679E1E71E4A8009D1B43 /* suggestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9679C1E71E4A8009D1B43 /* suggestions.swift */; };
 		97E967A01E71E8F9009D1B43 /* AdviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E9679F1E71E8F9009D1B43 /* AdviceViewController.swift */; };
@@ -102,6 +104,8 @@
 		8FF3046F1E70646F00BD97F3 /* zzz-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "zzz-Bridging-Header.h"; sourceTree = "<group>"; };
 		8FF304721E70647000BD97F3 /* ORKESerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORKESerialization.h; sourceTree = "<group>"; };
 		8FF304731E70647000BD97F3 /* ORKESerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORKESerialization.m; sourceTree = "<group>"; };
+		9752DA541E72C7A000A5C477 /* Advice.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Advice.storyboard; sourceTree = "<group>"; };
+		9752DA591E7311F300A5C477 /* AdviceDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdviceDataSource.swift; sourceTree = "<group>"; };
 		97E9679B1E71E4A8009D1B43 /* recommendations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recommendations.swift; sourceTree = "<group>"; };
 		97E9679C1E71E4A8009D1B43 /* suggestions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = suggestions.swift; sourceTree = "<group>"; };
 		97E9679F1E71E8F9009D1B43 /* AdviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdviceViewController.swift; sourceTree = "<group>"; };
@@ -221,9 +225,11 @@
 		97E967981E71E448009D1B43 /* Suggestions */ = {
 			isa = PBXGroup;
 			children = (
+				9752DA591E7311F300A5C477 /* AdviceDataSource.swift */,
 				97E9679F1E71E8F9009D1B43 /* AdviceViewController.swift */,
 				97E9679B1E71E4A8009D1B43 /* recommendations.swift */,
 				97E9679C1E71E4A8009D1B43 /* suggestions.swift */,
+				9752DA541E72C7A000A5C477 /* Advice.storyboard */,
 			);
 			name = Suggestions;
 			sourceTree = "<group>";
@@ -313,6 +319,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9752DA551E72C7A000A5C477 /* Advice.storyboard in Resources */,
 				8FF304291E6F1FF900BD97F3 /* LaunchScreen.storyboard in Resources */,
 				8FF3044B1E6F2B7700BD97F3 /* Charts.storyboard in Resources */,
 				8FF304261E6F1FF900BD97F3 /* Assets.xcassets in Resources */,
@@ -327,6 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9752DA5A1E7311F300A5C477 /* AdviceDataSource.swift in Sources */,
 				8FF304691E703C1C00BD97F3 /* SensorViewController.swift in Sources */,
 				8FF304461E6F26EC00BD97F3 /* BeforeBedSurveyTask.swift in Sources */,
 				8FF3044C1E6F2B7700BD97F3 /* ChartDataSources.swift in Sources */,

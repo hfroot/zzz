@@ -71,7 +71,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="Advice"/>
                                 <connections>
-                                    <action selector="adviceTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VxZ-XB-hpc"/>
+                                    <segue destination="F1o-B0-5UC" kind="show" id="iR9-d8-ZRY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -99,6 +99,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="53.600000000000001" y="38.23088455772114"/>
+        </scene>
+        <!--AdviceView-->
+        <scene sceneID="ZW4-ff-A0z">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Advice" referencedIdentifier="AdviceView" id="F1o-B0-5UC" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xkh-mm-9Uc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="505" y="242"/>
         </scene>
     </scenes>
     <resources>
