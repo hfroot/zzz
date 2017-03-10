@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F54834B1E718FEF008920AB /* LoginTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54834A1E718FEF008920AB /* LoginTask.swift */; };
+		8F54834D1E7200BA008920AB /* DatabaseFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54834C1E7200BA008920AB /* DatabaseFunctions.swift */; };
 		8FF3041F1E6F1FF900BD97F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3041E1E6F1FF900BD97F3 /* AppDelegate.swift */; };
 		8FF304211E6F1FF900BD97F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF304201E6F1FF900BD97F3 /* ViewController.swift */; };
 		8FF304241E6F1FF900BD97F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FF304221E6F1FF900BD97F3 /* Main.storyboard */; };
@@ -74,6 +76,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8F54834A1E718FEF008920AB /* LoginTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTask.swift; sourceTree = "<group>"; };
+		8F54834C1E7200BA008920AB /* DatabaseFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseFunctions.swift; sourceTree = "<group>"; };
 		8FF3041B1E6F1FF900BD97F3 /* zzz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zzz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FF3041E1E6F1FF900BD97F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FF304201E6F1FF900BD97F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -137,12 +141,11 @@
 		8FF3041D1E6F1FF900BD97F3 /* zzz */ = {
 			isa = PBXGroup;
 			children = (
-				8FF304651E703BB300BD97F3 /* SensorTag */,
 				8FF3041E1E6F1FF900BD97F3 /* AppDelegate.swift */,
-				8FF304751E70649900BD97F3 /* ORKESerialization */,
 				8FF304201E6F1FF900BD97F3 /* ViewController.swift */,
 				8FF304221E6F1FF900BD97F3 /* Main.storyboard */,
 				8FF304271E6F1FF900BD97F3 /* LaunchScreen.storyboard */,
+				8FF304651E703BB300BD97F3 /* SensorTag */,
 				8FF3045C1E7031A100BD97F3 /* Database */,
 				8FF304521E6F419400BD97F3 /* Surveys */,
 				8FF304531E6F425800BD97F3 /* Charts */,
@@ -164,7 +167,9 @@
 		8FF304521E6F419400BD97F3 /* Surveys */ = {
 			isa = PBXGroup;
 			children = (
+				8FF304751E70649900BD97F3 /* ORKESerialization */,
 				8FF304541E701D4C00BD97F3 /* RegistrationTask.swift */,
+				8F54834A1E718FEF008920AB /* LoginTask.swift */,
 				8FF304411E6F217900BD97F3 /* ConsentTask.swift */,
 				8FF3043F1E6F207600BD97F3 /* ConsentDocument.swift */,
 				8FF304451E6F26EC00BD97F3 /* BeforeBedSurveyTask.swift */,
@@ -188,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				8FF3045D1E7031C100BD97F3 /* DatabaseModel.swift */,
+				8F54834C1E7200BA008920AB /* DatabaseFunctions.swift */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -245,6 +251,7 @@
 				TargetAttributes = {
 					8FF3041A1E6F1FF900BD97F3 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = U3P6FLLH65;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
@@ -310,12 +317,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F54834D1E7200BA008920AB /* DatabaseFunctions.swift in Sources */,
 				8FF304691E703C1C00BD97F3 /* SensorViewController.swift in Sources */,
 				8FF304461E6F26EC00BD97F3 /* BeforeBedSurveyTask.swift in Sources */,
 				8FF3044C1E6F2B7700BD97F3 /* ChartDataSources.swift in Sources */,
 				8FF3044D1E6F2B7700BD97F3 /* ChartListViewController.swift in Sources */,
 				8FF304671E703BC800BD97F3 /* Device.swift in Sources */,
 				8FF304211E6F1FF900BD97F3 /* ViewController.swift in Sources */,
+				8F54834B1E718FEF008920AB /* LoginTask.swift in Sources */,
 				8FF3044E1E6F2B7700BD97F3 /* ChartTableViewCells.swift in Sources */,
 				8FF304571E7028E800BD97F3 /* AfterBedSurveyTask.swift in Sources */,
 				8FF3045E1E7031C100BD97F3 /* DatabaseModel.swift in Sources */,
@@ -454,6 +463,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = U3P6FLLH65;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -474,6 +484,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = U3P6FLLH65;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

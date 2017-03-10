@@ -8,8 +8,21 @@
 
 import UIKit
 import ResearchKit
+import RealmSwift
 
 class ViewController: UIViewController {
+    
+    @IBAction func registerTapped(sender : AnyObject) {
+        let registerTaskViewController = ORKTaskViewController(task: RegistrationTask, taskRun: nil)
+        registerTaskViewController.delegate = self
+        present(registerTaskViewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func loginTapped(sender : AnyObject) {
+        let loginTaskViewController = ORKTaskViewController(task: LoginTask, taskRun: nil)
+        loginTaskViewController.delegate = self
+        present(loginTaskViewController, animated: true, completion: nil)
+    }
     
     @IBAction func consentTapped(sender : AnyObject) {
         let consentTaskViewController = ORKTaskViewController(task: ConsentTask, taskRun: nil)
@@ -28,17 +41,14 @@ class ViewController: UIViewController {
         afterBedTaskViewController.delegate = self
         present(afterBedTaskViewController, animated: true, completion: nil)
     }
-    
-    @IBAction func registerTapped(sender : AnyObject) {
-        let registerTaskViewController = ORKTaskViewController(task: RegistrationTask, taskRun: nil)
-        registerTaskViewController.delegate = self
-        present(registerTaskViewController, animated: true, completion: nil)
-    }
-    
+
     @IBAction func chartsTapped(sender : AnyObject) {
-        let chartsViewController = ChartListViewController()
-        present(chartsViewController, animated: true, completion: nil)
+        present(ChartListViewController(), animated: true, completion: nil)
     }
+    
+//    @IBAction func sensorTapped(sender : AnyObject) {
+//        present(SensorViewController(), animated: true, completion: nil)
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,100 +68,131 @@ extension ViewController : ORKTaskViewControllerDelegate {
     func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason:ORKTaskViewControllerFinishReason, error: Error?) {
         
         switch reason {
-            case .completed:
+        case .completed:
+            
+            if let registrationData = taskViewController.result.stepResult(forStepIdentifier: "RegisterStep") {
                 
-                let results = taskViewController.result.results as! [ORKStepResult]
+                let registrationEmail = (((registrationData as ORKStepResult).result(forIdentifier: "ORKRegistrationFormItemEmail") as! ORKQuestionResult) as! ORKTextQuestionResult).answer! as! String
                 
-                for step in results {
-                    let stepResult = step.results as! [ORKQuestionResult]
-                    for item in stepResult {
-                        if let question = item as? ORKBooleanQuestionResult {
-                            print(question.identifier)
-                            if question.booleanAnswer != nil {
-                                let answer = question.booleanAnswer!
-                                if answer == 0 {print("No")}
-                                if answer == 1 {print("Yes")}
-                            }
-                            else {
-                                let answer = "Skipped"
-                                print(answer)
-                            }
-                            
-                            
-                        }
-                        else if let question = item as? ORKChoiceQuestionResult {
-                            print(question.identifier)
-                            if question.choiceAnswers != nil {
-                                let answers = question.choiceAnswers!
-                                if answers.count == 1 {
-                                    let answer = answers[0]
-                                    print(answer)
-                                }
-                                else {
-                                    let answer = answers
-                                    print(answer)
-                                }
-                            }
-                            else {
-                                let answer = "Skipped"
-                                print(answer)
-                            }
-                        }
-
-                    }
+                let userLookup = realm.objects(User.self).filter("email = '\(registrationEmail)'")
+                
+                if userLookup.isEmpty {
+                    registerAccount(registrationData: registrationData as ORKStepResult)
+                    print("Successfully created account for \(currentUser.firstName)")
                 }
-                
-//                let result = taskViewController.result.result(forIdentifier: "WaterQuestionStep")!
-//                print(result, "\n")
-//                let result_unpacked = result as! ORKStepResult
-//                print(result_unpacked, "\n")
-//                let result_unpacked_unpacked = result_unpacked.results!
-//                print(result_unpacked_unpacked, "\n")
-//                let answer = result_unpacked_unpacked as? ORKBooleanQuestionResult
-//                print(answer?.answer)
-                
-//                let taskResults = taskViewController.result.results
-//                
-//                for items in taskResults! {
-//                    let result = items as! ORKStepResult
-//                    let id = result.identifier
-//                    let content = result.results!
-//
-//                    
-//                    //let data = UnsafePointer<UInt>(items)
-//                }
-                
-//                let taskResult = taskViewController.result
-//                let jsonData = try! ORKESerializer.jsonData(for: taskResult)
-//                
-//                if let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue) {
-//                    //print(jsonString)
-//                    let data = convertToDictionary(text: jsonString as String)
-//                    let results = data!["results"]
-//                    let steps = convertToDictionary(text: results! as String)
-//                    print(steps)
-//                }
+                else {
+                    print("Registration failed: user with this email already exists!")
+                }
 
-                break
-            case .failed, .discarded, .saved: break
+                
+            } 
+            
+            if let loginData = taskViewController.result.stepResult(forStepIdentifier: "LoginStep") {
+                
+                let loginEmail = (((loginData as ORKStepResult).result(forIdentifier: "ORKLoginFormItemEmail") as! ORKQuestionResult) as! ORKTextQuestionResult).answer! as! String
+                let loginPassword = (((loginData as ORKStepResult).result(forIdentifier: "ORKLoginFormItemPassword") as! ORKQuestionResult) as! ORKTextQuestionResult).answer! as! String
+                
+                let userLookup = realm.objects(User.self).filter("email = '\(loginEmail)'")
+                
+                if userLookup.isEmpty {
+                    print("Login failed: user not registered! Please register an account first.")
+                }
+                else {
+                    if loginPassword != userLookup[0].password {
+                        print("Login failed: incorrect password!")
+                    }
+                    else {
+                        currentUser = userLookup[0]
+                        print("Successfully logged in \(currentUser.firstName)")
+                    }
+                    
+                }
+            }
+
+
+            
+            
+        case .failed, .discarded, .saved: break
         }
         
-        
-        
+//        switch reason {
+//            
+//            // If survey was completed successfully, extract results before saving them on database
+//            case .completed:
+//                
+//                let results = taskViewController.result.results as! [ORKStepResult]
+//                //let resultsDict = [String:Any]
+//                
+//                for step in results {
+//                    
+//                    let stepResult = step.results as! [ORKQuestionResult]
+//                    
+//                    for item in stepResult {
+//                        
+//                        if let question = item as? ORKBooleanQuestionResult {
+//                            
+//                            print(question.identifier)
+//                            
+//                            if question.booleanAnswer != nil {
+//                                let answer = question.booleanAnswer!
+//                                if answer == 0 {print("no")}
+//                                if answer == 1 {print("yes")}
+//                            }
+//                            else {
+//                                let answer = "skipped"
+//                                print(answer)
+//                            }
+//                        }
+//                        else if let question = item as? ORKChoiceQuestionResult {
+//                            
+//                            print(question.identifier)
+//                            
+//                            if question.choiceAnswers != nil {
+//                                
+//                                let answers = question.choiceAnswers!
+//                                
+//                                if answers.count == 1 {
+//                                    let answer = answers[0]
+//                                    print(answer)
+//                                }
+//                                else {
+//                                    let answer = answers
+//                                    print(answer)
+//                                }
+//                            }
+//                            else {
+//                                let answer = "skipped"
+//                                print(answer)
+//                            }
+//                        }
+//
+//                    }
+//                }
+//                
+//                break
+//            case .failed, .discarded, .saved: break
+//        }
         
         taskViewController.dismiss(animated: true, completion: nil)
     }
     
-//    func convertToDictionary(text: String) -> [String: Any]? {
-//        if let data = text.data(using: .utf8) {
-//            do {
-//                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-//            } catch {
-//                print(error.localizedDescription)
-//            }
+    // MARK: - Realm Functions
+    
+//    func saveSample(){
+//        try! realm.write {
+//            let newData = sensorDataObject(value: ["sensorID": sensorTag!.identifier.uuidString,
+//                                                       "sensorTemp": sampleTemp!,
+//                                                       "sensorHumi": sampleHumi!,
+//                                                       "sensorTimestamp": sampleTimestamp!,
+//                                                       "sensorLight":sampleLight!,
+//                                                       "sensorAccX":sampleAccX!,
+//                                                       "sensorAccY":sampleAccY!,
+//                                                       "sensorAccZ":sampleAccZ!])
+//            
+//                currentUser.surveyData.append(newData)
+//                realm.add(currentUser, update: true)
+//                print("Added object to database: \(newData)")
 //        }
-//        return nil
 //    }
-
     
 }
