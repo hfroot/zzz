@@ -325,14 +325,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = ResearchKit;
 				TargetAttributes = {
 					86717A891AC0C0FE00AC2A23 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 7JYUG8QGJ3;
 						DevelopmentTeamName = "Apple Inc. - SPG-NGS";
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -622,7 +622,6 @@
 				CODE_SIGN_ENTITLEMENTS = "ORKTest/Supporting Files/ORKTest.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/ORKTest/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -644,7 +643,6 @@
 				CODE_SIGN_ENTITLEMENTS = "ORKTest/Supporting Files/ORKTest.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/ORKTest/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

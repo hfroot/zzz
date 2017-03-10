@@ -263,6 +263,27 @@ ORK_CLASS_AVAILABLE
 
 @end
 
+/**
+ The `ORKRangeOfMotionResult` class records the results of a range of motion active task.
+ 
+ An `ORKRangeOfMotionResult` object records the flexion and extension values in degrees.
+ */
+
+ORK_CLASS_AVAILABLE
+@interface ORKRangeOfMotionResult : ORKResult
+
+/**
+ The degrees when bent.
+ */
+@property (nonatomic, assign) double flexed;
+
+/**
+ The degrees when extended.
+  */
+@property (nonatomic, assign) double extended;
+
+@end
+
 
 /**
  The `ORKTowerOfHanoiResult` class records the results of a Tower of Hanoi active task.
@@ -1172,6 +1193,19 @@ ORK_CLASS_AVAILABLE
  */
 - (nullable ORKStepResult *)stepResultForStepIdentifier:(NSString *)stepIdentifier;
 
+/**
+ Should the default result store be used even if there is a previous result? (due to 
+ reverse navigation or looping)
+ 
+ By default, the `[ORKTaskViewController defaultResultSource]` is only queried for a 
+ result if the previous result is nil. This allows the result source to override that
+ default behavior.
+ 
+ @return `YES` if the default result should be given priority over the previous result.
+ */
+@optional
+- (BOOL)alwaysCheckForDefaultResult;
+
 @end
 
 
@@ -1347,6 +1381,27 @@ ORK_CLASS_AVAILABLE
  The bezier path components used to create the signature image.
  */
 @property (nonatomic, copy, nullable) NSArray <UIBezierPath *> *signaturePath;
+
+@end
+
+/**
+ The `ORKVideoInstructionStepResult` class represents the result of a video insruction step (`ORKVideoInstructionStep`).
+ 
+ A video instruction result is produced by the task view controller when it presents a video instruction step.
+ 
+ */
+ORK_CLASS_AVAILABLE
+@interface ORKVideoInstructionStepResult : ORKResult
+
+/**
+ The time (in seconds) after video playback stopped, or NaN if the video was never played.
+ */
+@property (nonatomic) Float64 playbackStoppedTime;
+
+/**
+ Returns 'YES' if the video was watched until the end, or 'NO' if video playback was stopped half way.
+ */
+@property (nonatomic) BOOL playbackCompleted;
 
 @end
 

@@ -2,8 +2,8 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "GraphMaximumValueTest.pdf",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "GraphMaximumValueTest.pdf"
     },
     {
       "idiom" : "universal",
