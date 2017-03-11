@@ -12,6 +12,8 @@ import RealmSwift
 
 class mainViewController: UIViewController {
     
+    var loggedIn:Bool = false
+    
     @IBAction func registerTapped(sender : AnyObject) {
         let registerTaskViewController = ORKTaskViewController(task: RegistrationTask, taskRun: nil)
         registerTaskViewController.delegate = self
@@ -43,6 +45,9 @@ class mainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        if loggedIn {
+            self.present(menuViewController(), animated: true, completion: nil)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,18 +76,17 @@ extension mainViewController : ORKTaskViewControllerDelegate {
                     let alertTitle = NSLocalizedString("Registration successful", comment: "")
                     let alertMessage = NSLocalizedString("Please login to use the ZZZ app", comment: "")
                     let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    taskViewController.present(alert, animated: true, completion: nil)
                 }
                 else {
                     let alertTitle = NSLocalizedString("Registration failed", comment: "")
                     let alertMessage = NSLocalizedString("User with this email already exists", comment: "")
                     let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+                    alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+                    taskViewController.present(alert, animated: true, completion: nil)
                 }
 
-                
             } 
             
             if let loginData = taskViewController.result.stepResult(forStepIdentifier: "LoginStep") {
@@ -97,7 +101,7 @@ extension mainViewController : ORKTaskViewControllerDelegate {
                     let alertMessage = NSLocalizedString("User not registered: please register an account first", comment: "")
                     let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+                    taskViewController.present(alert, animated: true, completion: nil)
                 }
                 else {
                     if loginPassword != userLookup[0].password {
@@ -105,21 +109,38 @@ extension mainViewController : ORKTaskViewControllerDelegate {
                         let alertMessage = NSLocalizedString("Incorrect password", comment: "")
                         let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.alert)
                         alert.addAction(UIAlertAction(title: "Try again", style: .default, handler: nil))
-                        self.present(alert, animated: true, completion: nil)
+                        taskViewController.present(alert, animated: true, completion: nil)
                     }
                     else {
                         currentUser = userLookup[0]
+                        loggedIn = true
                         print("Successfully logged in \(currentUser.firstName)")
-                        // make transition to 'logged in' menu
+                        taskViewController.dismiss(animated: true, completion: nil)
                     }
                     
                 }
             }
 
-
+            if taskViewController.result.stepResult(forStepIdentifier: "WakeSleepQuestionStep") != nil {
+                
+                // query database for temp min and temp max
+                
+                let calendar = Calendar.current
+                //let today = calendar.date(byAdding: .day, value: -1, to: Date())
+                let yesterday = calendar.date(byAdding: .day, value: -1, to: Date())
+                
+                let today = Date()
+                //let to = yesterday
+                
+                //let query = realm.objects(User).filter("email" == currentUser.email)
+                let currentUserData = realm.objects(User.self.self).filter("email = '\(currentUser.email)'")[0].sensorData.filter("sensorTimestamp > %@ AND sensorTimestamp <= %@", yesterday!, today)
+                let temp_max:Float = currentUserData.average(ofProperty: "sensorTemp")!
+                print(temp_max)
+            }
             
             
-        case .failed, .discarded, .saved: break
+        case .failed, .discarded, .saved:
+            taskViewController.dismiss(animated: true, completion: nil)
         }
         
 //        switch reason {
@@ -180,7 +201,7 @@ extension mainViewController : ORKTaskViewControllerDelegate {
 //            case .failed, .discarded, .saved: break
 //        }
         
-        taskViewController.dismiss(animated: true, completion: nil)
+        //taskViewController.dismiss(animated: true, completion: nil)
     }
     
 }

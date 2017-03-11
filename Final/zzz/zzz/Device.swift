@@ -53,3 +53,94 @@ struct Device {
     static let SensorDataIndexAccZ = 5
     
 }
+
+// Globlal variables for samples
+public var sampleTimestamp:Date?
+public var sampleTemp:Float?
+public var sampleHumi:Float?
+public var sampleLight:Float?
+public var sampleAccX:Float?
+public var sampleAccY:Float?
+public var sampleAccZ:Float?
+
+// MARK: - TI Sensor Tag Utility Methods
+
+func getTemperature(_ data:Data) -> Float {
+    
+    // We'll get four bytes of data back, so we divide the byte count by two
+    // because we're creating an array that holds two 16-bit (two-byte) values
+    let dataLength = data.count / MemoryLayout<UInt16>.size
+    var dataArray = [UInt16](repeating: 0, count: dataLength)
+    (data as NSData).getBytes(&dataArray, length: dataLength * MemoryLayout<Int16>.size)
+    
+    let rawAmbientTemp:UInt16 = dataArray[Device.SensorDataIndexTempAmbient]
+    let ambientTempC = Float(rawAmbientTemp) / 128.0
+    //print("*** TEMPERATURE: \(ambientTempC)° C")
+    
+    return ambientTempC
+}
+
+func getHumidity(_ data:Data) -> Float {
+    
+    let dataLength = data.count / MemoryLayout<UInt16>.size
+    var dataArray = [UInt16](repeating: 0, count: dataLength)
+    (data as NSData).getBytes(&dataArray, length: dataLength * MemoryLayout<Int16>.size)
+    
+    let rawHumidity:UInt16 = dataArray[Device.SensorDataIndexHumidity]
+    let calculatedHumidity = Float(calculateRelativeHumidity(rawHumidity))
+    //        print("*** HUMIDITY: \(calculatedHumidity)");
+    
+    return calculatedHumidity
+}
+
+func getLight(_ data:Data) -> Float {
+    
+    let dataLength = data.count / MemoryLayout<UInt16>.size
+    var dataArray = [UInt16](repeating: 0, count: dataLength)
+    (data as NSData).getBytes(&dataArray, length: dataLength * MemoryLayout<Int16>.size)
+    
+    let rawLight:UInt16 = dataArray[Device.SensorDataIndexLight]
+    let calculatedLight = calculateLightIntensity(rawLight)
+    //        print("*** LIGHT: \(calculatedLight)");
+    
+    return Float(calculatedLight)
+}
+
+func getAccel(_ data:Data) -> [Float] {
+    
+    let dataLength = data.count / MemoryLayout<UInt16>.size
+    var dataArray = [UInt16](repeating: 0, count: dataLength)
+    (data as NSData).getBytes(&dataArray, length: dataLength * MemoryLayout<Int16>.size)
+    
+    let rawAccX:UInt16 = dataArray[Device.SensorDataIndexAccX]
+    let rawAccY:UInt16 = dataArray[Device.SensorDataIndexAccY]
+    let rawAccZ:UInt16 = dataArray[Device.SensorDataIndexAccZ]
+    
+    let calculatedAccX:Float = Float(calculateAcc(rawAccX))
+    let calculatedAccY:Float = Float(calculateAcc(rawAccY))
+    let calculatedAccZ:Float = Float(calculateAcc(rawAccZ))
+    
+    return [calculatedAccX, calculatedAccY, calculatedAccZ]
+}
+
+func calculateRelativeHumidity(_ rawH:UInt16) -> Double {
+    // clear status bits [1..0]
+    let clearedH = rawH & ~0x003
+    
+    //-- calculate relative humidity [%RH] --
+    // RH= -6 + 125 * SRH/2^16
+    let relativeHumidity:Double = -6.0 + 125.0/65536 * Double(clearedH)
+    return relativeHumidity
+}
+
+func calculateLightIntensity(_ rawL:UInt16) -> Double {
+    let m = rawL & 0x0FFF
+    let e = (rawL & 0xF000) >> 12
+    let LightIntensity:Double = Double(m) * (0.01 * pow(2.0, Double(e)))
+    return LightIntensity
+}
+
+func calculateAcc(_ rawAcc:UInt16) -> Double {
+    let calculatedAcc:Double = (Double(rawAcc) * 1.0) / (32768/8);
+    return calculatedAcc
+}

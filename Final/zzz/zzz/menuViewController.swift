@@ -11,6 +11,8 @@ import ResearchKit
 
 class menuViewController: UIViewController {
     
+    @IBOutlet weak var userLabel: UILabel?
+    
     @IBAction func beforeBedSurveyTapped(sender : AnyObject) {
         let beforeBedTaskViewController = ORKTaskViewController(task: BeforeBedSurveyTask, taskRun: nil)
         beforeBedTaskViewController.delegate = self
@@ -30,6 +32,7 @@ class menuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        userLabel?.text = "Welcome \(currentUser.email)"
     }
 
     override func didReceiveMemoryWarning() {

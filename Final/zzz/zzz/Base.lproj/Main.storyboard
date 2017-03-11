@@ -85,7 +85,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="Sensor"/>
                                 <connections>
-                                    <segue destination="Hc4-2n-Mah" kind="show" id="Fp0-gD-MMd"/>
+                                    <segue destination="Hc4-2n-Mah" kind="presentation" id="JDw-wc-eMw"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -117,10 +117,37 @@
             </objects>
             <point key="canvasLocation" x="-30" y="37"/>
         </scene>
+        <!--Sensor Step View Controller-->
+        <scene sceneID="kQJ-ge-F6u">
+            <objects>
+                <viewController id="Fl4-39-0fM" customClass="SensorStepViewController" customModule="zzz" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9uk-03-eJb"/>
+                        <viewControllerLayoutGuide type="bottom" id="ebp-iZ-7b4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cKl-1v-Ja0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWw-Il-reC">
+                                <rect key="frame" x="166" y="226" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qlc-pF-zkm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1272" y="-189"/>
+        </scene>
         <!--Sensor View Controller-->
         <scene sceneID="ah8-F1-pRA">
             <objects>
-                <viewController id="Hc4-2n-Mah" userLabel="Sensor View Controller" customClass="SensorViewController" customModule="zzz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Hc4-2n-Mah" userLabel="Sensor View Controller" customClass="SensorViewController" customModule="zzz" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mma-YU-Eep"/>
                         <viewControllerLayoutGuide type="bottom" id="qdp-nh-gSq"/>
@@ -152,6 +179,20 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ep8-Fs-Ri7">
+                                        <rect key="frame" x="117" y="42" width="141.5" height="21"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User: username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bp-vQ-Vbi">
+                                                <rect key="frame" x="0.0" y="0.0" width="141.5" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="5Eu-jt-p5b"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature: 25°C" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="m77-3b-7vF" userLabel="Temperature Label">
                                         <rect key="frame" x="47" y="331" width="283" height="30"/>
                                         <constraints>
@@ -219,13 +260,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sensortag" translatesAutoresizingMaskIntoConstraints="NO" id="hjm-kA-6b5">
-                                        <rect key="frame" x="18" y="61" width="340" height="182"/>
+                                        <rect key="frame" x="18" y="95" width="340" height="182"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="tPx-rS-ba0" firstAttribute="top" secondItem="m77-3b-7vF" secondAttribute="bottom" constant="8" symbolic="YES" id="30O-m7-tQM"/>
                                     <constraint firstItem="hjm-kA-6b5" firstAttribute="centerX" secondItem="c7Y-pb-hfL" secondAttribute="centerX" id="4W4-fg-4o0"/>
+                                    <constraint firstItem="ep8-Fs-Ri7" firstAttribute="centerX" secondItem="c7Y-pb-hfL" secondAttribute="centerX" id="E8C-QR-Xz5"/>
                                     <constraint firstItem="ipF-if-lxx" firstAttribute="leading" secondItem="tPx-rS-ba0" secondAttribute="leading" id="Euh-sQ-rJG"/>
                                     <constraint firstAttribute="bottom" secondItem="tPx-rS-ba0" secondAttribute="bottom" constant="268" id="Hxh-NC-XoZ"/>
                                     <constraint firstItem="m77-3b-7vF" firstAttribute="top" secondItem="sv2-mW-Hzp" secondAttribute="bottom" constant="25" id="Ij7-uF-7Yl"/>
@@ -234,7 +276,8 @@
                                     <constraint firstItem="mqm-Px-Hka" firstAttribute="leading" secondItem="oyg-Wz-HyV" secondAttribute="leading" id="M77-pN-Xcl"/>
                                     <constraint firstAttribute="bottom" secondItem="mqm-Px-Hka" secondAttribute="bottom" constant="116" id="RCM-lf-iAL"/>
                                     <constraint firstItem="mqm-Px-Hka" firstAttribute="leading" secondItem="ipF-if-lxx" secondAttribute="leading" id="Rm7-eU-Qbc"/>
-                                    <constraint firstItem="sv2-mW-Hzp" firstAttribute="top" secondItem="hjm-kA-6b5" secondAttribute="bottom" constant="42" id="Vbf-Fn-KcM"/>
+                                    <constraint firstItem="hjm-kA-6b5" firstAttribute="top" secondItem="ep8-Fs-Ri7" secondAttribute="bottom" constant="32" id="SPb-lY-6h6"/>
+                                    <constraint firstItem="sv2-mW-Hzp" firstAttribute="top" secondItem="hjm-kA-6b5" secondAttribute="bottom" constant="8" id="Vbf-Fn-KcM"/>
                                     <constraint firstAttribute="trailing" secondItem="ezF-3x-sFK" secondAttribute="trailing" constant="7" id="bJm-Nd-8uz"/>
                                     <constraint firstItem="ezF-3x-sFK" firstAttribute="leading" secondItem="c7Y-pb-hfL" secondAttribute="leading" constant="9" id="bmi-c3-t0Q"/>
                                     <constraint firstItem="ipF-if-lxx" firstAttribute="trailing" secondItem="sv2-mW-Hzp" secondAttribute="trailing" id="eMN-Ti-V1m"/>
@@ -244,7 +287,7 @@
                                     <constraint firstItem="tPx-rS-ba0" firstAttribute="centerX" secondItem="c7Y-pb-hfL" secondAttribute="centerX" constant="1" id="mqu-OD-xtr"/>
                                     <constraint firstItem="m77-3b-7vF" firstAttribute="leading" secondItem="tPx-rS-ba0" secondAttribute="leading" id="oQN-ik-ZrB"/>
                                     <constraint firstItem="m77-3b-7vF" firstAttribute="top" secondItem="ezF-3x-sFK" secondAttribute="bottom" constant="-328" id="wMp-S6-GGX"/>
-                                    <constraint firstItem="hjm-kA-6b5" firstAttribute="top" secondItem="c7Y-pb-hfL" secondAttribute="top" constant="61" id="wam-Z4-SA0"/>
+                                    <constraint firstItem="hjm-kA-6b5" firstAttribute="top" secondItem="c7Y-pb-hfL" secondAttribute="top" constant="95" id="wam-Z4-SA0"/>
                                     <constraint firstItem="mqm-Px-Hka" firstAttribute="top" secondItem="oyg-Wz-HyV" secondAttribute="bottom" constant="8" symbolic="YES" id="yip-lS-I5I"/>
                                 </constraints>
                             </view>
@@ -267,16 +310,17 @@
                         <outlet property="lightLabel" destination="ipF-if-lxx" id="y4e-2J-Ags"/>
                         <outlet property="statusLabel" destination="sv2-mW-Hzp" id="Qfn-38-cCi"/>
                         <outlet property="temperatureLabel" destination="m77-3b-7vF" id="C2Y-FZ-yHO"/>
+                        <outlet property="userLabel" destination="3bp-vQ-Vbi" id="WFQ-Tf-b2t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3o7-Pw-PSu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="961" y="38"/>
+            <point key="canvasLocation" x="1921" y="752"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="Hfd-I2-Nyd">
             <objects>
-                <viewController id="eEV-mS-4MS" customClass="ViewController" customModule="zzz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="eEV-mS-4MS" customClass="mainViewController" customModule="zzz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L3H-B1-uiv"/>
                         <viewControllerLayoutGuide type="bottom" id="n3W-mC-RZW"/>
@@ -301,7 +345,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <action selector="loginTappedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JKx-Lp-9Nr"/>
+                                    <action selector="loginTappedWithSender:" destination="eEV-mS-4MS" eventType="touchUpInside" id="B3r-3o-EnG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dV0-vd-Fc8">
@@ -313,6 +357,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Register"/>
                                 <connections>
+                                    <action selector="registerTappedWithSender:" destination="eEV-mS-4MS" eventType="touchUpInside" id="XPU-q6-ww8"/>
                                     <action selector="registerTappedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vGq-fG-Sko"/>
                                 </connections>
                             </button>
@@ -329,15 +374,18 @@
                             <constraint firstItem="dV0-vd-Fc8" firstAttribute="top" secondItem="ulk-Fn-oMH" secondAttribute="bottom" constant="8" symbolic="YES" id="vAD-QV-N08"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="gmm-b7-kdG" kind="presentation" identifier="open_menu" id="zpK-SL-6W4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7W4-WQ-clr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-31" y="752"/>
         </scene>
-        <!--View Controller-->
+        <!--Menu View Controller-->
         <scene sceneID="2jL-eg-cOy">
             <objects>
-                <viewController id="gmm-b7-kdG" customClass="ViewController" customModule="zzz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="menu" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gmm-b7-kdG" customClass="menuViewController" customModule="zzz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XFa-CJ-hsm"/>
                         <viewControllerLayoutGuide type="bottom" id="4Px-ng-t36"/>
@@ -351,7 +399,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="Morning survey"/>
                                 <connections>
-                                    <action selector="afterBedSurveyTappedWithSender:" destination="gmm-b7-kdG" eventType="touchUpInside" id="gxj-b8-vhL"/>
+                                    <action selector="afterBedSurveyTappedWithSender:" destination="gmm-b7-kdG" eventType="touchUpInside" id="JLU-KW-48K"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXo-dN-E0Y" userLabel="Bedtime survey">
@@ -359,16 +407,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="Bedtime survey"/>
                                 <connections>
-                                    <action selector="beforeBedSurveyTappedWithSender:" destination="gmm-b7-kdG" eventType="touchUpInside" id="StG-WD-U3s"/>
+                                    <action selector="beforeBedSurveyTappedWithSender:" destination="gmm-b7-kdG" eventType="touchUpInside" id="7nW-dk-4FA"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6j5-Sk-wG9">
                                 <rect key="frame" x="88" y="442" width="200" height="45"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="Charts"/>
-                                <connections>
-                                    <action selector="chartsTappedWithSender:" destination="gmm-b7-kdG" eventType="touchUpInside" id="sGQ-PX-ZRZ"/>
-                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="185" image="zzz-logo" translatesAutoresizingMaskIntoConstraints="NO" id="OsL-GF-Oti">
                                 <rect key="frame" x="0.0" y="60" width="375" height="185"/>
@@ -382,6 +427,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="Sensor"/>
+                                <connections>
+                                    <segue destination="Hc4-2n-Mah" kind="presentation" id="Bap-oY-jqP"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome (user)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Vc-wh-pAN">
                                 <rect key="frame" x="127" y="290" width="121" height="21"/>
@@ -412,4 +460,7 @@
         <image name="sensortag" width="439" height="277"/>
         <image name="zzz-logo" width="867" height="882"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="JDw-wc-eMw"/>
+    </inferredMetricsTieBreakers>
 </document>

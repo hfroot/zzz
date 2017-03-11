@@ -21,7 +21,7 @@ func saveSample(sampleTemp:Float,
                 sampleAccX:Float,
                 sampleAccY:Float,
                 sampleAccZ:Float,
-                sampleTimestamp:String,
+                sampleTimestamp:Date,
                 currentUser:User) {
     
     try! realm.write {

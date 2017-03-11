@@ -94,15 +94,18 @@ public var BeforeBedSurveyTask: ORKOrderedTask {
     
     // Instruction step
     let sensorInstructionStep = ORKInstructionStep(identifier: "SensorInstructionStep")
-    sensorInstructionStep.title = "Night monitoring"
+    sensorInstructionStep.title = "Sensor setup"
     sensorInstructionStep.text = "Please turn on the SensorTag in order to connect it to your smartphone, and place it on your bed, with the openings facing the ceiling"
-    sensorInstructionStep.detailText = "The device will monitor temperature, humidity, light and movement while you sleep"
+//    sensorInstructionStep.detailText = "The device will monitor temperature, humidity, light and movement while you sleep"
     sensorInstructionStep.image = #imageLiteral(resourceName: "sensortag")
     steps += [sensorInstructionStep]
     
     // Recording step
-//    let sensorRecordingStep = ORKActiveStep(identifier: "SensorRecordingStep")
-//    sensorRecordingStep.
+    let sensorRecordingStep = SensorActiveStep(identifier: "SensorRecordingStep")
+    sensorRecordingStep.title = "Night monitoring"
+    sensorRecordingStep.text = "You can now put your phone away. Please don't close the ZZZ app to avoid losing connection to the SensorTag"
+    //sensorRecordingStep.stepDuration
+    steps += [sensorRecordingStep]
     
     return ORKOrderedTask(identifier: "BeforeBedSurveyTask", steps: steps)
 }

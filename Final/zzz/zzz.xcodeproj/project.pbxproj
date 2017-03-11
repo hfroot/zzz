@@ -10,7 +10,8 @@
 		8F54834B1E718FEF008920AB /* LoginTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54834A1E718FEF008920AB /* LoginTask.swift */; };
 		8F54834D1E7200BA008920AB /* DatabaseFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54834C1E7200BA008920AB /* DatabaseFunctions.swift */; };
 		8F54834F1E72D4C6008920AB /* menuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54834E1E72D4C6008920AB /* menuViewController.swift */; };
-		8F5483511E72E709008920AB /* SensorActiveTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5483501E72E709008920AB /* SensorActiveTask.swift */; };
+		8F5483511E72E709008920AB /* SensorActiveStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5483501E72E709008920AB /* SensorActiveStep.swift */; };
+		8F588A921E7342400064CD3B /* BluetoothLE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F588A911E7342400064CD3B /* BluetoothLE.swift */; };
 		8FF3041F1E6F1FF900BD97F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3041E1E6F1FF900BD97F3 /* AppDelegate.swift */; };
 		8FF304211E6F1FF900BD97F3 /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF304201E6F1FF900BD97F3 /* mainViewController.swift */; };
 		8FF304241E6F1FF900BD97F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FF304221E6F1FF900BD97F3 /* Main.storyboard */; };
@@ -81,7 +82,8 @@
 		8F54834A1E718FEF008920AB /* LoginTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTask.swift; sourceTree = "<group>"; };
 		8F54834C1E7200BA008920AB /* DatabaseFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseFunctions.swift; sourceTree = "<group>"; };
 		8F54834E1E72D4C6008920AB /* menuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuViewController.swift; sourceTree = "<group>"; };
-		8F5483501E72E709008920AB /* SensorActiveTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorActiveTask.swift; sourceTree = "<group>"; };
+		8F5483501E72E709008920AB /* SensorActiveStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorActiveStep.swift; sourceTree = "<group>"; };
+		8F588A911E7342400064CD3B /* BluetoothLE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothLE.swift; sourceTree = "<group>"; };
 		8FF3041B1E6F1FF900BD97F3 /* zzz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zzz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FF3041E1E6F1FF900BD97F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FF304201E6F1FF900BD97F3 /* mainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainViewController.swift; sourceTree = "<group>"; };
@@ -208,7 +210,8 @@
 			children = (
 				8FF304661E703BC800BD97F3 /* Device.swift */,
 				8FF304681E703C1C00BD97F3 /* SensorViewController.swift */,
-				8F5483501E72E709008920AB /* SensorActiveTask.swift */,
+				8F5483501E72E709008920AB /* SensorActiveStep.swift */,
+				8F588A911E7342400064CD3B /* BluetoothLE.swift */,
 			);
 			name = SensorTag;
 			sourceTree = "<group>";
@@ -331,13 +334,14 @@
 				8FF304671E703BC800BD97F3 /* Device.swift in Sources */,
 				8F54834F1E72D4C6008920AB /* menuViewController.swift in Sources */,
 				8FF304211E6F1FF900BD97F3 /* mainViewController.swift in Sources */,
+				8F588A921E7342400064CD3B /* BluetoothLE.swift in Sources */,
 				8F54834B1E718FEF008920AB /* LoginTask.swift in Sources */,
 				8FF3044E1E6F2B7700BD97F3 /* ChartTableViewCells.swift in Sources */,
 				8FF304571E7028E800BD97F3 /* AfterBedSurveyTask.swift in Sources */,
 				8FF3045E1E7031C100BD97F3 /* DatabaseModel.swift in Sources */,
 				8FF304551E701D4C00BD97F3 /* RegistrationTask.swift in Sources */,
 				8FF304421E6F217900BD97F3 /* ConsentTask.swift in Sources */,
-				8F5483511E72E709008920AB /* SensorActiveTask.swift in Sources */,
+				8F5483511E72E709008920AB /* SensorActiveStep.swift in Sources */,
 				8FF304401E6F207600BD97F3 /* ConsentDocument.swift in Sources */,
 				8FF3041F1E6F1FF900BD97F3 /* AppDelegate.swift in Sources */,
 				8FF304741E70647000BD97F3 /* ORKESerialization.m in Sources */,

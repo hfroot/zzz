@@ -27,8 +27,8 @@ final class User: Object {
 }
 
 final class sensorDataObject: Object {
-    dynamic var sensorID:String = ""
-    dynamic var sensorTimestamp: String = ""
+    dynamic var sensorID: String = ""
+    dynamic var sensorTimestamp = Date()
     dynamic var sensorTemp: Float = 0.0
     dynamic var sensorHumi: Float = 0.0
     dynamic var sensorLight: Float = 0.0
@@ -37,9 +37,9 @@ final class sensorDataObject: Object {
     dynamic var sensorAccY: Float = 0.0
     dynamic var sensorAccZ: Float = 0.0
     
-    override static func primaryKey() -> String? {
-        return "sensorTimestamp"
-    }
+//    override static func primaryKey() -> String? {
+//        return "sensorTimestamp"
+//    }
 }
 
 final class surveyDataObject: Object {
