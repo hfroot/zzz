@@ -9,15 +9,28 @@
 import Foundation
 import UIKit
 
+class InfoCell: UITableViewCell {
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var valueLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+}
+
 class SleepSchedulerListViewController: UITableViewController {
     
     @IBOutlet weak var cancel: UIBarButtonItem!
     @IBOutlet weak var save: UIBarButtonItem!
-//    @IBOutlet var tableView: UITableView!
+    
+    var alarmRow: Int = 0
+    var hoursRow: Int = 1
+    var bedtimeRow: Int = 2
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.allowsSelectionDuringEditing = true
+        tableView.dataSource = self
+        tableView.delegate = self
+//        self.tableView.register(InfoCell.self, forCellReuseIdentifier: "InfoCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -25,77 +38,35 @@ class SleepSchedulerListViewController: UITableViewController {
         self.view.layoutIfNeeded()
     }
     
-
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4;
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("in table view fn")
-        var cell = tableView.dequeueReusableCell(withIdentifier: Id.settingIdentifier)
+        var cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleCell")
         if(cell == nil) {
-            cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: Id.settingIdentifier)
-        }
-        if indexPath.section == 0 {
-            print("in idx path 0")
-            if indexPath.row == 0 {
-                
-                cell!.textLabel!.text = "Alarm"
-                cell!.detailTextLabel!.text = "7:30 AM" //repeatText // edit
-                cell!.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
-            }
-            else if indexPath.row == 1 {
-                cell!.textLabel!.text = "Sleep hours"
-                cell!.detailTextLabel!.text = "8.0"// segueInfo.label // edit
-                cell!.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
-            }
-            else if indexPath.row == 2 {
-                cell!.textLabel!.text = "Bedtime"
-                cell!.detailTextLabel!.text = "11:30 PM"//segueInfo.mediaLabel // edit
-                cell!.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
-            }
-        }
-        else if indexPath.section == 1 {
-//            cell = UITableViewCell(
-//                style: UITableViewCellStyle.default, reuseIdentifier: Id.settingIdentifier)
-            cell!.textLabel!.text = "Delete Schedule"
-            cell!.textLabel!.textAlignment = .center
-            cell!.textLabel!.textColor = UIColor.red
+            cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: "ScheduleCell")
         }
         
+        if indexPath.row == alarmRow {
+            cell!.textLabel!.text = "Alarm"
+            cell!.detailTextLabel!.text = "7:30 AM"
+            cell!.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+        }
+        else if indexPath.row == hoursRow {
+            cell!.textLabel!.text = "Hours"
+            cell!.detailTextLabel!.text = "8.0"
+            cell!.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+        }
+        else if indexPath.row == bedtimeRow {
+//            bedtimeLabel.text = "11:00 PM"
+            let bedtimeCell:InfoCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as! InfoCell
+            print(bedtimeCell)
+            bedtimeCell.titleLabel.text = "Bedtime"
+            bedtimeCell.valueLabel.text = "11:00 PM"
+            bedtimeCell.selectionStyle = .none;
+            return bedtimeCell
+        }
         return cell!
     }
-    
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("in second view fn")
-        let cell = tableView.cellForRow(at: indexPath)
-        if indexPath.section == 0 {
-            print("in second path")
-            switch indexPath.row{
-            case 0:
-//                performSegue(withIdentifier: Id.alarmPickerSegueIdentifier, sender: self)
-                cell?.setSelected(true, animated: false)
-                cell?.setSelected(false, animated: false)
-//            case 1:
-//                performSegue(withIdentifier: Id.labelSegueIdentifier, sender: self)
-//                cell?.setSelected(true, animated: false)
-//                cell?.setSelected(false, animated: false)
-//            case 2:
-//                performSegue(withIdentifier: Id.soundSegueIdentifier, sender: self)
-//                cell?.setSelected(true, animated: false)
-//                cell?.setSelected(false, animated: false)
-            default:
-                break
-            }
-        }
-        else if indexPath.section == 1 {
-            //delete alarm
-//            alarmModel.alarms.remove(at: segueInfo.curCellIndex)
-//            alarmScheduler.reSchedule()
-//            performSegue(withIdentifier: Id.saveSegueIdentifier, sender: self)
-        }
-        
-    }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//    }    
 }
