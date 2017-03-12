@@ -40,10 +40,10 @@ class ViewController: UIViewController {
         present(chartsViewController, animated: true, completion: nil)
     }
     
-    @IBAction func schedulerTapped(_ sender: AnyObject) {
-        let sleepSchedulerListViewController = SleepSchedulerListViewController()
-        present(sleepSchedulerListViewController, animated: true, completion: nil)
-    }
+//    @IBAction func schedulerTapped(_ sender: AnyObject) {
+//        let sleepSchedulerListViewController = SleepSchedulerListViewController()
+//        present(sleepSchedulerListViewController, animated: true, completion: nil)
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

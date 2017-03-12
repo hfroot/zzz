@@ -16,7 +16,8 @@ class SleepSchedulerListViewController: UITableViewController {
 //    @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
-//        tableView.dataSource = self;
+        super.viewDidLoad()
+        tableView.allowsSelectionDuringEditing = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,13 +28,13 @@ class SleepSchedulerListViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        print("in table view fn")
         var cell = tableView.dequeueReusableCell(withIdentifier: Id.settingIdentifier)
         if(cell == nil) {
             cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: Id.settingIdentifier)
         }
         if indexPath.section == 0 {
-            
+            print("in idx path 0")
             if indexPath.row == 0 {
                 
                 cell!.textLabel!.text = "Alarm"
@@ -64,8 +65,10 @@ class SleepSchedulerListViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("in second view fn")
         let cell = tableView.cellForRow(at: indexPath)
         if indexPath.section == 0 {
+            print("in second path")
             switch indexPath.row{
             case 0:
 //                performSegue(withIdentifier: Id.alarmPickerSegueIdentifier, sender: self)

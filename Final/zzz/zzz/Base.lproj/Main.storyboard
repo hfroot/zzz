@@ -110,7 +110,7 @@
                 <viewControllerPlaceholder storyboardName="SleepScheduler" referencedIdentifier="SchedulerEntryPoint" id="Mco-pw-pgY" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="svq-rf-p5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="705" y="270"/>
+            <point key="canvasLocation" x="720" y="283"/>
         </scene>
     </scenes>
     <resources>
