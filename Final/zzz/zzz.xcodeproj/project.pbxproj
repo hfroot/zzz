@@ -13,6 +13,7 @@
 		8FE4A3151E749D4F00BE342A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FE4A3141E749D4F00BE342A /* LaunchScreen.storyboard */; };
 		8FE4A3171E749D7D00BE342A /* SensorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FE4A3161E749D7D00BE342A /* SensorView.xib */; };
 		8FE4A3191E74A0AE00BE342A /* SensorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE4A3181E74A0AE00BE342A /* SensorView.swift */; };
+		8FE4A31E1E75B2F800BE342A /* DataProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE4A31D1E75B2F800BE342A /* DataProcessing.swift */; };
 		8FF3041F1E6F1FF900BD97F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3041E1E6F1FF900BD97F3 /* AppDelegate.swift */; };
 		8FF304211E6F1FF900BD97F3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF304201E6F1FF900BD97F3 /* MainViewController.swift */; };
 		8FF304241E6F1FF900BD97F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FF304221E6F1FF900BD97F3 /* Main.storyboard */; };
@@ -82,6 +83,7 @@
 		8FE4A3141E749D4F00BE342A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8FE4A3161E749D7D00BE342A /* SensorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SensorView.xib; sourceTree = "<group>"; };
 		8FE4A3181E74A0AE00BE342A /* SensorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorView.swift; sourceTree = "<group>"; };
+		8FE4A31D1E75B2F800BE342A /* DataProcessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProcessing.swift; sourceTree = "<group>"; };
 		8FF3041B1E6F1FF900BD97F3 /* zzz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zzz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FF3041E1E6F1FF900BD97F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FF304201E6F1FF900BD97F3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +119,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8FE4A31C1E75B1F100BE342A /* Recommender */ = {
+			isa = PBXGroup;
+			children = (
+				8FE4A31D1E75B2F800BE342A /* DataProcessing.swift */,
+			);
+			name = Recommender;
+			sourceTree = "<group>";
+		};
 		8FF304121E6F1FF900BD97F3 = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +153,7 @@
 				8FF304201E6F1FF900BD97F3 /* MainViewController.swift */,
 				8FF304221E6F1FF900BD97F3 /* Main.storyboard */,
 				8FE4A3141E749D4F00BE342A /* LaunchScreen.storyboard */,
+				8FE4A31C1E75B1F100BE342A /* Recommender */,
 				8FF304651E703BB300BD97F3 /* SensorTag */,
 				8FF3045C1E7031A100BD97F3 /* Database */,
 				8FF304521E6F419400BD97F3 /* Tasks */,
@@ -312,6 +323,7 @@
 				8FF3044C1E6F2B7700BD97F3 /* ChartDataSources.swift in Sources */,
 				8FF3044D1E6F2B7700BD97F3 /* ChartListViewController.swift in Sources */,
 				8FF304671E703BC800BD97F3 /* Device.swift in Sources */,
+				8FE4A31E1E75B2F800BE342A /* DataProcessing.swift in Sources */,
 				8FF304211E6F1FF900BD97F3 /* MainViewController.swift in Sources */,
 				8F54834B1E718FEF008920AB /* LoginTask.swift in Sources */,
 				8FF3044E1E6F2B7700BD97F3 /* ChartTableViewCells.swift in Sources */,
@@ -452,7 +464,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pva.zzz.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "zzz/zzz-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -473,7 +485,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pva.zzz.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "zzz/zzz-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

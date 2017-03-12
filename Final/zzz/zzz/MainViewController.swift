@@ -172,19 +172,7 @@ extension MainViewController : ORKTaskViewControllerDelegate {
 
             if (taskViewController.result.stepResult(forStepIdentifier: "AfterBedSummaryStep") != nil) {
                 
-                // query database for temp min and temp max
-                
-                let calendar = Calendar.current
-                //let today = calendar.date(byAdding: .day, value: -1, to: Date())
-                let yesterday = calendar.date(byAdding: .day, value: -1, to: Date())
-                
-                let today = Date()
-                //let to = yesterday
-                
-                //let query = realm.objects(User).filter("email" == currentUser.email)
-                let currentUserData = realm.objects(User.self.self).filter("email = '\(currentUser.email)'")[0].sensorData.filter("sensorTimestamp > %@ AND sensorTimestamp <= %@", yesterday!, today)
-                let temp_max:Float = currentUserData.average(ofProperty: "sensorTemp")!
-                print(temp_max)
+                processData()
                 taskViewController.dismiss(animated: true, completion: nil)
             }
             
