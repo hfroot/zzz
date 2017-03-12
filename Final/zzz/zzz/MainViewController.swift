@@ -171,7 +171,7 @@ extension MainViewController : ORKTaskViewControllerDelegate {
 //            }
 
             if (taskViewController.result.stepResult(forStepIdentifier: "AfterBedSummaryStep") != nil) {
-                
+                testClassification()
                 processData()
                 taskViewController.dismiss(animated: true, completion: nil)
             }
