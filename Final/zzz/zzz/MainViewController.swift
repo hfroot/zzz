@@ -10,54 +10,93 @@ import UIKit
 import ResearchKit
 import RealmSwift
 
-class mainViewController: UIViewController {
+class MainViewController: UIViewController {
     
     var loggedIn:Bool = false
+    @IBOutlet var registerButton: UIButton!
+    @IBOutlet var loginButton: UIButton!
     
-    @IBAction func registerTapped(sender : AnyObject) {
+    @IBOutlet var bedtimeButton: UIButton!
+    @IBOutlet var lastNightButton: UIButton!
+    @IBOutlet var trendsButton: UIButton!
+    @IBOutlet var networkButton: UIButton!
+    @IBOutlet var trainingButton: UIButton!
+    @IBOutlet var adviceButton: UIButton!
+    
+    @IBOutlet var welcomeLabel: UILabel!
+    
+    @IBAction func registerTapped(sender : UIButton) {
         let registerTaskViewController = ORKTaskViewController(task: RegistrationTask, taskRun: nil)
         registerTaskViewController.delegate = self
         present(registerTaskViewController, animated: true, completion: nil)
     }
     
-    @IBAction func loginTapped(sender : AnyObject) {
-        let loginTaskViewController = ORKTaskViewController(task: LoginTask, taskRun: nil)
-        loginTaskViewController.delegate = self
-        present(loginTaskViewController, animated: true, completion: nil)
+    @IBAction func loginTapped(sender : UIButton) {
+        if loggedIn {
+            loggedIn = false
+            currentUser = User()
+            updateUI()
+        }
+        else {
+            let loginTaskViewController = ORKTaskViewController(task: LoginTask, taskRun: nil)
+            loginTaskViewController.delegate = self
+            present(loginTaskViewController, animated: true, completion: nil)
+        }
     }
     
-    @IBAction func beforeBedSurveyTapped(sender : AnyObject) {
-        let beforeBedTaskViewController = ORKTaskViewController(task: BeforeBedSurveyTask, taskRun: nil)
+    @IBAction func bedtimeTapped(sender : UIButton) {
+        //bedtimeButton.isEnabled = true
+        let beforeBedTaskViewController = ORKTaskViewController(task: BedtimeTask, taskRun: nil)
         beforeBedTaskViewController.delegate = self
         present(beforeBedTaskViewController, animated: true, completion: nil)
     }
     
-    @IBAction func afterBedSurveyTapped(sender : AnyObject) {
-        let afterBedTaskViewController = ORKTaskViewController(task: AfterBedSurveyTask, taskRun: nil)
-        afterBedTaskViewController.delegate = self
-        present(afterBedTaskViewController, animated: true, completion: nil)
-    }
-
-    @IBAction func chartsTapped(sender : AnyObject) {
+    @IBAction func chartsTapped(sender : UIButton) {
         present(ChartListViewController(), animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        if loggedIn {
-            self.present(menuViewController(), animated: true, completion: nil)
-        }
+        updateUI()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func updateUI() {
+        if loggedIn {
+            self.registerButton.isHidden = true
+            self.welcomeLabel.text = "Welcome \(currentUser.firstName)"
+            self.loginButton.setTitle("Logout", for: .normal)
+            
+            self.bedtimeButton.isHidden = false
+            self.lastNightButton.isHidden = false
+            self.trendsButton.isHidden = false
+            self.networkButton.isHidden = false
+            self.trainingButton.isHidden = false
+            self.adviceButton.isHidden = false
+            
+        }
+        else {
+            self.registerButton.isHidden = false
+            self.welcomeLabel.text = "Please login"
+            self.loginButton.setTitle("Login", for: .normal)
+            
+            self.bedtimeButton.isHidden = true
+            self.lastNightButton.isHidden = true
+            self.trendsButton.isHidden = true
+            self.networkButton.isHidden = true
+            self.trainingButton.isHidden = true
+            self.adviceButton.isHidden = true
+
+        }
+    }
 
 }
 
-extension mainViewController : ORKTaskViewControllerDelegate {
+extension MainViewController : ORKTaskViewControllerDelegate {
     
     func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason:ORKTaskViewControllerFinishReason, error: Error?) {
         
@@ -78,6 +117,7 @@ extension mainViewController : ORKTaskViewControllerDelegate {
                     let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                     taskViewController.present(alert, animated: true, completion: nil)
+                    taskViewController.dismiss(animated: true, completion: nil)
                 }
                 else {
                     let alertTitle = NSLocalizedString("Registration failed", comment: "")
@@ -116,12 +156,21 @@ extension mainViewController : ORKTaskViewControllerDelegate {
                         loggedIn = true
                         print("Successfully logged in \(currentUser.firstName)")
                         taskViewController.dismiss(animated: true, completion: nil)
+                        updateUI()
                     }
                     
                 }
             }
+            
+//            if (taskViewController.result.stepResult(forStepIdentifier: "SensorRecordingStep") != nil) {
+//                SensorStepViewController().disconnect()
+//            }
+            
+//            if let bedtimeData = taskViewController.result.stepResult(forStepIdentifier: "") {
+//                
+//            }
 
-            if taskViewController.result.stepResult(forStepIdentifier: "WakeSleepQuestionStep") != nil {
+            if (taskViewController.result.stepResult(forStepIdentifier: "AfterBedSummaryStep") != nil) {
                 
                 // query database for temp min and temp max
                 
@@ -136,6 +185,7 @@ extension mainViewController : ORKTaskViewControllerDelegate {
                 let currentUserData = realm.objects(User.self.self).filter("email = '\(currentUser.email)'")[0].sensorData.filter("sensorTimestamp > %@ AND sensorTimestamp <= %@", yesterday!, today)
                 let temp_max:Float = currentUserData.average(ofProperty: "sensorTemp")!
                 print(temp_max)
+                taskViewController.dismiss(animated: true, completion: nil)
             }
             
             

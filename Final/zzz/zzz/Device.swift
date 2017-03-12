@@ -54,15 +54,6 @@ struct Device {
     
 }
 
-// Globlal variables for samples
-public var sampleTimestamp:Date?
-public var sampleTemp:Float?
-public var sampleHumi:Float?
-public var sampleLight:Float?
-public var sampleAccX:Float?
-public var sampleAccY:Float?
-public var sampleAccZ:Float?
-
 // MARK: - TI Sensor Tag Utility Methods
 
 func getTemperature(_ data:Data) -> Float {
@@ -77,7 +68,7 @@ func getTemperature(_ data:Data) -> Float {
     let ambientTempC = Float(rawAmbientTemp) / 128.0
     //print("*** TEMPERATURE: \(ambientTempC)° C")
     
-    return ambientTempC
+    return Float(ambientTempC)
 }
 
 func getHumidity(_ data:Data) -> Float {
@@ -90,7 +81,7 @@ func getHumidity(_ data:Data) -> Float {
     let calculatedHumidity = Float(calculateRelativeHumidity(rawHumidity))
     //        print("*** HUMIDITY: \(calculatedHumidity)");
     
-    return calculatedHumidity
+    return Float(calculatedHumidity)
 }
 
 func getLight(_ data:Data) -> Float {
@@ -136,8 +127,8 @@ func calculateRelativeHumidity(_ rawH:UInt16) -> Double {
 func calculateLightIntensity(_ rawL:UInt16) -> Double {
     let m = rawL & 0x0FFF
     let e = (rawL & 0xF000) >> 12
-    let LightIntensity:Double = Double(m) * (0.01 * pow(2.0, Double(e)))
-    return LightIntensity
+    let lightIntensity:Double = Double(m) * (0.01 * pow(2.0, Double(e)))
+    return lightIntensity
 }
 
 func calculateAcc(_ rawAcc:UInt16) -> Double {

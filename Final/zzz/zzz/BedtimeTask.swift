@@ -1,5 +1,5 @@
 //
-//  BeforeBedSurveyTask.swift
+//  BedtimeTask.swift
 //  zzz
 //
 //  Created by Pierre Azalbert on 07/03/2017.
@@ -8,15 +8,17 @@
 
 import ResearchKit
 
-public var BeforeBedSurveyTask: ORKOrderedTask {
+public var BedtimeTask: ORKOrderedTask {
     
     var steps = [ORKStep]()
     
+    // ***** BEFORE BEDTIME SURVEY ********************************************************************
+    
     //Instructions step
-    let instructionStep = ORKInstructionStep(identifier: "BeforeBedIntroStep")
-    instructionStep.title = "Before going to bed"
-    instructionStep.text = "Please answer the following questions: they will help us incorporate your lifestyle habits into the sleep analysis results."
-    steps += [instructionStep]
+    let bedoreBedIntroStep = ORKInstructionStep(identifier: "BeforeBedIntroStep")
+    bedoreBedIntroStep.title = "Before going to bed"
+    bedoreBedIntroStep.text = "Please answer the following questions: they will help us incorporate your lifestyle habits into the sleep analysis results."
+    steps += [bedoreBedIntroStep]
     
     // Did you exercise today?
     let exerciseAnswerFormat = ORKBooleanAnswerFormat()
@@ -31,7 +33,6 @@ public var BeforeBedSurveyTask: ORKOrderedTask {
     let dinnerAnswerFormat = ORKAnswerFormat.textScale(with: dinnerTimeChoices, defaultIndex: NSIntegerMax, vertical: true)
     let dinnerQuestionStepTitle = "When did you have dinner?"
     let dinnerQuestionStep = ORKQuestionStep(identifier: "DinnerQuestionStep", title: dinnerQuestionStepTitle, answer: dinnerAnswerFormat)
-
     
     steps += [dinnerQuestionStep]
     
@@ -84,13 +85,13 @@ public var BeforeBedSurveyTask: ORKOrderedTask {
     
     steps += [nightTiredQuestionStep]
     
-    // Summary 
-    let summaryStep = ORKCompletionStep(identifier: "SummaryStep")
-    summaryStep.title = "Time to go to bed!"
-    summaryStep.text = "Sleep well :)"
-    steps += [summaryStep]
+    // Before bedtie survey summary
+    let beforeBedSummaryStep = ORKCompletionStep(identifier: "BeforeBedSummaryStep")
+    beforeBedSummaryStep.title = "Time to go to bed!"
+    beforeBedSummaryStep.text = "Sleep well :)"
+    steps += [beforeBedSummaryStep]
     
-    // Custom task for sensortag data recording
+    // ***** NIGHT MONITORING USING SENSORTAG ********************************************************
     
     // Instruction step
     let sensorInstructionStep = ORKInstructionStep(identifier: "SensorInstructionStep")
@@ -107,5 +108,67 @@ public var BeforeBedSurveyTask: ORKOrderedTask {
     //sensorRecordingStep.stepDuration
     steps += [sensorRecordingStep]
     
-    return ORKOrderedTask(identifier: "BeforeBedSurveyTask", steps: steps)
+    // ***** AFTER BEDTIME SURVEY ********************************************************************
+    
+    //Instructions step
+    let afterBedIntroStep = ORKInstructionStep(identifier: "AfterBedIntroStep")
+    afterBedIntroStep.title = "Good morning!"
+    afterBedIntroStep.text = "Please answer the following questions: they will help us understand how well you slept and what affects you in the morning."
+    steps += [afterBedIntroStep]
+    
+    // Did you wake up to dark room/artificial/natural light?
+    let wakeLightChoiceOneText = NSLocalizedString("No light", comment: "")
+    let wakeLightChoiceTwoText = NSLocalizedString("Artificial light", comment: "")
+    let wakeLightChoiceThreeText = NSLocalizedString("Natural light", comment: "")
+    let wakeLightChoices = [
+        ORKTextChoice(text: wakeLightChoiceOneText, value: "none" as NSCoding & NSCopying & NSObjectProtocol),
+        ORKTextChoice(text: wakeLightChoiceTwoText, value: "artificial" as NSCoding & NSCopying & NSObjectProtocol),
+        ORKTextChoice(text: wakeLightChoiceThreeText, value: "natural" as NSCoding & NSCopying & NSObjectProtocol)]
+    let wakeLightAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: wakeLightChoices)
+    let wakeLightQuestionStep = ORKQuestionStep(identifier: "WakeLightQuestionStep", title: "Did you wake up to:", answer: wakeLightAnswerFormat)
+    
+    steps += [wakeLightQuestionStep]
+    
+    // Did you wake up to use the toilet during the night?
+    let toiletAnswerFormat = ORKBooleanAnswerFormat()
+    let toiletQuestionStepTitle = "Did you wake up to use the toilet during the night?"
+    let toiletQuestionStep = ORKQuestionStep(identifier: "ToiletQuestionStep", title: toiletQuestionStepTitle, answer: toiletAnswerFormat)
+    
+    steps += [toiletQuestionStep]
+    
+    // Did you turn the light on during the night?
+    let nightLightAnswerFormat = ORKBooleanAnswerFormat()
+    let nightLightQuestionStepTitle = "Did you turn the light on during the night?"
+    let nightLightQuestionStep = ORKQuestionStep(identifier: "NightLightQuestionStep", title: nightLightQuestionStepTitle, answer: nightLightAnswerFormat)
+    
+    steps += [nightLightQuestionStep]
+    
+    // Did any electronic device wake you up during the night?
+    let wakeDeviceAnswerFormat = ORKBooleanAnswerFormat()
+    let wakeDeviceQuestionStepTitle = "Did any electronic device wake you up during the night?"
+    let wakeDeviceQuestionStep = ORKQuestionStep(identifier: "WakeDeviceQuestionStep", title: wakeDeviceQuestionStepTitle, answer: wakeDeviceAnswerFormat)
+    
+    steps += [wakeDeviceQuestionStep]
+    
+    // Do you feel tired this morning?
+    let wakeTiredAnswerFormat = ORKBooleanAnswerFormat()
+    let wakeTiredQuestionStepTitle = "Do you feel tired this morning?"
+    let wakeTiredQuestionStep = ORKQuestionStep(identifier: "WakeTiredQuestionStep", title: wakeTiredQuestionStepTitle, answer: wakeTiredAnswerFormat)
+    
+    steps += [wakeTiredQuestionStep]
+    
+    // Do you feel like you slept well overall?
+    let wakeSleepAnswerFormat = ORKBooleanAnswerFormat()
+    let wakeSleepQuestionStepTitle = "Do you feel like you slept well overall?"
+    let wakeSleepQuestionStep = ORKQuestionStep(identifier: "WakeSleepQuestionStep", title: wakeSleepQuestionStepTitle, answer: wakeSleepAnswerFormat)
+    
+    steps += [wakeSleepQuestionStep]
+    
+    // Summary
+    let afterBedSummaryStep = ORKCompletionStep(identifier: "AfterBedSummaryStep")
+    afterBedSummaryStep.title = "All done!"
+    afterBedSummaryStep.text = "Have a great day :)"
+    steps += [afterBedSummaryStep]
+    
+    return ORKOrderedTask(identifier: "BedtimeTask", steps: steps)
 }
