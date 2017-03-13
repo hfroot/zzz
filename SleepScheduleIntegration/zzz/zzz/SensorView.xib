@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="center" id="iN0-l3-epB" customClass="SensorView" customModule="zzz" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="353" height="329"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4Z-Qp-FmV" customClass="ORKTextButton">
+                    <rect key="frame" x="91" y="262" width="172" height="47"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="Disconnect SensorTag"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fg1-7f-i8L">
+                    <rect key="frame" x="148" y="20" width="58" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature: 25°C" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="gEl-c7-R2s" userLabel="Temperature Label">
+                    <rect key="frame" x="177" y="60" width="160" height="25"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humidity: 28%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="mg2-wq-5dZ">
+                    <rect key="frame" x="177" y="93" width="160" height="25"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Light: 50 lx" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="WXg-Gq-euL">
+                    <rect key="frame" x="177" y="126" width="160" height="25"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Acc X: 2376.928" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Vij-OG-MWE" userLabel="Acc X:">
+                    <rect key="frame" x="177" y="159" width="160" height="25"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Acc Y: 2376.928" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="xDk-TR-JEQ" userLabel="Acc Y:">
+                    <rect key="frame" x="177" y="192" width="160" height="25"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Acc Z: 2376.928" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="xUU-zg-UWl">
+                    <rect key="frame" x="177" y="225" width="160" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="MMo-mu-Dta"/>
+                        <constraint firstAttribute="height" constant="25" id="cyk-z5-wmi"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="sensortag-front" translatesAutoresizingMaskIntoConstraints="NO" id="rDQ-0R-XpM">
+                    <rect key="frame" x="16" y="130" width="143" height="120"/>
+                </imageView>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="bluetooth" translatesAutoresizingMaskIntoConstraints="NO" id="VfH-IX-plu">
+                    <rect key="frame" x="35" y="60" width="124" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="D2l-1T-wiJ"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Vij-OG-MWE" firstAttribute="top" secondItem="WXg-Gq-euL" secondAttribute="bottom" constant="8" symbolic="YES" id="2r4-jm-vee"/>
+                <constraint firstItem="Vij-OG-MWE" firstAttribute="height" secondItem="gEl-c7-R2s" secondAttribute="height" id="49D-Jn-sam"/>
+                <constraint firstItem="xUU-zg-UWl" firstAttribute="bottom" secondItem="rDQ-0R-XpM" secondAttribute="bottom" id="5X9-hB-uDz"/>
+                <constraint firstItem="Vij-OG-MWE" firstAttribute="width" secondItem="gEl-c7-R2s" secondAttribute="width" id="7F3-DV-WRW"/>
+                <constraint firstItem="xDk-TR-JEQ" firstAttribute="top" secondItem="Vij-OG-MWE" secondAttribute="bottom" constant="8" symbolic="YES" id="8uf-eK-vG5"/>
+                <constraint firstItem="mg2-wq-5dZ" firstAttribute="height" secondItem="gEl-c7-R2s" secondAttribute="height" id="8zC-oc-8Gn"/>
+                <constraint firstItem="xUU-zg-UWl" firstAttribute="leading" secondItem="gEl-c7-R2s" secondAttribute="leading" id="9oa-DK-UAh"/>
+                <constraint firstItem="mg2-wq-5dZ" firstAttribute="leading" secondItem="VfH-IX-plu" secondAttribute="trailing" constant="18" id="EiO-f3-3PX"/>
+                <constraint firstItem="xUU-zg-UWl" firstAttribute="height" secondItem="gEl-c7-R2s" secondAttribute="height" id="ICt-ZL-byr"/>
+                <constraint firstItem="fg1-7f-i8L" firstAttribute="centerX" secondItem="b4Z-Qp-FmV" secondAttribute="centerX" id="IqW-Wv-rDJ"/>
+                <constraint firstItem="xUU-zg-UWl" firstAttribute="leading" secondItem="WXg-Gq-euL" secondAttribute="leading" id="Jvg-Yd-XRa"/>
+                <constraint firstItem="rDQ-0R-XpM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="KZl-1t-Xiy"/>
+                <constraint firstItem="fg1-7f-i8L" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="N6c-Nb-2gg"/>
+                <constraint firstAttribute="bottom" secondItem="xUU-zg-UWl" secondAttribute="bottom" constant="79" id="NJJ-fm-DpK"/>
+                <constraint firstItem="WXg-Gq-euL" firstAttribute="top" secondItem="mg2-wq-5dZ" secondAttribute="bottom" constant="8" symbolic="YES" id="Nsq-BL-GHx"/>
+                <constraint firstItem="xUU-zg-UWl" firstAttribute="width" secondItem="gEl-c7-R2s" secondAttribute="width" id="NuN-29-31E"/>
+                <constraint firstItem="b4Z-Qp-FmV" firstAttribute="top" secondItem="xUU-zg-UWl" secondAttribute="bottom" constant="12" id="OmA-dk-73m"/>
+                <constraint firstAttribute="trailing" secondItem="b4Z-Qp-FmV" secondAttribute="trailing" constant="90" id="PBn-KP-gjN"/>
+                <constraint firstItem="WXg-Gq-euL" firstAttribute="height" secondItem="gEl-c7-R2s" secondAttribute="height" id="RkM-YT-Kmt"/>
+                <constraint firstItem="xUU-zg-UWl" firstAttribute="top" secondItem="xDk-TR-JEQ" secondAttribute="bottom" constant="8" symbolic="YES" id="SSy-AY-nSo"/>
+                <constraint firstItem="WXg-Gq-euL" firstAttribute="width" secondItem="gEl-c7-R2s" secondAttribute="width" id="X4j-xe-pPs"/>
+                <constraint firstItem="VfH-IX-plu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="35" id="a5T-I9-Lzg"/>
+                <constraint firstItem="mg2-wq-5dZ" firstAttribute="width" secondItem="gEl-c7-R2s" secondAttribute="width" id="aN7-mk-Mg2"/>
+                <constraint firstItem="b4Z-Qp-FmV" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="aWu-6v-a3d"/>
+                <constraint firstAttribute="bottom" secondItem="b4Z-Qp-FmV" secondAttribute="bottom" constant="20" id="ci6-BA-A67"/>
+                <constraint firstItem="xUU-zg-UWl" firstAttribute="leading" secondItem="xDk-TR-JEQ" secondAttribute="leading" id="clV-J0-wsf"/>
+                <constraint firstItem="xUU-zg-UWl" firstAttribute="leading" secondItem="Vij-OG-MWE" secondAttribute="leading" id="eUc-2B-Dbz"/>
+                <constraint firstItem="VfH-IX-plu" firstAttribute="top" secondItem="gEl-c7-R2s" secondAttribute="top" id="iiH-qt-3Y1"/>
+                <constraint firstItem="xUU-zg-UWl" firstAttribute="leading" secondItem="rDQ-0R-XpM" secondAttribute="trailing" constant="18" id="liu-UB-Nyz"/>
+                <constraint firstItem="VfH-IX-plu" firstAttribute="top" secondItem="fg1-7f-i8L" secondAttribute="bottom" constant="16" id="n6K-6b-HCI"/>
+                <constraint firstItem="xUU-zg-UWl" firstAttribute="leading" secondItem="mg2-wq-5dZ" secondAttribute="leading" id="nnc-OB-bvQ"/>
+                <constraint firstAttribute="trailing" secondItem="xUU-zg-UWl" secondAttribute="trailing" constant="16" id="nuL-xv-kqY"/>
+                <constraint firstItem="xDk-TR-JEQ" firstAttribute="height" secondItem="gEl-c7-R2s" secondAttribute="height" id="oF0-uK-VHf"/>
+                <constraint firstItem="xDk-TR-JEQ" firstAttribute="width" secondItem="gEl-c7-R2s" secondAttribute="width" id="pZZ-fT-Cim"/>
+                <constraint firstItem="rDQ-0R-XpM" firstAttribute="top" secondItem="VfH-IX-plu" secondAttribute="bottom" id="px0-QA-VsU"/>
+                <constraint firstItem="rDQ-0R-XpM" firstAttribute="bottom" secondItem="xUU-zg-UWl" secondAttribute="bottom" id="xCW-KG-Zq9"/>
+                <constraint firstItem="mg2-wq-5dZ" firstAttribute="top" secondItem="gEl-c7-R2s" secondAttribute="bottom" constant="8" symbolic="YES" id="xJ1-pc-P8j"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="accXLabel" destination="Vij-OG-MWE" id="qqT-i0-aQ4"/>
+                <outlet property="accYLabel" destination="xDk-TR-JEQ" id="LvB-NE-wyA"/>
+                <outlet property="accZLabel" destination="xUU-zg-UWl" id="le2-OC-gyY"/>
+                <outlet property="disconnectButton" destination="b4Z-Qp-FmV" id="ylO-4r-2BL"/>
+                <outlet property="humidityLabel" destination="mg2-wq-5dZ" id="V6y-eX-avg"/>
+                <outlet property="lightLabel" destination="WXg-Gq-euL" id="Cp9-SF-Ngv"/>
+                <outlet property="statusLabel" destination="fg1-7f-i8L" id="Enk-k7-0kp"/>
+                <outlet property="temperatureLabel" destination="gEl-c7-R2s" id="S90-W9-HyC"/>
+            </connections>
+            <point key="canvasLocation" x="-104.5" y="12.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bluetooth" width="512" height="512"/>
+        <image name="sensortag-front" width="339" height="284"/>
+    </resources>
+</document>
