@@ -22,6 +22,7 @@ class MainViewController: UIViewController {
     @IBOutlet var networkButton: UIButton!
     @IBOutlet var trainingButton: UIButton!
     @IBOutlet var adviceButton: UIButton!
+    @IBOutlet var scheduleButton: UIButton!
     
     @IBOutlet var welcomeLabel: UILabel!
     
@@ -77,6 +78,7 @@ class MainViewController: UIViewController {
             self.networkButton.isHidden = false
             self.trainingButton.isHidden = false
             self.adviceButton.isHidden = false
+            self.scheduleButton.isHidden = false
             
         }
         else {
@@ -90,6 +92,7 @@ class MainViewController: UIViewController {
             self.networkButton.isHidden = true
             self.trainingButton.isHidden = true
             self.adviceButton.isHidden = true
+            self.scheduleButton.isHidden = true
 
         }
     }

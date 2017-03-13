@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		799B161C1E77461000B0DF2D /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799B16161E77461000B0DF2D /* Identifier.swift */; };
+		799B161D1E77461000B0DF2D /* ScheduleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799B16171E77461000B0DF2D /* ScheduleModel.swift */; };
+		799B161E1E77461000B0DF2D /* SetAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799B16181E77461000B0DF2D /* SetAlarmViewController.swift */; };
+		799B161F1E77461000B0DF2D /* SleepHoursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799B16191E77461000B0DF2D /* SleepHoursViewController.swift */; };
+		799B16201E77461000B0DF2D /* SleepScheduler.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 799B161A1E77461000B0DF2D /* SleepScheduler.storyboard */; };
+		799B16211E77461000B0DF2D /* SleepSchedulerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799B161B1E77461000B0DF2D /* SleepSchedulerListViewController.swift */; };
 		8F54834B1E718FEF008920AB /* LoginTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54834A1E718FEF008920AB /* LoginTask.swift */; };
 		8F54834D1E7200BA008920AB /* DatabaseFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54834C1E7200BA008920AB /* DatabaseFunctions.swift */; };
 		8F5483511E72E709008920AB /* SensorActiveStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5483501E72E709008920AB /* SensorActiveStep.swift */; };
@@ -127,6 +133,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		799B16161E77461000B0DF2D /* Identifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
+		799B16171E77461000B0DF2D /* ScheduleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleModel.swift; sourceTree = "<group>"; };
+		799B16181E77461000B0DF2D /* SetAlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetAlarmViewController.swift; sourceTree = "<group>"; };
+		799B16191E77461000B0DF2D /* SleepHoursViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepHoursViewController.swift; sourceTree = "<group>"; };
+		799B161A1E77461000B0DF2D /* SleepScheduler.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SleepScheduler.storyboard; sourceTree = "<group>"; };
+		799B161B1E77461000B0DF2D /* SleepSchedulerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepSchedulerListViewController.swift; sourceTree = "<group>"; };
 		8F54834A1E718FEF008920AB /* LoginTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTask.swift; sourceTree = "<group>"; };
 		8F54834C1E7200BA008920AB /* DatabaseFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseFunctions.swift; sourceTree = "<group>"; };
 		8F5483501E72E709008920AB /* SensorActiveStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorActiveStep.swift; sourceTree = "<group>"; };
@@ -176,6 +188,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		799B160F1E7745F200B0DF2D /* SleepScheduler */ = {
+			isa = PBXGroup;
+			children = (
+				799B16161E77461000B0DF2D /* Identifier.swift */,
+				799B16171E77461000B0DF2D /* ScheduleModel.swift */,
+				799B16181E77461000B0DF2D /* SetAlarmViewController.swift */,
+				799B16191E77461000B0DF2D /* SleepHoursViewController.swift */,
+				799B161A1E77461000B0DF2D /* SleepScheduler.storyboard */,
+				799B161B1E77461000B0DF2D /* SleepSchedulerListViewController.swift */,
+			);
+			name = SleepScheduler;
+			sourceTree = "<group>";
+		};
 		8F77141B1E770E90000CB10A /* Advice */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +256,7 @@
 		8FF3041D1E6F1FF900BD97F3 /* zzz */ = {
 			isa = PBXGroup;
 			children = (
+				799B160F1E7745F200B0DF2D /* SleepScheduler */,
 				8FF3041E1E6F1FF900BD97F3 /* AppDelegate.swift */,
 				8FF304201E6F1FF900BD97F3 /* MainViewController.swift */,
 				8FF304221E6F1FF900BD97F3 /* Main.storyboard */,
@@ -426,6 +452,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FF3044B1E6F2B7700BD97F3 /* Charts.storyboard in Resources */,
+				799B16201E77461000B0DF2D /* SleepScheduler.storyboard in Resources */,
 				8FE4A3151E749D4F00BE342A /* LaunchScreen.storyboard in Resources */,
 				8FF304261E6F1FF900BD97F3 /* Assets.xcassets in Resources */,
 				8FE4A3171E749D7D00BE342A /* SensorView.xib in Resources */,
@@ -441,16 +468,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				799B161E1E77461000B0DF2D /* SetAlarmViewController.swift in Sources */,
 				8F54834D1E7200BA008920AB /* DatabaseFunctions.swift in Sources */,
 				8FE4A3191E74A0AE00BE342A /* SensorView.swift in Sources */,
 				8FF304461E6F26EC00BD97F3 /* BedtimeTask.swift in Sources */,
 				8F77142A1E770E9E000CB10A /* Recommendations.swift in Sources */,
+				799B16211E77461000B0DF2D /* SleepSchedulerListViewController.swift in Sources */,
 				8FF3044C1E6F2B7700BD97F3 /* ChartDataSources.swift in Sources */,
 				8F7714281E770E9E000CB10A /* AdviceDataSource.swift in Sources */,
 				8FF3044D1E6F2B7700BD97F3 /* ChartListViewController.swift in Sources */,
 				8FF304671E703BC800BD97F3 /* Device.swift in Sources */,
 				8FE4A31E1E75B2F800BE342A /* DataProcessing.swift in Sources */,
+				799B161F1E77461000B0DF2D /* SleepHoursViewController.swift in Sources */,
 				8FF304211E6F1FF900BD97F3 /* MainViewController.swift in Sources */,
+				799B161D1E77461000B0DF2D /* ScheduleModel.swift in Sources */,
+				799B161C1E77461000B0DF2D /* Identifier.swift in Sources */,
 				8F54834B1E718FEF008920AB /* LoginTask.swift in Sources */,
 				8F77142B1E770E9E000CB10A /* Suggestions.swift in Sources */,
 				8F7714291E770E9E000CB10A /* AdviceViewController.swift in Sources */,
