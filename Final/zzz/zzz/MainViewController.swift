@@ -67,6 +67,10 @@ class MainViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     func updateUI() {
         if loggedIn {
             self.registerButton.isHidden = true
@@ -80,7 +84,6 @@ class MainViewController: UIViewController {
             self.trainingButton.isHidden = false
             self.adviceButton.isHidden = false
             self.scheduleButton.isHidden = false
-            
         }
         else {
             self.registerButton.isHidden = false
@@ -94,7 +97,6 @@ class MainViewController: UIViewController {
             self.trainingButton.isHidden = true
             self.adviceButton.isHidden = true
             self.scheduleButton.isHidden = true
-
         }
     }
     
