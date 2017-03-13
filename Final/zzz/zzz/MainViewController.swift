@@ -126,10 +126,11 @@ extension MainViewController : ORKTaskViewControllerDelegate {
                     let alertTitle = NSLocalizedString("Registration successful", comment: "")
                     let alertMessage = NSLocalizedString("Please login to use the ZZZ app", comment: "")
                     let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {
+                        action in
+                        self.dismiss(animated: true, completion: nil)
+                    }))
                     taskViewController.present(alert, animated: true, completion: nil)
-                    taskViewController.dismiss(animated: true, completion: nil)
                 }
                 else {
                     let alertTitle = NSLocalizedString("Registration failed", comment: "")
