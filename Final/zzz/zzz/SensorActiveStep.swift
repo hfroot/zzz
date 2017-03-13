@@ -65,7 +65,7 @@ class SensorStepViewController : ORKActiveStepViewController, CBCentralManagerDe
         sensorView?.disconnectButton?.isHidden = true
         
         // reset sensorData list to empty list
-        currentSensorData = List<sensorDataObject>()
+        currentSensorData.removeAll()
         
         // Launch CBCentral Manager
         autoreleasepool {

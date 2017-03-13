@@ -111,29 +111,30 @@ func connectToTempServer (temp_mean: Float, temp_max: Float) -> Int {
 
 
 func processData(){
-    let calendar = Calendar.current
-    let yesterday = calendar.date(byAdding: .day, value: -1, to: Date())
-    let today = Date()
+//    let calendar = Calendar.current
+//    let yesterday = calendar.date(byAdding: .day, value: -1, to: Date())
+//    let today = Date()
     
     print (realm.objects(User.self.self).filter("email = '\(currentUser.email)'")[0].sleepData)
-    let currentUserData = realm.objects(User.self.self.self).filter("email = '\(currentUser.email)'")[0].sleepData[0].sensorData.filter("Timestamp > %@ AND Timestamp <= %@", yesterday!, today)
+    let currentUserData = realm.objects(User.self.self.self).filter("email = '\(currentUser.email)'")[0].sleepData//.filter("Timestamp > %@ AND Timestamp <= %@", yesterday!, today)
+    let lastNightData = currentUserData.last!.sensorData
     
-    if currentUserData.isEmpty {
-        print("No data data has been recorded tonight")
+    if lastNightData.isEmpty {
+        print("No data data has been recorded last night")
     }
     else {
         
         //Find mean max value
-        let temp_max:Float = currentUserData.max(ofProperty: "sensorTemp")!
+        let temp_max:Float = lastNightData.max(ofProperty: "sensorTemp")!
         print(temp_max)
         
-        let temp_mean:Float = currentUserData.average(ofProperty: "sensorTemp")!
+        let temp_mean:Float = lastNightData.average(ofProperty: "sensorTemp")!
         print(temp_mean)
         
-        let humid_max:Float = currentUserData.max(ofProperty: "sensorHumi")!
+        let humid_max:Float = lastNightData.max(ofProperty: "sensorHumi")!
         print(humid_max)
         
-        let humid_mean:Float = currentUserData.average(ofProperty: "sensorHumi")!
+        let humid_mean:Float = lastNightData.average(ofProperty: "sensorHumi")!
         print(humid_mean)
         
         // Send to API and retrieve corresponding classifier for temp and humi
