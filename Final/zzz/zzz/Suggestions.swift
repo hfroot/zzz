@@ -264,7 +264,7 @@ class SuggestionEngine{
                     removalArray.append(i)
                 }
             }
-            for x in removalArray{
+            for _ in removalArray{
                 let a = removalArray.removeLast()
                 duration.remove(at: a)
             }
@@ -276,7 +276,7 @@ class SuggestionEngine{
                     removalArray.append(i)
                 }
             }
-            for x in removalArray{
+            for _ in removalArray{
                 let a = removalArray.removeLast()
                 exercise.remove(at: a)
             }
@@ -288,7 +288,7 @@ class SuggestionEngine{
                     removalArray.append(i)
                 }
             }
-            for x in removalArray{
+            for _ in removalArray{
                 let a = removalArray.removeLast()
                 caffeine.remove(at: a)
             }
@@ -300,7 +300,7 @@ class SuggestionEngine{
                     removalArray.append(i)
                 }
             }
-            for x in removalArray{
+            for _ in removalArray{
                 let a = removalArray.removeLast()
                 meal.remove(at: a)
             }
@@ -319,7 +319,7 @@ class SuggestionEngine{
                     removalArray.append(i)
                 }
             }
-            for x in removalArray{
+            for _ in removalArray{
                 let a = removalArray.removeLast()
                 relaxation.remove(at: a)
             }
@@ -351,7 +351,7 @@ class SuggestionEngine{
                     removalArray.append(i)
                 }
             }
-            for x in removalArray{
+            for _ in removalArray{
                 let a = removalArray.removeLast()
                 device.remove(at: a)
             }
