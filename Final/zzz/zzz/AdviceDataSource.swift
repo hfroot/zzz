@@ -39,17 +39,17 @@ var pieChartValues: [CGFloat] = [CGFloat(0.6),
                          CGFloat(0.5)]
 
 let pieChartColours: [UIColor] = [UIColor(red: 1, green: 0, blue: 0, alpha: 1),
+                                 UIColor(red: 1, green: 0.5, blue: 0, alpha: 1),
+                                 UIColor(red: 1, green: 1, blue: 0, alpha: 1),
+                                 UIColor(red: 0.4, green: 0.8, blue: 0, alpha: 1),
                                  UIColor(red: 0, green: 1, blue: 0, alpha: 1),
+                                 UIColor(red: 0, green: 0.8, blue: 0.4, alpha: 1),
+                                 UIColor(red: 0, green: 1, blue: 1, alpha: 1),
+                                 UIColor(red: 0, green: 0.5, blue: 1, alpha: 1),
                                  UIColor(red: 0, green: 0, blue: 1, alpha: 1),
-                                 UIColor(red: 0.5, green: 0.5, blue: 0, alpha: 1),
-                                 UIColor(red: 0.5, green: 0, blue: 0.5, alpha: 1),
-                                 UIColor(red: 0, green: 0.5, blue: 0.5, alpha: 1),
-                                 UIColor(red: 0.4, green: 0.3, blue: 0.3, alpha: 1),
-                                 UIColor(red: 0.3, green: 0.4, blue: 0.3, alpha: 1),
-                                 UIColor(red: 0.3, green: 0.3, blue: 0.4, alpha: 1),
-                                 UIColor(red: 0.5, green: 0.3, blue: 0.2, alpha: 1),
-                                 UIColor(red: 0.3, green: 0.5, blue: 0.2, alpha: 1),
-                                 UIColor(red: 0.3, green: 0.2, blue: 0.5, alpha: 1),
+                                 UIColor(red: 0.5, green: 0, blue: 1, alpha: 1),
+                                 UIColor(red: 1, green: 0, blue: 1, alpha: 1),
+                                 UIColor(red: 1, green: 0.8, blue: 0.8, alpha: 1),
                                  UIColor(red: 0.5, green: 0.2, blue: 0.3, alpha: 1)]
 
 func updatePieChartValues(newValues: [CGFloat]){
