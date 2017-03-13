@@ -36,7 +36,7 @@ import RealmSwift
 
 func connectToTempServer (temp_mean: Float, temp_max: Float) -> Int {
     
-    var classifier = Int()
+    var classifier:Int = 0
     
     let dict = ["temp_mean": temp_mean, "temp_max": temp_max] as [String: Any]
     
@@ -58,6 +58,7 @@ func connectToTempServer (temp_mean: Float, temp_max: Float) -> Int {
                 if let data = data,
                     let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
                     let result = json["temp_classifier"] as? Int {
+                    print("classifier received from API: \(result)")
                     classifier = result
                 }
             } catch {
@@ -137,7 +138,7 @@ func processData(){
         print(humid_mean)
         
         // Send to API and retrieve corresponding classifier for temp and humi
-        let temp_classified = connectToTempServer(temp_mean: temp_mean, temp_max: temp_max)
+        let temp_classified:Int = connectToTempServer(temp_mean: temp_mean, temp_max: temp_max)
         //        let humid_classified = connectToHumidServer(humid_mean: humid_mean, humid_max: humid_max )
         print(temp_classified)
         //        print(humid_classified)
