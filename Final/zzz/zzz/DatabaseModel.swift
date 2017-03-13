@@ -67,10 +67,11 @@ final class afterBedAnswersObject: Object {
     let WakeSleepQuestion = RealmOptional<Bool>()
 }
 
-let serverURL = URL(string: "http://my.realmServer.com:9080")!
+//let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
+//let realm = try! Realm(configuration: config)
 
-let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
-let realm = try! Realm(configuration: config)
+var notificationToken: NotificationToken!
+var realm: Realm!
 
 var currentUser = User()
 var currentSensorData = List<sensorDataObject>()

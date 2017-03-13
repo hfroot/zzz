@@ -58,6 +58,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupRealm()
         updateUI()
     }
 
@@ -298,65 +299,39 @@ extension MainViewController : ORKTaskViewControllerDelegate {
             taskViewController.dismiss(animated: true, completion: nil)
         }
         
-//        switch reason {
-//            
-//            // If survey was completed successfully, extract results before saving them on database
-//            case .completed:
-//                
-//                let results = taskViewController.result.results as! [ORKStepResult]
-//                //let resultsDict = [String:Any]
-//                
-//                for step in results {
-//                    
-//                    let stepResult = step.results as! [ORKQuestionResult]
-//                    
-//                    for item in stepResult {
-//                        
-//                        if let question = item as? ORKBooleanQuestionResult {
-//                            
-//                            print(question.identifier)
-//                            
-//                            if question.booleanAnswer != nil {
-//                                let answer = question.booleanAnswer!
-//                                if answer == 0 {print("no")}
-//                                if answer == 1 {print("yes")}
-//                            }
-//                            else {
-//                                let answer = "skipped"
-//                                print(answer)
-//                            }
-//                        }
-//                        else if let question = item as? ORKChoiceQuestionResult {
-//                            
-//                            print(question.identifier)
-//                            
-//                            if question.choiceAnswers != nil {
-//                                
-//                                let answers = question.choiceAnswers!
-//                                
-//                                if answers.count == 1 {
-//                                    let answer = answers[0]
-//                                    print(answer)
-//                                }
-//                                else {
-//                                    let answer = answers
-//                                    print(answer)
-//                                }
-//                            }
-//                            else {
-//                                let answer = "skipped"
-//                                print(answer)
-//                            }
-//                        }
-//
-//                    }
-//                }
-//                
-//                break
-//            case .failed, .discarded, .saved: break
-//        }
-        
         //taskViewController.dismiss(animated: true, completion: nil)
     }
+    
+    func setupRealm() {
+        // Log in existing user with username and password
+        let username = "zzz@zzz.com"  // <--- Update this
+        let password = "goodnight!"  // <--- Update this
+        
+        SyncUser.logIn(with: .usernamePassword(username: username, password: password, register: false), server: URL(string: "http://54.194.100.223:9080")!) { user, error in
+            guard let user = user else {
+                fatalError(String(describing: error))
+            }
+            
+            DispatchQueue.main.async {
+                // Open Realm
+                let configuration = Realm.Configuration(
+                    syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://54.194.100.223:9080/~/zzz")!)
+                )
+                realm = try! Realm(configuration: configuration)
+                
+                // Show initial tasks
+                func updateNetwork() {
+                    // do some queries about network data
+                }
+                updateNetwork()
+                
+                // Notify us when Realm changes
+                notificationToken = realm.addNotificationBlock { _ in
+                    updateNetwork()
+                }
+            }
+        }
+    }
+
     
 }
