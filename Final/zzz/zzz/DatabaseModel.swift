@@ -67,6 +67,8 @@ final class afterBedAnswersObject: Object {
     let WakeSleepQuestion = RealmOptional<Bool>()
 }
 
+let serverURL = URL(string: "http://my.realmServer.com:9080")!
+
 let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
 let realm = try! Realm(configuration: config)
 

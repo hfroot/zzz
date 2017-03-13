@@ -115,8 +115,7 @@ func processData(){
 //    let yesterday = calendar.date(byAdding: .day, value: -1, to: Date())
 //    let today = Date()
     
-    print (realm.objects(User.self.self).filter("email = '\(currentUser.email)'")[0].sleepData)
-    let currentUserData = realm.objects(User.self.self.self).filter("email = '\(currentUser.email)'")[0].sleepData//.filter("Timestamp > %@ AND Timestamp <= %@", yesterday!, today)
+    let currentUserData = realm.objects(User.self).filter("email = '\(currentUser.email)'")[0].sleepData//.filter("Timestamp > %@ AND Timestamp <= %@", yesterday!, today)
     let lastNightData = currentUserData.last!.sensorData
     
     if lastNightData.isEmpty {

@@ -118,6 +118,7 @@ extension MainViewController : ORKTaskViewControllerDelegate {
                     let alertMessage = NSLocalizedString("Please login to use the ZZZ app", comment: "")
                     let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    
                     taskViewController.present(alert, animated: true, completion: nil)
                     taskViewController.dismiss(animated: true, completion: nil)
                 }
