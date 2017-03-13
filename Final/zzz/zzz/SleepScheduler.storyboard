@@ -27,8 +27,8 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrT-VY-UpA">
-                                            <rect key="frame" x="23" y="7" width="75.5" height="30"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                            <rect key="frame" x="23" y="10.5" width="61" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -44,6 +44,9 @@
                                         <constraint firstItem="zrT-VY-UpA" firstAttribute="centerY" secondItem="yoN-PI-zfW" secondAttribute="centerY" id="co1-O7-ndR"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="ZCe-JL-rSU" kind="show" identifier="editAlarmSegue" id="9ly-bF-kC9"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InfoCell" id="ytF-7o-qIm" userLabel="Bedtime" customClass="InfoCell" customModule="zzz" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
@@ -53,17 +56,17 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bedtime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8c-gF-93t" userLabel="titleLabel">
-                                            <rect key="frame" x="23" y="7" width="92.5" height="30"/>
+                                            <rect key="frame" x="23" y="10.5" width="74.5" height="24"/>
                                             <accessibility key="accessibilityConfiguration">
                                                 <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                             </accessibility>
-                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7:30 AM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hkF-uh-CHj" userLabel="valueLabel">
-                                            <rect key="frame" x="257" y="7" width="95" height="30"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                            <rect key="frame" x="275.5" y="10.5" width="76.5" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -111,10 +114,10 @@
             </objects>
             <point key="canvasLocation" x="325.60000000000002" y="61.619190404797607"/>
         </scene>
-        <!--View Controller-->
+        <!--Set Alarm-->
         <scene sceneID="qzX-MQ-C0g">
             <objects>
-                <viewController id="ZCe-JL-rSU" sceneMemberID="viewController">
+                <viewController id="ZCe-JL-rSU" userLabel="Set Alarm" customClass="SetAlarmViewController" customModule="zzz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="A37-1g-aug"/>
                         <viewControllerLayoutGuide type="bottom" id="C6E-XJ-FxU"/>
@@ -133,8 +136,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="alarmPicker" destination="8y0-bv-yYD" id="KHd-fG-8S4"/>
+                        <segue destination="G66-Rb-gVF" kind="unwind" identifier="setAlarmUnwindSegue" unwindAction="unwindFromSetAlarmView:" id="I3f-bR-jpR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cT4-ZW-tV2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="G66-Rb-gVF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1282" y="63"/>
         </scene>

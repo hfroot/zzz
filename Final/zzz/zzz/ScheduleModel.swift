@@ -23,8 +23,8 @@ class Schedule {
         sleepHours = 8.0
     }
     
-    func determineBedtime() {
-        bedtime = waketime - sleepHours
+    func calculateBedtime() {
+        bedtime = waketime - sleepHours*60*60
     }
     
     func formatTimes() {

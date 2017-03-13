@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		799B15B81E7209D000B0DF2D /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799B15B71E7209D000B0DF2D /* Identifier.swift */; };
+		799B15BA1E75D25400B0DF2D /* SetAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799B15B91E75D25400B0DF2D /* SetAlarmViewController.swift */; };
+		799B15BC1E76B06C00B0DF2D /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799B15BB1E76B06C00B0DF2D /* Identifier.swift */; };
 		79D5B4C31E7184110005F148 /* SleepScheduler.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79D5B4C21E7184110005F148 /* SleepScheduler.storyboard */; };
 		79D5B4C71E7184BC0005F148 /* SleepSchedulerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D5B4C61E7184BC0005F148 /* SleepSchedulerListViewController.swift */; };
 		79D5B4C91E7189910005F148 /* ScheduleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D5B4C81E7189910005F148 /* ScheduleModel.swift */; };
@@ -78,7 +79,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		799B15B71E7209D000B0DF2D /* Identifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Identifier.swift; path = ../../../zzz/Identifier.swift; sourceTree = "<group>"; };
+		799B15B91E75D25400B0DF2D /* SetAlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetAlarmViewController.swift; sourceTree = "<group>"; };
+		799B15BB1E76B06C00B0DF2D /* Identifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
 		79D5B4C21E7184110005F148 /* SleepScheduler.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SleepScheduler.storyboard; sourceTree = "<group>"; };
 		79D5B4C61E7184BC0005F148 /* SleepSchedulerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepSchedulerListViewController.swift; sourceTree = "<group>"; };
 		79D5B4C81E7189910005F148 /* ScheduleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleModel.swift; sourceTree = "<group>"; };
@@ -126,10 +128,11 @@
 		79D5B4BF1E7182A40005F148 /* SleepScheduler */ = {
 			isa = PBXGroup;
 			children = (
-				799B15B71E7209D000B0DF2D /* Identifier.swift */,
 				79D5B4C21E7184110005F148 /* SleepScheduler.storyboard */,
 				79D5B4C61E7184BC0005F148 /* SleepSchedulerListViewController.swift */,
 				79D5B4C81E7189910005F148 /* ScheduleModel.swift */,
+				799B15B91E75D25400B0DF2D /* SetAlarmViewController.swift */,
+				799B15BB1E76B06C00B0DF2D /* Identifier.swift */,
 			);
 			name = SleepScheduler;
 			sourceTree = "<group>";
@@ -340,12 +343,13 @@
 				8FF304211E6F1FF900BD97F3 /* ViewController.swift in Sources */,
 				8FF3044E1E6F2B7700BD97F3 /* ChartTableViewCells.swift in Sources */,
 				8FF304571E7028E800BD97F3 /* AfterBedSurveyTask.swift in Sources */,
+				799B15BA1E75D25400B0DF2D /* SetAlarmViewController.swift in Sources */,
 				8FF3045E1E7031C100BD97F3 /* DatabaseModel.swift in Sources */,
+				799B15BC1E76B06C00B0DF2D /* Identifier.swift in Sources */,
 				8FF304551E701D4C00BD97F3 /* RegistrationTask.swift in Sources */,
 				8FF304421E6F217900BD97F3 /* ConsentTask.swift in Sources */,
 				79D5B4C91E7189910005F148 /* ScheduleModel.swift in Sources */,
 				8FF304401E6F207600BD97F3 /* ConsentDocument.swift in Sources */,
-				799B15B81E7209D000B0DF2D /* Identifier.swift in Sources */,
 				8FF3041F1E6F1FF900BD97F3 /* AppDelegate.swift in Sources */,
 				8FF304741E70647000BD97F3 /* ORKESerialization.m in Sources */,
 			);

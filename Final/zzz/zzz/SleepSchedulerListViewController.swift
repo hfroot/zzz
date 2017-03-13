@@ -22,7 +22,8 @@ class SleepSchedulerListViewController: UITableViewController {
     
     @IBOutlet weak var cancel: UIBarButtonItem!
     @IBOutlet weak var save: UIBarButtonItem!
-    
+ 
+    var schedule: Schedule!
     var alarmRow: Int = 0
     var hoursRow: Int = 1
     var bedtimeRow: Int = 2
@@ -30,10 +31,10 @@ class SleepSchedulerListViewController: UITableViewController {
     override func viewDidLoad() {
         tableView.dataSource = self
         tableView.delegate = self
-//        self.tableView.register(InfoCell.self, forCellReuseIdentifier: "InfoCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
         super.viewWillAppear(animated)
         self.view.layoutIfNeeded()
     }
@@ -47,26 +48,53 @@ class SleepSchedulerListViewController: UITableViewController {
         if(cell == nil) {
             cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: "ScheduleCell")
         }
-        
+        if (schedule != nil) {
+            schedule.calculateBedtime()
+            schedule.formatTimes()
+        } else {
+            schedule = Schedule()
+        }
         if indexPath.row == alarmRow {
             cell!.textLabel!.text = "Alarm"
-            cell!.detailTextLabel!.text = "7:30 AM"
+            cell!.detailTextLabel!.text = schedule.formattedAlarm
             cell!.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         }
         else if indexPath.row == hoursRow {
             cell!.textLabel!.text = "Hours"
-            cell!.detailTextLabel!.text = "8.0"
+            cell!.detailTextLabel!.text = String(format: "%.1f", schedule.sleepHours)
             cell!.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         }
         else if indexPath.row == bedtimeRow {
-//            bedtimeLabel.text = "11:00 PM"
             let bedtimeCell:InfoCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as! InfoCell
-            print(bedtimeCell)
             bedtimeCell.titleLabel.text = "Bedtime"
-            bedtimeCell.valueLabel.text = "11:00 PM"
+            bedtimeCell.valueLabel.text = schedule.formattedBedtime
             bedtimeCell.selectionStyle = .none;
             return bedtimeCell
         }
         return cell!
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == alarmRow {
+            // trigger alarm setting segue
+            performSegue(withIdentifier: "editAlarmSegue", sender: nil)
+        }
+        else if indexPath.row == hoursRow {
+            // trigger hours setting segue
+            performSegue(withIdentifier: "editHoursSegue", sender: nil)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Id.editAlarmSegueIdentifier {
+            let dest = segue.destination as! SetAlarmViewController
+            dest.schedule = schedule
+        }
+    }
+    
+    @IBAction func unwindFromSetAlarmView(_ segue: UIStoryboardSegue) {
+        let src = segue.source as! SetAlarmViewController
+        schedule = src.schedule
+    }
+    
 }
