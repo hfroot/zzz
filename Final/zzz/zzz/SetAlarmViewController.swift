@@ -16,6 +16,7 @@ class SetAlarmViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        alarmPicker.date = schedule.waketime
     }
     
     override func viewWillDisappear(_ animated: Bool) {

@@ -90,11 +90,20 @@ class SleepSchedulerListViewController: UITableViewController {
             let dest = segue.destination as! SetAlarmViewController
             dest.schedule = schedule
         }
+        else if segue.identifier == Id.setHoursSegueIdentifier {
+            let dest = segue.destination as! SleepHoursViewController
+            dest.hours = schedule.sleepHours
+        }
     }
     
     @IBAction func unwindFromSetAlarmView(_ segue: UIStoryboardSegue) {
         let src = segue.source as! SetAlarmViewController
         schedule = src.schedule
+    }
+    
+    @IBAction func unwindFromSetHoursView(_ segue: UIStoryboardSegue) {
+        let src = segue.source as! SleepHoursViewController
+        schedule.sleepHours = src.hours
     }
     
 }

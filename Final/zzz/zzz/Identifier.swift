@@ -26,4 +26,6 @@ struct Id {
     
     static let editAlarmSegueIdentifier = "editAlarmSegue"
     static let setAlarmSegueUnwindIdentifier = "setAlarmUnwindSegue"
+    static let setHoursSegueIdentifier = "editHoursSegue"
+    static let setHoursSegueUnwindIdentifier = "setHoursUnwindSegue"
 }
