@@ -1,27 +1,27 @@
 #!flask/bin/python
 from flask import Flask, jsonify, abort, make_response, request
-from flask_httpauth import HTTPBasicAuth
-from .temperature import svm_temp
+#from flask_httpauth import HTTPBasicAuth
+from temperature import svm_temp
 #from .humidity import svm_humi
 
 app = Flask(__name__)
-auth = HTTPBasicAuth()
+#auth = HTTPBasicAuth()
 
 input = {}
 
-@auth.get_password
-def get_password(username):
-	if username == 'zzz':
-		return 'goodnight!'
-	return None
+#@auth.get_password
+#def get_password(username):
+#	if username == 'zzz':
+#		return 'goodnight!'
+#	return None
 
-@auth.error_handler
-def unauthorized():
-	return make_response(jsonify({'error': 'Unauthorized access'}), 401) #use 403 code if browser keeps showing dialog box
+#@auth.error_handler
+#def unauthorized():
+#	return make_response(jsonify({'error': 'Unauthorized access'}), 401) #use 403 code if browser keeps showing dialog box
 
 #this block is for calling temperature
 @app.route('/zzz/api/v1/temperature', methods=['POST'])
-@auth.login_required
+#@auth.login_required
 def temperature():
     # check data input is correct
     if not request.json or not 'temp_mean' or not 'temp_max' in request.json:
@@ -34,7 +34,7 @@ def temperature():
     # calculate classifier value based on input values
     temp_classifier = svm_temp(input)
     # return json string with result
-    return jsonify({'temp_classifier': temp_classifier}), 201
+    return jsonify({'temp_classifier': temp_classifier[0]}), 201
 
 #this block is for calling humidity
 #@app.route('/zzz/api/v1/humidity', methods=['POST'])
