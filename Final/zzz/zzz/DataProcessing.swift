@@ -112,6 +112,7 @@ func connectToTempServer (temp_mean: Float, temp_max: Float) -> Int {
 
 
 func processData(){
+    print("processing data")
 //    let calendar = Calendar.current
 //    let yesterday = calendar.date(byAdding: .day, value: -1, to: Date())
 //    let today = Date()
