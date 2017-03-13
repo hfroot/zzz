@@ -103,6 +103,8 @@ extension MainViewController : ORKTaskViewControllerDelegate {
         switch reason {
         case .completed:
             
+            // Code to handle the registration form results
+            
             if let registrationData = taskViewController.result.stepResult(forStepIdentifier: "RegisterStep") {
                 
                 let registrationEmail = (((registrationData as ORKStepResult).result(forIdentifier: "ORKRegistrationFormItemEmail") as! ORKQuestionResult) as! ORKTextQuestionResult).answer! as! String
@@ -128,6 +130,8 @@ extension MainViewController : ORKTaskViewControllerDelegate {
                 }
 
             } 
+
+            // Code to handle the login form results
             
             if let loginData = taskViewController.result.stepResult(forStepIdentifier: "LoginStep") {
                 
@@ -162,16 +166,122 @@ extension MainViewController : ORKTaskViewControllerDelegate {
                 }
             }
             
-//            if (taskViewController.result.stepResult(forStepIdentifier: "SensorRecordingStep") != nil) {
-//                SensorStepViewController().disconnect()
-//            }
+            // At the end of the before bed summary save survey answers to database
             
-//            if let bedtimeData = taskViewController.result.stepResult(forStepIdentifier: "") {
-//                
-//            }
-
             if (taskViewController.result.stepResult(forStepIdentifier: "AfterBedSummaryStep") != nil) {
-                testClassification()
+                
+                // Bedtime answers
+                var ExerciseQuestion:Bool?
+                var DinnerQuestion:Float?
+                var SexQuestion:Bool?
+                var StimulantsQuestion:String?
+                var NakedQuestion:Bool?
+                var WaterQuestion:Bool?
+                var NightDeviceQuestion:Bool?
+                var NightTiredQuestion:Bool?
+                
+                // Morning answers
+                var WakeLightQuestion:String?
+                var ToiletQuestion:Bool?
+                var NightLightQuestion:Bool?
+                var WakeDeviceQuestion:Bool?
+                var WakeTiredQuestion:Bool?
+                var WakeSleepQuestion:Bool?
+                
+                if let bedtimeData = taskViewController.result.results as? [ORKStepResult] {
+                    for stepResult: ORKStepResult in bedtimeData {
+                        for result: ORKResult in stepResult.results! {
+                            if let questionResult = result as? ORKBooleanQuestionResult {
+                                if questionResult.booleanAnswer != nil {
+                                    // Before bed questions
+                                    if questionResult.identifier == "ExerciseQuestionStep" {
+                                        ExerciseQuestion = questionResult.booleanAnswer! as Bool
+                                    }
+                                    if questionResult.identifier == "SexQuestionStep" {
+                                        SexQuestion = questionResult.booleanAnswer! as Bool
+                                    }
+                                    if questionResult.identifier == "NakedQuestionStep" {
+                                        NakedQuestion = questionResult.booleanAnswer! as Bool
+                                    }
+                                    if questionResult.identifier == "WaterQuestionStep" {
+                                        WaterQuestion = questionResult.booleanAnswer! as Bool
+                                    }
+                                    if questionResult.identifier == "NightDeviceQuestionStep" {
+                                        NightDeviceQuestion = questionResult.booleanAnswer! as Bool
+                                    }
+                                    if questionResult.identifier == "NightTiredQuestionStep" {
+                                        NightTiredQuestion = questionResult.booleanAnswer! as Bool
+                                    }
+                                    // After bed questions
+                                    if questionResult.identifier == "ToiletQuestionStep" {
+                                        ToiletQuestion = questionResult.booleanAnswer! as Bool
+                                    }
+                                    if questionResult.identifier == "NightLightQuestionStep" {
+                                        NightLightQuestion = questionResult.booleanAnswer! as Bool
+                                    }
+                                    if questionResult.identifier == "WakeDeviceQuestionStep" {
+                                        WakeDeviceQuestion = questionResult.booleanAnswer! as Bool
+                                    }
+                                    if questionResult.identifier == "WakeTiredQuestionStep" {
+                                        WakeTiredQuestion = questionResult.booleanAnswer! as Bool
+                                    }
+                                    if questionResult.identifier == "WakeSleepQuestionStep" {
+                                        WakeSleepQuestion = questionResult.booleanAnswer! as Bool
+                                    }
+                                    
+                                }
+                            }
+                            if let questionResult = result as? ORKChoiceQuestionResult {
+                                if questionResult.choiceAnswers != nil {
+                                    // Before bed questions
+                                    if questionResult.identifier == "DinnerQuestionStep" {
+                                        DinnerQuestion = questionResult.choiceAnswers![0] as? Float
+                                    }
+                                    if questionResult.identifier == "StimulantsQuestionStep" {
+                                        StimulantsQuestion = String(describing: questionResult.choiceAnswers!)
+                                    }
+                                    // After bed questions
+                                    if questionResult.identifier == "WakeLightQuestionStep" {
+                                        WakeLightQuestion = questionResult.choiceAnswers![0] as? String
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                let newBeforeBedData = beforeBedAnswersObject(value: ["ExerciseQuestion": ExerciseQuestion as Any,
+                                                             "DinnerQuestion": DinnerQuestion as Any,
+                                                             "SexQuestion": SexQuestion as Any,
+                                                             "StimulantQuestion": StimulantsQuestion as Any,
+                                                             "NakedQuestion": NakedQuestion as Any,
+                                                             "WaterQuestion": WaterQuestion as Any,
+                                                             "NightDeviceQuestion": NightDeviceQuestion as Any,
+                                                             "NightTiredQuestion": NightTiredQuestion as Any])
+                
+                let newAfterBedData = afterBedAnswersObject(value: ["WakeLightQuestion": WakeLightQuestion as Any,
+                                                            "ToiletQuestion": ToiletQuestion as Any,
+                                                            "NightLightQuestion": NightLightQuestion as Any,
+                                                            "WakeDeviceQuestion": WakeDeviceQuestion as Any,
+                                                            "WakeTiredQuestion": WakeTiredQuestion as Any,
+                                                            "WakeSleepQuestion": WakeSleepQuestion as Any])
+
+                let newSensorData = currentSensorData
+                
+                let newSleepData = sleepDataObject(value: ["beforeBedAnswers": newBeforeBedData,
+                                                           "afterBedAnswers": newAfterBedData,
+                                                           "sensorData": newSensorData])
+                
+                saveSleepData(newSleepData: newSleepData)
+                
+            }
+
+            // At the end of the after bed summary save survey asnwers to database
+            // Also sync data with Realm Object Server accross devices
+            // And process the collected data to produce classifiers and recommendations
+            
+            if (taskViewController.result.stepResult(forStepIdentifier: "AfterBedSummaryStep") != nil) {
+                //testClassification()
                 processData()
                 taskViewController.dismiss(animated: true, completion: nil)
             }

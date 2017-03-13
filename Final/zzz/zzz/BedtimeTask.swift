@@ -28,7 +28,7 @@ public var BedtimeTask: ORKOrderedTask {
     steps += [exerciseQuestionStep]
     
     // When did you have dinner?
-    let dinnerTimeChoices : [ORKTextChoice] = [ORKTextChoice(text: "30 mins ago", value: 0.5 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "1 hour ago", value: 1 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "2 hours ago", value: 2 as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "3 hours ago", value: 3 as NSCoding & NSCopying & NSObjectProtocol)]
+    let dinnerTimeChoices : [ORKTextChoice] = [ORKTextChoice(text: "30 mins ago", value: Float(0.5) as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "1 hour ago", value: Float(1) as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "2 hours ago", value: Float(2) as NSCoding & NSCopying & NSObjectProtocol), ORKTextChoice(text: "3 hours ago", value: Float(3) as NSCoding & NSCopying & NSObjectProtocol)]
     
     let dinnerAnswerFormat = ORKAnswerFormat.textScale(with: dinnerTimeChoices, defaultIndex: NSIntegerMax, vertical: true)
     let dinnerQuestionStepTitle = "When did you have dinner?"

@@ -14,31 +14,92 @@ import ResearchKit
 //            print("DELETED ALL OBJECTS IN REALM");
 //        }
 
-func saveSample(sampleTemp:Float,
-                sampleHumi:Float,
-                sensorTag:String,
-                sampleLight:Float,
-                sampleAccX:Float,
-                sampleAccY:Float,
-                sampleAccZ:Float,
-                sampleTimestamp:Date,
-                currentUser:User) {
+func saveSleepData(newSleepData:sleepDataObject) {
     
     try! realm.write {
-        //let totalACC = sqrt(pow(sampleAccX!,2) + pow(sampleAccY!,2) + pow(sampleAccZ!,2))
-        let newData = sensorDataObject(value: ["sensorID": sensorTag,
-                                               "sensorTemp": sampleTemp,
-                                               "sensorHumi": sampleHumi,
-                                               "sensorTimestamp": sampleTimestamp,
-                                               "sensorLight":sampleLight,
-                                               "sensorAccX": sampleAccX,
-                                               "sensorAccY": sampleAccY,
-                                               "sensorAccZ": sampleAccZ])
-        currentUser.sensorData.append(newData)
+        currentUser.sleepData.append(newSleepData)
         realm.add(currentUser, update: true)
-        print("Added sensorData object to database: \(newData)")
+        print("Added sleepData object to database: \(newSleepData)")
     }
+    
 }
+
+//func saveBeforeBedAnswers(Timestamp:Date,
+//                          ExerciseQuestion:Bool,
+//                          DinnerQuestion:Int,
+//                          SexQuestion:Bool,
+//                          StimulantQuestion:String,
+//                          NakedQuestion:Bool,
+//                          WaterQuestion:Bool,
+//                          NightDeviceQuestion:Bool,
+//                          NightTiredQuestion:Bool) {
+//    
+//    try! realm.write {
+//        let newData = beforeBedAnswersObject(value: ["Timestamp": Timestamp,
+//                                                 "ExerciseQuestion": ExerciseQuestion,
+//                                                 "DinnerQuestion": DinnerQuestion,
+//                                                 "SexQuestion": SexQuestion,
+//                                                 "StimulantQuestion": StimulantQuestion,
+//                                                 "NakedQuestion": NakedQuestion,
+//                                                 "WaterQuestion": WaterQuestion,
+//                                                 "NightDeviceQuestion": NightDeviceQuestion,
+//                                                 "NightTiredQuestion": NightTiredQuestion])
+//        currentUser.sleepData.append(newData)
+//        realm.add(currentUser, update: true)
+//        print("Added sleepData object to database: \(newData)")
+//    }
+//    
+//}
+
+//func saveAfterBedAnswers(Timestamp:Date,
+//                         WakeLightQuestion:Bool,
+//                         ToiletQuestion:Bool,
+//                         NightLightQuestion:Bool,
+//                         WakeDeviceQuestion:Bool,
+//                         WakeTiredQuestion:Bool,
+//                         WakeSleepQuestion:Bool) {
+//    
+//    try! realm.write {
+//        let newData = afterBedAnswersObject(value: ["Timestamp": Timestamp,
+//                                              "WakeLightQuestion": WakeLightQuestion,
+//                                              "ToiletQuestion": ToiletQuestion,
+//                                              "NightLightQuestion": NightLightQuestion,
+//                                              "WakeDeviceQuestion": WakeDeviceQuestion,
+//                                              "WakeTiredQuestion": WakeTiredQuestion,
+//                                              "WakeSleepQuestion": WakeSleepQuestion])
+//        currentUser.sleepData.append(newData)
+//        realm.add(currentUser, update: true)
+//        print("Added sleepData object to database: \(newData)")
+//    }
+//}
+
+
+//func saveSample(Timestamp:Date,
+//                sensorTag:String,
+//                sampleTemp:Float,
+//                sampleHumi:Float,
+//                sampleLight:Float,
+//                sampleAccX:Float,
+//                sampleAccY:Float,
+//                sampleAccZ:Float,
+//                currentUser:User) {
+//    
+//    try! realm.write {
+//        let newData = sensorDataObject(value: [ "sensorID": sensorTag,
+//                                                "Timestamp": Timestamp,
+//                                                "sensorTemp": sampleTemp,
+//                                                "sensorHumi": sampleHumi,
+//                                                "sensorLight":sampleLight,
+//                                                "sensorAccX": sampleAccX,
+//                                                "sensorAccY": sampleAccY,
+//                                                "sensorAccZ": sampleAccZ ]
+//                                        )
+//        
+//        currentUser.sleepData.last?.sensorData.append(newData)
+//        realm.add(currentUser, update: true)
+//        print("Added sensorData object to database: \(newData)")
+//    }
+//}
 
 func registerAccount(registrationData:ORKStepResult) {
     

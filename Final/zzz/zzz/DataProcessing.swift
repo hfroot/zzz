@@ -41,17 +41,13 @@ func connectToTempServer (temp_mean: Float, temp_max: Float) -> Int {
     let dict = ["temp_mean": temp_mean, "temp_max": temp_max] as [String: Any]
     
     if let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted){
-        
-        print(jsonData)
-        
+                
         let url = NSURL(string: "http://54.246.168.241:5000/zzz/api/v1/temperature")!
         let request = NSMutableURLRequest(url: url as URL)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         request.httpBody = jsonData
-        
-        let data:Data
         
         let task = URLSession.shared.dataTask(with: request as URLRequest){ data,response,error in
             if error != nil{
@@ -63,15 +59,12 @@ func connectToTempServer (temp_mean: Float, temp_max: Float) -> Int {
                     let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
                     let result = json["temp_classifier"] as? Int {
                     classifier = result
-                    print(classifier)
                 }
             } catch {
                 print("Error deserializing JSON: \(error)")
             }
         }
         task.resume()
-        
-        
         
     }
     return classifier
@@ -119,14 +112,11 @@ func connectToTempServer (temp_mean: Float, temp_max: Float) -> Int {
 
 func processData(){
     let calendar = Calendar.current
-    //let today = calendar.date(byAdding: .day, value: -1, to: Date())
     let yesterday = calendar.date(byAdding: .day, value: -1, to: Date())
-    
     let today = Date()
-    //let to = yesterday
     
-    //let query = realm.objects(User).filter("email" == currentUser.email)
-    let currentUserData = realm.objects(User.self.self).filter("email = '\(currentUser.email)'")[0].sensorData.filter("sensorTimestamp > %@ AND sensorTimestamp <= %@", yesterday!, today)
+    print (realm.objects(User.self.self).filter("email = '\(currentUser.email)'")[0].sleepData)
+    let currentUserData = realm.objects(User.self.self.self).filter("email = '\(currentUser.email)'")[0].sleepData[0].sensorData.filter("Timestamp > %@ AND Timestamp <= %@", yesterday!, today)
     
     if currentUserData.isEmpty {
         print("No data data has been recorded tonight")
