@@ -10,14 +10,17 @@
 		8F54834B1E718FEF008920AB /* LoginTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54834A1E718FEF008920AB /* LoginTask.swift */; };
 		8F54834D1E7200BA008920AB /* DatabaseFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54834C1E7200BA008920AB /* DatabaseFunctions.swift */; };
 		8F5483511E72E709008920AB /* SensorActiveStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5483501E72E709008920AB /* SensorActiveStep.swift */; };
+		8F7714271E770E9E000CB10A /* Advice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F7714221E770E9E000CB10A /* Advice.storyboard */; };
+		8F7714281E770E9E000CB10A /* AdviceDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7714231E770E9E000CB10A /* AdviceDataSource.swift */; };
+		8F7714291E770E9E000CB10A /* AdviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7714241E770E9E000CB10A /* AdviceViewController.swift */; };
+		8F77142A1E770E9E000CB10A /* Recommendations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7714251E770E9E000CB10A /* Recommendations.swift */; };
+		8F77142B1E770E9E000CB10A /* Suggestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7714261E770E9E000CB10A /* Suggestions.swift */; };
 		8FE4A3151E749D4F00BE342A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FE4A3141E749D4F00BE342A /* LaunchScreen.storyboard */; };
 		8FE4A3171E749D7D00BE342A /* SensorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FE4A3161E749D7D00BE342A /* SensorView.xib */; };
 		8FE4A3191E74A0AE00BE342A /* SensorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE4A3181E74A0AE00BE342A /* SensorView.swift */; };
 		8FE4A31E1E75B2F800BE342A /* DataProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE4A31D1E75B2F800BE342A /* DataProcessing.swift */; };
 		8FE4A3431E75C5B800BE342A /* AIToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FE4A33E1E75C56600BE342A /* AIToolbox.framework */; };
 		8FE4A3441E75C5B800BE342A /* AIToolbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8FE4A33E1E75C56600BE342A /* AIToolbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8FE4A3481E75C5DE00BE342A /* SVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE4A3471E75C5DE00BE342A /* SVM.swift */; };
-		8FE4A34A1E75C78600BE342A /* Dataset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE4A3491E75C78600BE342A /* Dataset.swift */; };
 		8FF3041F1E6F1FF900BD97F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3041E1E6F1FF900BD97F3 /* AppDelegate.swift */; };
 		8FF304211E6F1FF900BD97F3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF304201E6F1FF900BD97F3 /* MainViewController.swift */; };
 		8FF304241E6F1FF900BD97F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FF304221E6F1FF900BD97F3 /* Main.storyboard */; };
@@ -127,13 +130,16 @@
 		8F54834A1E718FEF008920AB /* LoginTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTask.swift; sourceTree = "<group>"; };
 		8F54834C1E7200BA008920AB /* DatabaseFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseFunctions.swift; sourceTree = "<group>"; };
 		8F5483501E72E709008920AB /* SensorActiveStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorActiveStep.swift; sourceTree = "<group>"; };
+		8F7714221E770E9E000CB10A /* Advice.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Advice.storyboard; sourceTree = "<group>"; };
+		8F7714231E770E9E000CB10A /* AdviceDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdviceDataSource.swift; sourceTree = "<group>"; };
+		8F7714241E770E9E000CB10A /* AdviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdviceViewController.swift; sourceTree = "<group>"; };
+		8F7714251E770E9E000CB10A /* Recommendations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recommendations.swift; sourceTree = "<group>"; };
+		8F7714261E770E9E000CB10A /* Suggestions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Suggestions.swift; sourceTree = "<group>"; };
 		8FE4A3141E749D4F00BE342A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8FE4A3161E749D7D00BE342A /* SensorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SensorView.xib; sourceTree = "<group>"; };
 		8FE4A3181E74A0AE00BE342A /* SensorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorView.swift; sourceTree = "<group>"; };
 		8FE4A31D1E75B2F800BE342A /* DataProcessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProcessing.swift; sourceTree = "<group>"; };
 		8FE4A3311E75C56600BE342A /* AIToolbox.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AIToolbox.xcodeproj; path = ../AIToolbox/AIToolbox.xcodeproj; sourceTree = "<group>"; };
-		8FE4A3471E75C5DE00BE342A /* SVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVM.swift; sourceTree = "<group>"; };
-		8FE4A3491E75C78600BE342A /* Dataset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dataset.swift; sourceTree = "<group>"; };
 		8FF3041B1E6F1FF900BD97F3 /* zzz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zzz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FF3041E1E6F1FF900BD97F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FF304201E6F1FF900BD97F3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -170,12 +176,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F77141B1E770E90000CB10A /* Advice */ = {
+			isa = PBXGroup;
+			children = (
+				8F7714231E770E9E000CB10A /* AdviceDataSource.swift */,
+				8F7714241E770E9E000CB10A /* AdviceViewController.swift */,
+				8F7714251E770E9E000CB10A /* Recommendations.swift */,
+				8F7714261E770E9E000CB10A /* Suggestions.swift */,
+				8F7714221E770E9E000CB10A /* Advice.storyboard */,
+			);
+			name = Advice;
+			sourceTree = "<group>";
+		};
 		8FE4A31C1E75B1F100BE342A /* Recommender */ = {
 			isa = PBXGroup;
 			children = (
 				8FE4A31D1E75B2F800BE342A /* DataProcessing.swift */,
-				8FE4A3491E75C78600BE342A /* Dataset.swift */,
-				8FE4A3471E75C5DE00BE342A /* SVM.swift */,
 			);
 			name = Recommender;
 			sourceTree = "<group>";
@@ -219,6 +235,7 @@
 				8FF304201E6F1FF900BD97F3 /* MainViewController.swift */,
 				8FF304221E6F1FF900BD97F3 /* Main.storyboard */,
 				8FE4A3141E749D4F00BE342A /* LaunchScreen.storyboard */,
+				8F77141B1E770E90000CB10A /* Advice */,
 				8FE4A31C1E75B1F100BE342A /* Recommender */,
 				8FF304651E703BB300BD97F3 /* SensorTag */,
 				8FF3045C1E7031A100BD97F3 /* Database */,
@@ -412,6 +429,7 @@
 				8FE4A3151E749D4F00BE342A /* LaunchScreen.storyboard in Resources */,
 				8FF304261E6F1FF900BD97F3 /* Assets.xcassets in Resources */,
 				8FE4A3171E749D7D00BE342A /* SensorView.xib in Resources */,
+				8F7714271E770E9E000CB10A /* Advice.storyboard in Resources */,
 				8FF304241E6F1FF900BD97F3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,21 +444,23 @@
 				8F54834D1E7200BA008920AB /* DatabaseFunctions.swift in Sources */,
 				8FE4A3191E74A0AE00BE342A /* SensorView.swift in Sources */,
 				8FF304461E6F26EC00BD97F3 /* BedtimeTask.swift in Sources */,
+				8F77142A1E770E9E000CB10A /* Recommendations.swift in Sources */,
 				8FF3044C1E6F2B7700BD97F3 /* ChartDataSources.swift in Sources */,
+				8F7714281E770E9E000CB10A /* AdviceDataSource.swift in Sources */,
 				8FF3044D1E6F2B7700BD97F3 /* ChartListViewController.swift in Sources */,
 				8FF304671E703BC800BD97F3 /* Device.swift in Sources */,
 				8FE4A31E1E75B2F800BE342A /* DataProcessing.swift in Sources */,
 				8FF304211E6F1FF900BD97F3 /* MainViewController.swift in Sources */,
 				8F54834B1E718FEF008920AB /* LoginTask.swift in Sources */,
+				8F77142B1E770E9E000CB10A /* Suggestions.swift in Sources */,
+				8F7714291E770E9E000CB10A /* AdviceViewController.swift in Sources */,
 				8FF3044E1E6F2B7700BD97F3 /* ChartTableViewCells.swift in Sources */,
 				8FF3045E1E7031C100BD97F3 /* DatabaseModel.swift in Sources */,
 				8FF304551E701D4C00BD97F3 /* RegistrationTask.swift in Sources */,
-				8FE4A34A1E75C78600BE342A /* Dataset.swift in Sources */,
 				8FF304421E6F217900BD97F3 /* ConsentTask.swift in Sources */,
 				8F5483511E72E709008920AB /* SensorActiveStep.swift in Sources */,
 				8FF304401E6F207600BD97F3 /* ConsentDocument.swift in Sources */,
 				8FF3041F1E6F1FF900BD97F3 /* AppDelegate.swift in Sources */,
-				8FE4A3481E75C5DE00BE342A /* SVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

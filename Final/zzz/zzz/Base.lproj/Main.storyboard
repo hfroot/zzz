@@ -12,7 +12,7 @@
         <!--Main View Controller-->
         <scene sceneID="Hfd-I2-Nyd">
             <objects>
-                <viewController id="eEV-mS-4MS" customClass="MainViewController" customModule="zzz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainView" id="eEV-mS-4MS" customClass="MainViewController" customModule="zzz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L3H-B1-uiv"/>
                         <viewControllerLayoutGuide type="bottom" id="n3W-mC-RZW"/>
@@ -95,6 +95,9 @@
                                 <state key="normal" title="Advice">
                                     <color key="titleColor" red="0.21568627450980393" green="0.30196078431372547" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="ZOQ-Ry-Ghm" kind="show" id="6il-jo-yOG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ed-0M-Xm4">
                                 <rect key="frame" x="193" y="616" width="166" height="31"/>
@@ -139,6 +142,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7W4-WQ-clr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="812" y="302.6986506746627"/>
+        </scene>
+        <!--AdviceView-->
+        <scene sceneID="99f-4u-aIA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Advice" referencedIdentifier="AdviceView" id="ZOQ-Ry-Ghm" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ePT-xK-nxJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1507" y="302"/>
         </scene>
     </scenes>
     <resources>

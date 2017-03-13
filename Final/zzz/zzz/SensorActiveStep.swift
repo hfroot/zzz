@@ -32,7 +32,6 @@ class SensorStepViewController : ORKActiveStepViewController, CBCentralManagerDe
     let sensorTagName = "CC2650 SensorTag"
     
     // Realm variables initialisation
-    var sensorData = List<sensorDataObject>()
     var sampleTimestamp:Date?
     var lastTimestamp:Date? = Date()
     var sampleTemp:Float?
@@ -65,8 +64,14 @@ class SensorStepViewController : ORKActiveStepViewController, CBCentralManagerDe
         //sensorView?.disconnectButton?.setTitle("Connect SensorTag", for: .normal)
         sensorView?.disconnectButton?.isHidden = true
         
+        // reset sensorData list to empty list
+        currentSensorData.removeAll()
+        
         // Launch CBCentral Manager
-        centralManager = CBCentralManager(delegate: self, queue: nil)
+        autoreleasepool {
+            centralManager = CBCentralManager(delegate: self, queue: nil)
+        }
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -467,16 +472,17 @@ class SensorStepViewController : ORKActiveStepViewController, CBCentralManagerDe
                     sampleAccZ != nil &&
                     formatter.string(from: sampleTimestamp!) != formatter.string(from: lastTimestamp!))  {
                     
-                    saveSample(sampleTemp:sampleTemp!,
-                               sampleHumi:sampleHumi!,
-                               sensorTag:sensorTag!.identifier.uuidString,
-                               sampleLight:sampleLight!,
-                               sampleAccX:sampleAccX!,
-                               sampleAccY:sampleAccY!,
-                               sampleAccZ:sampleAccZ!,
-                               sampleTimestamp:sampleTimestamp!,
-                               currentUser:currentUser)
-                    
+                    let newSensorSample = sensorDataObject(value: [ "sensorID": sensorTag!.identifier.uuidString,
+                                                            "Timestamp": sampleTimestamp!,
+                                                            "sensorTemp": sampleTemp!,
+                                                            "sensorHumi": sampleHumi!,
+                                                            "sensorLight":sampleLight!,
+                                                            "sensorAccX": sampleAccX!,
+                                                            "sensorAccY": sampleAccY!,
+                                                            "sensorAccZ": sampleAccZ!]
+                    )
+                    currentSensorData.append(newSensorSample)
+                    print("Added sensorData object to current sensorData list: \(newSensorSample)")
                     lastTimestamp = sampleTimestamp
                 }
                 
