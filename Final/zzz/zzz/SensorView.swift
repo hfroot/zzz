@@ -18,6 +18,7 @@ class SensorView: UIView {
     @IBOutlet weak var accXLabel: UILabel?
     @IBOutlet weak var accYLabel: UILabel?
     @IBOutlet weak var accZLabel: UILabel?
+      //  @IBOutlet weak var totalaccLabel: UILabel?
     @IBOutlet weak var disconnectButton: UIButton?
 
 }

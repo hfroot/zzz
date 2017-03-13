@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="zzz app background" translatesAutoresizingMaskIntoConstraints="NO" id="6K4-1r-JAx">
+                                <rect key="frame" x="-13" y="-18" width="440" height="772"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Helen Root, Julia Booth, Belen Gallego, Xavier Laguarta Soler, Pierre Azalbert" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="obG-Y5-kRd">
+                                <rect key="frame" x="20" y="675.33333333333348" width="370" height="40.666666666666629"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="zzz-logo" translatesAutoresizingMaskIntoConstraints="NO" id="Qgv-Pc-oQs">
+                                <rect key="frame" x="35" y="92" width="344" height="351"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Qgv-Pc-oQs" secondAttribute="height" multiplier="51:52" id="k72-oM-owx"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="800" text="The Sleep App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOv-CS-kvq">
+                                <rect key="frame" x="60" y="478.33333333333331" width="294" height="32.333333333333371"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                <color key="textColor" red="0.82352941176470584" green="0.85098039215686272" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6K4-1r-JAx" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="-18" id="7h8-Ky-opD"/>
+                            <constraint firstItem="Qgv-Pc-oQs" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="15" id="GU9-pi-xv9"/>
+                            <constraint firstAttribute="trailing" secondItem="6K4-1r-JAx" secondAttribute="trailing" constant="-13" id="Hzj-io-3e6"/>
+                            <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="20" symbolic="YES" id="SfN-ll-jLj"/>
+                            <constraint firstItem="6K4-1r-JAx" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="-13" id="XPP-7Z-Yid"/>
+                            <constraint firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="20" id="Y44-ml-fuU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Qgv-Pc-oQs" secondAttribute="trailing" constant="15" id="ZJ3-Zd-fRR"/>
+                            <constraint firstAttribute="bottom" secondItem="6K4-1r-JAx" secondAttribute="bottom" constant="-18" id="ZNW-bN-nyE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="obG-Y5-kRd" secondAttribute="trailing" constant="4" id="a9M-qC-3IO"/>
+                            <constraint firstItem="TOv-CS-kvq" firstAttribute="top" secondItem="Qgv-Pc-oQs" secondAttribute="bottom" constant="36" id="c2k-aN-Bwi"/>
+                            <constraint firstItem="TOv-CS-kvq" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="40" id="jcp-Yw-9Hn"/>
+                            <constraint firstItem="Qgv-Pc-oQs" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="72" id="qRR-1D-BVT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TOv-CS-kvq" secondAttribute="trailing" constant="40" id="sS0-5c-XFz"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="20" id="t7J-kJ-jhn"/>
+                            <constraint firstItem="TOv-CS-kvq" firstAttribute="top" secondItem="Qgv-Pc-oQs" secondAttribute="bottom" constant="36" id="xNu-6G-6Vf"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4" y="180.35982008995504"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="zzz app background" width="320" height="568"/>
+        <image name="zzz-logo" width="867" height="882"/>
+    </resources>
+</document>

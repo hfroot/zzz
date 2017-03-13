@@ -40,6 +40,7 @@ class SensorStepViewController : ORKActiveStepViewController, CBCentralManagerDe
     var sampleAccX:Float?
     var sampleAccY:Float?
     var sampleAccZ:Float?
+    var sampleTotalAcc:Float?
     
     // Instantiate custom sensor view
     let sensorView = Bundle.main.loadNibNamed("SensorView", owner: self, options: nil)?.first as? SensorView
@@ -61,6 +62,7 @@ class SensorStepViewController : ORKActiveStepViewController, CBCentralManagerDe
         sensorView?.accXLabel?.text = "Acc X: N/A"
         sensorView?.accYLabel?.text = "Acc Y: N/A"
         sensorView?.accZLabel?.text = "Acc Z: N/A"
+        //sensorView?.totalaccLabel?.text = "Acc: "
         //sensorView?.disconnectButton?.setTitle("Connect SensorTag", for: .normal)
         sensorView?.disconnectButton?.isHidden = true
         
@@ -282,6 +284,7 @@ class SensorStepViewController : ORKActiveStepViewController, CBCentralManagerDe
         sensorView?.accXLabel?.text = "Acc X: N/A"
         sensorView?.accYLabel?.text = "Acc Y: N/A"
         sensorView?.accZLabel?.text = "Acc Z: N/A"
+        // sensorView?.totalaccLabel?.text = String(format: "Acc: %.01f%", sampleTotalAcc!)
         sensorView?.disconnectButton?.setTitle("Connect SensorTag", for: .normal)
         if error != nil {
             print("****** DISCONNECTION DETAILS: \(error!.localizedDescription)")
@@ -344,6 +347,7 @@ class SensorStepViewController : ORKActiveStepViewController, CBCentralManagerDe
             let enableBytes = Data(bytes: [enableValue])
             let accEnableValue:[UInt8] = [0x7F, 0x00]
             let accEnableBytes:Data = Data.init(bytes: accEnableValue)
+            // let accEnableBytes = NSData(bytes: accEnableValue, length: 2)
             
             for characteristic in characteristics {
                 
@@ -450,6 +454,8 @@ class SensorStepViewController : ORKActiveStepViewController, CBCentralManagerDe
                 sensorView?.accXLabel?.text = String(format: "Acc X: %.01f%", accel[0])
                 sensorView?.accYLabel?.text = String(format: "Acc Y: %.01f%", accel[1])
                 sensorView?.accZLabel?.text = String(format: "Acc Z: %.01f%", accel[2])
+                //sensorView?.totalaccLabel?.text = String(format: "Acc: %.01f%", accel)
+                //sampleTotalAcc =  Float (accel)
                 sampleAccX = Float(accel[0])
                 sampleAccY = Float(accel[1])
                 sampleAccZ = Float(accel[2])
@@ -467,6 +473,7 @@ class SensorStepViewController : ORKActiveStepViewController, CBCentralManagerDe
                     sampleHumi != nil &&
                     sensorTag != nil &&
                     sampleLight != nil &&
+                    //sampleTotalAcc != nil &&
                     sampleAccX != nil &&
                     sampleAccY != nil &&
                     sampleAccZ != nil &&
@@ -477,6 +484,7 @@ class SensorStepViewController : ORKActiveStepViewController, CBCentralManagerDe
                                                             "sensorTemp": sampleTemp!,
                                                             "sensorHumi": sampleHumi!,
                                                             "sensorLight":sampleLight!,
+                                                            //sampleTotalAcc: sampleTotalAcc!,
                                                             "sensorAccX": sampleAccX!,
                                                             "sensorAccY": sampleAccY!,
                                                             "sensorAccZ": sampleAccZ!]
@@ -549,6 +557,8 @@ class SensorStepViewController : ORKActiveStepViewController, CBCentralManagerDe
         let calculatedAccX:Float = Float(calculateAcc(rawAccX))
         let calculatedAccY:Float = Float(calculateAcc(rawAccY))
         let calculatedAccZ:Float = Float(calculateAcc(rawAccZ))
+        // let sampleTotalAcc = sqrt(pow(calculatedAccX,2.0) + pow(calculatedAccY,2.0) + pow(calculatedAccZ,2.0))
+        //  return Float(sampleTotalAcc)
         
         return [calculatedAccX, calculatedAccY, calculatedAccZ]
     }
@@ -571,7 +581,11 @@ class SensorStepViewController : ORKActiveStepViewController, CBCentralManagerDe
     }
     
     func calculateAcc(_ rawAcc:UInt16) -> Double {
-        let calculatedAcc:Double = (Double(rawAcc) * 1.0) / (32768/8);
+        var calculatedAcc:Double = (Double(rawAcc) * 1.0) / (32768/8);
+        if calculatedAcc > 8
+        {
+            calculatedAcc = calculatedAcc - 16
+        }
         return calculatedAcc
     }
 
