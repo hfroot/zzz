@@ -102,6 +102,9 @@ class Schedule {
     func calculateCurrentAvgBedtime() {
         let days = 7
         let currentUserData = realm.objects(User.self).filter("email = '\(currentUser.email)'")[0].sleepData
+        if (currentUserData.count <= 0) {
+            return
+        }
         var bedtime = [Date]()
         for i in 1...days {
             let idx = currentUserData.count - i
