@@ -16,14 +16,21 @@ import Security
 //        }
 
 func saveSleepData(newSleepData:sleepDataObject) {
-    
     try! realm.write {
         currentUser.sleepData.append(newSleepData)
         realm.add(currentUser, update: true)
         print("Added sleepData object to database: \(newSleepData)")
     }
-    
 }
+
+
+//func saveWeightData(newWeightData:weightObject) {
+//    try! realm.write {
+//        currentUser.weightsData = newWeightData
+//        realm.add(weightData, update: true)
+//        print("Added sleepData object to database: \(newWeightData)")
+//    }
+//}
 
 func registerAccount(registrationData:ORKStepResult) {
     
@@ -39,16 +46,6 @@ func registerAccount(registrationData:ORKStepResult) {
     let formatter = DateFormatter()
     formatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
     newUser.DoB = formatter.string(from: DoB)
-    
-//    let credentials = SyncCredentials.usernamePassword(username: newUser.email, password: newUser.password)
-//    SyncUser.logIn(with: credentials,
-//                   server: serverURL) { user, error in
-//                    if let user = user {
-//                        // can now open a synchronized Realm with this user
-//                    } else if let error = error {
-//                        // handle error
-//                    }
-//    }
     
     try! realm.write {
         realm.add(newUser)
