@@ -13,6 +13,9 @@
 		799B161F1E77461000B0DF2D /* SleepHoursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799B16191E77461000B0DF2D /* SleepHoursViewController.swift */; };
 		799B16201E77461000B0DF2D /* SleepScheduler.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 799B161A1E77461000B0DF2D /* SleepScheduler.storyboard */; };
 		799B16211E77461000B0DF2D /* SleepSchedulerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799B161B1E77461000B0DF2D /* SleepSchedulerListViewController.swift */; };
+		79E2347A1E78AA9900BFA224 /* LastNight.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79E234771E78AA9900BFA224 /* LastNight.storyboard */; };
+		79E2347B1E78AA9900BFA224 /* LastNightDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E234781E78AA9900BFA224 /* LastNightDataSource.swift */; };
+		79E2347C1E78AA9900BFA224 /* LastNightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E234791E78AA9900BFA224 /* LastNightViewController.swift */; };
 		8F54834B1E718FEF008920AB /* LoginTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54834A1E718FEF008920AB /* LoginTask.swift */; };
 		8F54834D1E7200BA008920AB /* DatabaseFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54834C1E7200BA008920AB /* DatabaseFunctions.swift */; };
 		8F5483511E72E709008920AB /* SensorActiveStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5483501E72E709008920AB /* SensorActiveStep.swift */; };
@@ -142,6 +145,9 @@
 		799B16191E77461000B0DF2D /* SleepHoursViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepHoursViewController.swift; sourceTree = "<group>"; };
 		799B161A1E77461000B0DF2D /* SleepScheduler.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SleepScheduler.storyboard; sourceTree = "<group>"; };
 		799B161B1E77461000B0DF2D /* SleepSchedulerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepSchedulerListViewController.swift; sourceTree = "<group>"; };
+		79E234771E78AA9900BFA224 /* LastNight.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LastNight.storyboard; sourceTree = "<group>"; };
+		79E234781E78AA9900BFA224 /* LastNightDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastNightDataSource.swift; sourceTree = "<group>"; };
+		79E234791E78AA9900BFA224 /* LastNightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastNightViewController.swift; sourceTree = "<group>"; };
 		8F54834A1E718FEF008920AB /* LoginTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTask.swift; sourceTree = "<group>"; };
 		8F54834C1E7200BA008920AB /* DatabaseFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseFunctions.swift; sourceTree = "<group>"; };
 		8F5483501E72E709008920AB /* SensorActiveStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorActiveStep.swift; sourceTree = "<group>"; };
@@ -205,6 +211,16 @@
 				799B161B1E77461000B0DF2D /* SleepSchedulerListViewController.swift */,
 			);
 			name = SleepScheduler;
+			sourceTree = "<group>";
+		};
+		79E234761E78A99400BFA224 /* Last Night */ = {
+			isa = PBXGroup;
+			children = (
+				79E234771E78AA9900BFA224 /* LastNight.storyboard */,
+				79E234781E78AA9900BFA224 /* LastNightDataSource.swift */,
+				79E234791E78AA9900BFA224 /* LastNightViewController.swift */,
+			);
+			name = "Last Night";
 			sourceTree = "<group>";
 		};
 		8F77141B1E770E90000CB10A /* Advice */ = {
@@ -272,6 +288,7 @@
 		8FF3041D1E6F1FF900BD97F3 /* zzz */ = {
 			isa = PBXGroup;
 			children = (
+				79E234761E78A99400BFA224 /* Last Night */,
 				8FF3041E1E6F1FF900BD97F3 /* AppDelegate.swift */,
 				8FF304201E6F1FF900BD97F3 /* MainViewController.swift */,
 				8FF304221E6F1FF900BD97F3 /* Main.storyboard */,
@@ -472,6 +489,7 @@
 				799B16201E77461000B0DF2D /* SleepScheduler.storyboard in Resources */,
 				971A78C71E7897F400EF2695 /* NetworkView.storyboard in Resources */,
 				8FE4A3151E749D4F00BE342A /* LaunchScreen.storyboard in Resources */,
+				79E2347A1E78AA9900BFA224 /* LastNight.storyboard in Resources */,
 				8FF304261E6F1FF900BD97F3 /* Assets.xcassets in Resources */,
 				8FE4A3171E749D7D00BE342A /* SensorView.xib in Resources */,
 				8F7714271E770E9E000CB10A /* Advice.storyboard in Resources */,
@@ -504,9 +522,11 @@
 				799B161C1E77461000B0DF2D /* Identifier.swift in Sources */,
 				971A78C81E7897F400EF2695 /* NetworkViewController.swift in Sources */,
 				8F54834B1E718FEF008920AB /* LoginTask.swift in Sources */,
+				79E2347C1E78AA9900BFA224 /* LastNightViewController.swift in Sources */,
 				8F77142B1E770E9E000CB10A /* Suggestions.swift in Sources */,
 				8F7714291E770E9E000CB10A /* AdviceViewController.swift in Sources */,
 				8FF3044E1E6F2B7700BD97F3 /* ChartTableViewCells.swift in Sources */,
+				79E2347B1E78AA9900BFA224 /* LastNightDataSource.swift in Sources */,
 				8FF3045E1E7031C100BD97F3 /* DatabaseModel.swift in Sources */,
 				8FF304551E701D4C00BD97F3 /* RegistrationTask.swift in Sources */,
 				8FF304421E6F217900BD97F3 /* ConsentTask.swift in Sources */,
