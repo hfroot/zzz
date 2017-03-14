@@ -9,9 +9,9 @@
 import Foundation
 
 class Schedule {
-    var waketime: Date = Date()
+    var waketime: Date!
     var formattedAlarm: String = ""
-    var bedtime: Date = Date()
+    var bedtime: Date!
     var formattedBedtime: String = ""
     var sleepHours: Double = 8.0 // default
     var currentAvgBedtime: Date!
@@ -30,53 +30,56 @@ class Schedule {
     }
     
     func calculateBedtime() {
-        bedtime = waketime - sleepHours*60*60
-        if (currentAvgBedtime != nil) {
-            let calendar = Calendar.current
-            let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: bedtime)
-            let aimBedtimeHour = calendar.component(.hour, from: bedtime)
-            var curBedtimeHour = calendar.component(.hour, from: currentAvgBedtime)
-            let aimBedtimeMin = calendar.component(.minute, from: bedtime)
-            var curBedtimeMin = calendar.component(.minute, from: currentAvgBedtime)
-            var difference = 0
-            if (abs(aimBedtimeHour-curBedtimeHour) < 12) {
-                // eg moving between 9 PM and 11 PM
-                if (curBedtimeHour < aimBedtimeHour) {
-                    // 9 PM to 11 PM
-                    print("Aim hour: \(aimBedtimeHour), cur hour: \(curBedtimeHour) -- moving forward")
-                    direction = "forward"
+        if (waketime != nil) {
+            bedtime = waketime - sleepHours*60*60
+            if (currentAvgBedtime != nil) {
+                let calendar = Calendar.current
+                let aimBedtimeHour = calendar.component(.hour, from: bedtime)
+                let curBedtimeHour = calendar.component(.hour, from: currentAvgBedtime)
+                let aimBedtimeMin = calendar.component(.minute, from: bedtime)
+                let curBedtimeMin = calendar.component(.minute, from: currentAvgBedtime)
+                var difference = 0
+                if (abs(aimBedtimeHour-curBedtimeHour) < 12) {
+                    // eg moving between 9 PM and 11 PM
+                    difference = abs(aimBedtimeHour-curBedtimeHour)*60 + abs(aimBedtimeMin-curBedtimeMin)
+                    if (curBedtimeHour < aimBedtimeHour) {
+                        // 9 PM to 11 PM
+                        print("Aim hour: \(aimBedtimeHour), cur hour: \(curBedtimeHour) -- there are \(difference) minutes between times")
+                        direction = "forward"
+                    } else {
+                        // 11 PM to 9 PM
+                        print("Aim hour: \(aimBedtimeHour), cur hour: \(curBedtimeHour) -- there are \(difference) minutes between times")
+                        direction = "backward"
+                    }
                 } else {
-                    // 11 PM to 9 PM
-                    print("Aim hour: \(aimBedtimeHour), cur hour: \(curBedtimeHour) -- moving backward")
-                    direction = "backward"
+                    // eg moving between 1 AM and 11 PM
+                    if (curBedtimeHour < aimBedtimeHour) {
+                        // 1 AM to 11 PM
+                        difference = (curBedtimeHour + 24-aimBedtimeHour)*60 + (curBedtimeMin + 60-aimBedtimeHour)
+                        print("Aim hour: \(aimBedtimeHour), cur hour: \(curBedtimeHour) -- there are \(difference) minutes between times")
+                        direction = "backward"
+                    } else {
+                        // 11 PM to 1 AM
+                        difference = (aimBedtimeHour + 24-curBedtimeHour)*60 + (aimBedtimeMin + 60-curBedtimeHour)
+                        print("Aim hour: \(aimBedtimeHour), cur hour: \(curBedtimeHour) -- there are \(difference) minutes between times")
+                        direction = "forward"
+                    }
                 }
-                difference = abs(aimBedtimeHour-curBedtimeHour)*60 + abs(aimBedtimeMin-curBedtimeMin)
-            } else {
-                // eg moving between 1 AM and 11 PM
-                if (curBedtimeHour < aimBedtimeHour) {
-                    // 1 AM to 11 PM
-                    print("Aim hour: \(aimBedtimeHour), cur hour: \(curBedtimeHour) -- moving backward")
-                    direction = "backward"
-                    difference = (curBedtimeHour + 24-aimBedtimeHour)*60 + (curBedtimeMin + 60-aimBedtimeHour)
-                } else {
-                    // 11 PM to 1 AM
-                    print("Aim hour: \(aimBedtimeHour), cur hour: \(curBedtimeHour) -- moving forward")
-                    direction = "forward"
-                    difference = (aimBedtimeHour + 24-curBedtimeHour)*60 + (aimBedtimeMin + 60-curBedtimeHour)
+                reqNumberOfDays = difference/increment
+                print("It will take you \(reqNumberOfDays!) days to achieve your goal")
+                
+                var components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: currentAvgBedtime)
+                if (direction == "forward") {
+                    if (components.minute!+increment < 60) {
+                        components.minute! += increment
+                    } else {
+                        components.minute! = components.minute! + increment - 60
+                        components.hour! += 1
+                    }
                 }
+                
+                currentAimBedtime = calendar.date(from: components)!
             }
-            reqNumberOfDays = difference/increment
-            print("It will take you \(reqNumberOfDays) days to achieve your goal")
-            if (direction == "forward") {
-                if (curBedtimeMin+increment < 60) {
-                    curBedtimeMin += increment
-                } else {
-                    curBedtimeMin = curBedtimeMin + increment - 60
-                    curBedtimeHour += 1
-                }
-            }
-            
-            currentAimBedtime = calendar.date(from: components)!
         }
         
     }
@@ -84,8 +87,12 @@ class Schedule {
     func formatTimes() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "h:mm a"
-        formattedBedtime = dateFormatter.string(from: self.bedtime)
-        formattedAlarm = dateFormatter.string(from: self.waketime)
+        if (bedtime != nil) {
+            formattedBedtime = dateFormatter.string(from: self.bedtime)
+        }
+        if (waketime != nil) {
+            formattedAlarm = dateFormatter.string(from: self.waketime)
+        }
         if ((currentAvgBedtime) != nil) {
             formattedCurAvgBT = dateFormatter.string(from: self.currentAvgBedtime)
         }

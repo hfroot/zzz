@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e41-D8-VIO" id="yoN-PI-zfW">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrT-VY-UpA">
@@ -52,7 +52,7 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ytF-7o-qIm" id="AW6-3z-Yav">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bedtime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8c-gF-93t" userLabel="titleLabel">
@@ -91,7 +91,7 @@
                                 <rect key="frame" x="0.0" y="116" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VK1-Ec-QAq" id="InE-iX-6Oh">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -173,8 +173,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="8" minValue="0.0" maxValue="12" translatesAutoresizingMaskIntoConstraints="NO" id="kd5-58-cis">
+                                <rect key="frame" x="14" y="285" width="347" height="31"/>
+                                <connections>
+                                    <action selector="updateHours:" destination="JWk-LU-n13" eventType="valueChanged" id="v08-o0-zkZ"/>
+                                </connections>
+                            </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20O-gX-pb9" userLabel="Hours Label">
-                                <rect key="frame" x="87" y="357" width="200" height="21"/>
+                                <rect key="frame" x="87" y="232" width="200" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Rks-hJ-1AQ"/>
                                 </constraints>
@@ -182,18 +188,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="8" minValue="0.0" maxValue="12" translatesAutoresizingMaskIntoConstraints="NO" id="kd5-58-cis">
-                                <rect key="frame" x="14" y="285" width="347" height="31"/>
-                                <connections>
-                                    <action selector="updateHours:" destination="JWk-LU-n13" eventType="valueChanged" id="v08-o0-zkZ"/>
-                                </connections>
-                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="20O-gX-pb9" firstAttribute="centerX" secondItem="GFW-Qx-PNh" secondAttribute="centerX" id="8LZ-qa-zF6"/>
                             <constraint firstAttribute="leadingMargin" secondItem="kd5-58-cis" secondAttribute="leading" id="IWK-KI-cS6"/>
-                            <constraint firstItem="20O-gX-pb9" firstAttribute="top" secondItem="kd5-58-cis" secondAttribute="bottom" constant="42" id="JYz-NP-9dX"/>
+                            <constraint firstItem="20O-gX-pb9" firstAttribute="top" secondItem="kd5-58-cis" secondAttribute="bottom" constant="-83" id="JYz-NP-9dX"/>
                             <constraint firstItem="kd5-58-cis" firstAttribute="centerX" secondItem="GFW-Qx-PNh" secondAttribute="centerX" id="NP6-L3-yXr"/>
                             <constraint firstItem="kd5-58-cis" firstAttribute="top" secondItem="aQp-9E-kQo" secondAttribute="bottom" constant="221" id="Um6-Bt-W4r"/>
                         </constraints>
