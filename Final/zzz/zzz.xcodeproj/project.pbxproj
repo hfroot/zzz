@@ -213,6 +213,13 @@
 			name = Advice;
 			sourceTree = "<group>";
 		};
+		8F7714441E775737000CB10A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
 		8FE4A31C1E75B1F100BE342A /* Recommender */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,17 +263,18 @@
 		8FF3041D1E6F1FF900BD97F3 /* zzz */ = {
 			isa = PBXGroup;
 			children = (
-				799B160F1E7745F200B0DF2D /* SleepScheduler */,
 				8FF3041E1E6F1FF900BD97F3 /* AppDelegate.swift */,
 				8FF304201E6F1FF900BD97F3 /* MainViewController.swift */,
 				8FF304221E6F1FF900BD97F3 /* Main.storyboard */,
 				8FE4A3141E749D4F00BE342A /* LaunchScreen.storyboard */,
+				799B160F1E7745F200B0DF2D /* SleepScheduler */,
 				8F77141B1E770E90000CB10A /* Advice */,
 				8FE4A31C1E75B1F100BE342A /* Recommender */,
 				8FF304651E703BB300BD97F3 /* SensorTag */,
 				8FF3045C1E7031A100BD97F3 /* Database */,
 				8FF304521E6F419400BD97F3 /* Tasks */,
 				8FF304531E6F425800BD97F3 /* Charts */,
+				8F7714441E775737000CB10A /* Network */,
 				8FF304251E6F1FF900BD97F3 /* Assets.xcassets */,
 				8FF3042A1E6F1FF900BD97F3 /* Info.plist */,
 			);
@@ -632,6 +640,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -652,6 +661,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

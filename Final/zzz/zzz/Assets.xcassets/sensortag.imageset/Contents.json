@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "iphone",
+      "filename" : "TISensorTagCC2650_Instructions-2.png",
       "scale" : "1x"
     },
     {
       "idiom" : "iphone",
-      "filename" : "TISensorTagCC2650_Instructions.png",
+      "filename" : "TISensorTagCC2650_Instructions-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "iphone",
+      "filename" : "TISensorTagCC2650_Instructions.png",
       "scale" : "3x"
     }
   ],

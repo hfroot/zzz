@@ -67,6 +67,10 @@ class MainViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     func updateUI() {
         if loggedIn {
             self.registerButton.isHidden = true
@@ -80,7 +84,6 @@ class MainViewController: UIViewController {
             self.trainingButton.isHidden = false
             self.adviceButton.isHidden = false
             self.scheduleButton.isHidden = false
-            
         }
         else {
             self.registerButton.isHidden = false
@@ -94,7 +97,6 @@ class MainViewController: UIViewController {
             self.trainingButton.isHidden = true
             self.adviceButton.isHidden = true
             self.scheduleButton.isHidden = true
-
         }
     }
     
@@ -124,10 +126,11 @@ extension MainViewController : ORKTaskViewControllerDelegate {
                     let alertTitle = NSLocalizedString("Registration successful", comment: "")
                     let alertMessage = NSLocalizedString("Please login to use the ZZZ app", comment: "")
                     let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {
+                        action in
+                        self.dismiss(animated: true, completion: nil)
+                    }))
                     taskViewController.present(alert, animated: true, completion: nil)
-                    taskViewController.dismiss(animated: true, completion: nil)
                 }
                 else {
                     let alertTitle = NSLocalizedString("Registration failed", comment: "")
