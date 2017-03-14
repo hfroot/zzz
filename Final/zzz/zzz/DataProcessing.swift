@@ -12,7 +12,7 @@ import RealmSwift
 
 func connectToTempServer (temp_mean: Float, temp_max: Float) -> Int {
 
-    var classifier = 1
+    let classifier = 1
 
 //    let dict = ["temp_mean": temp_mean, "temp_max": temp_max] as [String: Any]
 //    let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
@@ -62,40 +62,40 @@ func connectToTempServer (temp_mean: Float, temp_max: Float) -> Int {
 
 func connectToHumidServer (humid_mean: Float, humid_max: Float) -> Int {
     
-    var classifier:Int?
+    let classifier = 3
     
-    let dict = ["humid_mean": humid_mean, "humid_max": humid_max] as [String: Any]
-    
-    if let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted){
-        
-        
-        let url = NSURL(string: "http://54.246.168.241:5000/zzz/api/v1/humidity")!
-        let request = NSMutableURLRequest(url: url as URL)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        request.httpBody = jsonData
-        
-        let task = URLSession.shared.dataTask(with: request as URLRequest){ data,response,error in
-            if error != nil{
-                print(error?.localizedDescription as Any)
-                return
-            }
-            
-            do {
-                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
-                if let parseJSON = json {
-                    //let resultValue:String = parseJSON["success"] as! String;
-                    //print("result: \(resultValue)")
-                    classifier = parseJSON["humid_classifier"] as? Int
-                }
-            } catch let error as NSError {
-                print(error)
-            }
-        }
-        task.resume()
-    }
-    return classifier!
+//    let dict = ["humid_mean": humid_mean, "humid_max": humid_max] as [String: Any]
+//    
+//    if let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted){
+//        
+//        
+//        let url = NSURL(string: "http://54.246.168.241:5000/zzz/api/v1/humidity")!
+//        let request = NSMutableURLRequest(url: url as URL)
+//        request.httpMethod = "POST"
+//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//        
+//        request.httpBody = jsonData
+//        
+//        let task = URLSession.shared.dataTask(with: request as URLRequest){ data,response,error in
+//            if error != nil{
+//                print(error?.localizedDescription as Any)
+//                return
+//            }
+//            
+//            do {
+//                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+//                if let parseJSON = json {
+//                    //let resultValue:String = parseJSON["success"] as! String;
+//                    //print("result: \(resultValue)")
+//                    classifier = parseJSON["humid_classifier"] as? Int
+//                }
+//            } catch let error as NSError {
+//                print(error)
+//            }
+//        }
+//        task.resume()
+//    }
+    return classifier
 }
 
 func LightAccThreshold() -> Int {
@@ -502,9 +502,7 @@ func decrementWeight(currentWeight: Float) -> Float{
 
 func processData(){
     print("processing data")
-    //    let calendar = Calendar.current
-    //    let yesterday = calendar.date(byAdding: .day, value: -1, to: Date())
-    //    let today = Date()
+
     
     let currentUserData = realm.objects(User.self).filter("email = '\(currentUser.email)'")[0].sleepData//.filter("Timestamp > %@ AND Timestamp <= %@", yesterday!, today)
     let lastNightData = currentUserData.last!.sensorData
@@ -532,9 +530,9 @@ func processData(){
         // Send to API and retrieve corresponding classifier for temp and humi
         let temp_classified:Int = connectToTempServer(temp_mean: temp_mean, temp_max: temp_max)
         //        let humid_classified = connectToHumidServer(humid_mean: humid_mean, humid_max: humid_max )
-        print(temp_classified)
+        //print(temp_classified)
         
-        //let humid_classified = connectToHumidServer(humid_mean: humid_mean, humid_max: humid_max )
+        let humid_classified = connectToHumidServer(humid_mean: humid_mean, humid_max: humid_max )
         //print(humid_classified)
         
         let light_classified = LightAccThreshold()
@@ -551,7 +549,7 @@ func processData(){
         //exercise data
         let exerciseData = lastQualitativeDataBefore?.ExerciseQuestion
         if exerciseData?.value == nil{
-            var exercise_classified = 4;
+            exercise_classified = 4;
         }
 
         if exerciseData?.value == true{
@@ -588,33 +586,37 @@ func processData(){
         }
         
         //alcohol, coffee, nicotine
-//        let stimulantData = lastQualitativeDataBefore?.StimulantsQuestion
-//        if (stimulantData?.isEmpty)! {
-//            let alcohol_classified = 2
-//            let nicotine_classified = 2
-//            let coffee_classified = 2
-//        }else{
-//        for stimulant in (stimulantData?.characters)!{
-//            if stimulant == "alcohol"{
-//                alcohol_classified = 1;
-//            }
-//            else{
-//                alcohol_classified = 0;
-//            }
-//            if stimulant == "tobacco"{
-//                nicotine_classified = 1;
-//            }
-//            else{
-//                nicotine_classified = 0;
-//            }
-//            if stimulant == "coffee"{
-//                coffee_classified = 1;
-//            }
-//            else{
-//                coffee_classified = 0;
-//            }
-//        }
-//        }
+        var stimulantData = lastQualitativeDataBefore!.StimulantsQuestion!
+        if (stimulantData == "[]") {
+            alcohol_classified = 2
+            nicotine_classified = 2
+            coffee_classified = 2
+        }else{
+            stimulantData.remove(at: stimulantData.startIndex)
+            stimulantData = stimulantData.substring(to: stimulantData.index(before: stimulantData.endIndex))
+            let stimulants = stimulantData.components(separatedBy: ", ")
+            
+            for stimulant in stimulants as [String] {
+            if stimulant == "alcohol"{
+                alcohol_classified = 1;
+            }
+            else{
+                alcohol_classified = 0;
+            }
+            if stimulant == "tobacco"{
+                nicotine_classified = 1;
+            }
+            else{
+                nicotine_classified = 0;
+            }
+            if stimulant == "coffee"{
+                coffee_classified = 1;
+            }
+            else{
+                coffee_classified = 0;
+            }
+        }
+        }
         
         
         //drink water
@@ -634,18 +636,13 @@ func processData(){
         // call the adjustWeight
         adjustWeight(classifier: "temperature", result: temp_classified)
         adjustWeight(classifier: "light", result: light_classified)
-        //adjustWeight(classifier: "humidity", result: humid_classified)
+        adjustWeight(classifier: "humidity", result: humid_classified)
         adjustWeight(classifier: "water", result: water_classified)
         adjustWeight(classifier: "exercise", result: exercise_classified)
         adjustWeight(classifier: "sex", result: sex_classified)
         //adjustWeight(classifier: "coffee", result: coffee_classified)
         //adjustWeight(classifier: "alcohol", result: alcohol_classified)
         adjustWeight(classifier: "meal", result: meal_classified)
-        //adjustWeight(classifier: "duration", result: duration_classified)
-        
-
-        
-        
     }
 }
 
