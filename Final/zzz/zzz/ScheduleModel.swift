@@ -10,15 +10,11 @@ import Foundation
 
 class Schedule {
     var waketime: Date!
-    var formattedAlarm: String = ""
     var bedtime: Date!
-    var formattedBedtime: String = ""
     var sleepHours: Double = 8.0 // default
     var currentAvgBedtime: Date!
-    var formattedCurAvgBT: String = ""
     var increment: Int = 15 // default
     var currentAimBedtime: Date!
-    var formattedCurAimBT: String = ""
     var direction: String = ""
     var reqNumberOfDays: Int!
     
@@ -84,21 +80,23 @@ class Schedule {
         
     }
     
-    func formatTimes() {
+    func formatTimes() -> Dictionary<String, String> {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "h:mm a"
+        var formattedDates = Dictionary<String, String>()
         if (bedtime != nil) {
-            formattedBedtime = dateFormatter.string(from: self.bedtime)
+            formattedDates["bedtime"] = dateFormatter.string(from: self.bedtime)
         }
         if (waketime != nil) {
-            formattedAlarm = dateFormatter.string(from: self.waketime)
+            formattedDates["alarm"] = dateFormatter.string(from: self.waketime)
         }
         if ((currentAvgBedtime) != nil) {
-            formattedCurAvgBT = dateFormatter.string(from: self.currentAvgBedtime)
+            formattedDates["currentAvgBT"] = dateFormatter.string(from: self.currentAvgBedtime)
         }
         if ((currentAimBedtime) != nil) {
-            formattedCurAimBT = dateFormatter.string(from: self.currentAimBedtime)
+            formattedDates["currentAimBT"] = dateFormatter.string(from: self.currentAimBedtime)
         }
+        return formattedDates
     }
     
     func calculateCurrentAvgBedtime() {

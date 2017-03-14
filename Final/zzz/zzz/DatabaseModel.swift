@@ -24,6 +24,7 @@ final class User: Object {
     }
     
     let sleepData = List<sleepDataObject>()
+    dynamic var schedule: scheduleObject?
 }
 
 final class sensorDataObject: Object {
@@ -65,6 +66,13 @@ final class afterBedAnswersObject: Object {
     let WakeDeviceQuestion = RealmOptional<Bool>()
     let WakeTiredQuestion = RealmOptional<Bool>()
     let WakeSleepQuestion = RealmOptional<Bool>()
+}
+
+final class scheduleObject: Object {
+    dynamic var Waketime = Date()
+    dynamic var CurrentIdealBedtime = Date()
+    dynamic var SleepHours: Float = 8.0
+    dynamic var Increment: Int = 15
 }
 
 //let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)

@@ -107,12 +107,12 @@
                     <navigationItem key="navigationItem" title="Sleep Scheduler" id="JyC-1g-Svs">
                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="Q0K-wT-3Sd">
                             <connections>
-                                <segue destination="sx1-PZ-rtj" kind="unwind" unwindAction="unwindToMainViewControllerWithSegue:" id="Ibc-9G-63r"/>
+                                <segue destination="sx1-PZ-rtj" kind="unwind" identifier="cancelScheduleEdit" unwindAction="unwindToMainViewControllerWithSegue:" id="Ibc-9G-63r"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="489-FN-pel">
                             <connections>
-                                <segue destination="sx1-PZ-rtj" kind="unwind" unwindAction="unwindToMainViewControllerWithSegue:" id="iiW-pt-AXL"/>
+                                <segue destination="sx1-PZ-rtj" kind="unwind" identifier="saveScheduleEdit" unwindAction="unwindToMainViewControllerWithSegue:" id="7oa-JT-QzE"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -208,14 +208,6 @@
                 <exit id="NU6-ap-AOK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1277.5999999999999" y="347.67616191904051"/>
-        </scene>
-        <!--MainView-->
-        <scene sceneID="LoF-CZ-tz2">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="MainView" id="U7j-eC-AO2" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HK6-jl-qRe" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1173" y="61"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PGj-5J-26Z">
