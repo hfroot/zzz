@@ -31,8 +31,8 @@ class NetworkViewController: UIViewController {
     
 //    @IBOutlet var sleptWellLabel: UILabel?
 //    @IBOutlet var sleptNotWellLabel: UILabel?
-//    @IBOutlet var lastUpdateLabel: UILabel?
-//    @IBOutlet var allCountLabel: UILabel?
+    @IBOutlet var lastUpdateLabel: UILabel?
+    @IBOutlet var allCountLabel: UILabel?
 
     override func viewDidLoad() {
         
@@ -59,8 +59,8 @@ class NetworkViewController: UIViewController {
         
 //        sleptWellLabel?.text = "\(Int(sleptWellRatio))% of users said they slept well"
 //        sleptNotWellLabel?.text = "\(Int(sleptNotWellRatio))% of users said they did not slept well"
-//        lastUpdateLabel?.text = "Last update:\(lastUpdate)"
-//        allCountLabel?.text = "\(allCount) active users in network"
+        lastUpdateLabel?.text = "Last update:\(lastUpdate)"
+        allCountLabel?.text = "\(allCount) active users in network"
 
     }
 

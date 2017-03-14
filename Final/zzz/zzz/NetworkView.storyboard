@@ -100,6 +100,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="allCountLabel" destination="X7H-nb-jC7" id="7Ha-MZ-XsI"/>
+                        <outlet property="lastUpdateLabel" destination="Irc-vq-n2x" id="aad-b9-5cE"/>
                         <outlet property="networkLabel" destination="D1H-ed-LNm" id="7Hm-FR-K9P"/>
                         <outlet property="networkPieChart1" destination="gYt-cm-HMT" id="8Du-tL-vIJ"/>
                         <outlet property="networkPieChart2" destination="MCQ-M2-mFV" id="gtJ-M3-Yyd"/>
