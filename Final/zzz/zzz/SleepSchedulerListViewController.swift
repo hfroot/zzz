@@ -27,6 +27,7 @@ class SleepSchedulerListViewController: UITableViewController {
     var alarmRow: Int = 0
     var hoursRow: Int = 1
     var bedtimeRow: Int = 2
+    var suggestionRow: Int = 3
     
     override func viewDidLoad() {
         tableView.dataSource = self
@@ -71,6 +72,13 @@ class SleepSchedulerListViewController: UITableViewController {
             let bedtimeCell:InfoCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as! InfoCell
             bedtimeCell.titleLabel.text = "Bedtime"
             bedtimeCell.valueLabel.text = schedule.formattedBedtime
+            bedtimeCell.selectionStyle = .none;
+            return bedtimeCell
+        }
+        else if indexPath.row == suggestionRow {
+            let bedtimeCell:InfoCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as! InfoCell
+            bedtimeCell.titleLabel.text = "Current avg bedtime is \(schedule.formattedCurAvgBT)"
+            bedtimeCell.valueLabel.text = ""
             bedtimeCell.selectionStyle = .none;
             return bedtimeCell
         }

@@ -15,6 +15,7 @@ class Schedule {
     var formattedBedtime: String = ""
     var sleepHours: Double = 8.0 // default
     var currentAvgBedtime: Date = Date()
+    var formattedCurAvgBT: String = ""
     
     init(){}
     
@@ -32,14 +33,12 @@ class Schedule {
         dateFormatter.dateFormat = "h:mm a"
         formattedBedtime = dateFormatter.string(from: self.bedtime)
         formattedAlarm = dateFormatter.string(from: self.waketime)
+        formattedCurAvgBT = dateFormatter.string(from: self.currentAvgBedtime)
     }
     
     func calculateCurrentAvgBedtime() {
-//        let today = Date()
         let days = 7
         let currentUserData = realm.objects(User.self).filter("email = '\(currentUser.email)'")[0].sleepData
-        print("User data:")
-        print(currentUserData.count)
         var bedtime = [Date]()
         for i in 1...days {
             let idx = currentUserData.count - i
@@ -61,7 +60,5 @@ class Schedule {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         currentAvgBedtime = dateFormatter.date(from: "\(hours):\(minutes)")!
-        print("Cur Bedtime:")
-        print(currentAvgBedtime)
     }
 }
