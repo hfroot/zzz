@@ -19,18 +19,15 @@ class NetworkViewController: UIViewController {
     //var networkWeights = weigthsObject()
     
     @IBOutlet weak var networkLabel: UILabel!
+    @IBOutlet weak var networkPieChart1: ORKPieChartView!
+    @IBOutlet weak var networkPieChart2: ORKPieChartView!
+
     
-    @IBOutlet weak var networkTextLabel: UILabel!
-    @IBOutlet weak var networkPieChartView: ORKPieChartView!
-    
-    let networkPieChartDataSource = AdvicePieChartDataSource()
+    let networkPieChartDataSource = NetworkPieChartDataSource()
     
     let networkPieChartIdentifier = "PieChart"
     
-    var pieChartDisplay: [CGFloat] = [CGFloat(0.5),
-                                      CGFloat(0.3),
-                                      CGFloat(0.2),
-                                      ]
+    var pieChartDisplay: [CGFloat] = []
     
 //    @IBOutlet var sleptWellLabel: UILabel?
 //    @IBOutlet var sleptNotWellLabel: UILabel?
@@ -45,6 +42,20 @@ class NetworkViewController: UIViewController {
         
         let sleptWellRatio = Float(sleptWellCount)/Float(allCount)*100
         let sleptNotWellRatio = Float(sleptNotWellCount)/Float(allCount)*100
+        let unknown = 100 - sleptWellRatio - sleptNotWellRatio
+        
+        pieChartDisplay = [CGFloat(sleptWellRatio),
+                            CGFloat(sleptNotWellRatio),
+                            CGFloat(unknown)]
+        
+        updateNetworkPieChartValues(newValues: pieChartDisplay)
+        
+        networkPieChart1?.dataSource = networkPieChartDataSource
+        networkPieChart1?.lineWidth = 12
+        networkPieChart1?.drawsClockwise = true
+        networkPieChart1?.showsPercentageLabels = true
+        networkPieChart1?.tintColor = UIColor.purple
+        
         
 //        sleptWellLabel?.text = "\(Int(sleptWellRatio))% of users said they slept well"
 //        sleptNotWellLabel?.text = "\(Int(sleptNotWellRatio))% of users said they did not slept well"

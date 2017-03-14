@@ -13,48 +13,48 @@ import RealmSwift
 func connectToTempServer (temp_mean: Float, temp_max: Float) -> Int {
     var classifier = 3
 
-    let dict = ["temp_mean": temp_mean, "temp_max": temp_max] as [String: Any]
-    let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
-    
+//    let dict = ["temp_mean": temp_mean, "temp_max": temp_max] as [String: Any]
+//    let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
 
-    var request = URLRequest(url: URL(string: "http://54.246.168.241:5000/zzz/api/v1/temperature")!)
+
+//    var request = URLRequest(url: URL(string: "http://54.246.168.241:5000/zzz/api/v1/temperature")!)
     
     //You can pass any required content types here
-    request.httpMethod = "GET"
-    request.httpBody = jsonData
+//    request.httpMethod = "GET"
+//    request.httpBody = jsonData
     
 
-    if let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted){
+//    if let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted){
                 
-        let url = NSURL(string: "http://54.246.168.241:5000/zzz/api/v1/temperature")!
-        let request = NSMutableURLRequest(url: url as URL)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//        let url = NSURL(string: "http://54.246.168.241:5000/zzz/api/v1/temperature")!
+//        let request = NSMutableURLRequest(url: url as URL)
+//        request.httpMethod = "POST"
+//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        request.httpBody = jsonData
+//        request.httpBody = jsonData
         
-        let task = URLSession.shared.dataTask(with: request as URLRequest){ data,response,error in
-            if error != nil{
-                print(error?.localizedDescription as Any)
-                return
-            }
-            do {
-                if let data = data,
-                    let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
-                    let result = json["temp_classifier"] as? Int {
-                    print("classifier received from API: \(result)")
-                    classifier = result
-                }
-            } catch {
-                print("Error deserializing JSON: \(error)")
-            }
-        }
-    }
-    catch {
-        print("json error: \(error)")
-    }
-    }.resume()
-return classifier
+//        let task = URLSession.shared.dataTask(with: request as URLRequest){ data,response,error in
+//            if error != nil{
+//                print(error?.localizedDescription as Any)
+//                return
+//            }
+//            do {
+//                if let data = data,
+//                    let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+//                    let result = json["temp_classifier"] as? Int {
+//                    print("classifier received from API: \(result)")
+//                    classifier = result
+//                }
+//            } catch {
+//                print("Error deserializing JSON: \(error)")
+//            }
+//        }
+    //}
+    //catch {
+        //print("json error: \(error)")
+    //}
+//    }.resume()
+    return classifier
 }
 
 

@@ -9,30 +9,17 @@
 import Foundation
 import ResearchKit
 
-func createRandomColorArray(_ number: Int) -> [UIColor] {
-    
-    func random() -> CGFloat {
-        return CGFloat(Float(arc4random()) / Float(UINT32_MAX))
-    }
-    
-    var colors: [UIColor] = []
-    for _ in 0 ..< number {
-        colors.append(UIColor(red: random(), green: random(), blue: random(), alpha: 1))
-    }
-    return colors
-}
-
 let NetworkNumberOfPieChartSegments = 3
 
 var networkPieChartValues: [CGFloat] = [CGFloat(0.6),
-                                 CGFloat(0.6),
-                                 CGFloat(0.5)]
+                                        CGFloat(0.6),
+                                        CGFloat(0.5)]
 
 let networkPieChartColours: [UIColor] = [UIColor(red: 1, green: 0, blue: 0, alpha: 1),
-                                  UIColor(red: 1, green: 0.5, blue: 0, alpha: 1),
-                                  UIColor(red: 1, green: 1, blue: 0, alpha: 1)]
+                                         UIColor(red: 0, green: 0, blue: 1, alpha: 1),
+                                         UIColor(red: 0, green: 1, blue: 0, alpha: 1)]
 
-func updatePieChartValues(newValues: [CGFloat]){
+func updateNetworkPieChartValues(newValues: [CGFloat]){
     networkPieChartValues = newValues
 }
 
