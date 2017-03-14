@@ -55,6 +55,7 @@ class SleepSchedulerListViewController: UITableViewController {
             schedule = Schedule()
             schedule.calculateBedtime()
             schedule.formatTimes()
+            schedule.calculateCurrentAvgBedtime()
         }
         if indexPath.row == alarmRow {
             cell!.textLabel!.text = "Alarm"
