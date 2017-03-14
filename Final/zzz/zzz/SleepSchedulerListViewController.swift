@@ -24,9 +24,14 @@ class SleepSchedulerListViewController: UITableViewController {
     @IBOutlet weak var save: UIBarButtonItem!
  
     var schedule: Schedule!
+    var formattedTimes = Dictionary<String, String>()
     var alarmRow: Int = 0
     var hoursRow: Int = 1
     var bedtimeRow: Int = 2
+    var suggestionRow: Int = 3
+    var incrementRow: Int = 4
+    var curBedtimeRow: Int = 5
+    var daysRow: Int = 6
     
     override func viewDidLoad() {
         tableView.dataSource = self
@@ -34,13 +39,22 @@ class SleepSchedulerListViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        if (schedule != nil) {
+            schedule.calculateBedtime()
+            formattedTimes = schedule.formatTimes()
+        } else {
+            schedule = Schedule()
+            schedule.calculateBedtime()
+            formattedTimes = schedule.formatTimes()
+            schedule.calculateCurrentAvgBedtime()
+        }
         tableView.reloadData()
         super.viewWillAppear(animated)
         self.view.layoutIfNeeded()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4;
+        return 7;
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -48,18 +62,9 @@ class SleepSchedulerListViewController: UITableViewController {
         if(cell == nil) {
             cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: "ScheduleCell")
         }
-        if (schedule != nil) {
-            schedule.calculateBedtime()
-            schedule.formatTimes()
-        } else {
-            schedule = Schedule()
-            schedule.calculateBedtime()
-            schedule.formatTimes()
-            schedule.calculateCurrentAvgBedtime()
-        }
         if indexPath.row == alarmRow {
-            cell!.textLabel!.text = "Alarm"
-            cell!.detailTextLabel!.text = schedule.formattedAlarm
+            cell!.textLabel!.text = "Goal Waketime"
+            cell!.detailTextLabel!.text = formattedTimes["alarm"]
             cell!.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         }
         else if indexPath.row == hoursRow {
@@ -69,8 +74,40 @@ class SleepSchedulerListViewController: UITableViewController {
         }
         else if indexPath.row == bedtimeRow {
             let bedtimeCell:InfoCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as! InfoCell
-            bedtimeCell.titleLabel.text = "Bedtime"
-            bedtimeCell.valueLabel.text = schedule.formattedBedtime
+            bedtimeCell.titleLabel.text = "Goal Bedtime"
+            bedtimeCell.valueLabel.text = formattedTimes["bedtime"]
+            bedtimeCell.selectionStyle = .none;
+            return bedtimeCell
+        }
+        else if indexPath.row == suggestionRow {
+            let bedtimeCell:InfoCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as! InfoCell
+            bedtimeCell.titleLabel.text = "Current avg bedtime"
+            bedtimeCell.valueLabel.text = formattedTimes["currentAvgBT"]
+            bedtimeCell.selectionStyle = .none;
+            return bedtimeCell
+        }
+        else if indexPath.row == incrementRow {
+            let bedtimeCell:InfoCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as! InfoCell
+            bedtimeCell.titleLabel.text = "Increment"
+            bedtimeCell.valueLabel.text = "\(schedule.increment) mins"
+            bedtimeCell.selectionStyle = .none;
+            return bedtimeCell
+        }
+        else if indexPath.row == curBedtimeRow {
+            let bedtimeCell:InfoCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as! InfoCell
+            bedtimeCell.titleLabel.text = "Today's bedtime"
+            bedtimeCell.valueLabel.text = formattedTimes["currentAimBT"]
+            bedtimeCell.selectionStyle = .none;
+            return bedtimeCell
+        }
+        else if indexPath.row == daysRow {
+            let bedtimeCell:InfoCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as! InfoCell
+            bedtimeCell.titleLabel.text = "Days to goal"
+            if (schedule.reqNumberOfDays != nil) {
+                bedtimeCell.valueLabel.text = "\(schedule.reqNumberOfDays!)"
+            } else {
+                bedtimeCell.valueLabel.text = ""
+            }
             bedtimeCell.selectionStyle = .none;
             return bedtimeCell
         }
@@ -97,6 +134,14 @@ class SleepSchedulerListViewController: UITableViewController {
             let dest = segue.destination as! SleepHoursViewController
             dest.hours = schedule.sleepHours
         }
+        else if segue.identifier == "saveScheduleEdit" {
+            // save to database
+//            try! realm.write {
+//                currentUser.schedule = schedule
+//                // change this
+//                print("Updated schedule in database: \(schedule)")
+//            }
+        }
     }
     
     @IBAction func unwindFromSetAlarmView(_ segue: UIStoryboardSegue) {
@@ -108,5 +153,4 @@ class SleepSchedulerListViewController: UITableViewController {
         let src = segue.source as! SleepHoursViewController
         schedule.sleepHours = src.hours
     }
-    
 }

@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -29,35 +31,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Advice..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUj-iy-WZF">
-                                <rect key="frame" x="40" y="115" width="290" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Advice..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUj-iy-WZF">
+                                <rect key="frame" x="36" y="114" width="314" height="86"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Advice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWd-KF-KD2">
-                                <rect key="frame" x="40" y="75" width="90" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Advice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWd-KF-KD2">
+                                <rect key="frame" x="36" y="75" width="314" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Factor Weights" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hid-pK-QgQ">
-                                <rect key="frame" x="40" y="255" width="180" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Factor Weights" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hid-pK-QgQ">
+                                <rect key="frame" x="36" y="220" width="314" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KXF-8z-RBB" customClass="ORKPieChartView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KXF-8z-RBB" customClass="ORKPieChartView">
                                 <rect key="frame" x="25" y="300" width="325" height="340"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="KXF-8z-RBB" secondAttribute="height" multiplier="65:68" id="17M-mG-fqo"/>
+                                </constraints>
                             </view>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SNr-LU-DcM">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SNr-LU-DcM">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Jkz-8O-Tkc"/>
+                                </constraints>
                                 <items>
                                     <navigationItem title="Advice" id="o7Z-m0-0lo">
                                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="2jB-nG-eEp">
@@ -70,6 +73,27 @@
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZUj-iy-WZF" firstAttribute="leading" secondItem="xCM-kh-HJv" secondAttribute="leadingMargin" constant="20" id="0hZ-gb-u9v"/>
+                            <constraint firstItem="SNr-LU-DcM" firstAttribute="top" secondItem="6Nj-9y-tmE" secondAttribute="bottom" id="33N-iv-qXf"/>
+                            <constraint firstItem="hid-pK-QgQ" firstAttribute="leading" secondItem="xCM-kh-HJv" secondAttribute="leadingMargin" constant="20" id="AYe-4Y-w3l"/>
+                            <constraint firstItem="vWd-KF-KD2" firstAttribute="top" secondItem="SNr-LU-DcM" secondAttribute="bottom" constant="11" id="J0O-uj-mkC"/>
+                            <constraint firstItem="KXF-8z-RBB" firstAttribute="top" secondItem="hid-pK-QgQ" secondAttribute="bottom" constant="51.666666666666742" id="J9U-1W-dMg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hid-pK-QgQ" secondAttribute="trailing" constant="9" id="QS8-jO-bkk"/>
+                            <constraint firstItem="SNr-LU-DcM" firstAttribute="leading" secondItem="xCM-kh-HJv" secondAttribute="leading" id="SCu-EX-dPl"/>
+                            <constraint firstItem="ZUj-iy-WZF" firstAttribute="top" secondItem="vWd-KF-KD2" secondAttribute="bottom" constant="10" id="TYQ-VB-Nj0"/>
+                            <constraint firstItem="hid-pK-QgQ" firstAttribute="top" secondItem="ZUj-iy-WZF" secondAttribute="bottom" constant="20" id="VGP-dQ-BNn"/>
+                            <constraint firstItem="ZUj-iy-WZF" firstAttribute="top" secondItem="vWd-KF-KD2" secondAttribute="bottom" constant="10" id="Wz0-ff-QiI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KXF-8z-RBB" secondAttribute="trailing" constant="9" id="aev-d2-AK0"/>
+                            <constraint firstAttribute="trailing" secondItem="SNr-LU-DcM" secondAttribute="trailing" id="ghp-ZH-evd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vWd-KF-KD2" secondAttribute="trailing" constant="9" id="iJb-0e-ii4"/>
+                            <constraint firstItem="Kb1-kP-gHB" firstAttribute="top" secondItem="KXF-8z-RBB" secondAttribute="bottom" constant="27" id="nj2-7m-iZ2"/>
+                            <constraint firstItem="hid-pK-QgQ" firstAttribute="top" secondItem="ZUj-iy-WZF" secondAttribute="bottom" constant="20" id="nsw-eF-ve1"/>
+                            <constraint firstItem="KXF-8z-RBB" firstAttribute="top" secondItem="hid-pK-QgQ" secondAttribute="bottom" constant="51.666666666666742" id="uZx-da-PDc"/>
+                            <constraint firstItem="KXF-8z-RBB" firstAttribute="leading" secondItem="xCM-kh-HJv" secondAttribute="leadingMargin" constant="9" id="xMK-mg-1Qj"/>
+                            <constraint firstItem="vWd-KF-KD2" firstAttribute="leading" secondItem="xCM-kh-HJv" secondAttribute="leadingMargin" constant="20" id="yr3-X3-yol"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZUj-iy-WZF" secondAttribute="trailing" constant="9" id="zxA-t2-71z"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="adviceLabel" destination="vWd-KF-KD2" id="Fvc-Uw-36k"/>

@@ -56,25 +56,25 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bedtime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8c-gF-93t" userLabel="titleLabel">
-                                            <rect key="frame" x="23" y="10.5" width="74.5" height="24"/>
+                                            <rect key="frame" x="16" y="10.5" width="71" height="23"/>
                                             <accessibility key="accessibilityConfiguration">
                                                 <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                             </accessibility>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7:30 AM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hkF-uh-CHj" userLabel="valueLabel">
-                                            <rect key="frame" x="275.5" y="10.5" width="76.5" height="24"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <rect key="frame" x="287.5" y="10.5" width="71.5" height="23"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="k8c-gF-93t" firstAttribute="centerY" secondItem="AW6-3z-Yav" secondAttribute="centerY" id="0lk-aW-A4s"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="hkF-uh-CHj" secondAttribute="trailing" constant="15" id="8QB-je-KsG"/>
-                                        <constraint firstItem="k8c-gF-93t" firstAttribute="leading" secondItem="AW6-3z-Yav" secondAttribute="leadingMargin" constant="15" id="cph-bK-Tfs"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="hkF-uh-CHj" secondAttribute="trailing" constant="8" id="8QB-je-KsG"/>
+                                        <constraint firstItem="k8c-gF-93t" firstAttribute="leading" secondItem="AW6-3z-Yav" secondAttribute="leadingMargin" constant="8" id="cph-bK-Tfs"/>
                                         <constraint firstItem="hkF-uh-CHj" firstAttribute="centerY" secondItem="AW6-3z-Yav" secondAttribute="centerY" id="ifp-eM-kaE"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -107,12 +107,12 @@
                     <navigationItem key="navigationItem" title="Sleep Scheduler" id="JyC-1g-Svs">
                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="Q0K-wT-3Sd">
                             <connections>
-                                <segue destination="sx1-PZ-rtj" kind="unwind" unwindAction="unwindToMainViewControllerWithSegue:" id="Ibc-9G-63r"/>
+                                <segue destination="sx1-PZ-rtj" kind="unwind" identifier="cancelScheduleEdit" unwindAction="unwindToMainViewControllerWithSegue:" id="Ibc-9G-63r"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="489-FN-pel">
                             <connections>
-                                <segue destination="sx1-PZ-rtj" kind="unwind" unwindAction="unwindToMainViewControllerWithSegue:" id="iiW-pt-AXL"/>
+                                <segue destination="sx1-PZ-rtj" kind="unwind" identifier="saveScheduleEdit" unwindAction="unwindToMainViewControllerWithSegue:" id="7oa-JT-QzE"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -173,8 +173,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="8" minValue="0.0" maxValue="12" translatesAutoresizingMaskIntoConstraints="NO" id="kd5-58-cis">
+                                <rect key="frame" x="14" y="285" width="347" height="31"/>
+                                <connections>
+                                    <action selector="updateHours:" destination="JWk-LU-n13" eventType="valueChanged" id="v08-o0-zkZ"/>
+                                </connections>
+                            </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20O-gX-pb9" userLabel="Hours Label">
-                                <rect key="frame" x="87" y="357" width="200" height="21"/>
+                                <rect key="frame" x="87" y="232" width="200" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Rks-hJ-1AQ"/>
                                 </constraints>
@@ -182,18 +188,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="8" minValue="0.0" maxValue="12" translatesAutoresizingMaskIntoConstraints="NO" id="kd5-58-cis">
-                                <rect key="frame" x="14" y="285" width="347" height="31"/>
-                                <connections>
-                                    <action selector="updateHours:" destination="JWk-LU-n13" eventType="valueChanged" id="v08-o0-zkZ"/>
-                                </connections>
-                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="20O-gX-pb9" firstAttribute="centerX" secondItem="GFW-Qx-PNh" secondAttribute="centerX" id="8LZ-qa-zF6"/>
                             <constraint firstAttribute="leadingMargin" secondItem="kd5-58-cis" secondAttribute="leading" id="IWK-KI-cS6"/>
-                            <constraint firstItem="20O-gX-pb9" firstAttribute="top" secondItem="kd5-58-cis" secondAttribute="bottom" constant="42" id="JYz-NP-9dX"/>
+                            <constraint firstItem="20O-gX-pb9" firstAttribute="top" secondItem="kd5-58-cis" secondAttribute="bottom" constant="-83" id="JYz-NP-9dX"/>
                             <constraint firstItem="kd5-58-cis" firstAttribute="centerX" secondItem="GFW-Qx-PNh" secondAttribute="centerX" id="NP6-L3-yXr"/>
                             <constraint firstItem="kd5-58-cis" firstAttribute="top" secondItem="aQp-9E-kQo" secondAttribute="bottom" constant="221" id="Um6-Bt-W4r"/>
                         </constraints>
