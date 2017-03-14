@@ -8,28 +8,6 @@
 
 import ResearchKit
 
-//private var LoginTask: ORKTask {
-//    let step = ORKFormStep(identifier: "LoginStep", title: "Login", text: "Please login to use the ZZZ app")
-//    
-//    // A first field, for entering an integer.
-//    let formItem01Text = NSLocalizedString("Email", comment: "")
-//    let formItem01 = ORKFormItem(identifier: "emailField", text: formItem01Text, answerFormat: ORKAnswerFormat.emailAnswerFormat())
-//    formItem01.placeholder = NSLocalizedString("your@email.com", comment: "")
-//    
-//    // A second field, for entering a time interval.
-//    let formItem02Text = NSLocalizedString("Password", comment: "")
-//    let formItem02 = ORKFormItem(identifier: "passwordField", text: formItem02Text, answerFormat: ORKAnswerFormat.textAnswerFormat())
-//    formItem02.placeholder = NSLocalizedString("", comment: "")
-//    
-//    step.formItems = [
-//        formItem01,
-//        formItem02
-//    ]
-//    
-//    return ORKOrderedTask(identifier: "LoginTask", steps: [step])
-//}
-
-
 // This tasks presents the login step.
 public var LoginTask: ORKOrderedTask {
     

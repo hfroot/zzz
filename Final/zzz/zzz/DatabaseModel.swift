@@ -25,7 +25,23 @@ final class User: Object {
     
     let sleepData = List<sleepDataObject>()
     dynamic var schedule: scheduleObject?
+    dynamic var weightsData: weightsDataObject?
 }
+
+final class weightsDataObject: Object {
+    dynamic var weightHumi: Float = 0.4
+    dynamic var weightLight: Float = 0.4
+    dynamic var weightCof: Float = 0.4
+    dynamic var weightExercise: Float = 0.4
+    dynamic var weightSex: Float = 0.4
+    dynamic var weightMeal: Float = 0.4
+    dynamic var weightAlcohol: Float = 0.4
+    dynamic var weightHot: Float = 0.4
+    dynamic var weightCold: Float = 0.4
+    dynamic var weightDuration: Float = 0.4
+    dynamic var weightWater: Float = 0.4
+}
+
 
 final class sensorDataObject: Object {
     dynamic var sensorID: String = ""
@@ -80,6 +96,9 @@ final class scheduleObject: Object {
 
 var notificationToken: NotificationToken!
 var realm: Realm!
+
+//let backupRealmURL = URL(fileURLWithPath: "/Users/Pierre/Downloads/zzz-backup/zzz.realm")
+//let config = Realm.Configuration(fileURL: backupRealmURL)
 
 var currentUser = User()
 var currentSensorData = List<sensorDataObject>()

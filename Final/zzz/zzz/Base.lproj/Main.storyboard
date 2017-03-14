@@ -62,6 +62,9 @@
                                 <state key="normal" title="Network">
                                     <color key="titleColor" red="0.21568627450980393" green="0.30196078431372547" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="fek-Gl-ubW" kind="show" id="ntT-xm-Hcw"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMQ-rX-keB">
                                 <rect key="frame" x="20" y="583" width="182" height="70"/>
@@ -181,7 +184,7 @@
                 <viewControllerPlaceholder storyboardName="Advice" referencedIdentifier="AdviceView" id="2Fm-cU-LUF" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vMA-hF-1qu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1507" y="346"/>
+            <point key="canvasLocation" x="1504" y="282"/>
         </scene>
         <!--SchedulerEntryPoint-->
         <scene sceneID="493-6E-GMV">
@@ -189,7 +192,15 @@
                 <viewControllerPlaceholder storyboardIdentifier="SchedulerReference" storyboardName="SleepScheduler" referencedIdentifier="SchedulerEntryPoint" id="phu-rq-pC1" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6M6-lo-QZO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1505" y="527"/>
+            <point key="canvasLocation" x="1545" y="321"/>
+        </scene>
+        <!--NetworkView-->
+        <scene sceneID="KyC-Oe-aBd">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NetworkView" referencedIdentifier="NetworkView" id="fek-Gl-ubW" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZlY-KW-P95" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1546" y="387"/>
         </scene>
     </scenes>
     <resources>
