@@ -18,7 +18,6 @@ class MainViewController: UIViewController {
     
     @IBOutlet var bedtimeButton: UIButton!
     @IBOutlet var lastNightButton: UIButton!
-    @IBOutlet var trendsButton: UIButton!
     @IBOutlet var networkButton: UIButton!
     @IBOutlet var adviceButton: UIButton!
     @IBOutlet var scheduleButton: UIButton!
@@ -78,7 +77,6 @@ class MainViewController: UIViewController {
             
             self.bedtimeButton.isHidden = false
             self.lastNightButton.isHidden = false
-            self.trendsButton.isHidden = false
             self.networkButton.isHidden = false
             self.adviceButton.isHidden = false
             self.scheduleButton.isHidden = false
@@ -90,15 +88,13 @@ class MainViewController: UIViewController {
             
             self.bedtimeButton.isHidden = true
             self.lastNightButton.isHidden = true
-            self.trendsButton.isHidden = true
             self.networkButton.isHidden = true
             self.adviceButton.isHidden = true
             self.scheduleButton.isHidden = true
         }
     }
     
-    @IBAction func unwindToMainViewController(segue: UIStoryboardSegue) {
-    }
+    @IBAction func unwindToMainViewController(segue: UIStoryboardSegue) { }
 
 }
 
