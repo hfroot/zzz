@@ -54,6 +54,12 @@ class MainViewController: UIViewController {
     
     @IBAction func chartsTapped(sender : UIButton) {
         present(ChartListViewController(), animated: true, completion: nil)
+        print("charts pressed")
+    }
+    
+    @IBAction func lastNightTapped(sender: UIButton) {
+        present(LastNightViewController(), animated: true, completion: nil)
+        print("last night pressed")
     }
     
     override func viewDidLoad() {
