@@ -73,5 +73,8 @@ final class afterBedAnswersObject: Object {
 var notificationToken: NotificationToken!
 var realm: Realm!
 
+//let backupRealmURL = URL(fileURLWithPath: "/Users/Pierre/Downloads/zzz-backup/zzz.realm")
+//let config = Realm.Configuration(fileURL: backupRealmURL)
+
 var currentUser = User()
 var currentSensorData = List<sensorDataObject>()
