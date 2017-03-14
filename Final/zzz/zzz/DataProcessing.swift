@@ -12,77 +12,76 @@ import RealmSwift
 
 func connectToTempServer (temp_mean: Float, temp_max: Float) -> Int {
     var classifier = 3
-
+    
     let dict = ["temp_mean": temp_mean, "temp_max": temp_max] as [String: Any]
     let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
     
-
+    
     var request = URLRequest(url: URL(string: "http://54.246.168.241:5000/zzz/api/v1/temperature")!)
     
     //You can pass any required content types here
     request.httpMethod = "GET"
     request.httpBody = jsonData
     
-
-    if let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted){
-                
-        let url = NSURL(string: "http://54.246.168.241:5000/zzz/api/v1/temperature")!
-        let request = NSMutableURLRequest(url: url as URL)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        request.httpBody = jsonData
-        
-        let task = URLSession.shared.dataTask(with: request as URLRequest){ data,response,error in
-            if error != nil{
-                print(error?.localizedDescription as Any)
-                return
-            }
-            do {
-                if let data = data,
-                    let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
-                    let result = json["temp_classifier"] as? Int {
-                    print("classifier received from API: \(result)")
-                    classifier = result
-                }
-            } catch {
-                print("Error deserializing JSON: \(error)")
-            }
-        }
-    }
-    catch {
-        print("json error: \(error)")
-    }
-    }.resume()
-return classifier
-}
-
-
     
-
-
-
-
-//func connectToTempServer (temp_mean: Float, temp_max: Float) -> Int {
-//    
-//    var classifier = 3
-//    
-//    let dict = ["temp_mean": temp_mean, "temp_max": temp_max] as [String: Any]
-//    
 //    if let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted){
-//                
+//        
 //        let url = NSURL(string: "http://54.246.168.241:5000/zzz/api/v1/temperature")!
 //        let request = NSMutableURLRequest(url: url as URL)
 //        request.httpMethod = "POST"
 //        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 //        
 //        request.httpBody = jsonData
+//        
 //        let task = URLSession.shared.dataTask(with: request as URLRequest){ data,response,error in
 //            if error != nil{
 //                print(error?.localizedDescription as Any)
 //                return
 //            }
-//            
+//            do {
+//                if let data = data,
+//                    let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+//                    let result = json["temp_classifier"] as? Int {
+//                    print("classifier received from API: \(result)")
+//                    classifier = result
+//                }
+//            } catch {
+//                print("Error deserializing JSON: \(error)")
+//            }
+//        }
+//        catch {
+//            print("json error: \(error)")
+//        }
+//    }task.resume()
+    return classifier
+}
+
+
+
+
+
+
+
+//func connectToTempServer (temp_mean: Float, temp_max: Float) -> Int {
+//
+//    var classifier = 3
+//
+//    let dict = ["temp_mean": temp_mean, "temp_max": temp_max] as [String: Any]
+//
+//    if let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted){
+//
+//        let url = NSURL(string: "http://54.246.168.241:5000/zzz/api/v1/temperature")!
+//        let request = NSMutableURLRequest(url: url as URL)
+//        request.httpMethod = "POST"
+//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//
+//        request.httpBody = jsonData
+//        let task = URLSession.shared.dataTask(with: request as URLRequest){ data,response,error in
+//            if error != nil{
+//                print(error?.localizedDescription as Any)
+//                return
+//            }
+//
 //            do {
 //
 //                if let data = data,
@@ -98,7 +97,7 @@ return classifier
 //            }
 //        task.resume()
 //        }
-//    
+//
 //    return classifier
 //}
 
@@ -148,7 +147,7 @@ func LightAccThreshold() -> Int {
     
     let currentUserData = realm.objects(User.self).filter("email = '\(currentUser.email)'")[0].sleepData//.filter("Timestamp > %@ AND Timestamp <= %@", yesterday!, today)
     let lastNightData = currentUserData.last!.sensorData
-
+    
     
     if lastNightData.isEmpty {
         print("No data data has been recorded tonight")
@@ -169,13 +168,13 @@ func LightAccThreshold() -> Int {
 
 func processData(){
     print("processing data")
-//    let calendar = Calendar.current
-//    let yesterday = calendar.date(byAdding: .day, value: -1, to: Date())
-//    let today = Date()
+    //    let calendar = Calendar.current
+    //    let yesterday = calendar.date(byAdding: .day, value: -1, to: Date())
+    //    let today = Date()
     
     let currentUserData = realm.objects(User.self).filter("email = '\(currentUser.email)'")[0].sleepData//.filter("Timestamp > %@ AND Timestamp <= %@", yesterday!, today)
     let lastNightData = currentUserData.last!.sensorData
-
+    
     
     if lastNightData.isEmpty {
         print("No data data has been recorded last night")
@@ -191,35 +190,60 @@ func processData(){
         //let humid_mean:Float = lastNightData.average(ofProperty: "sensorHumi")!
         
         // Send to API and retrieve corresponding classifier for temp and humi
-
+        
         let temp_classified:Int = connectToTempServer(temp_mean: temp_mean, temp_max: temp_max)
         //        let humid_classified = connectToHumidServer(humid_mean: humid_mean, humid_max: humid_max )
         print(temp_classified)
-//                let humid_classified = connectToHumidServer(humid_mean: humid_mean, humid_max: humid_max )
-//                print(humid_classified)
+        //                let humid_classified = connectToHumidServer(humid_mean: humid_mean, humid_max: humid_max )
+        //                print(humid_classified)
         let light_effect = LightAccThreshold()
         print(light_effect)
         
+        let QualitativeData = realm.objects(sleepDataObject.self)
+        let lastQualitativeDataBefore = QualitativeData.last!.beforeBedAnswers
+        let lastQualitativeDataAfter = QualitativeData.last!.afterBedAnswers
         
-//        let currentWeights = realm.objects(User.self).filter("email = '\(currentUser.email)'")[0].weightsData
-//        let coldWeight = currentWeights?.weightCold
-//        let hotWeight = currentWeights?.weightHot
-//        let sexWeight = currentWeights?.weightSex
-//        let humidWeight = currentWeights?.weightHumi
-//        let coffeeWeight = currentWeights?.weightCof
-//        let alcoholWeight = currentWeights?.weightAlcohol
-//        let mealWeight = currentWeights?.weightMeal
-//        let durationWeight = currentWeights?.weightDuration
-//        let exerciseWeight = currentWeights?.weightExercise
-//        let waterWeight = currentWeights?.weightWater
-//        let lightWeight = currentWeights?.weightLight
-//        
-//        //we must process the weights with classification results obtained
-//        
+        // results before sleep Data
+        let exerciseData = lastQualitativeDataBefore?.ExerciseQuestion
+        let dinnerData = lastQualitativeDataBefore?.DinnerQuestion
+        let sexData = lastQualitativeDataBefore?.SexQuestion
+        let stimulantData = lastQualitativeDataBefore?.StimulantsQuestion
+        let nakedData = lastQualitativeDataBefore?.NakedQuestion
+        let waterData = lastQualitativeDataBefore?.WaterQuestion
+        let deviceData = lastQualitativeDataBefore?.NightDeviceQuestion
+        let tiredData = lastQualitativeDataBefore?.NightTiredQuestion
+        
+        // results after sleep Data
+        let toiletData = lastQualitativeDataAfter?.ToiletQuestion
+        let lightData = lastQualitativeDataAfter?.NightLightQuestion
+        let wakeLightData = lastQualitativeDataAfter?.WakeLightQuestion
+        let wakeDeviceData = lastQualitativeDataAfter?.WakeDeviceQuestion
+        let wakeTiredData = lastQualitativeDataAfter?.WakeTiredQuestion
+        let sleepData = lastQualitativeDataAfter?.WakeSleepQuestion
+        
+        
+        // Weights of All data
+        let currentWeights = realm.objects(User.self).filter("email = '\(currentUser.email)'")[0].weightsData
+        let coldWeight = currentWeights?.weightCold
+        let hotWeight = currentWeights?.weightHot
+        let sexWeight = currentWeights?.weightSex
+        let humidWeight = currentWeights?.weightHumi
+        let coffeeWeight = currentWeights?.weightCof
+        let alcoholWeight = currentWeights?.weightAlcohol
+        let mealWeight = currentWeights?.weightMeal
+        let durationWeight = currentWeights?.weightDuration
+        let exerciseWeight = currentWeights?.weightExercise
+        let waterWeight = currentWeights?.weightWater
+        let lightWeight = currentWeights?.weightLight
+        
+        //we must process the weights with classification results obtained
+        
+        
+        
+        
 //        try! realm.write {
 //            currentWeights?.weightLight = 0.7
 //            currentWeights?.weightWater = 0.8
-//        }
     }
-    
 }
+
