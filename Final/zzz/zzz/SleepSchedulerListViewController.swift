@@ -28,6 +28,8 @@ class SleepSchedulerListViewController: UITableViewController {
     var hoursRow: Int = 1
     var bedtimeRow: Int = 2
     var suggestionRow: Int = 3
+    var incrementRow: Int = 4
+    var curBedtimeRow: Int = 5
     
     override func viewDidLoad() {
         tableView.dataSource = self
@@ -41,7 +43,7 @@ class SleepSchedulerListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4;
+        return 6;
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -59,7 +61,7 @@ class SleepSchedulerListViewController: UITableViewController {
             schedule.calculateCurrentAvgBedtime()
         }
         if indexPath.row == alarmRow {
-            cell!.textLabel!.text = "Alarm"
+            cell!.textLabel!.text = "Goal Waketime"
             cell!.detailTextLabel!.text = schedule.formattedAlarm
             cell!.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         }
@@ -70,7 +72,7 @@ class SleepSchedulerListViewController: UITableViewController {
         }
         else if indexPath.row == bedtimeRow {
             let bedtimeCell:InfoCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as! InfoCell
-            bedtimeCell.titleLabel.text = "Bedtime"
+            bedtimeCell.titleLabel.text = "Goal Bedtime"
             bedtimeCell.valueLabel.text = schedule.formattedBedtime
             bedtimeCell.selectionStyle = .none;
             return bedtimeCell
@@ -79,6 +81,20 @@ class SleepSchedulerListViewController: UITableViewController {
             let bedtimeCell:InfoCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as! InfoCell
             bedtimeCell.titleLabel.text = "Current avg bedtime"
             bedtimeCell.valueLabel.text = schedule.formattedCurAvgBT
+            bedtimeCell.selectionStyle = .none;
+            return bedtimeCell
+        }
+        else if indexPath.row == incrementRow {
+            let bedtimeCell:InfoCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as! InfoCell
+            bedtimeCell.titleLabel.text = "Increment"
+            bedtimeCell.valueLabel.text = "\(schedule.increment) mins"
+            bedtimeCell.selectionStyle = .none;
+            return bedtimeCell
+        }
+        else if indexPath.row == curBedtimeRow {
+            let bedtimeCell:InfoCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as! InfoCell
+            bedtimeCell.titleLabel.text = "Today's bedtime"
+            bedtimeCell.valueLabel.text = schedule.formattedCurAimBT
             bedtimeCell.selectionStyle = .none;
             return bedtimeCell
         }
