@@ -80,7 +80,8 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadBasicRealm() // replace with loadEncryptedRealm for user testing
+        //loadBasicRealm() // replace with loadEncryptedRealm for user testing
+        loadEncryptedRealm()
         updateUI()
         
 //        let backupRealm = try! Realm(configuration: config)
