@@ -14,6 +14,7 @@
         <!--Main View Controller-->
         <scene sceneID="Hfd-I2-Nyd">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7W4-WQ-clr" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="MainView" id="eEV-mS-4MS" customClass="MainViewController" customModule="zzz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L3H-B1-uiv"/>
@@ -75,19 +76,11 @@
                                     <constraint firstAttribute="height" constant="60" id="aIv-oM-XHw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
-                                <state key="normal" title="Training">
-                                    <color key="titleColor" red="0.21568627450980393" green="0.30196078431372547" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gjJ-Wq-bTr">
-                                <rect key="frame" x="20" y="602" width="182.66666666666666" height="60"/>
-                                <color key="backgroundColor" red="0.82258802649999996" green="0.85054439309999996" blue="0.8838090301" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
                                 <state key="normal" title="Advice">
                                     <color key="titleColor" red="0.21568627450980393" green="0.30196078431372547" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="2Fm-cU-LUF" kind="show" id="Efz-vd-ztI"/>
+                                    <segue destination="2Fm-cU-LUF" kind="show" id="k80-uF-b3z"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4M-Yt-QRy">
@@ -118,7 +111,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bnp-OO-ukw">
-                                <rect key="frame" x="211.66666666666663" y="602" width="182.33333333333337" height="60"/>
+                                <rect key="frame" x="115.66666666666669" y="602" width="183" height="60"/>
                                 <color key="backgroundColor" red="0.82258802649999996" green="0.85054439309999996" blue="0.8838090301" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
                                 <state key="normal" title="Schedule">
@@ -140,27 +133,21 @@
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="gjJ-Wq-bTr" firstAttribute="height" secondItem="HvA-p4-CkT" secondAttribute="height" id="1gl-St-bRZ"/>
                             <constraint firstItem="1Ed-0M-Xm4" firstAttribute="width" secondItem="o4M-Yt-QRy" secondAttribute="width" id="6Io-I9-W83"/>
-                            <constraint firstItem="bnp-OO-ukw" firstAttribute="leading" secondItem="gjJ-Wq-bTr" secondAttribute="trailing" constant="9" id="BtX-IJ-BTD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qEt-Px-HjH" secondAttribute="trailing" id="DkS-4D-2qs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="f0J-Nq-8o0" secondAttribute="trailing" constant="-25" id="DpV-Fh-V8a"/>
                             <constraint firstItem="LMQ-rX-keB" firstAttribute="leading" secondItem="fJI-jN-X83" secondAttribute="leadingMargin" id="Emc-3S-TD7"/>
-                            <constraint firstItem="bnp-OO-ukw" firstAttribute="trailing" secondItem="fJI-jN-X83" secondAttribute="trailingMargin" id="Emp-nB-e3i"/>
                             <constraint firstItem="v2S-fV-iBL" firstAttribute="centerX" secondItem="fJI-jN-X83" secondAttribute="centerX" id="GyK-bp-cJv"/>
                             <constraint firstItem="f0J-Nq-8o0" firstAttribute="leading" secondItem="fJI-jN-X83" secondAttribute="leadingMargin" constant="-25" id="HFi-2K-iZI"/>
                             <constraint firstItem="V5n-ec-pxL" firstAttribute="top" secondItem="sHf-WX-txI" secondAttribute="bottom" constant="9" id="IF5-Hk-kBn"/>
+                            <constraint firstItem="bnp-OO-ukw" firstAttribute="centerX" secondItem="fJI-jN-X83" secondAttribute="centerX" id="KFx-p5-cgp"/>
                             <constraint firstItem="bnp-OO-ukw" firstAttribute="top" secondItem="LMQ-rX-keB" secondAttribute="bottom" constant="8" id="OAC-Lm-M6V"/>
                             <constraint firstItem="1Ed-0M-Xm4" firstAttribute="height" secondItem="o4M-Yt-QRy" secondAttribute="height" id="OtO-8M-hnI"/>
                             <constraint firstItem="LMQ-rX-keB" firstAttribute="width" secondItem="HvA-p4-CkT" secondAttribute="width" id="OvI-Ma-jMb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sHf-WX-txI" secondAttribute="trailing" id="QRi-AF-DLa"/>
-                            <constraint firstItem="bnp-OO-ukw" firstAttribute="top" secondItem="LMQ-rX-keB" secondAttribute="bottom" constant="8" id="QXv-k7-T95"/>
                             <constraint firstItem="sHf-WX-txI" firstAttribute="width" secondItem="HvA-p4-CkT" secondAttribute="width" id="RgQ-lR-kWm"/>
                             <constraint firstItem="LMQ-rX-keB" firstAttribute="height" secondItem="HvA-p4-CkT" secondAttribute="height" id="Rz6-QJ-gOp"/>
-                            <constraint firstItem="gjJ-Wq-bTr" firstAttribute="top" secondItem="LMQ-rX-keB" secondAttribute="bottom" constant="8" id="SAM-5E-MSq"/>
-                            <constraint firstItem="gjJ-Wq-bTr" firstAttribute="width" secondItem="HvA-p4-CkT" secondAttribute="width" id="Sml-xt-XU1"/>
                             <constraint firstItem="HvA-p4-CkT" firstAttribute="leading" secondItem="fJI-jN-X83" secondAttribute="leadingMargin" id="Tuz-2r-lRY"/>
-                            <constraint firstItem="gjJ-Wq-bTr" firstAttribute="leading" secondItem="fJI-jN-X83" secondAttribute="leadingMargin" id="US9-fC-IGR"/>
                             <constraint firstItem="bnp-OO-ukw" firstAttribute="width" secondItem="HvA-p4-CkT" secondAttribute="width" id="VIo-Aa-WmA"/>
                             <constraint firstItem="qEt-Px-HjH" firstAttribute="top" secondItem="v2S-fV-iBL" secondAttribute="bottom" constant="29" id="Vuz-sO-cGh"/>
                             <constraint firstItem="sHf-WX-txI" firstAttribute="top" secondItem="aZH-fd-Q68" secondAttribute="bottom" constant="9" id="XDe-Am-fD2"/>
@@ -185,8 +172,7 @@
                             <constraint firstItem="V5n-ec-pxL" firstAttribute="leading" secondItem="LMQ-rX-keB" secondAttribute="trailing" constant="9" id="q7U-ZO-WQM"/>
                             <constraint firstItem="sHf-WX-txI" firstAttribute="leading" secondItem="HvA-p4-CkT" secondAttribute="trailing" constant="9" id="rWr-Mc-dDe"/>
                             <constraint firstItem="bnp-OO-ukw" firstAttribute="top" secondItem="V5n-ec-pxL" secondAttribute="bottom" constant="8" id="rqp-Zf-sGb"/>
-                            <constraint firstItem="bnp-OO-ukw" firstAttribute="leading" secondItem="gjJ-Wq-bTr" secondAttribute="trailing" constant="9" id="t56-kw-9Uh"/>
-                            <constraint firstItem="o4M-Yt-QRy" firstAttribute="top" secondItem="gjJ-Wq-bTr" secondAttribute="bottom" constant="18" id="tF7-8g-Ufn"/>
+                            <constraint firstItem="1Ed-0M-Xm4" firstAttribute="top" secondItem="bnp-OO-ukw" secondAttribute="bottom" constant="14" id="t4M-dj-xF1"/>
                             <constraint firstItem="bnp-OO-ukw" firstAttribute="height" secondItem="HvA-p4-CkT" secondAttribute="height" id="tFe-UA-GP7"/>
                             <constraint firstItem="qEt-Px-HjH" firstAttribute="leading" secondItem="fJI-jN-X83" secondAttribute="leadingMargin" id="tZn-VS-shn"/>
                             <constraint firstItem="V5n-ec-pxL" firstAttribute="trailing" secondItem="fJI-jN-X83" secondAttribute="trailingMargin" id="wEl-E7-8CG"/>
@@ -196,19 +182,17 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="adviceButton" destination="gjJ-Wq-bTr" id="0uZ-SM-3Kd"/>
+                        <outlet property="adviceButton" destination="LMQ-rX-keB" id="Jg4-93-t4b"/>
                         <outlet property="bedtimeButton" destination="aZH-fd-Q68" id="tBR-TX-DkR"/>
                         <outlet property="lastNightButton" destination="HvA-p4-CkT" id="ygJ-Vx-cDE"/>
                         <outlet property="loginButton" destination="1Ed-0M-Xm4" id="fby-zr-wJ2"/>
                         <outlet property="networkButton" destination="V5n-ec-pxL" id="M6l-XB-Jrp"/>
                         <outlet property="registerButton" destination="o4M-Yt-QRy" id="XKw-Cc-GTH"/>
                         <outlet property="scheduleButton" destination="bnp-OO-ukw" id="ZGb-Vb-MxI"/>
-                        <outlet property="trainingButton" destination="LMQ-rX-keB" id="GRO-UV-CrE"/>
                         <outlet property="trendsButton" destination="sHf-WX-txI" id="xBu-oz-Q3F"/>
                         <outlet property="welcomeLabel" destination="qEt-Px-HjH" id="awU-XJ-yKb"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7W4-WQ-clr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="812" y="302.6986506746627"/>
         </scene>
