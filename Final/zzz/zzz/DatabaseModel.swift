@@ -28,17 +28,17 @@ final class User: Object {
 }
 
 final class weightsDataObject: Object {
-    dynamic var weightHumi: Float = 0.0
-    dynamic var weightLight: Float = 0.0
-    dynamic var weightCof: Float = 0.0
-    dynamic var weightExercise: Float = 0.0
-    dynamic var weightSex: Float = 0.0
-    dynamic var weightMeal: Float = 0.0
-    dynamic var weightAlcohol: Float = 0.0
-    dynamic var weightHot: Float = 0.0
-    dynamic var weightCold: Float = 0.0
-    dynamic var weightDuration: Float = 0.0
-    dynamic var weightWater: Float = 0.0
+    dynamic var weightHumi: Float = 0.4
+    dynamic var weightLight: Float = 0.4
+    dynamic var weightCof: Float = 0.4
+    dynamic var weightExercise: Float = 0.4
+    dynamic var weightSex: Float = 0.4
+    dynamic var weightMeal: Float = 0.4
+    dynamic var weightAlcohol: Float = 0.4
+    dynamic var weightHot: Float = 0.4
+    dynamic var weightCold: Float = 0.4
+    dynamic var weightDuration: Float = 0.4
+    dynamic var weightWater: Float = 0.4
 }
 
 

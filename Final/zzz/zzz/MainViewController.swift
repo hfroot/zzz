@@ -320,7 +320,8 @@ extension MainViewController : ORKTaskViewControllerDelegate {
                 let configuration = Realm.Configuration(
                     syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://54.194.100.223:9080/~/zzz")!)
                 )
-                realm = try! Realm(configuration: configuration)
+                 realm = try! Realm(configuration: configuration)
+                
                 
                 // Show initial tasks
                 func updateNetwork() {

@@ -22,13 +22,13 @@ func saveSleepData(newSleepData:sleepDataObject) {
     }
 }
 
-//func saveWeightData(newWeightData:weightObject) {
-//    try! realm.write {
-//        currentUser.weightsData = newWeightData
-//        realm.add(weightData, update: true)
-//        print("Added sleepData object to database: \(newWeightData)")
-//    }
-//}
+func saveWeightData(newWeightData:weightsDataObject) {
+    try! realm.write {
+        currentUser.weightsData = newWeightData
+        realm.add(currentUser, update: true)
+        print("Added weightsData object to database: \(newWeightData)")
+    }
+}
 
 
 func registerAccount(registrationData:ORKStepResult) {
@@ -45,6 +45,9 @@ func registerAccount(registrationData:ORKStepResult) {
     let formatter = DateFormatter()
     formatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
     newUser.DoB = formatter.string(from: DoB)
+    
+    let initialWeights = weightsDataObject()
+    newUser.weightsData = initialWeights
     
     try! realm.write {
         realm.add(newUser)
