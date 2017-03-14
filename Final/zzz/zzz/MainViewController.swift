@@ -46,20 +46,46 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func bedtimeTapped(sender : UIButton) {
-        //bedtimeButton.isEnabled = true
+        
         let beforeBedTaskViewController = ORKTaskViewController(task: BedtimeTask, taskRun: nil)
         beforeBedTaskViewController.delegate = self
-        present(beforeBedTaskViewController, animated: true, completion: nil)
+        
+        // Check if user has already completed a bedtime task today
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy"
+        let dayToday = formatter.string(from: Date())
+        if currentUser.sleepData.isEmpty == false {
+            let lastBedtimeTask = formatter.string(from: (currentUser.sleepData.last?.Timestamp)!)
+            if lastBedtimeTask == dayToday {
+                let alertTitle = NSLocalizedString("You have already recorder data for last night!", comment: "")
+                let alertMessage = NSLocalizedString("Do you want to start from scratch?", comment: "The data previously recorded will be lost")
+                let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: {
+                    action in
+                    self.present(beforeBedTaskViewController, animated: true, completion: nil)
+                }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+        else {
+            present(beforeBedTaskViewController, animated: true, completion: nil)
+        }
+        
     }
     
-    @IBAction func chartsTapped(sender : UIButton) {
-        present(ChartListViewController(), animated: true, completion: nil)
+    @IBAction func networkTapped(sender : UIButton) {
+        present(NetworkViewController(), animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupRealm()
+        loadBasicRealm() // replace with loadEncryptedRealm for user testing
         updateUI()
+        
+//        let backupRealm = try! Realm(configuration: config)
+//        let allUsers = backupRealm.objects(User.self)
+//        realm.add(allUsers)
     }
 
     override func didReceiveMemoryWarning() {
@@ -264,7 +290,7 @@ extension MainViewController : ORKTaskViewControllerDelegate {
                 let newBeforeBedData = beforeBedAnswersObject(value: ["ExerciseQuestion": ExerciseQuestion as Any,
                                                              "DinnerQuestion": DinnerQuestion as Any,
                                                              "SexQuestion": SexQuestion as Any,
-                                                             "StimulantQuestion": StimulantsQuestion as Any,
+                                                             "StimulantsQuestion": StimulantsQuestion as Any,
                                                              "NakedQuestion": NakedQuestion as Any,
                                                              "WaterQuestion": WaterQuestion as Any,
                                                              "NightDeviceQuestion": NightDeviceQuestion as Any,
@@ -305,7 +331,39 @@ extension MainViewController : ORKTaskViewControllerDelegate {
         //taskViewController.dismiss(animated: true, completion: nil)
     }
     
-    func setupRealm() {
+    func loadEncryptedRealm() {
+        // Log in existing user with username and password
+        let username = "app@zzz.com"  // <--- Update this
+        let password = "MobileHealthcare&MachineLearning"  // <--- Update this
+        
+        SyncUser.logIn(with: .usernamePassword(username: username, password: password, register: false), server: URL(string: "http://54.194.100.223:9080")!) { user, error in
+            guard let user = user else {
+                fatalError(String(describing: error))
+            }
+            
+            DispatchQueue.main.async {
+                // Open Realm
+                let configuration = Realm.Configuration(
+                    syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://54.194.100.223:9080/~/zzz-encrypted")!),
+                    encryptionKey: getKey() as Data
+                )
+                realm = try! Realm(configuration: configuration)
+                
+                // Show initial tasks
+                func updateNetwork() {
+                    // do some queries about network data
+                }
+                updateNetwork()
+                
+                // Notify us when Realm changes
+                notificationToken = realm.addNotificationBlock { _ in
+                    updateNetwork()
+                }
+            }
+        }
+    }
+    
+    func loadBasicRealm() {
         // Log in existing user with username and password
         let username = "zzz@zzz.com"  // <--- Update this
         let password = "goodnight!"  // <--- Update this
@@ -318,8 +376,7 @@ extension MainViewController : ORKTaskViewControllerDelegate {
             DispatchQueue.main.async {
                 // Open Realm
                 let configuration = Realm.Configuration(
-                    syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://54.194.100.223:9080/~/zzz")!)
-                )
+                    syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://54.194.100.223:9080/~/zzz")!))
                 realm = try! Realm(configuration: configuration)
                 
                 // Show initial tasks
