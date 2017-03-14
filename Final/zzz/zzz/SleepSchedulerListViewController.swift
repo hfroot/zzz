@@ -77,8 +77,8 @@ class SleepSchedulerListViewController: UITableViewController {
         }
         else if indexPath.row == suggestionRow {
             let bedtimeCell:InfoCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as! InfoCell
-            bedtimeCell.titleLabel.text = "Current avg bedtime is \(schedule.formattedCurAvgBT)"
-            bedtimeCell.valueLabel.text = ""
+            bedtimeCell.titleLabel.text = "Current avg bedtime"
+            bedtimeCell.valueLabel.text = schedule.formattedCurAvgBT
             bedtimeCell.selectionStyle = .none;
             return bedtimeCell
         }
