@@ -95,25 +95,26 @@ class Schedule {
                 if (currentAimBedtime == nil) {
                     currentAimBedtime = currentAvgBedtime
                 }
+                let secondsInc = TimeInterval(increment*60)
                 if (onTrack == "onTrack") {
-                    if (direction == "forward") {
-                        currentAimBedtime = currentAimBedtime + TimeInterval(increment)
-                    } else {
-                        currentAimBedtime = currentAimBedtime - TimeInterval(increment)
-                    }
+//                    if (direction == "forward") {
+//                        currentAimBedtime = currentAimBedtime + secondsInc
+//                    } else {
+//                        currentAimBedtime = currentAimBedtime - secondsInc
+//                    }
                     onTrackMsg = "Well done, you're on track!"
                 } else if (onTrack == "ahead") {
                     if (direction == "forward") {
-                        currentAimBedtime = currentAvgBedtime + TimeInterval(increment)
+                        currentAimBedtime = currentAvgBedtime + secondsInc
                     } else {
-                        currentAimBedtime = currentAvgBedtime - TimeInterval(increment)
+                        currentAimBedtime = currentAvgBedtime - secondsInc
                     }
                     onTrackMsg = "Well done, you're ahead!"
                 } else if (onTrack == "behind") {
                     if (direction == "forward") {
-                        currentAimBedtime = currentAvgBedtime + TimeInterval(increment)
+                        currentAimBedtime = currentAvgBedtime + secondsInc
                     } else {
-                        currentAimBedtime = currentAvgBedtime - TimeInterval(increment)
+                        currentAimBedtime = currentAvgBedtime - secondsInc
                     }
                     onTrackMsg = "Watch out, you're falling behind!"
                 }
