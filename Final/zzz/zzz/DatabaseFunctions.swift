@@ -10,11 +10,6 @@ import RealmSwift
 import ResearchKit
 import Security
 
-//        try! realm.write {
-//            realm.deleteAll()
-//            print("DELETED ALL OBJECTS IN REALM");
-//        }
-
 func saveSleepData(newSleepData:sleepDataObject) {
     try! realm.write {
         currentUser.sleepData.append(newSleepData)
