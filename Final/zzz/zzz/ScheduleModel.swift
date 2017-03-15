@@ -23,7 +23,7 @@ class Schedule {
     
     func determineSleepHours() {
         // eventually pull data from db to get ideal hours
-        sleepHours = 8.0
+        sleepHours = Double((realm.objects(User.self).filter("email = '\(currentUser.email)'")[0].scheduleData?.SleepHours)!)
     }
     
     func calculateBedtime() {
