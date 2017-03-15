@@ -46,9 +46,9 @@
 		8FF304631E7035D600BD97F3 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF304601E7035D600BD97F3 /* RealmSwift.framework */; };
 		8FF304641E7035D600BD97F3 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF304601E7035D600BD97F3 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8FF304671E703BC800BD97F3 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF304661E703BC800BD97F3 /* Device.swift */; };
-		971A78C61E7897F400EF2695 /* NetworkDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971A78C31E7897F400EF2695 /* NetworkDataSource.swift */; };
 		971A78C71E7897F400EF2695 /* NetworkView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 971A78C41E7897F400EF2695 /* NetworkView.storyboard */; };
 		971A78C81E7897F400EF2695 /* NetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971A78C51E7897F400EF2695 /* NetworkViewController.swift */; };
+		971A78EE1E78E9F500EF2695 /* Network1DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971A78ED1E78E9F500EF2695 /* Network1DataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,9 +172,9 @@
 		8FF3045F1E7035D600BD97F3 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		8FF304601E7035D600BD97F3 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		8FF304661E703BC800BD97F3 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
-		971A78C31E7897F400EF2695 /* NetworkDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDataSource.swift; sourceTree = "<group>"; };
 		971A78C41E7897F400EF2695 /* NetworkView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NetworkView.storyboard; sourceTree = "<group>"; };
 		971A78C51E7897F400EF2695 /* NetworkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkViewController.swift; sourceTree = "<group>"; };
+		971A78ED1E78E9F500EF2695 /* Network1DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network1DataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,7 +230,7 @@
 		8F7714441E775737000CB10A /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				971A78C31E7897F400EF2695 /* NetworkDataSource.swift */,
+				971A78ED1E78E9F500EF2695 /* Network1DataSource.swift */,
 				971A78C41E7897F400EF2695 /* NetworkView.storyboard */,
 				971A78C51E7897F400EF2695 /* NetworkViewController.swift */,
 			);
@@ -486,11 +486,11 @@
 				799B161E1E77461000B0DF2D /* SetAlarmViewController.swift in Sources */,
 				8F54834D1E7200BA008920AB /* DatabaseFunctions.swift in Sources */,
 				8FE4A3191E74A0AE00BE342A /* SensorView.swift in Sources */,
+				971A78EE1E78E9F500EF2695 /* Network1DataSource.swift in Sources */,
 				8FF304461E6F26EC00BD97F3 /* BedtimeTask.swift in Sources */,
 				8F77142A1E770E9E000CB10A /* Recommendations.swift in Sources */,
 				799B16211E77461000B0DF2D /* SleepSchedulerListViewController.swift in Sources */,
 				8F7714281E770E9E000CB10A /* AdviceDataSource.swift in Sources */,
-				971A78C61E7897F400EF2695 /* NetworkDataSource.swift in Sources */,
 				8FF304671E703BC800BD97F3 /* Device.swift in Sources */,
 				8FE4A31E1E75B2F800BE342A /* DataProcessing.swift in Sources */,
 				799B161F1E77461000B0DF2D /* SleepHoursViewController.swift in Sources */,
