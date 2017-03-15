@@ -104,7 +104,7 @@ public var BedtimeTask: ORKOrderedTask {
     // Recording step
     let sensorRecordingStep = SensorActiveStep(identifier: "SensorRecordingStep")
     sensorRecordingStep.title = "Night monitoring"
-    sensorRecordingStep.text = "You can now put your phone away. Please don't close the ZZZ app to avoid losing connection to the SensorTag"
+    sensorRecordingStep.text = "You can now put your phone away. Click next in the morning to complete the recording."
     //sensorRecordingStep.stepDuration
     steps += [sensorRecordingStep]
     

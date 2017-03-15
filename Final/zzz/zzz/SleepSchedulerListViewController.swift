@@ -135,16 +135,7 @@ class SleepSchedulerListViewController: UITableViewController {
             dest.hours = schedule.sleepHours
         }
         else if segue.identifier == "saveScheduleEdit" {
-            // save to database
-            let newScheduleData = scheduleObject(value: ["Waketime": schedule.waketime,
-                                                       "GoalBedtime": schedule.bedtime,
-                                                       "SleepHours": schedule.sleepHours,
-                                                       "Increment": schedule.increment
-                ])
-            if (schedule.currentAimBedtime != nil) {
-                newScheduleData["CurrentIdealBedtime"] = schedule.currentAimBedtime
-            }
-            saveScheduleData(newScheduleData: newScheduleData)
+            schedule.saveToRealm()
         }
     }
     

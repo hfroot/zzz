@@ -30,6 +30,7 @@ class Schedule {
     func calculateBedtime() {
         if (waketime != nil) {
             bedtime = waketime - sleepHours*60*60
+            self.calculateCurrentAvgBedtime()
             if (currentAvgBedtime != nil) {
                 let calendar = Calendar.current
                 let aimBedtimeHour = calendar.component(.hour, from: bedtime)
@@ -74,9 +75,17 @@ class Schedule {
                         components.minute! = components.minute! + increment - 60
                         components.hour! += 1
                     }
+                } else if (direction == "backward") {
+                    if (components.minute!-increment > 0) {
+                        components.minute! -= increment
+                    } else {
+                        components.minute! = components.minute! - increment + 60
+                        components.hour! -= 1
+                    }
                 }
                 
                 currentAimBedtime = calendar.date(from: components)!
+                self.saveToRealm()
             }
         }
         
@@ -141,5 +150,17 @@ class Schedule {
             // update current bedtime aim
             print("days between aim and today: \(todayDay!-aimDay!)")
         }
+    }
+    
+    func saveToRealm() {
+        let newScheduleData = scheduleObject(value: ["Waketime": waketime,
+                                                     "GoalBedtime": bedtime,
+                                                     "SleepHours": sleepHours,
+                                                     "Increment": increment
+                                                ])
+        if (currentAimBedtime != nil) {
+            newScheduleData["CurrentIdealBedtime"] = currentAimBedtime
+        }
+        saveScheduleData(newScheduleData: newScheduleData)
     }
 }
