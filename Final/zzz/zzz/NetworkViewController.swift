@@ -16,19 +16,16 @@ class NetworkViewController: UIViewController {
     var sleptWellCount:Int = 0
     var sleptNotWellCount:Int = 0
     var lastUpdate:String = ""
-    var networkWeights : weightsDataObject?
     
     @IBOutlet weak var networkLabel: UILabel!
     @IBOutlet weak var networkPieChart1: ORKPieChartView!
-    @IBOutlet weak var networkPieChart2: ORKPieChartView!
 
     
-    let networkPieChartDataSource = NetworkPieChartDataSource()
+    let network1PieChartDataSource = Network1PieChartDataSource()
     
     let networkPieChartIdentifier = "PieChart"
     
     var pieChartDisplay: [CGFloat] = []
-    
 
     @IBOutlet var lastUpdateLabel: UILabel?
     @IBOutlet var allCountLabel: UILabel?
@@ -47,14 +44,13 @@ class NetworkViewController: UIViewController {
                             CGFloat(sleptNotWellRatio),
                             CGFloat(unknown)]
         
-        updateNetworkPieChartValues(newValues: pieChartDisplay)
+        updateNetwork1PieChartValues(newValues: pieChartDisplay)
         
-        networkPieChart1?.dataSource = networkPieChartDataSource
+        networkPieChart1?.dataSource = network1PieChartDataSource
         networkPieChart1?.lineWidth = 12
         networkPieChart1?.drawsClockwise = true
         networkPieChart1?.showsPercentageLabels = true
         networkPieChart1?.tintColor = UIColor.purple
-
         
         lastUpdateLabel?.text = "Last update:\(lastUpdate)"
         allCountLabel?.text = "\(networkCount) active users in network"
@@ -69,18 +65,6 @@ class NetworkViewController: UIViewController {
     func getYesterdayStats() {
         
         let allUsers = realm.objects(User.self)
-        
-        networkWeights?.weightHumi = allUsers.average(ofProperty: "weightsData.weightHumi")!
-        networkWeights?.weightCof = allUsers.average(ofProperty: "weightsData.weightCof")!
-        networkWeights?.weightHot = allUsers.average(ofProperty: "weightsData.weightHot")!
-        networkWeights?.weightSex = allUsers.average(ofProperty: "weightsData.weightSex")!
-        networkWeights?.weightCold = allUsers.average(ofProperty: "weightsData.weightCold")!
-        networkWeights?.weightMeal = allUsers.average(ofProperty: "weightsData.weightMeal")!
-        networkWeights?.weightLight = allUsers.average(ofProperty: "weightsData.weightLight")!
-        networkWeights?.weightWater = allUsers.average(ofProperty: "weightsData.weightWater")!
-        networkWeights?.weightAlcohol = allUsers.average(ofProperty: "weightsData.weightAlcohol")!
-        networkWeights?.weightDuration = allUsers.average(ofProperty: "weightsData.weightDuration")!
-        networkWeights?.weightExercise = allUsers.average(ofProperty: "weightsData.weightExercise")!
         
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM-yyyy HH:mm"

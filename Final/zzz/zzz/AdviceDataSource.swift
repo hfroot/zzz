@@ -22,7 +22,7 @@ func createRandomColorArray(_ number: Int) -> [UIColor] {
     return colors
 }
 
-let AdviceNumberOfPieChartSegments = 13
+let AdviceNumberOfPieChartSegments = 9
 
 var pieChartValues: [CGFloat] = [CGFloat(0.6),
                          CGFloat(0.6),
@@ -32,25 +32,17 @@ var pieChartValues: [CGFloat] = [CGFloat(0.6),
                          CGFloat(0.4),
                          CGFloat(0.3),
                          CGFloat(0.6),
-                         CGFloat(0.6),
-                         CGFloat(0.5),
-                         CGFloat(0.5),
-                         CGFloat(0.3),
-                         CGFloat(0.5)]
+                         CGFloat(0.6)]
 
 let pieChartColours: [UIColor] = [UIColor(red: 1, green: 0, blue: 0, alpha: 1),
                                  UIColor(red: 1, green: 0.5, blue: 0, alpha: 1),
                                  UIColor(red: 1, green: 1, blue: 0, alpha: 1),
-                                 UIColor(red: 0.4, green: 0.8, blue: 0, alpha: 1),
                                  UIColor(red: 0, green: 1, blue: 0, alpha: 1),
                                  UIColor(red: 0, green: 0.8, blue: 0.4, alpha: 1),
                                  UIColor(red: 0, green: 1, blue: 1, alpha: 1),
                                  UIColor(red: 0, green: 0.5, blue: 1, alpha: 1),
                                  UIColor(red: 0, green: 0, blue: 1, alpha: 1),
-                                 UIColor(red: 0.5, green: 0, blue: 1, alpha: 1),
-                                 UIColor(red: 1, green: 0, blue: 1, alpha: 1),
-                                 UIColor(red: 1, green: 0.8, blue: 0.8, alpha: 1),
-                                 UIColor(red: 0.5, green: 0.2, blue: 0.3, alpha: 1)]
+                                 UIColor(red: 1, green: 0, blue: 1, alpha: 1)]
 
 func updatePieChartValues(newValues: [CGFloat]){
     pieChartValues = newValues
@@ -77,23 +69,15 @@ class AdviceColorlessPieChartDataSource: NSObject, ORKPieChartViewDataSource {
         case 3:
             return "meal"
         case 4:
-            return "nicotine"
-        case 5:
             return "alcohol"
-        case 6:
-            return "relaxation"
-        case 7:
+        case 5:
             return "light"
-        case 8:
-            return "noise"
-        case 9:
+        case 6:
             return "heat"
-        case 10:
+        case 7:
             return "cold"
-        case 11:
+        case 8:
             return "humidity"
-        case 12:
-            return "device"
         default:
             return "other"
         }
