@@ -24,7 +24,7 @@ final class User: Object {
     }
     
     let sleepData = List<sleepDataObject>()
-    dynamic var schedule: scheduleObject?
+    dynamic var scheduleData: scheduleObject?
     dynamic var weightsData: weightsDataObject?
 }
 
@@ -86,6 +86,7 @@ final class afterBedAnswersObject: Object {
 
 final class scheduleObject: Object {
     dynamic var Waketime = Date()
+    dynamic var GoalBedtime = Date()
     dynamic var CurrentIdealBedtime = Date()
     dynamic var SleepHours: Float = 8.0
     dynamic var Increment: Int = 15

@@ -49,6 +49,9 @@ func registerAccount(registrationData:ORKStepResult) {
     let initialWeights = weightsDataObject()
     newUser.weightsData = initialWeights
     
+    let initialSchedule = scheduleObject()
+    newUser.scheduleData = initialSchedule
+    
     try! realm.write {
         realm.add(newUser)
         print("Added User object to database: \(newUser)")

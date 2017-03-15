@@ -12,9 +12,10 @@ class Schedule {
     var waketime: Date!
     var bedtime: Date!
     var sleepHours: Double = 8.0 // default
-    var currentAvgBedtime: Date!
     var increment: Int = 15 // default
     var currentAimBedtime: Date!
+    // below not in DB
+    var currentAvgBedtime: Date!
     var direction: String = ""
     var reqNumberOfDays: Int!
     

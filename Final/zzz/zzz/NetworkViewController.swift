@@ -29,6 +29,7 @@ class NetworkViewController: UIViewController {
     
     var pieChartDisplay: [CGFloat] = []
     
+
     @IBOutlet var lastUpdateLabel: UILabel?
     @IBOutlet var allCountLabel: UILabel?
 
@@ -53,6 +54,10 @@ class NetworkViewController: UIViewController {
         networkPieChart1?.drawsClockwise = true
         networkPieChart1?.showsPercentageLabels = true
         networkPieChart1?.tintColor = UIColor.purple
+
+        
+        lastUpdateLabel?.text = "Last update:\(lastUpdate)"
+        allCountLabel?.text = "\(networkCount) active users in network"
 
     }
 
