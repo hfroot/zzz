@@ -124,43 +124,54 @@ func LightAccThreshold() -> Int {
 }
 
 
-func adjustWeight(classifier: String, result: Int) {
+func adjustWeight(classifier: String, result: Int) -> Float {
     let currentWeights = realm.objects(User.self).filter("email = '\(currentUser.email)'")[0].weightsData!
     let QualitativeData = realm.objects(sleepDataObject.self)
     let lastQualitativeDataAfter = QualitativeData.last!.afterBedAnswers
     
-    let newWeights = weightsDataObject()
-    
-    print(currentWeights)
-    
     let sleepData = lastQualitativeDataAfter?.WakeSleepQuestion
     if sleepData?.value == true {
         switch classifier{
-        case "temperature":
-            let currentColdWeight = currentWeights.weightCold
+        case "hot":
             let currentHotWeight = currentWeights.weightHot
             
             var hotWeight = currentHotWeight
-            var coldWeight = currentColdWeight
             switch result{
             case 0:
                 // temperature fine: decrement both hot and cold
                 hotWeight = decrementWeight(currentWeight: hotWeight)
-                coldWeight = decrementWeight(currentWeight: coldWeight)
             case 1:
                 // temperature is too high: increase hot, set cold to 0
                 hotWeight = decrementWeight(currentWeight: hotWeight)
+            case 2:
+                // temperature is too low: increase cold, set hot to 0
+                hotWeight = 0
+            default:
+                hotWeight = currentHotWeight
+            }
+            return hotWeight
+        
+        case "cold":
+            let currentColdWeight = currentWeights.weightCold
+            //let currentHotWeight = currentWeights.weightHot
+            
+            //var hotWeight = currentHotWeight
+            var coldWeight = currentColdWeight
+            switch result{
+            case 0:
+                // temperature fine: decrement both hot and cold
+                coldWeight = decrementWeight(currentWeight: coldWeight)
+            case 1:
+                // temperature is too high: increase hot, set cold to 0
                 coldWeight = 0
             case 2:
                 // temperature is too low: increase cold, set hot to 0
                 coldWeight = decrementWeight(currentWeight: coldWeight)
-                hotWeight = 0
             default:
-                ()
+                coldWeight = currentColdWeight
             }
-        // TODO: write new temperature weights
-            newWeights.weightHot = hotWeight
-            newWeights.weightCold = coldWeight
+            return coldWeight
+
             
         case "humidity":
             let currentHumidWeight = currentWeights.weightHumi
@@ -176,9 +187,9 @@ func adjustWeight(classifier: String, result: Int) {
                 // humidity is too low: not implemented yet
                 ()
             default:
-                ()
+                humidityWeight = currentHumidWeight
             }
-            newWeights.weightHumi = humidityWeight
+            return humidityWeight
             
             
         case "water":
@@ -192,11 +203,11 @@ func adjustWeight(classifier: String, result: Int) {
                 // water is too high: increment weight
                 waterWeight = decrementWeight(currentWeight: waterWeight)
             default:
-                ()
+                waterWeight = currentWaterWeight
             }
         // TODO: write new water weight
-            newWeights.weightWater = waterWeight
-            
+            return waterWeight
+
         case "exercise":
             let currentExerciseWeight = currentWeights.weightExercise
             var exerciseWeight = currentExerciseWeight
@@ -208,10 +219,10 @@ func adjustWeight(classifier: String, result: Int) {
                 // exercise is too high: increment weight
                 exerciseWeight = decrementWeight(currentWeight: exerciseWeight)
             default:
-                ()
+                exerciseWeight = currentExerciseWeight
             }
         // TODO: write new exercise weight
-            newWeights.weightExercise = exerciseWeight
+            return exerciseWeight
     
         case "sex":
             let currentSexWeight = currentWeights.weightSex
@@ -224,10 +235,10 @@ func adjustWeight(classifier: String, result: Int) {
                 // sex is too high: increment weight
                 sexWeight = decrementWeight(currentWeight: sexWeight)
             default:
-                ()
+                sexWeight = currentSexWeight
             }
         // TODO: write new exercise weight
-            newWeights.weightSex = sexWeight
+            return sexWeight
             
         case "coffee":
             let currentCoffeeWeight = currentWeights.weightCof
@@ -240,9 +251,10 @@ func adjustWeight(classifier: String, result: Int) {
                 // coffee is too high: increment weight
                 coffeeWeight = decrementWeight(currentWeight: coffeeWeight)
             default:
-                ()
+                coffeeWeight = currentCoffeeWeight
+
             }
-            newWeights.weightCof = coffeeWeight
+            return coffeeWeight
 
         case "alcohol":
             let currentAlcoholWeight = currentWeights.weightAlcohol
@@ -255,9 +267,10 @@ func adjustWeight(classifier: String, result: Int) {
                 // alcohol is too high: increment weight
                 alcoholWeight = decrementWeight(currentWeight: alcoholWeight)
             default:
-                ()
+                alcoholWeight = currentAlcoholWeight
+
             }
-            newWeights.weightAlcohol = alcoholWeight
+            return alcoholWeight
             
         case "meal":
             let currentMealWeight = currentWeights.weightMeal
@@ -270,10 +283,10 @@ func adjustWeight(classifier: String, result: Int) {
                 // alcohol is too high: increment weight
                 mealWeight = decrementWeight(currentWeight: mealWeight)
             default:
-                ()
+                mealWeight = currentMealWeight
+
             }
-            newWeights.weightMeal = mealWeight
-            
+            return mealWeight
   
         case "light":
             let currentLightWeight = currentWeights.weightLight
@@ -286,42 +299,60 @@ func adjustWeight(classifier: String, result: Int) {
                 // light is too high: increment weight
                 lightWeight = decrementWeight(currentWeight: lightWeight)
             default:
-                ()
+                lightWeight = currentLightWeight
+
             }
-            newWeights.weightLight = lightWeight
+            return lightWeight
         default:
             ()
         }
     }
     else{
         switch classifier{
-        case "temperature":
+        
+        case "hot":
             let currentColdWeight = currentWeights.weightCold
             print(currentColdWeight)
             let currentHotWeight = currentWeights.weightHot
             
             var hotWeight = currentHotWeight
             print(hotWeight)
-            var coldWeight = currentColdWeight
             switch result{
             case 0:
                 // temperature fine: decrement both hot and cold
                 hotWeight = decrementWeight(currentWeight: hotWeight)
-                coldWeight = decrementWeight(currentWeight: coldWeight)
             case 1:
                 // temperature is too high: increase hot, set cold to 0
                 hotWeight = incrementWeight(currentWeight: hotWeight)
+            case 2:
+                // temperature is too low: increase cold, set hot to 0
+                hotWeight = 0
+            default:
+                hotWeight = currentHotWeight
+
+            }
+            return hotWeight
+        
+        case "cold":
+            let currentColdWeight = currentWeights.weightCold
+            print(currentColdWeight)
+            
+            var coldWeight = currentColdWeight
+            switch result{
+            case 0:
+                // temperature fine: decrement both hot and cold
+                coldWeight = decrementWeight(currentWeight: coldWeight)
+            case 1:
+                // temperature is too high: increase hot, set cold to 0
                 coldWeight = 0
             case 2:
                 // temperature is too low: increase cold, set hot to 0
                 coldWeight = incrementWeight(currentWeight: coldWeight)
-                hotWeight = 0
             default:
-                ()
+                coldWeight = currentColdWeight
+
             }
-            newWeights.weightCold = coldWeight
-            newWeights.weightHot = hotWeight
-            
+            return coldWeight
             
         case "humidity":
             let currentHumidWeight = currentWeights.weightHumi
@@ -337,9 +368,10 @@ func adjustWeight(classifier: String, result: Int) {
                 // humidity is too low: not implemented yet
                 ()
             default:
-                ()
+                humidityWeight = currentHumidWeight
+
             }
-            newWeights.weightHumi = humidityWeight
+            return humidityWeight
 
         case "water":
             let currentWaterWeight = currentWeights.weightWater
@@ -352,10 +384,11 @@ func adjustWeight(classifier: String, result: Int) {
                 // water is too high: increment weight
                 waterWeight = incrementWeight(currentWeight: waterWeight)
             default:
-                ()
+                waterWeight = currentWaterWeight
+
             }
         // TODO: write new water weight
-            newWeights.weightWater = waterWeight
+            return waterWeight
             
         case "exercise":
             let currentExerciseWeight = currentWeights.weightExercise
@@ -368,9 +401,9 @@ func adjustWeight(classifier: String, result: Int) {
                 // exercise is too high: increment weight
                 exerciseWeight = incrementWeight(currentWeight: exerciseWeight)
             default:
-                ()
+                exerciseWeight = currentExerciseWeight
             }
-            newWeights.weightExercise = exerciseWeight
+            return exerciseWeight
             
         
         case "sex":
@@ -384,10 +417,10 @@ func adjustWeight(classifier: String, result: Int) {
                 // sex is too high: increment weight
                 sexWeight = incrementWeight(currentWeight: sexWeight)
             default:
-                ()
+                sexWeight = currentSexWeight
+
             }
-            newWeights.weightSex = sexWeight
-            
+            return sexWeight
         
         case "coffee":
             let currentCoffeeWeight = currentWeights.weightCof
@@ -400,10 +433,10 @@ func adjustWeight(classifier: String, result: Int) {
                 // coffee is too high: increment weight
                 coffeeWeight = incrementWeight(currentWeight: coffeeWeight)
             default:
-                ()
+                coffeeWeight = currentCoffeeWeight
+
             }
-            newWeights.weightCof = coffeeWeight
-            
+            return coffeeWeight
         
         case "alcohol":
             let currentAlcoholWeight = currentWeights.weightAlcohol
@@ -416,10 +449,10 @@ func adjustWeight(classifier: String, result: Int) {
                 // alcohol is too high: increment weight
                 alcoholWeight = incrementWeight(currentWeight: alcoholWeight)
             default:
-                ()
+                alcoholWeight = currentAlcoholWeight
+
             }
-            newWeights.weightAlcohol = alcoholWeight
-            
+            return alcoholWeight
             
         case "meal":
             let currentMealWeight = currentWeights.weightMeal
@@ -438,10 +471,10 @@ func adjustWeight(classifier: String, result: Int) {
                 // alcohol is too high: increment weight
                 mealWeight = incrementWeight(currentWeight: mealWeight)
             default:
-                ()
+                mealWeight = currentMealWeight
+
             }
-            newWeights.weightMeal = mealWeight
-            
+            return mealWeight
             
             case "light":
             let currentLightWeight = currentWeights.weightLight
@@ -454,16 +487,15 @@ func adjustWeight(classifier: String, result: Int) {
                 // light is too high: increment weight
                 lightWeight = incrementWeight(currentWeight: lightWeight)
             default:
-                ()
+                lightWeight = currentLightWeight
+
             }
-            newWeights.weightLight = lightWeight
+            return lightWeight
         default:
             ()
         }
     }
-    
-    
-    saveWeightData(newWeightData: newWeights)
+    return 100
 }
 
 
@@ -529,8 +561,8 @@ func processData(){
         
         // Send to API and retrieve corresponding classifier for temp and humi
         let temp_classified:Int = connectToTempServer(temp_mean: temp_mean, temp_max: temp_max)
-        //        let humid_classified = connectToHumidServer(humid_mean: humid_mean, humid_max: humid_max )
-        //print(temp_classified)
+        let hot_classified = temp_classified
+        let cold_classified = temp_classified
         
         let humid_classified = connectToHumidServer(humid_mean: humid_mean, humid_max: humid_max )
         //print(humid_classified)
@@ -540,7 +572,6 @@ func processData(){
         
         let QualitativeData = realm.objects(sleepDataObject.self)
         let lastQualitativeDataBefore = QualitativeData.last!.beforeBedAnswers
-        let lastQualitativeDataAfter = QualitativeData.last!.afterBedAnswers
         
         
         
@@ -634,15 +665,29 @@ func processData(){
         
         
         // call the adjustWeight
-        adjustWeight(classifier: "temperature", result: temp_classified)
-        adjustWeight(classifier: "light", result: light_classified)
-        adjustWeight(classifier: "humidity", result: humid_classified)
-        adjustWeight(classifier: "water", result: water_classified)
-        adjustWeight(classifier: "exercise", result: exercise_classified)
-        adjustWeight(classifier: "sex", result: sex_classified)
-        //adjustWeight(classifier: "coffee", result: coffee_classified)
-        //adjustWeight(classifier: "alcohol", result: alcohol_classified)
-        adjustWeight(classifier: "meal", result: meal_classified)
-    }
+        let hot_classifier = adjustWeight(classifier: "hot", result: hot_classified)
+        let cold_classifier = adjustWeight(classifier: "cold", result: cold_classified)
+        let light_classifier = adjustWeight(classifier: "light", result: light_classified)
+        let humid_classifier = adjustWeight(classifier: "humidity", result: humid_classified)
+        let water_classifier = adjustWeight(classifier: "water", result: water_classified)
+        let exercise_classifier = adjustWeight(classifier: "exercise", result: exercise_classified)
+        let sex_classifier = adjustWeight(classifier: "sex", result: sex_classified)
+        let coffee_classifier = adjustWeight(classifier: "coffee", result: coffee_classified)
+        let alcohol_classifier = adjustWeight(classifier: "alcohol", result: alcohol_classified)
+        let meal_classifier = adjustWeight(classifier: "meal", result: meal_classified)
+        
+        let newWeights = weightsDataObject(value: ["weightHot": hot_classifier,
+                                                   "weightCold": cold_classifier,
+                                                   "weightHumi": humid_classifier,
+                                                   "weightWater": water_classifier,
+                                                   "weightExercise": exercise_classifier,
+                                                   "weightSex": sex_classifier,
+                                                   "weightMeal": meal_classifier,
+                                                   "weightAlcohol": alcohol_classifier,
+                                                   "weightLight": light_classifier,
+                                                   "weightCof": coffee_classifier])
+            
+        saveWeightData(newWeightData: newWeights)
+}
 }
 
