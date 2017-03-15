@@ -12,11 +12,11 @@ import ResearchKit
 
 class NetworkViewController: UIViewController {
     
-    var allCount:Int = 0
+    var networkCount:Int = 0
     var sleptWellCount:Int = 0
     var sleptNotWellCount:Int = 0
     var lastUpdate:String = ""
-    //var networkWeights = weigthsObject()
+    var networkWeights : weightsDataObject?
     
     @IBOutlet weak var networkLabel: UILabel!
     @IBOutlet weak var networkPieChart1: ORKPieChartView!
@@ -29,10 +29,9 @@ class NetworkViewController: UIViewController {
     
     var pieChartDisplay: [CGFloat] = []
     
-//    @IBOutlet var sleptWellLabel: UILabel?
-//    @IBOutlet var sleptNotWellLabel: UILabel?
-//    @IBOutlet var lastUpdateLabel: UILabel?
-//    @IBOutlet var allCountLabel: UILabel?
+
+    @IBOutlet var lastUpdateLabel: UILabel?
+    @IBOutlet var allCountLabel: UILabel?
 
     override func viewDidLoad() {
         
@@ -40,8 +39,8 @@ class NetworkViewController: UIViewController {
         
         getYesterdayStats()
         
-        let sleptWellRatio = Float(sleptWellCount)/Float(allCount)*100
-        let sleptNotWellRatio = Float(sleptNotWellCount)/Float(allCount)*100
+        let sleptWellRatio = Float(sleptWellCount)/Float(networkCount)*100
+        let sleptNotWellRatio = Float(sleptNotWellCount)/Float(networkCount)*100
         let unknown = 100 - sleptWellRatio - sleptNotWellRatio
         
         pieChartDisplay = [CGFloat(sleptWellRatio),
@@ -55,12 +54,10 @@ class NetworkViewController: UIViewController {
         networkPieChart1?.drawsClockwise = true
         networkPieChart1?.showsPercentageLabels = true
         networkPieChart1?.tintColor = UIColor.purple
+
         
-        
-//        sleptWellLabel?.text = "\(Int(sleptWellRatio))% of users said they slept well"
-//        sleptNotWellLabel?.text = "\(Int(sleptNotWellRatio))% of users said they did not slept well"
-//        lastUpdateLabel?.text = "Last update:\(lastUpdate)"
-//        allCountLabel?.text = "\(allCount) active users in network"
+        lastUpdateLabel?.text = "Last update:\(lastUpdate)"
+        allCountLabel?.text = "\(networkCount) active users in network"
 
     }
 
@@ -69,27 +66,27 @@ class NetworkViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     func getYesterdayStats() {
         
         let allUsers = realm.objects(User.self)
+        
+        networkWeights?.weightHumi = allUsers.average(ofProperty: "weightsData.weightHumi")!
+        networkWeights?.weightCof = allUsers.average(ofProperty: "weightsData.weightCof")!
+        networkWeights?.weightHot = allUsers.average(ofProperty: "weightsData.weightHot")!
+        networkWeights?.weightSex = allUsers.average(ofProperty: "weightsData.weightSex")!
+        networkWeights?.weightCold = allUsers.average(ofProperty: "weightsData.weightCold")!
+        networkWeights?.weightMeal = allUsers.average(ofProperty: "weightsData.weightMeal")!
+        networkWeights?.weightLight = allUsers.average(ofProperty: "weightsData.weightLight")!
+        networkWeights?.weightWater = allUsers.average(ofProperty: "weightsData.weightWater")!
+        networkWeights?.weightAlcohol = allUsers.average(ofProperty: "weightsData.weightAlcohol")!
+        networkWeights?.weightDuration = allUsers.average(ofProperty: "weightsData.weightDuration")!
+        networkWeights?.weightExercise = allUsers.average(ofProperty: "weightsData.weightExercise")!
         
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM-yyyy HH:mm"
         lastUpdate = formatter.string(from: Date())
         
-        allCount = allUsers.count
+        networkCount = allUsers.count
                 
         for user in allUsers {
             let yesterdayData = user.sleepData.last

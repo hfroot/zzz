@@ -81,10 +81,6 @@ class MainViewController: UIViewController {
         //loadBasicRealm() // replace with loadEncryptedRealm for user testing
         loadEncryptedRealm()
         updateUI()
-        
-//        let backupRealm = try! Realm(configuration: config)
-//        let allUsers = backupRealm.objects(User.self)
-//        realm.add(allUsers)
     }
 
     override func didReceiveMemoryWarning() {
@@ -342,6 +338,11 @@ extension MainViewController : ORKTaskViewControllerDelegate {
                     encryptionKey: getKey() as Data
                 )
                 realm = try! Realm(configuration: configuration)
+                
+//                try! realm.write {
+//                    realm.deleteAll()
+//                    print("DELETED ALL OBJECTS IN REALM");
+//                }
                 
                 // Show initial tasks
                 func updateNetwork() {

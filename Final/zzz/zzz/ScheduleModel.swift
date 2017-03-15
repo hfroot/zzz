@@ -12,9 +12,10 @@ class Schedule {
     var waketime: Date!
     var bedtime: Date!
     var sleepHours: Double = 8.0 // default
-    var currentAvgBedtime: Date!
     var increment: Int = 15 // default
     var currentAimBedtime: Date!
+    // below not in DB
+    var currentAvgBedtime: Date!
     var direction: String = ""
     var reqNumberOfDays: Int!
     
@@ -22,7 +23,7 @@ class Schedule {
     
     func determineSleepHours() {
         // eventually pull data from db to get ideal hours
-        sleepHours = 8.0
+        sleepHours = Double((realm.objects(User.self).filter("email = '\(currentUser.email)'")[0].scheduleData?.SleepHours)!)
     }
     
     func calculateBedtime() {

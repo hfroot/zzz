@@ -10,11 +10,6 @@ import RealmSwift
 import ResearchKit
 import Security
 
-//        try! realm.write {
-//            realm.deleteAll()
-//            print("DELETED ALL OBJECTS IN REALM");
-//        }
-
 func saveSleepData(newSleepData:sleepDataObject) {
     try! realm.write {
         currentUser.sleepData.append(newSleepData)
@@ -48,6 +43,9 @@ func registerAccount(registrationData:ORKStepResult) {
     
     let initialWeights = weightsDataObject()
     newUser.weightsData = initialWeights
+    
+    let initialSchedule = scheduleObject()
+    newUser.scheduleData = initialSchedule
     
     try! realm.write {
         realm.add(newUser)
