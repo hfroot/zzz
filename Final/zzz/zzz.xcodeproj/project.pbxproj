@@ -16,6 +16,8 @@
 		79E2347A1E78AA9900BFA224 /* LastNight.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79E234771E78AA9900BFA224 /* LastNight.storyboard */; };
 		79E2347B1E78AA9900BFA224 /* LastNightDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E234781E78AA9900BFA224 /* LastNightDataSource.swift */; };
 		79E2347C1E78AA9900BFA224 /* LastNightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E234791E78AA9900BFA224 /* LastNightViewController.swift */; };
+		79E234811E78F38400BFA224 /* svm_Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E2347F1E78F38400BFA224 /* svm_Temp.swift */; };
+		79E234821E78F38400BFA224 /* svmHumid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E234801E78F38400BFA224 /* svmHumid.swift */; };
 		8F54834B1E718FEF008920AB /* LoginTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54834A1E718FEF008920AB /* LoginTask.swift */; };
 		8F54834D1E7200BA008920AB /* DatabaseFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54834C1E7200BA008920AB /* DatabaseFunctions.swift */; };
 		8F5483511E72E709008920AB /* SensorActiveStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5483501E72E709008920AB /* SensorActiveStep.swift */; };
@@ -144,6 +146,8 @@
 		79E234771E78AA9900BFA224 /* LastNight.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LastNight.storyboard; sourceTree = "<group>"; };
 		79E234781E78AA9900BFA224 /* LastNightDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastNightDataSource.swift; sourceTree = "<group>"; };
 		79E234791E78AA9900BFA224 /* LastNightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastNightViewController.swift; sourceTree = "<group>"; };
+		79E2347F1E78F38400BFA224 /* svm_Temp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = svm_Temp.swift; sourceTree = "<group>"; };
+		79E234801E78F38400BFA224 /* svmHumid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = svmHumid.swift; sourceTree = "<group>"; };
 		8F54834A1E718FEF008920AB /* LoginTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTask.swift; sourceTree = "<group>"; };
 		8F54834C1E7200BA008920AB /* DatabaseFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseFunctions.swift; sourceTree = "<group>"; };
 		8F5483501E72E709008920AB /* SensorActiveStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorActiveStep.swift; sourceTree = "<group>"; };
@@ -240,6 +244,8 @@
 		8FE4A31C1E75B1F100BE342A /* Recommender */ = {
 			isa = PBXGroup;
 			children = (
+				79E2347F1E78F38400BFA224 /* svm_Temp.swift */,
+				79E234801E78F38400BFA224 /* svmHumid.swift */,
 				8FE4A31D1E75B2F800BE342A /* DataProcessing.swift */,
 			);
 			name = Recommender;
@@ -489,9 +495,11 @@
 				971A78EE1E78E9F500EF2695 /* Network1DataSource.swift in Sources */,
 				8FF304461E6F26EC00BD97F3 /* BedtimeTask.swift in Sources */,
 				8F77142A1E770E9E000CB10A /* Recommendations.swift in Sources */,
+				79E234821E78F38400BFA224 /* svmHumid.swift in Sources */,
 				799B16211E77461000B0DF2D /* SleepSchedulerListViewController.swift in Sources */,
 				8F7714281E770E9E000CB10A /* AdviceDataSource.swift in Sources */,
 				8FF304671E703BC800BD97F3 /* Device.swift in Sources */,
+				79E234811E78F38400BFA224 /* svm_Temp.swift in Sources */,
 				8FE4A31E1E75B2F800BE342A /* DataProcessing.swift in Sources */,
 				799B161F1E77461000B0DF2D /* SleepHoursViewController.swift in Sources */,
 				8FF304211E6F1FF900BD97F3 /* MainViewController.swift in Sources */,
