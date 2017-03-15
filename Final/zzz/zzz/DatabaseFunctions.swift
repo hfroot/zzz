@@ -26,6 +26,14 @@ func saveWeightData(newWeightData:weightsDataObject) {
     }
 }
 
+func saveScheduleData(newScheduleData:scheduleObject) {
+    try! realm.write {
+        currentUser.scheduleData = newScheduleData
+        realm.add(currentUser, update: true)
+        print("Added scheduleData object to database: \(newScheduleData)")
+    }
+}
+
 func registerAccount(registrationData:ORKStepResult) {
     
     let newUser = User()

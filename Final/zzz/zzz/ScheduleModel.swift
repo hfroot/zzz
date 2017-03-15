@@ -19,11 +19,12 @@ class Schedule {
     var direction: String = ""
     var reqNumberOfDays: Int!
     
-    init(){}
-    
-    func determineSleepHours() {
-        // eventually pull data from db to get ideal hours
-        sleepHours = Double((realm.objects(User.self).filter("email = '\(currentUser.email)'")[0].scheduleData?.SleepHours)!)
+    init() {
+        let currentUserScheduleData = realm.objects(User.self).filter("email = '\(currentUser.email)'")[0].scheduleData
+        self.waketime = currentUserScheduleData?.Waketime
+        self.bedtime = currentUserScheduleData?.GoalBedtime
+        self.sleepHours = Double((currentUserScheduleData?.SleepHours)!)
+        self.increment = (currentUserScheduleData?.Increment)!
     }
     
     func calculateBedtime() {
