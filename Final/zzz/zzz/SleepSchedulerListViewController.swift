@@ -32,6 +32,7 @@ class SleepSchedulerListViewController: UITableViewController {
     var incrementRow: Int = 4
     var curBedtimeRow: Int = 5
     var daysRow: Int = 6
+    var msgRow: Int = 7
     
     override func viewDidLoad() {
         tableView.dataSource = self
@@ -54,7 +55,7 @@ class SleepSchedulerListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7;
+        return 8;
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -108,6 +109,13 @@ class SleepSchedulerListViewController: UITableViewController {
             } else {
                 bedtimeCell.valueLabel.text = ""
             }
+            bedtimeCell.selectionStyle = .none;
+            return bedtimeCell
+        }
+        else if indexPath.row == msgRow {
+            let bedtimeCell:InfoCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as! InfoCell
+            bedtimeCell.titleLabel.text = schedule.onTrackMsg
+            bedtimeCell.valueLabel.text = ""
             bedtimeCell.selectionStyle = .none;
             return bedtimeCell
         }
