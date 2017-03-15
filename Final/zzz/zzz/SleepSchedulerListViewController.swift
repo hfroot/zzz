@@ -138,8 +138,7 @@ class SleepSchedulerListViewController: UITableViewController {
             // save to database
 //            try! realm.write {
 //                currentUser.schedule = schedule
-//                // change this
-//                print("Updated schedule in database: \(schedule)")
+//                print("Updated schedule in database")
 //            }
         }
     }
