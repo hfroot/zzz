@@ -10,7 +10,7 @@ import Foundation
 import AIToolbox
 
 func tempClassifier(temp_mean: Float, temp_max: Float) -> Int {
-    var result = 3
+    //var result = 3
     let data = DataSet(dataType: .realAndClass, inputDimension: 2, outputDimension: 1)
     do {
         try data.addDataPoint(input: [24.5, 25.5], dataClass:1)

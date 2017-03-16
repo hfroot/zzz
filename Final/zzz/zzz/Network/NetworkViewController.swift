@@ -52,7 +52,7 @@ class NetworkViewController: UIViewController {
         networkPieChart1?.showsPercentageLabels = true
         networkPieChart1?.tintColor = UIColor.purple
         
-        lastUpdateLabel?.text = "Last update:\(lastUpdate)"
+        lastUpdateLabel?.text = "Last update: \(lastUpdate)"
         allCountLabel?.text = "\(networkCount) active users in network"
 
     }

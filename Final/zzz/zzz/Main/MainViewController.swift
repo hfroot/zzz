@@ -65,15 +65,14 @@ class MainViewController: UIViewController {
                 alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
+            else {
+                present(beforeBedTaskViewController, animated: true, completion: nil)
+            }
         }
         else {
             present(beforeBedTaskViewController, animated: true, completion: nil)
         }
         
-    }
-    
-    @IBAction func networkTapped(sender : UIButton) {
-        present(NetworkViewController(), animated: true, completion: nil)
     }
     
     override func viewDidLoad() {

@@ -10,7 +10,7 @@ import Foundation
 import AIToolbox
 
 func humidClassifier(humid_mean: Float, humid_max: Float) -> Int {
-    var result = 3
+    //var result = 3
     let data = DataSet(dataType: .realAndClass, inputDimension: 2, outputDimension: 1)
     do {
         try data.addDataPoint(input: [40.5, 44.5], dataClass:1)

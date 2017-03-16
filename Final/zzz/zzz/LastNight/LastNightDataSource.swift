@@ -60,7 +60,7 @@ class LastNightLineGraphDataSource: LastNightBaseFloatRangeGraphDataSource {
         maxValue = 50
         
         var timespan: Double = 0
-        let currentUserData = realm.objects(User.self).filter("email = '\(currentUser.email)'")[0].sleepData
+        let currentUserData = currentUser.sleepData
         
         if let lastNightObj = currentUserData.last{
             let lastNightData = lastNightObj.sensorData
