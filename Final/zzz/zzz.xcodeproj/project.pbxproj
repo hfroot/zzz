@@ -16,8 +16,8 @@
 		79E2347A1E78AA9900BFA224 /* LastNight.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79E234771E78AA9900BFA224 /* LastNight.storyboard */; };
 		79E2347B1E78AA9900BFA224 /* LastNightDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E234781E78AA9900BFA224 /* LastNightDataSource.swift */; };
 		79E2347C1E78AA9900BFA224 /* LastNightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E234791E78AA9900BFA224 /* LastNightViewController.swift */; };
-		79E234811E78F38400BFA224 /* svm_Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E2347F1E78F38400BFA224 /* svm_Temp.swift */; };
-		79E234821E78F38400BFA224 /* svmHumid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E234801E78F38400BFA224 /* svmHumid.swift */; };
+		79E234811E78F38400BFA224 /* SVMTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E2347F1E78F38400BFA224 /* SVMTemp.swift */; };
+		79E234821E78F38400BFA224 /* SVMHumid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E234801E78F38400BFA224 /* SVMHumid.swift */; };
 		8F54834B1E718FEF008920AB /* LoginTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54834A1E718FEF008920AB /* LoginTask.swift */; };
 		8F54834D1E7200BA008920AB /* DatabaseFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54834C1E7200BA008920AB /* DatabaseFunctions.swift */; };
 		8F5483511E72E709008920AB /* SensorActiveStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5483501E72E709008920AB /* SensorActiveStep.swift */; };
@@ -38,8 +38,6 @@
 		8FF304261E6F1FF900BD97F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FF304251E6F1FF900BD97F3 /* Assets.xcassets */; };
 		8FF3043A1E6F202D00BD97F3 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF304371E6F202400BD97F3 /* ResearchKit.framework */; };
 		8FF3043B1E6F202D00BD97F3 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF304371E6F202400BD97F3 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8FF304401E6F207600BD97F3 /* ConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3043F1E6F207600BD97F3 /* ConsentDocument.swift */; };
-		8FF304421E6F217900BD97F3 /* ConsentTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF304411E6F217900BD97F3 /* ConsentTask.swift */; };
 		8FF304461E6F26EC00BD97F3 /* BedtimeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF304451E6F26EC00BD97F3 /* BedtimeTask.swift */; };
 		8FF304551E701D4C00BD97F3 /* RegistrationTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF304541E701D4C00BD97F3 /* RegistrationTask.swift */; };
 		8FF3045E1E7031C100BD97F3 /* DatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3045D1E7031C100BD97F3 /* DatabaseModel.swift */; };
@@ -137,48 +135,46 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		799B16161E77461000B0DF2D /* Identifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
-		799B16171E77461000B0DF2D /* ScheduleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleModel.swift; sourceTree = "<group>"; };
-		799B16181E77461000B0DF2D /* SetAlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetAlarmViewController.swift; sourceTree = "<group>"; };
-		799B16191E77461000B0DF2D /* SleepHoursViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepHoursViewController.swift; sourceTree = "<group>"; };
-		799B161A1E77461000B0DF2D /* SleepScheduler.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SleepScheduler.storyboard; sourceTree = "<group>"; };
-		799B161B1E77461000B0DF2D /* SleepSchedulerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepSchedulerListViewController.swift; sourceTree = "<group>"; };
-		79E234771E78AA9900BFA224 /* LastNight.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LastNight.storyboard; sourceTree = "<group>"; };
-		79E234781E78AA9900BFA224 /* LastNightDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastNightDataSource.swift; sourceTree = "<group>"; };
-		79E234791E78AA9900BFA224 /* LastNightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastNightViewController.swift; sourceTree = "<group>"; };
-		79E2347F1E78F38400BFA224 /* svm_Temp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = svm_Temp.swift; sourceTree = "<group>"; };
-		79E234801E78F38400BFA224 /* svmHumid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = svmHumid.swift; sourceTree = "<group>"; };
-		8F54834A1E718FEF008920AB /* LoginTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTask.swift; sourceTree = "<group>"; };
-		8F54834C1E7200BA008920AB /* DatabaseFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseFunctions.swift; sourceTree = "<group>"; };
-		8F5483501E72E709008920AB /* SensorActiveStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorActiveStep.swift; sourceTree = "<group>"; };
-		8F7714221E770E9E000CB10A /* Advice.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Advice.storyboard; sourceTree = "<group>"; };
-		8F7714231E770E9E000CB10A /* AdviceDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdviceDataSource.swift; sourceTree = "<group>"; };
-		8F7714241E770E9E000CB10A /* AdviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdviceViewController.swift; sourceTree = "<group>"; };
-		8F7714251E770E9E000CB10A /* Recommendations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recommendations.swift; sourceTree = "<group>"; };
-		8F7714261E770E9E000CB10A /* Suggestions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Suggestions.swift; sourceTree = "<group>"; };
-		8FE4A3141E749D4F00BE342A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8FE4A3161E749D7D00BE342A /* SensorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SensorView.xib; sourceTree = "<group>"; };
-		8FE4A3181E74A0AE00BE342A /* SensorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorView.swift; sourceTree = "<group>"; };
-		8FE4A31D1E75B2F800BE342A /* DataProcessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProcessing.swift; sourceTree = "<group>"; };
+		799B16161E77461000B0DF2D /* Identifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Identifier.swift; path = SleepScheduler/Identifier.swift; sourceTree = "<group>"; };
+		799B16171E77461000B0DF2D /* ScheduleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScheduleModel.swift; path = SleepScheduler/ScheduleModel.swift; sourceTree = "<group>"; };
+		799B16181E77461000B0DF2D /* SetAlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetAlarmViewController.swift; path = SleepScheduler/SetAlarmViewController.swift; sourceTree = "<group>"; };
+		799B16191E77461000B0DF2D /* SleepHoursViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SleepHoursViewController.swift; path = SleepScheduler/SleepHoursViewController.swift; sourceTree = "<group>"; };
+		799B161A1E77461000B0DF2D /* SleepScheduler.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SleepScheduler.storyboard; path = SleepScheduler/SleepScheduler.storyboard; sourceTree = "<group>"; };
+		799B161B1E77461000B0DF2D /* SleepSchedulerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SleepSchedulerListViewController.swift; path = SleepScheduler/SleepSchedulerListViewController.swift; sourceTree = "<group>"; };
+		79E234771E78AA9900BFA224 /* LastNight.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LastNight.storyboard; path = LastNight/LastNight.storyboard; sourceTree = "<group>"; };
+		79E234781E78AA9900BFA224 /* LastNightDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LastNightDataSource.swift; path = LastNight/LastNightDataSource.swift; sourceTree = "<group>"; };
+		79E234791E78AA9900BFA224 /* LastNightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LastNightViewController.swift; path = LastNight/LastNightViewController.swift; sourceTree = "<group>"; };
+		79E2347F1E78F38400BFA224 /* SVMTemp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVMTemp.swift; path = Recommender/SVMTemp.swift; sourceTree = "<group>"; };
+		79E234801E78F38400BFA224 /* SVMHumid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVMHumid.swift; path = Recommender/SVMHumid.swift; sourceTree = "<group>"; };
+		8F54834A1E718FEF008920AB /* LoginTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginTask.swift; path = Tasks/LoginTask.swift; sourceTree = "<group>"; };
+		8F54834C1E7200BA008920AB /* DatabaseFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatabaseFunctions.swift; path = Database/DatabaseFunctions.swift; sourceTree = "<group>"; };
+		8F5483501E72E709008920AB /* SensorActiveStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SensorActiveStep.swift; path = SensorTag/SensorActiveStep.swift; sourceTree = "<group>"; };
+		8F7714221E770E9E000CB10A /* Advice.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Advice.storyboard; path = Advice/Advice.storyboard; sourceTree = "<group>"; };
+		8F7714231E770E9E000CB10A /* AdviceDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdviceDataSource.swift; path = Advice/AdviceDataSource.swift; sourceTree = "<group>"; };
+		8F7714241E770E9E000CB10A /* AdviceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdviceViewController.swift; path = Advice/AdviceViewController.swift; sourceTree = "<group>"; };
+		8F7714251E770E9E000CB10A /* Recommendations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Recommendations.swift; path = Advice/Recommendations.swift; sourceTree = "<group>"; };
+		8F7714261E770E9E000CB10A /* Suggestions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Suggestions.swift; path = Advice/Suggestions.swift; sourceTree = "<group>"; };
+		8FE4A3141E749D4F00BE342A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Main/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8FE4A3161E749D7D00BE342A /* SensorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SensorView.xib; path = SensorTag/SensorView.xib; sourceTree = "<group>"; };
+		8FE4A3181E74A0AE00BE342A /* SensorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SensorView.swift; path = SensorTag/SensorView.swift; sourceTree = "<group>"; };
+		8FE4A31D1E75B2F800BE342A /* DataProcessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataProcessing.swift; path = Recommender/DataProcessing.swift; sourceTree = "<group>"; };
 		8FE4A3311E75C56600BE342A /* AIToolbox.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AIToolbox.xcodeproj; path = ../AIToolbox/AIToolbox.xcodeproj; sourceTree = "<group>"; };
 		8FF3041B1E6F1FF900BD97F3 /* zzz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zzz.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8FF3041E1E6F1FF900BD97F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8FF304201E6F1FF900BD97F3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		8FF3041E1E6F1FF900BD97F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Main/AppDelegate.swift; sourceTree = "<group>"; };
+		8FF304201E6F1FF900BD97F3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Main/MainViewController.swift; sourceTree = "<group>"; };
 		8FF304231E6F1FF900BD97F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8FF304251E6F1FF900BD97F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8FF3042A1E6F1FF900BD97F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FF304301E6F202400BD97F3 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = ../ResearchKit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
-		8FF3043F1E6F207600BD97F3 /* ConsentDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentDocument.swift; sourceTree = "<group>"; };
-		8FF304411E6F217900BD97F3 /* ConsentTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentTask.swift; sourceTree = "<group>"; };
-		8FF304451E6F26EC00BD97F3 /* BedtimeTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BedtimeTask.swift; sourceTree = "<group>"; };
-		8FF304541E701D4C00BD97F3 /* RegistrationTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTask.swift; sourceTree = "<group>"; };
-		8FF3045D1E7031C100BD97F3 /* DatabaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseModel.swift; sourceTree = "<group>"; };
+		8FF304451E6F26EC00BD97F3 /* BedtimeTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BedtimeTask.swift; path = Tasks/BedtimeTask.swift; sourceTree = "<group>"; };
+		8FF304541E701D4C00BD97F3 /* RegistrationTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationTask.swift; path = Tasks/RegistrationTask.swift; sourceTree = "<group>"; };
+		8FF3045D1E7031C100BD97F3 /* DatabaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatabaseModel.swift; path = Database/DatabaseModel.swift; sourceTree = "<group>"; };
 		8FF3045F1E7035D600BD97F3 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		8FF304601E7035D600BD97F3 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
-		8FF304661E703BC800BD97F3 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
-		971A78C41E7897F400EF2695 /* NetworkView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NetworkView.storyboard; sourceTree = "<group>"; };
-		971A78C51E7897F400EF2695 /* NetworkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkViewController.swift; sourceTree = "<group>"; };
-		971A78ED1E78E9F500EF2695 /* Network1DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network1DataSource.swift; sourceTree = "<group>"; };
+		8FF304661E703BC800BD97F3 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Device.swift; path = SensorTag/Device.swift; sourceTree = "<group>"; };
+		971A78C41E7897F400EF2695 /* NetworkView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = NetworkView.storyboard; path = Network/NetworkView.storyboard; sourceTree = "<group>"; };
+		971A78C51E7897F400EF2695 /* NetworkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkViewController.swift; path = Network/NetworkViewController.swift; sourceTree = "<group>"; };
+		971A78ED1E78E9F500EF2695 /* Network1DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Network1DataSource.swift; path = Network/Network1DataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,14 +205,14 @@
 			name = SleepScheduler;
 			sourceTree = "<group>";
 		};
-		79E234761E78A99400BFA224 /* Last Night */ = {
+		79E234761E78A99400BFA224 /* LastNight */ = {
 			isa = PBXGroup;
 			children = (
 				79E234771E78AA9900BFA224 /* LastNight.storyboard */,
 				79E234781E78AA9900BFA224 /* LastNightDataSource.swift */,
 				79E234791E78AA9900BFA224 /* LastNightViewController.swift */,
 			);
-			name = "Last Night";
+			name = LastNight;
 			sourceTree = "<group>";
 		};
 		8F77141B1E770E90000CB10A /* Advice */ = {
@@ -244,8 +240,8 @@
 		8FE4A31C1E75B1F100BE342A /* Recommender */ = {
 			isa = PBXGroup;
 			children = (
-				79E2347F1E78F38400BFA224 /* svm_Temp.swift */,
-				79E234801E78F38400BFA224 /* svmHumid.swift */,
+				79E2347F1E78F38400BFA224 /* SVMTemp.swift */,
+				79E234801E78F38400BFA224 /* SVMHumid.swift */,
 				8FE4A31D1E75B2F800BE342A /* DataProcessing.swift */,
 			);
 			name = Recommender;
@@ -286,11 +282,11 @@
 		8FF3041D1E6F1FF900BD97F3 /* zzz */ = {
 			isa = PBXGroup;
 			children = (
-				79E234761E78A99400BFA224 /* Last Night */,
 				8FF3041E1E6F1FF900BD97F3 /* AppDelegate.swift */,
 				8FF304201E6F1FF900BD97F3 /* MainViewController.swift */,
 				8FF304221E6F1FF900BD97F3 /* Main.storyboard */,
 				8FE4A3141E749D4F00BE342A /* LaunchScreen.storyboard */,
+				79E234761E78A99400BFA224 /* LastNight */,
 				799B160F1E7745F200B0DF2D /* SleepScheduler */,
 				8F77141B1E770E90000CB10A /* Advice */,
 				8FE4A31C1E75B1F100BE342A /* Recommender */,
@@ -319,8 +315,6 @@
 				8FF304451E6F26EC00BD97F3 /* BedtimeTask.swift */,
 				8FF304541E701D4C00BD97F3 /* RegistrationTask.swift */,
 				8F54834A1E718FEF008920AB /* LoginTask.swift */,
-				8FF304411E6F217900BD97F3 /* ConsentTask.swift */,
-				8FF3043F1E6F207600BD97F3 /* ConsentDocument.swift */,
 			);
 			name = Tasks;
 			sourceTree = "<group>";
@@ -495,11 +489,11 @@
 				971A78EE1E78E9F500EF2695 /* Network1DataSource.swift in Sources */,
 				8FF304461E6F26EC00BD97F3 /* BedtimeTask.swift in Sources */,
 				8F77142A1E770E9E000CB10A /* Recommendations.swift in Sources */,
-				79E234821E78F38400BFA224 /* svmHumid.swift in Sources */,
+				79E234821E78F38400BFA224 /* SVMHumid.swift in Sources */,
 				799B16211E77461000B0DF2D /* SleepSchedulerListViewController.swift in Sources */,
 				8F7714281E770E9E000CB10A /* AdviceDataSource.swift in Sources */,
 				8FF304671E703BC800BD97F3 /* Device.swift in Sources */,
-				79E234811E78F38400BFA224 /* svm_Temp.swift in Sources */,
+				79E234811E78F38400BFA224 /* SVMTemp.swift in Sources */,
 				8FE4A31E1E75B2F800BE342A /* DataProcessing.swift in Sources */,
 				799B161F1E77461000B0DF2D /* SleepHoursViewController.swift in Sources */,
 				8FF304211E6F1FF900BD97F3 /* MainViewController.swift in Sources */,
@@ -513,9 +507,7 @@
 				79E2347B1E78AA9900BFA224 /* LastNightDataSource.swift in Sources */,
 				8FF3045E1E7031C100BD97F3 /* DatabaseModel.swift in Sources */,
 				8FF304551E701D4C00BD97F3 /* RegistrationTask.swift in Sources */,
-				8FF304421E6F217900BD97F3 /* ConsentTask.swift in Sources */,
 				8F5483511E72E709008920AB /* SensorActiveStep.swift in Sources */,
-				8FF304401E6F207600BD97F3 /* ConsentDocument.swift in Sources */,
 				8FF3041F1E6F1FF900BD97F3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

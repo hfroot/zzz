@@ -9,9 +9,6 @@
 import Foundation
 import RealmSwift
 
-
-
-
 func LightAccThreshold() -> Int {
     let light_threshold = 1
     let acc_threshold = 0.4
