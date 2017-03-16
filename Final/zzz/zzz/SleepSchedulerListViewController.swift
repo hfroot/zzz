@@ -32,6 +32,7 @@ class SleepSchedulerListViewController: UITableViewController {
     var incrementRow: Int = 4
     var curBedtimeRow: Int = 5
     var daysRow: Int = 6
+    var msgRow: Int = 7
     
     override func viewDidLoad() {
         tableView.dataSource = self
@@ -111,6 +112,13 @@ class SleepSchedulerListViewController: UITableViewController {
             bedtimeCell.selectionStyle = .none;
             return bedtimeCell
         }
+        else if indexPath.row == msgRow {
+            let bedtimeCell:InfoCell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as! InfoCell
+            bedtimeCell.titleLabel.text = schedule.onTrackMsg
+            bedtimeCell.valueLabel.text = ""
+            bedtimeCell.selectionStyle = .none;
+            return bedtimeCell
+        }
         return cell!
     }
     
@@ -135,11 +143,7 @@ class SleepSchedulerListViewController: UITableViewController {
             dest.hours = schedule.sleepHours
         }
         else if segue.identifier == "saveScheduleEdit" {
-            // save to database
-//            try! realm.write {
-//                currentUser.schedule = schedule
-//                print("Updated schedule in database")
-//            }
+            schedule.saveToRealm()
         }
     }
     

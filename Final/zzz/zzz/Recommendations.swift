@@ -11,7 +11,7 @@ import Foundation
 
 class RecommendationEngine{
     
-    var factorWeights: [String:Double] = ["duration": 0.6,
+    var factorWeights: [String:Float] = ["duration": 0.6,
                                           "exercise": 0.6,
                                           "caffeine": 0.5,
                                           "meal": 0.3,

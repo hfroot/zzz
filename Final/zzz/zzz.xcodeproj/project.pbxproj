@@ -16,6 +16,8 @@
 		79E2347A1E78AA9900BFA224 /* LastNight.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79E234771E78AA9900BFA224 /* LastNight.storyboard */; };
 		79E2347B1E78AA9900BFA224 /* LastNightDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E234781E78AA9900BFA224 /* LastNightDataSource.swift */; };
 		79E2347C1E78AA9900BFA224 /* LastNightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E234791E78AA9900BFA224 /* LastNightViewController.swift */; };
+		79E234811E78F38400BFA224 /* svm_Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E2347F1E78F38400BFA224 /* svm_Temp.swift */; };
+		79E234821E78F38400BFA224 /* svmHumid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E234801E78F38400BFA224 /* svmHumid.swift */; };
 		8F54834B1E718FEF008920AB /* LoginTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54834A1E718FEF008920AB /* LoginTask.swift */; };
 		8F54834D1E7200BA008920AB /* DatabaseFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54834C1E7200BA008920AB /* DatabaseFunctions.swift */; };
 		8F5483511E72E709008920AB /* SensorActiveStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5483501E72E709008920AB /* SensorActiveStep.swift */; };
@@ -39,10 +41,6 @@
 		8FF304401E6F207600BD97F3 /* ConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3043F1E6F207600BD97F3 /* ConsentDocument.swift */; };
 		8FF304421E6F217900BD97F3 /* ConsentTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF304411E6F217900BD97F3 /* ConsentTask.swift */; };
 		8FF304461E6F26EC00BD97F3 /* BedtimeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF304451E6F26EC00BD97F3 /* BedtimeTask.swift */; };
-		8FF3044B1E6F2B7700BD97F3 /* Charts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FF304471E6F2B7700BD97F3 /* Charts.storyboard */; };
-		8FF3044C1E6F2B7700BD97F3 /* ChartDataSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF304481E6F2B7700BD97F3 /* ChartDataSources.swift */; };
-		8FF3044D1E6F2B7700BD97F3 /* ChartListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF304491E6F2B7700BD97F3 /* ChartListViewController.swift */; };
-		8FF3044E1E6F2B7700BD97F3 /* ChartTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3044A1E6F2B7700BD97F3 /* ChartTableViewCells.swift */; };
 		8FF304551E701D4C00BD97F3 /* RegistrationTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF304541E701D4C00BD97F3 /* RegistrationTask.swift */; };
 		8FF3045E1E7031C100BD97F3 /* DatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF3045D1E7031C100BD97F3 /* DatabaseModel.swift */; };
 		8FF304611E7035D600BD97F3 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF3045F1E7035D600BD97F3 /* Realm.framework */; };
@@ -50,9 +48,9 @@
 		8FF304631E7035D600BD97F3 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF304601E7035D600BD97F3 /* RealmSwift.framework */; };
 		8FF304641E7035D600BD97F3 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF304601E7035D600BD97F3 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8FF304671E703BC800BD97F3 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF304661E703BC800BD97F3 /* Device.swift */; };
-		971A78C61E7897F400EF2695 /* NetworkDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971A78C31E7897F400EF2695 /* NetworkDataSource.swift */; };
 		971A78C71E7897F400EF2695 /* NetworkView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 971A78C41E7897F400EF2695 /* NetworkView.storyboard */; };
 		971A78C81E7897F400EF2695 /* NetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971A78C51E7897F400EF2695 /* NetworkViewController.swift */; };
+		971A78EE1E78E9F500EF2695 /* Network1DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971A78ED1E78E9F500EF2695 /* Network1DataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +146,8 @@
 		79E234771E78AA9900BFA224 /* LastNight.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LastNight.storyboard; sourceTree = "<group>"; };
 		79E234781E78AA9900BFA224 /* LastNightDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastNightDataSource.swift; sourceTree = "<group>"; };
 		79E234791E78AA9900BFA224 /* LastNightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastNightViewController.swift; sourceTree = "<group>"; };
+		79E2347F1E78F38400BFA224 /* svm_Temp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = svm_Temp.swift; sourceTree = "<group>"; };
+		79E234801E78F38400BFA224 /* svmHumid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = svmHumid.swift; sourceTree = "<group>"; };
 		8F54834A1E718FEF008920AB /* LoginTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTask.swift; sourceTree = "<group>"; };
 		8F54834C1E7200BA008920AB /* DatabaseFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseFunctions.swift; sourceTree = "<group>"; };
 		8F5483501E72E709008920AB /* SensorActiveStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorActiveStep.swift; sourceTree = "<group>"; };
@@ -171,18 +171,14 @@
 		8FF3043F1E6F207600BD97F3 /* ConsentDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentDocument.swift; sourceTree = "<group>"; };
 		8FF304411E6F217900BD97F3 /* ConsentTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentTask.swift; sourceTree = "<group>"; };
 		8FF304451E6F26EC00BD97F3 /* BedtimeTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BedtimeTask.swift; sourceTree = "<group>"; };
-		8FF304471E6F2B7700BD97F3 /* Charts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Charts.storyboard; sourceTree = "<group>"; };
-		8FF304481E6F2B7700BD97F3 /* ChartDataSources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartDataSources.swift; sourceTree = "<group>"; };
-		8FF304491E6F2B7700BD97F3 /* ChartListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartListViewController.swift; sourceTree = "<group>"; };
-		8FF3044A1E6F2B7700BD97F3 /* ChartTableViewCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartTableViewCells.swift; sourceTree = "<group>"; };
 		8FF304541E701D4C00BD97F3 /* RegistrationTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTask.swift; sourceTree = "<group>"; };
 		8FF3045D1E7031C100BD97F3 /* DatabaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseModel.swift; sourceTree = "<group>"; };
 		8FF3045F1E7035D600BD97F3 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		8FF304601E7035D600BD97F3 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		8FF304661E703BC800BD97F3 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
-		971A78C31E7897F400EF2695 /* NetworkDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDataSource.swift; sourceTree = "<group>"; };
 		971A78C41E7897F400EF2695 /* NetworkView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NetworkView.storyboard; sourceTree = "<group>"; };
 		971A78C51E7897F400EF2695 /* NetworkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkViewController.swift; sourceTree = "<group>"; };
+		971A78ED1E78E9F500EF2695 /* Network1DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network1DataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,7 +234,7 @@
 		8F7714441E775737000CB10A /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				971A78C31E7897F400EF2695 /* NetworkDataSource.swift */,
+				971A78ED1E78E9F500EF2695 /* Network1DataSource.swift */,
 				971A78C41E7897F400EF2695 /* NetworkView.storyboard */,
 				971A78C51E7897F400EF2695 /* NetworkViewController.swift */,
 			);
@@ -248,6 +244,8 @@
 		8FE4A31C1E75B1F100BE342A /* Recommender */ = {
 			isa = PBXGroup;
 			children = (
+				79E2347F1E78F38400BFA224 /* svm_Temp.swift */,
+				79E234801E78F38400BFA224 /* svmHumid.swift */,
 				8FE4A31D1E75B2F800BE342A /* DataProcessing.swift */,
 			);
 			name = Recommender;
@@ -299,7 +297,6 @@
 				8FF304651E703BB300BD97F3 /* SensorTag */,
 				8FF3045C1E7031A100BD97F3 /* Database */,
 				8FF304521E6F419400BD97F3 /* Tasks */,
-				8FF304531E6F425800BD97F3 /* Charts */,
 				8F7714441E775737000CB10A /* Network */,
 				8FF304251E6F1FF900BD97F3 /* Assets.xcassets */,
 				8FF3042A1E6F1FF900BD97F3 /* Info.plist */,
@@ -326,17 +323,6 @@
 				8FF3043F1E6F207600BD97F3 /* ConsentDocument.swift */,
 			);
 			name = Tasks;
-			sourceTree = "<group>";
-		};
-		8FF304531E6F425800BD97F3 /* Charts */ = {
-			isa = PBXGroup;
-			children = (
-				8FF304471E6F2B7700BD97F3 /* Charts.storyboard */,
-				8FF304481E6F2B7700BD97F3 /* ChartDataSources.swift */,
-				8FF304491E6F2B7700BD97F3 /* ChartListViewController.swift */,
-				8FF3044A1E6F2B7700BD97F3 /* ChartTableViewCells.swift */,
-			);
-			name = Charts;
 			sourceTree = "<group>";
 		};
 		8FF3045C1E7031A100BD97F3 /* Database */ = {
@@ -485,7 +471,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FF3044B1E6F2B7700BD97F3 /* Charts.storyboard in Resources */,
 				799B16201E77461000B0DF2D /* SleepScheduler.storyboard in Resources */,
 				971A78C71E7897F400EF2695 /* NetworkView.storyboard in Resources */,
 				8FE4A3151E749D4F00BE342A /* LaunchScreen.storyboard in Resources */,
@@ -507,14 +492,14 @@
 				799B161E1E77461000B0DF2D /* SetAlarmViewController.swift in Sources */,
 				8F54834D1E7200BA008920AB /* DatabaseFunctions.swift in Sources */,
 				8FE4A3191E74A0AE00BE342A /* SensorView.swift in Sources */,
+				971A78EE1E78E9F500EF2695 /* Network1DataSource.swift in Sources */,
 				8FF304461E6F26EC00BD97F3 /* BedtimeTask.swift in Sources */,
 				8F77142A1E770E9E000CB10A /* Recommendations.swift in Sources */,
+				79E234821E78F38400BFA224 /* svmHumid.swift in Sources */,
 				799B16211E77461000B0DF2D /* SleepSchedulerListViewController.swift in Sources */,
-				8FF3044C1E6F2B7700BD97F3 /* ChartDataSources.swift in Sources */,
 				8F7714281E770E9E000CB10A /* AdviceDataSource.swift in Sources */,
-				8FF3044D1E6F2B7700BD97F3 /* ChartListViewController.swift in Sources */,
-				971A78C61E7897F400EF2695 /* NetworkDataSource.swift in Sources */,
 				8FF304671E703BC800BD97F3 /* Device.swift in Sources */,
+				79E234811E78F38400BFA224 /* svm_Temp.swift in Sources */,
 				8FE4A31E1E75B2F800BE342A /* DataProcessing.swift in Sources */,
 				799B161F1E77461000B0DF2D /* SleepHoursViewController.swift in Sources */,
 				8FF304211E6F1FF900BD97F3 /* MainViewController.swift in Sources */,
@@ -525,7 +510,6 @@
 				79E2347C1E78AA9900BFA224 /* LastNightViewController.swift in Sources */,
 				8F77142B1E770E9E000CB10A /* Suggestions.swift in Sources */,
 				8F7714291E770E9E000CB10A /* AdviceViewController.swift in Sources */,
-				8FF3044E1E6F2B7700BD97F3 /* ChartTableViewCells.swift in Sources */,
 				79E2347B1E78AA9900BFA224 /* LastNightDataSource.swift in Sources */,
 				8FF3045E1E7031C100BD97F3 /* DatabaseModel.swift in Sources */,
 				8FF304551E701D4C00BD97F3 /* RegistrationTask.swift in Sources */,

@@ -2,7 +2,7 @@
 from flask import Flask, jsonify, abort, make_response, request
 from flask_httpauth import HTTPBasicAuth
 from .temperature import svm_temp
-#from .humidity import svm_humi
+from .humidity import svm_humi
 
 app = Flask(__name__)
 auth = HTTPBasicAuth()
@@ -21,7 +21,7 @@ def unauthorized():
 
 #this block is for calling temperature
 @app.route('/zzz/api/v1/temperature', methods=['POST'])
-@auth.login_required
+#@auth.login_required
 def temperature():
     # check data input is correct
     if not request.json or not 'temp_mean' or not 'temp_max' in request.json:
@@ -37,16 +37,19 @@ def temperature():
     return jsonify({'temp_classifier': temp_classifier}), 201
 
 #this block is for calling humidity
-#@app.route('/zzz/api/v1/humidity', methods=['POST'])
+@app.route('/zzz/api/v1/humidity', methods=['POST'])
 #@auth.login_required
-#def create_board():
-#    if not request.json or not 'id' or not 'timestamp' or not 'contents' in request.json:
-#        abort(400)
-#    board = {
-#        'id': boards[-1]['id'] + 1,
-#        'timestamp': request.json['timestamp'],
-#        'contents': request.json['contents']
-#    }
+def humidity():
+if not request.json or not 'humid_mean' or not 'humid_max' in request.json:
+    abort(400)
+    input = {
+        'humid_mean': request.json['humid_mean'],
+        'humid_max': request.json['humid_max']
+    }
+    humid_classifier = svm_humi(input)
+    return jsonify({'humid_classifier': humid_classifier}), 201
+
+
 #    boards.append(board)
 #    return jsonify({'board': board}), 201
 

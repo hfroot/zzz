@@ -18,17 +18,52 @@ class Schedule {
     var currentAvgBedtime: Date!
     var direction: String = ""
     var reqNumberOfDays: Int!
+    var onTrackMsg: String!
     
-    init(){}
+    init() {
+        let currentUserScheduleData = realm.objects(User.self).filter("email = '\(currentUser.email)'")[0].scheduleData
+        self.waketime = currentUserScheduleData?.Waketime
+        self.bedtime = currentUserScheduleData?.GoalBedtime
+        self.sleepHours = Double((currentUserScheduleData?.SleepHours)!)
+        self.increment = (currentUserScheduleData?.Increment)!
+    }
     
-    func determineSleepHours() {
-        // eventually pull data from db to get ideal hours
-        sleepHours = Double((realm.objects(User.self).filter("email = '\(currentUser.email)'")[0].scheduleData?.SleepHours)!)
+    func getTimeDifference(aimMin: Int, aimHour: Int, curMin: Int, curHour: Int) -> Int {
+        var difference = 0
+        if (abs(aimHour-curHour) < 12) {
+            // eg moving between 9 PM and 11 PM
+            difference = (aimHour-curHour)*60 + aimMin-curMin
+            if (curHour < aimHour) {
+                // 9 PM to 11 PM
+                print("9 to 11")
+                direction = "forward"
+            } else {
+                // 11 PM to 9 PM
+                print("11 to 9")
+                direction = "backward"
+            }
+        } else {
+            // eg moving between 1 AM and 11 PM
+            if (curHour < aimHour) {
+                // 1 AM to 11 PM
+                print("1 to 11")
+                difference = (curHour + 24-aimHour)*60 + (curMin + 60-aimMin)
+                direction = "backward"
+            } else {
+                // 11 PM to 1 AM
+                print("11 to 1")
+                difference = -((aimHour + 24-curHour)*60 + (aimMin + 60-curMin))
+                direction = "forward"
+            }
+        }
+        print("Aim hour: \(aimHour), cur hour: \(curHour) -- there are \(difference) minutes between times")
+        return difference
     }
     
     func calculateBedtime() {
         if (waketime != nil) {
             bedtime = waketime - sleepHours*60*60
+            self.calculateCurrentAvgBedtime()
             if (currentAvgBedtime != nil) {
                 let calendar = Calendar.current
                 let aimBedtimeHour = calendar.component(.hour, from: bedtime)
@@ -36,46 +71,54 @@ class Schedule {
                 let aimBedtimeMin = calendar.component(.minute, from: bedtime)
                 let curBedtimeMin = calendar.component(.minute, from: currentAvgBedtime)
                 var difference = 0
-                if (abs(aimBedtimeHour-curBedtimeHour) < 12) {
-                    // eg moving between 9 PM and 11 PM
-                    difference = abs(aimBedtimeHour-curBedtimeHour)*60 + abs(aimBedtimeMin-curBedtimeMin)
-                    if (curBedtimeHour < aimBedtimeHour) {
-                        // 9 PM to 11 PM
-                        print("Aim hour: \(aimBedtimeHour), cur hour: \(curBedtimeHour) -- there are \(difference) minutes between times")
-                        direction = "forward"
-                    } else {
-                        // 11 PM to 9 PM
-                        print("Aim hour: \(aimBedtimeHour), cur hour: \(curBedtimeHour) -- there are \(difference) minutes between times")
-                        direction = "backward"
-                    }
-                } else {
-                    // eg moving between 1 AM and 11 PM
-                    if (curBedtimeHour < aimBedtimeHour) {
-                        // 1 AM to 11 PM
-                        difference = (curBedtimeHour + 24-aimBedtimeHour)*60 + (curBedtimeMin + 60-aimBedtimeHour)
-                        print("Aim hour: \(aimBedtimeHour), cur hour: \(curBedtimeHour) -- there are \(difference) minutes between times")
-                        direction = "backward"
-                    } else {
-                        // 11 PM to 1 AM
-                        difference = (aimBedtimeHour + 24-curBedtimeHour)*60 + (aimBedtimeMin + 60-curBedtimeHour)
-                        print("Aim hour: \(aimBedtimeHour), cur hour: \(curBedtimeHour) -- there are \(difference) minutes between times")
-                        direction = "forward"
-                    }
-                }
-                reqNumberOfDays = difference/increment
+                difference = getTimeDifference(aimMin: aimBedtimeMin, aimHour: aimBedtimeHour, curMin: curBedtimeMin, curHour: curBedtimeHour)
+                reqNumberOfDays = abs(difference)/increment
                 print("It will take you \(reqNumberOfDays!) days to achieve your goal")
                 
-                var components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: currentAvgBedtime)
-                if (direction == "forward") {
-                    if (components.minute!+increment < 60) {
-                        components.minute! += increment
-                    } else {
-                        components.minute! = components.minute! + increment - 60
-                        components.hour! += 1
+                // determine if on track, behind or ahead
+                var onTrack = ""
+                if (difference > 15) {
+                    if (direction == "forward") {
+                        onTrack = "ahead"
+                    } else if (direction == "backward") {
+                        onTrack = "behind"
                     }
+                } else if (difference < -15) {
+                    if (direction == "forward") {
+                        onTrack = "behind"
+                    } else if (direction == "backward") {
+                        onTrack = "ahead"
+                    }
+                } else {
+                    onTrack = "onTrack"
                 }
-                
-                currentAimBedtime = calendar.date(from: components)!
+                if (currentAimBedtime == nil) {
+                    currentAimBedtime = currentAvgBedtime
+                }
+                let secondsInc = TimeInterval(increment*60)
+                if (onTrack == "onTrack") {
+//                    if (direction == "forward") {
+//                        currentAimBedtime = currentAimBedtime + secondsInc
+//                    } else {
+//                        currentAimBedtime = currentAimBedtime - secondsInc
+//                    }
+                    onTrackMsg = "Well done, you're on track!"
+                } else if (onTrack == "ahead") {
+                    if (direction == "forward") {
+                        currentAimBedtime = currentAvgBedtime + secondsInc
+                    } else {
+                        currentAimBedtime = currentAvgBedtime - secondsInc
+                    }
+                    onTrackMsg = "Well done, you're ahead!"
+                } else if (onTrack == "behind") {
+                    if (direction == "forward") {
+                        currentAimBedtime = currentAvgBedtime + secondsInc
+                    } else {
+                        currentAimBedtime = currentAvgBedtime - secondsInc
+                    }
+                    onTrackMsg = "Watch out, you're falling behind!"
+                }
+                self.saveToRealm()
             }
         }
         
@@ -101,6 +144,7 @@ class Schedule {
     }
     
     func calculateCurrentAvgBedtime() {
+        // ideally drop off
         let days = 7
         let currentUserData = realm.objects(User.self).filter("email = '\(currentUser.email)'")[0].sleepData
         if (currentUserData.count <= 0) {
@@ -140,5 +184,17 @@ class Schedule {
             // update current bedtime aim
             print("days between aim and today: \(todayDay!-aimDay!)")
         }
+    }
+    
+    func saveToRealm() {
+        let newScheduleData = scheduleObject(value: ["Waketime": waketime,
+                                                     "GoalBedtime": bedtime,
+                                                     "SleepHours": sleepHours,
+                                                     "Increment": increment
+                                                ])
+        if (currentAimBedtime != nil) {
+            newScheduleData["CurrentIdealBedtime"] = currentAimBedtime
+        }
+        saveScheduleData(newScheduleData: newScheduleData)
     }
 }

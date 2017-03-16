@@ -31,32 +31,35 @@ class AdviceViewController: UIViewController {
                                       CGFloat(0.4),
                                       CGFloat(0.3),
                                       CGFloat(0.6),
-                                      CGFloat(0.6),
-                                      CGFloat(0.5),
-                                      CGFloat(0.5),
-                                      CGFloat(0.3),
-                                      CGFloat(0.5)]
+                                      CGFloat(0.6)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        recommend.factorWeights["duration"] = 0.7
-        let suggest: String = recommend.getAdvice()
-        print(suggest)
-        adviceTextLabel.text = suggest
         
+        let currentUserData = realm.objects(User.self).filter("email = '\(currentUser.email)'")[0].weightsData
+        recommend.factorWeights["duration"] = currentUserData?.weightDuration
+        recommend.factorWeights["exercise"] = currentUserData?.weightExercise
+        recommend.factorWeights["caffeine"] = currentUserData?.weightCof
+        recommend.factorWeights["meal"] = currentUserData?.weightMeal
+        recommend.factorWeights["alcohol"] = currentUserData?.weightAlcohol
+        recommend.factorWeights["light"] = currentUserData?.weightLight
+        recommend.factorWeights["heat"] = currentUserData?.weightHot
+        recommend.factorWeights["cold"] = currentUserData?.weightCold
+        recommend.factorWeights["humidity"] = currentUserData?.weightHumi
+        
+            
         pieChartDisplay[0] = CGFloat(recommend.factorWeights["duration"]!)
         pieChartDisplay[1] = CGFloat(recommend.factorWeights["exercise"]!)
         pieChartDisplay[2] = CGFloat(recommend.factorWeights["caffeine"]!)
         pieChartDisplay[3] = CGFloat(recommend.factorWeights["meal"]!)
-        pieChartDisplay[4] = CGFloat(recommend.factorWeights["nicotine"]!)
-        pieChartDisplay[5] = CGFloat(recommend.factorWeights["alcohol"]!)
-        pieChartDisplay[6] = CGFloat(recommend.factorWeights["relaxation"]!)
-        pieChartDisplay[7] = CGFloat(recommend.factorWeights["light"]!)
-        pieChartDisplay[8] = CGFloat(recommend.factorWeights["noise"]!)
-        pieChartDisplay[9] = CGFloat(recommend.factorWeights["heat"]!)
-        pieChartDisplay[10] = CGFloat(recommend.factorWeights["cold"]!)
-        pieChartDisplay[11] = CGFloat(recommend.factorWeights["humidity"]!)
-        pieChartDisplay[12] = CGFloat(recommend.factorWeights["device"]!)
+        pieChartDisplay[4] = CGFloat(recommend.factorWeights["alcohol"]!)
+        pieChartDisplay[5] = CGFloat(recommend.factorWeights["light"]!)
+        pieChartDisplay[6] = CGFloat(recommend.factorWeights["heat"]!)
+        pieChartDisplay[7] = CGFloat(recommend.factorWeights["cold"]!)
+        pieChartDisplay[8] = CGFloat(recommend.factorWeights["humidity"]!)
+        
+        let suggest: String = recommend.getAdvice()
+        adviceTextLabel.text = suggest
         
         updatePieChartValues(newValues: pieChartDisplay)
  

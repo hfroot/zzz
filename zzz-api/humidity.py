@@ -1,8 +1,9 @@
 from sklearn import svm
+from numpty as np
 
 def svm_humid(humid_mean, humid_max):
-    new_humid_mean = humid_mean
-    new_humid_max = humid_max
+    new_humid_mean = input["humid_max"]
+    new_humid_max = input["humid_max"]
 
     new_score = [new_humid_mean, new_humid_max]
 
