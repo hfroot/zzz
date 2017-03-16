@@ -21,7 +21,7 @@ class Schedule {
     var onTrackMsg: String!
     
     init() {
-        let currentUserScheduleData = realm.objects(User.self).filter("email = '\(currentUser.email)'")[0].scheduleData
+        let currentUserScheduleData = currentUser.scheduleData
         self.waketime = currentUserScheduleData?.Waketime
         self.bedtime = currentUserScheduleData?.GoalBedtime
         self.sleepHours = Double((currentUserScheduleData?.SleepHours)!)
@@ -146,7 +146,7 @@ class Schedule {
     func calculateCurrentAvgBedtime() {
         // ideally drop off
         let days = 7
-        let currentUserData = realm.objects(User.self).filter("email = '\(currentUser.email)'")[0].sleepData
+        let currentUserData = currentUser.sleepData
         if (currentUserData.count <= 0) {
             return
         }
@@ -154,7 +154,9 @@ class Schedule {
         for i in 1...days {
             let idx = currentUserData.count - i
             if (idx >= 0) {
-                bedtime.append((currentUserData[idx].sensorData.first?.Timestamp)!)
+                if ((currentUserData[idx].sensorData.first?.Timestamp) != nil) {
+                    bedtime.append((currentUserData[idx].sensorData.first?.Timestamp)!)
+                }
             }
         }
         print("Bedtime:")
