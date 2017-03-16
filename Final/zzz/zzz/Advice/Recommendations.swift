@@ -15,15 +15,11 @@ class RecommendationEngine{
                                           "exercise": 0.6,
                                           "caffeine": 0.5,
                                           "meal": 0.3,
-                                          "nicotine": 0.4,
                                           "alcohol": 0.4,
-                                          "relaxation": 0.3,
                                           "light": 0.6,
-                                          "noise": 0.6,
                                           "heat": 0.5,
                                           "cold": 0.5,
-                                          "humidity" :0.3,
-                                          "device": 0.5]
+                                          "humidity" :0.3]
     var suggestion = SuggestionEngine()
     
     func setSuggestionSetting(setting: String, value: Int){
