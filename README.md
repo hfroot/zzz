@@ -1,4 +1,4 @@
-![](ZZZ - Header.png)
+![Header](https://github.com/hfroot/zzz/blob/master/ZZZHeader.png)
 
 ## General
 
