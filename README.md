@@ -3,14 +3,14 @@
 ## General
 
 ## Software files
-The project software files are located in the 'Final' directory, which contains the following:
+The project software files are located in the **Final** directory, which contains the following:
 
 * **AIToolBox** - Files for framework which implements the SVM functions in swift
 * **RealmSwift** - Files for framework which implements the database functions
 * **ResearchKit** - Files for framework which implements all the forms, surveys and active tasks (night monitoring) as well as the plots
 * **zzz** - XCode project files for the Z3 app
 
-The zzz directory is organised into multiple folders which correspond to distinct features of the app:
+The **zzz** directory is organised into multiple folders which correspond to distinct features of the app:
 
 * **Main** - top level View Controller and App delegate files (the top level storyboard is located in the Base.lproj folder)
 * **Database** - object-oriented database model definition and functions to write to database
