@@ -540,10 +540,61 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RLMSyncUser 
 
 
 /**
+  This model is used to reflect permissions.
+  It should be used in conjunction with a \code
+  SyncUser
+  \endcode’s Permission Realm.
+  You can only read this Realm. Use the objects in Management Realm to
+  make request for modifications of permissions.
+  See https://realm.io/docs/realm-object-server/#permissions for general
+  documentation.
+*/
+SWIFT_CLASS("_TtC10RealmSwift14SyncPermission")
+@interface SyncPermission : RealmSwiftObject
+/**
+  The date this object was last modified.
+*/
+@property (nonatomic, copy) NSDate * _Nonnull updatedAt;
+/**
+  The ID of the affected user by the permission.
+*/
+@property (nonatomic, copy) NSString * _Nonnull userId;
+/**
+  The path to the realm.
+*/
+@property (nonatomic, copy) NSString * _Nonnull path;
+/**
+  Whether the affected user is allowed to read from the Realm.
+*/
+@property (nonatomic) BOOL mayRead;
+/**
+  Whether the affected user is allowed to write to the Realm.
+*/
+@property (nonatomic) BOOL mayWrite;
+/**
+  Whether the affected user is allowed to manage the access rights for others.
+*/
+@property (nonatomic) BOOL mayManage;
+/**
+  :nodoc:
+*/
++ (BOOL)shouldIncludeInDefaultSchema;
+/**
+  :nodoc:
+*/
++ (NSString * _Nullable)_realmObjectName;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+/**
   This model is used for requesting changes to a Realm’s permissions.
   It should be used in conjunction with a \code
   SyncUser
-  \endcode’s management Realm.
+  \endcode’s Management Realm.
   See https://realm.io/docs/realm-object-server/#permissions for general
   documentation.
 */
@@ -600,7 +651,7 @@ SWIFT_CLASS("_TtC10RealmSwift20SyncPermissionChange")
   This model is used for offering permission changes to other users.
   It should be used in conjunction with a \code
   SyncUser
-  \endcode’s management Realm.
+  \endcode’s Management Realm.
   See https://realm.io/docs/realm-object-server/#permissions for general
   documentation.
 */
@@ -699,7 +750,7 @@ SWIFT_CLASS("_TtC10RealmSwift19SyncPermissionOffer")
   \endcode object.
   It should be used in conjunction with a \code
   SyncUser
-  \endcode’s management Realm.
+  \endcode’s Management Realm.
   See https://realm.io/docs/realm-object-server/#permissions for general
   documentation.
 */
