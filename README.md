@@ -1,7 +1,7 @@
 ![Header](https://github.com/hfroot/zzz/blob/master/ZZZHeader.png)
-Sleep is a natural process which is essential to human beings, and lack of sleep or bad sleep hygiene can have profound effects on an individual’s well-being. To improve sleep quality there are several existing technologies. Some of them indicate how much different factors affect your sleep. Others, give recommendations based on general parameters. Our novelty comes from combining both: interpreting how much the different factors affect your sleep and consequently giving the user personalised recommendations.
 
-## General
+## Project outline
+Sleep is a natural process which is essential to human beings, and lack of sleep or bad sleep hygiene can have profound effects on an individual’s well-being. To improve sleep quality there are several existing technologies. Some of them indicate how much different factors affect your sleep. Others, give recommendations based on general parameters. Our novelty comes from combining both: interpreting how much the different factors affect your sleep and consequently giving the user personalised recommendations.
 
 ## Software files
 The project software files are located in the **Final** directory, which contains the following:
