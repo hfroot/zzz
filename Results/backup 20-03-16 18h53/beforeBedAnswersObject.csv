@@ -1,0 +1,35 @@
+StimulantsQuestion,NightTiredQuestion,SexQuestion,ExerciseQuestion,WaterQuestion,DinnerQuestion,NakedQuestion,NightDeviceQuestion
+"[tobacco, coffee]",,,true,,2,false,false
+[alcohol],false,false,false,true,3,false,true
+[coffee],false,false,false,false,1,false,true
+[alcohol],false,false,true,true,2,false,true
+[alcohol],false,false,false,true,3,false,true
+[],,false,true,false,2,false,false
+[coffee],false,false,true,,2,,true
+[alcohol],false,false,false,true,3,false,true
+[alcohol],false,false,false,true,3,false,true
+"[tobacco, coffee]",,false,false,false,2,,false
+"[tobacco, coffee]",false,,true,false,2,,true
+[tobacco],false,false,false,false,,false,true
+[alcohol],false,true,true,true,3,false,true
+[alcohol],false,true,true,false,3,false,true
+[alcohol],false,false,true,true,3,false,true
+[tobacco],false,true,true,true,2,false,true
+[alcohol],false,false,true,false,3,false,true
+[alcohol],false,true,false,true,3,false,true
+[coffee],true,false,false,true,3,false,true
+[],false,false,true,false,3,false,true
+[],true,false,false,true,3,false,true
+[coffee],true,false,false,true,3,false,true
+[],true,false,true,true,3,true,true
+[alcohol],true,false,false,true,2,false,true
+[alcohol],true,false,true,true,1,false,false
+[tobacco],true,true,false,true,2,false,true
+[],,,,,,,
+[tobacco],true,true,false,true,3,true,true
+"[tobacco, coffee]",false,false,false,true,3,false,true
+[tobacco],true,false,false,false,3,true,true
+"[alcohol, tobacco]",true,false,true,true,3,true,true
+"[alcohol, tobacco]",false,false,true,false,3,true,true
+[tobacco],true,true,false,true,3,true,true
+"[alcohol, tobacco]",false,false,false,true,3,true,true

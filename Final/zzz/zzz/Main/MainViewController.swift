@@ -322,13 +322,21 @@ extension MainViewController : ORKTaskViewControllerDelegate {
     
     func loadEncryptedRealm() {
         // Log in existing user with username and password
-        let username = "app@zzz.com"  // <--- Update this
-        let password = "MobileHealthcare&MachineLearning"  // <--- Update this
+        let username = "zzz@zzz.com"  // <--- Update this
+        let password = "goodnight!"  // <--- Update this
+//        let username = "app@zzz.com"  // <--- Update this
+//        let password = "MobileHealthcare&MachineLearning"  // <--- Update this
+//        let token = "ewoJImlkZW50aXR5IjogIl9fYXV0aCIsCgkiYWNjZXNzIjogWyJ1cGxvYWQiLCAiZG93bmxvYWQiLCAibWFuYWdlIl0KfQo=:Vcdki625sNRzzMJXYkahOvd09tR2PSZtcV6YZZhZkhHcUSN6BlSjLc9ahxiasQzHYcyFKQyCwThgsNvGXZG1N0AX2EUXwmjIwKqsYcwtUBpNyEh09TlML7OWFxzs6HwOWUXm06Mu5hMy/pi0K3TWL6STUXHFkIZY7nfDNgZofhgTdAaPtL+eFw7oBhoqnD8u7gCesvpuu4gMbN+4DV0ZApSTyZKHzvV1HBKZRrfK7eI1C8dPZ4fMZbq8q5Mx0HJsToaTC3U71d4vzo/g7CYpSdhrpkCp7xZSnuwMgvJ3sEBJmN6crfGzereSCnSOtV5sU1PTuNJeqshkHr8BAP32sg=="
         
         SyncUser.logIn(with: .usernamePassword(username: username, password: password, register: false), server: URL(string: "http://54.194.100.223:9080")!) { user, error in
             guard let user = user else {
                 fatalError(String(describing: error))
             }
+        
+//        SyncUser.logIn(with: .accessToken(token, identity: "07964d3d9fff4f8d1e7c9e28530c36de"), server: URL(string: "http://54.194.100.223:9080")!) { user, error in
+//            guard let user = user else {
+//                fatalError(String(describing: error))
+//            }
             
             DispatchQueue.main.async {
                 // Open Realm

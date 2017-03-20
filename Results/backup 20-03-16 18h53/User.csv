@@ -1,0 +1,11 @@
+email,password,firstName,lastName,gender,DoB,sleepData,weightsData,schedule,scheduleData
+pva13@ic.ac.uk,secret,Pierre,Azalbert,male,"27-04-1995 00:30:12",<sleepDataObject>{5 6 9 10 11 28},<weightsDataObject>{53},,<scheduleObject>{70}
+bg613@ic.ac.uk,Password,Belen,Gallego,female,"08-11-1995 00:41:25",<sleepDataObject>{20},<weightsDataObject>{40},,<scheduleObject>{71}
+lala@la.nd,moonlight,Emma,Stone,female,"15-03-1997 00:45:11",<sleepDataObject>{2 19 23},<weightsDataObject>{42},,<scheduleObject>{54}
+jb1613@ic.ac.uk,zcubed,Julia,Booth,female,"15-01-1995 01:04:16",<sleepDataObject>{18 21 24 26},<weightsDataObject>{50},,<scheduleObject>{68}
+xl5512@ic.ac.uk,hello,Xavi,Lag,male,"15-03-2017 01:15:58",<sleepDataObject>{1 3 4 7 8 12 13 14 15 16 17 22 25},<weightsDataObject>{16},,<scheduleObject>{5}
+david.salmon13@imperial.ac.uk,password123,David,Salmon,male,"21-07-1995 22:54:39",<sleepDataObject>{},<weightsDataObject>{51},,<scheduleObject>{57}
+13@gmail.com,1234,13,A,other,"15-03-1997 22:58:40",<sleepDataObject>{27 30 31 33},<weightsDataObject>{58},,<scheduleObject>{58}
+av2013@ic.ac.uk,password,Alessandro,Versini,male,"29-06-1995 18:30:33",<sleepDataObject>{},<weightsDataObject>{54},,<scheduleObject>{67}
+nicolas.mohnblatt@gmail.com,password,Sleaping,Beauty,other,"27-04-1995 23:36:18",<sleepDataObject>{29 32},<weightsDataObject>{56},,<scheduleObject>{72}
+marone.pietro@gmail.com,123,Pietro,Marone,male,"31-01-1995 15:11:05",<sleepDataObject>{},<weightsDataObject>{59},,<scheduleObject>{74}

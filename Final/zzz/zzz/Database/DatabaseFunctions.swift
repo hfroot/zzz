@@ -13,7 +13,7 @@ import Security
 func saveSleepData(newSleepData:sleepDataObject) {
     try! realm.write {
         currentUser.sleepData.append(newSleepData)
-        realm.add(currentUser, update: true)
+        //realm.add(currentUser, update: true)
         print("Added sleepData object to database: \(newSleepData)")
     }
 }
@@ -21,7 +21,7 @@ func saveSleepData(newSleepData:sleepDataObject) {
 func saveWeightData(newWeightData:weightsDataObject) {
     try! realm.write {
         currentUser.weightsData = newWeightData
-        realm.add(currentUser, update: true)
+        //realm.add(currentUser)
         print("Added weightsData object to database: \(newWeightData)")
     }
 }
@@ -29,7 +29,7 @@ func saveWeightData(newWeightData:weightsDataObject) {
 func saveScheduleData(newScheduleData:scheduleObject) {
     try! realm.write {
         currentUser.scheduleData = newScheduleData
-        realm.add(currentUser, update: true)
+        //realm.add(currentUser)
         print("Added scheduleData object to database: \(newScheduleData)")
     }
 }
