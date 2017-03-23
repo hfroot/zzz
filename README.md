@@ -25,9 +25,8 @@ The **zzz** directory is organised into multiple folders which correspond to dis
 
 ## User testing data
 
-The user testing results are located in the **Results** folder. The best way to visualise the data collected is to download the [Realm Browser](https://itunes.apple.com/gb/app/realm-browser/id1007457278?mt=12) (only available for Apple Mac computers) and then open the file called zzz-encrypted.realm
+The test results are located in the **Results** folder. 
 
-The results of the surveys we ran before and after testing are available at the following links:
-* [Before test survey](https://docs.google.com/forms/d/13s00wE7_hj8rJzOB02wdftV1nuQPycHFv37PJbZYNfg/edit?usp=sharing)
-* [After test survey](https://docs.google.com/forms/d/15LLIqoj2dAOG6MEmk0LqHOhSK5P7gnoZvGreiD7LBqU/edit?usp=sharing)
-* [UI test survey](https://docs.google.com/forms/d/1l-N6hKzZ24sesO86uH5jFKM3I5JtVA1V0WExkMHDRpo/edit?usp=sharing)
+Data collected through the app every night is available in the **User testing results** folder. The best way to visualise the data collected is to download the [Realm Browser](https://itunes.apple.com/gb/app/realm-browser/id1007457278?mt=12) (only available for Apple Mac computers) and then open the file called zzz-encrypted.realm
+
+The results of the surveys we ran before and after testing are available in the **User evaluation results** folder.
